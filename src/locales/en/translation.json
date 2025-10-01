@@ -1,0 +1,736 @@
+{
+  "header": {
+    "socialMedia": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "youtube": "YouTube"
+    },
+    "topNav": {
+      "press": "PRESS",
+      "offers": "OFFERS",
+      "contact": "CONTACT"
+    },
+    "language": {
+      "french": "French",
+      "english": "English",
+      "russian": "Russian"
+    },
+    "navigation": {
+      "thalion": {
+        "title": "THALION",
+        "subtitle": "marine cosmetics creator",
+        "brochure": "Our 2025 Brochure",
+        "pricing": "Pricing",
+        "contact": "Contact"
+      },
+      "spa": {
+        "title": "SPA",
+        "contact": "Contact"
+      },
+      "erichZemmour": {
+        "title": "ERIC ZEMMOUR",
+        "subtitle": "THE HIGH-END HAIR EXPERT",
+        "brochure": "The Brochure",
+        "salon": "The Salon in Monastir"
+      },
+      "usine": {
+        "title": "L'USINE",
+        "subtitle": "SPORTS CLUB",
+        "activities": "Our sports activities",
+        "team": "The team",
+        "schedule": "Group class schedule",
+        "info": "Practical information"
+      },
+      "carreVip": {
+        "title": "VIP SPA SQUARE",
+        "subtitle": "LUXURY, SIMPLY",
+        "presentation": "Presentation"
+      }
+    }
+  },
+  "whyChoose": {
+    "title": {
+      "name": "Royal Elyssa",
+      "subtitle": "THALASSO & SPA"
+    },
+    "description": {
+      "intro": "The Royal Elyssa Thalasso & Spa is nestled in the heart of the Royal Thalassa Monastir, between Monastir and Sousse, close to the airport and on one of Tunisia's most beautiful beaches, often lagoon-like.",
+      "detail": "Housing three prestigious international brands, the Royal Elyssa meets all physical, psychological and aesthetic wellness needs (sports, fitness, thalassotherapy, spa, hairdressing, relaxation...), while offering exceptional and luxurious accommodation, the VIP Square Spa Suites."
+    },
+    "cta": "Discover Excellence"
+  },
+  "testimonial": {
+    "thalion": {
+      "title": "THALION,",
+      "subtitle": "MARINE COSMETICS CREATOR",
+      "paragraphs": {
+        "p1": "THALION has been a partner of Royal Elyssa Thalasso & Spa since its opening in late 2010.",
+        "p2": "A highly reputed French brand in the world of thalassotherapy and spa, THALION, in Brittany, in the Iroise Sea, carefully harvests and selects the best seaweed while preserving their original qualities to restore them in innovative formulas, true elixirs of beauty and well-being.",
+        "p3": "Expert in marine cosmetics, THALION provides its professional treatments in thalassotherapy centers, spas and institutes in more than fifty countries around the world."
+      },
+      "buttons": {
+        "learnMore": "Learn more",
+        "bookNow": "Book now"
+      }
+    },
+    "ericZemmour": {
+      "title": "ERIC ZEMMOUR SALON",
+      "subtitle": "THE SALON IN MONASTIR",
+      "paragraphs": {
+        "p1": "The Eric Zemmour Salon in Monastir, located within the Royal Elyssa Thalasso & Spa. It offers you a full range of services (hairdressing, aesthetics) listed in our brochure.",
+        "p1Mobile": "The Eric Zemmour Salon in Monastir, located within the Royal Elyssa Thalasso & Spa, is open from Friday to Wednesday, from 10am to 7pm. It offers you a full range of services (hairdressing, aesthetics) listed in our brochure.",
+        "p2": "It features a VIP Space for those who desire above all their tranquility, away from the hustle and bustle of the salon, and is also used for our brides.",
+        "p3": "The Eric Zemmour Salon is the only hair salon in Monastir to use KERASTASE products for its clients.",
+        "p4": "To make an appointment or get information about our services:",
+        "p4Mobile": "To make an appointment or get information about our services:",
+        "phone": "T. +216 73 520 591",
+        "phoneMobile": "T. +216 73 520 591, from 10am to 7pm Friday to Wednesday"
+      },
+      "buttons": {
+        "discoverServices": "Discover our services",
+        "bookAppointment": "Make an appointment"
+      }
+    },
+    "usine": {
+      "title": "L'USINE",
+      "subtitle": "SPORTS CLUB",
+      "paragraphs": {
+        "p1": "For the body to regain its place, we had to invent a resolutely different concept: l'Usine. A place, a past and a team that send back to a dark past the vision you had of sports clubs.",
+        "p2": "At L'Usine Monastir, the first sensation that strikes you is the light and the view of the Mediterranean, very close by.",
+        "p3": "A concept designed to showcase a unique architectural setting that creates a soothing atmosphere conducive to concentration for a single objective: the fullness of body and mind in the magnificent setting of the Royal Elyssa Thalasso & Spa in Monastir.",
+        "p4": "Our team of five coaches, all trained in the demanding concept of l'Usine, will know how to transform your moments of sport into moments of happiness repeated at will."
+      },
+      "buttons": {
+        "discoverActivities": "Discover our activities",
+        "bookSession": "Book a session"
+      }
+    },
+    "carreVip": {
+      "title": "VIP SQUARE SPA SUITES",
+      "subtitle": "LUXURY, SIMPLY",
+      "paragraphs": {
+        "p1": "You have a choice for your accommodation: either you can stay at the Royal Thalassa Monastir*****, directly connected to the Royal Elyssa Thalasso & Spa, or you will prefer to live in the heart of our center, on the second floor, in the magnificent VIP Square Spa Suites, composed of twenty suites, overlooking both lush hanging gardens, the nearby Mediterranean and a private pool, exclusively reserved for VIP Square residents.",
+        "p2": "The Spa Suites are luxuriously decorated in a contemporary and refined style. They feature spacious bathrooms and some even offer you jacuzzis on their private terraces.",
+        "p3": "If you stay in our VIP square, you can easily access all our thalasso and spa spaces directly in a bathrobe."
+      },
+      "buttons": {
+        "discoverSuites": "Discover the suites",
+        "bookSuite": "Book a suite"
+      }
+    }
+  },
+  "hero": {
+    "slides": {
+      "thalion": {
+        "title": "THALION",
+        "subtitle": "MARINE COSMETICS CREATOR"
+      },
+      "ericZemmour": {
+        "title": "ERIC ZEMMOUR",
+        "subtitle": "THE HIGH-END HAIR EXPERT"
+      },
+      "usine": {
+        "title": "L'USINE: SPORTS CLUB",
+        "subtitle": "Group classes, always at the cutting edge!"
+      },
+      "carreVip": {
+        "title": "VIP SQUARE SPA SUITES",
+        "subtitle": "LUXURY, SIMPLY"
+      }
+    },
+    "cta": "DISCOVER",
+    "navigation": {
+      "previous": "Previous",
+      "next": "Next",
+      "pause": "Pause",
+      "play": "Play"
+    },
+    "mobile": {
+      "swipeIndicator": "← Swipe to discover →"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Royal Elyssa",
+      "subtitle": "Our team is at your disposal to answer all your questions"
+    },
+    "info": {
+      "title": "Contacting us is very easy:",
+      "receptionRoyalElyssa": "Royal Elyssa Thalasso & Spa Reception",
+      "receptionUsine": "L'Usine Sports Club Reception",
+      "receptionEricZemmour": "Eric Zemmour Hair Salon Reception"
+    },
+    "map": {
+      "directions": "Directions"
+    },
+    "address": {
+      "title": "Our address",
+      "address": "B.P 75 Route Touristique Skanes, Monastir 5060",
+      "description": "Located on one of Tunisia's most beautiful beaches, our spa welcomes you in an exceptional setting combining luxury, relaxation and well-being."
+    }
+  },
+  "footer": {
+    "title": "Royal Elyssa Thalasso & Spa",
+    "description": "Royal Elyssa Thalasso & Spa is nestled in the heart of Royal Thalassa Monastir, between Monastir and Sousse, close to the airport and on one of Tunisia's most beautiful beaches, often lagoon-like. Housing three prestigious international brands, Thalion (marine cosmetics creator), Eric Zemmour (haute-coiffure) and L'Usine (Sports Club), Royal Elyssa meets all physical, psychological and aesthetic well-being needs (sport, fitness, thalasso, spa, hairdressing, relaxation...), while also offering accommodation.",
+    "brands": {
+      "title": "Our Brands",
+      "thalion": "THALION",
+      "spa": "SPA",
+      "ericZemmour": "ERIC ZEMMOUR",
+      "usine": "L'USINE",
+      "carreVip": "CARRÉ VIP SPA"
+    },
+    "copyright": {
+      "allRightsReserved": "All rights reserved",
+      "company": "THALASSA HOTELS"
+    }
+  },
+  "ericZemmour": {
+    "navigation": {
+      "home": "Home",
+      "about": "About",
+      "salon": "The Salon",
+      "services": "Services",
+      "contact": "Contact"
+    },
+    "services": {
+      "title": "Our Services",
+      "categories": {
+        "coupe": "Hair Cut Packages",
+        "coiffage": "Hair Styling Packages",
+        "techniques": "Techniques",
+        "beauteMainsPieds": "Hand and Foot Beauty",
+        "beautePieds": "Foot Beauty"
+      },
+      "pricing": {
+        "notice": "Our brochure lists our prices in Tunisian dinars. For information purposes, we have converted our prices to euros.",
+        "currency": "TND",
+        "currencyConverted": "EUR",
+        "categories": {
+          "women": "Women",
+          "men": "Men",
+          "vernis": "Nail Polish",
+          "manucure": "Manicure",
+          "pedicure": "Pedicure"
+        },
+        "services": {
+          "shampoing": "Shampoo",
+          "shampoingSoinCoupeCoiffageCourtMiLong": "Shampoo + Treatment + Cut and Styling (short and medium hair)",
+          "shampoingSoinCoupeCoiffageLong": "Shampoo + Treatment + Cut and Styling (long hair)",
+          "shampoingCoupeCoiffage": "Shampoo + Cut + Styling",
+          "shampoingSoinsCoiffageCourt": "Shampoo + Treatment + Styling (short hair)",
+          "shampoingSoinsCoiffageMiLong": "Shampoo + Treatment + Styling (medium hair)",
+          "shampoingSoinsCoiffageLong": "Shampoo + Treatment + Styling (long hair)",
+          "brushing": "Blow-dry",
+          "balayage": "Balayage",
+          "meches": "Highlights",
+          "couleur": "Color",
+          "poseVernis": "Nail Polish Application",
+          "poseFrench": "French Manicure",
+          "fantaisie": "Nail Art",
+          "manucureComplete": "Complete Manicure",
+          "beauteMainsOriginale": "Original Hand Beauty (gel)",
+          "renforcementGelCouleur": "Reinforcement (gel color)",
+          "pedicureComplete": "Complete Pedicure",
+          "pedicureSpa": "SPA Pedicure",
+          "beauteOrteilsGel": "Toe Beauty (gel)"
+        }
+      }
+    },
+    "salon": {
+      "title": "The Salon in",
+      "description": "Eric Zemmour Salon in",
+      "servicesDescription": "range of services (hairdressing, aesthetics) listed in our",
+      "uniqueness": "Eric Zemmour Salon is the only hair salon in",
+      "brochure": "Our 2023 brochure will offer you all services",
+      "vipSpace": "It features a VIP Area for those who desire above all their tranquility, away from the salon's bustle, and is also used for our brides.",
+      "kerastase": "to use KÉRASTASE products for its clients.",
+      "brochureComplete": "provided in our salon. It should be noted that our VIP Area will allow you to enjoy all these services in complete privacy, with staff specially dedicated to you."
+    },
+    "contact": {
+      "description": "To get in touch or get information about our services"
+    },
+    "hero": {
+      "title": "Our Salon in",
+      "location": "MONASTIR",
+      "subtitle": "Royal Elyssa Thalasso & Spa • French High-End Hairdressing • Exclusive KÉRASTASE Products"
+    },
+    "about": {
+      "title": "Eric Zemmour",
+      "subtitle": "L'Oréal Professional Ambassador",
+      "biography": {
+        "intro": "Since childhood, Eric Zemmour has been passionate about hairdressing. Thanks to L'Oréal Professional, of which he is one of the ambassadors, he is among the hairdressers who originated French High-End Hairdressing, an avant-garde concept that made his success.",
+        "journey": "For Eric Zemmour, the decision to become a professional hairdresser was obvious from his early childhood, as he grew up in this universe throughout his youth thanks to his family. It was therefore natural for him to attend a hairdressing school to become professional.",
+        "successTitle": "A well-deserved success",
+        "success": "And very quickly, the young man achieved great success! But for him, there's no need to multiply hair salons: his name is associated with only about ten establishments, but all are considered the cream of hair salons: refined, modern and comfortable spaces where 80 carefully selected collaborators work.",
+        "recognition": "Thanks to his talent, Eric Zemmour quickly gained recognition from his peers and was spotted by L'Oréal Professional, who decided to name him ambassador hairdresser. A title that notably allows him to perform around the world, creating live on stage hairstyles that are increasingly artistic.",
+        "tunisia": "In love with Tunisia, Eric Zemmour established his brand in MONASTIR from the opening of Royal Elyssa Thalasso & Spa in 2010."
+      }
+    },
+    "salonInfo": {
+      "title": "Information",
+      "phone": "+216 73 520 591",
+      "location": "Royal Elyssa Thalasso & Spa, MONASTIR"
+    },
+    "pricingData": {
+      "children": "Children",
+      "technicalServices": "Technical Services",
+      "technicalNote": "For all technical services, a quote is offered",
+      "nail": "Nail Polish",
+      "manicure": "Manicure",
+      "fakeNails": "Fake Nails",
+      "pedicure": "Pedicure",
+      "styling": "Styling",
+      "classic": "Classic",
+      "spa": "Spa (scrub + mask + massage)",
+      "onQuote": "On quote",
+      "services": {
+        "fillette": "Little Girl",
+        "garcon": "Boy",
+        "racinesMajirelRichesse": "Roots (Majirel, Richesse)",
+        "inoa": "INOA",
+        "doseSupplementaire": "Additional Dose (from)",
+        "gommageDemaquillant": "Exfoliating Cleanser",
+        "balayage": "Balayage",
+        "meches": "Highlights",
+        "decollementRacinePermanente": "Root Bleaching, Perm",
+        "defrisageXTenso": "X-Tenso Straightening",
+        "soinSpecifiqueMassage": "Specific Treatment + Massage",
+        "poseVernis": "Nail Polish Application",
+        "poseFrench": "French Application",
+        "fantaisie": "Nail Art",
+        "poseCapsuleGel": "Capsule Application (gel)",
+        "poseCapsuleGelFrench": "Capsule Application (gel french)",
+        "renforcementGel": "Reinforcement (gel)",
+        "renforcementGelFrench": "Reinforcement (gel french)",
+        "renforcementGelCouleur": "Reinforcement (gel color)"
+      }
+    },
+    "finalContact": {
+      "title": "Eric Zemmour Salon",
+      "location": "MONASTIR",
+      "callNow": "CALL NOW",
+      "address": "Royal Elyssa Thalasso & Spa",
+      "country": "MONASTIR, TUNISIA"
+    },
+    "alerts": {
+      "priceNotice": "Attention: our prices are set in Tunisian Dinars. Their equivalent in Euros may differ due to exchange rate fluctuations."
+    }
+  },
+  "usine": {
+    "navbar": {
+      "home": "Home",
+      "activity": "Activity",
+      "team": "Team",
+      "info": "Information"
+    },
+    "accueil": {
+      "slides": {
+        "accueil": {
+          "title": "HOME",
+          "subtitle": "Welcome to L'Usine, your exceptional sports club"
+        },
+        "activites": {
+          "title": "ACTIVITIES",
+          "subtitle": "Discover our numerous activities and premium equipment"
+        },
+        "equipe": {
+          "title": "TEAM",
+          "subtitle": "Meet our expert and passionate coaches"
+        },
+        "planning": {
+          "title": "SCHEDULE",
+          "subtitle": "Check our classes and book your session"
+        },
+        "infosPratiques": {
+          "title": "PRACTICAL INFO",
+          "subtitle": "Hours, rates and essential information"
+        }
+      },
+      "buttons": {
+        "discover": "DISCOVER",
+        "book": "BOOK"
+      },
+      "navigation": {
+        "previous": "Previous slide",
+        "next": "Next slide",
+        "pause": "Pause",
+        "play": "Play",
+        "goToSlide": "Go to slide"
+      },
+      "mobile": {
+        "swipeIndicator": "← Swipe to discover →"
+      }
+    },
+    "activite": {
+      "header": {
+        "title": "OUR",
+        "titleHighlight": "ACTIVITIES",
+        "subtitle": "Discover our complete range of fitness activities designed for all levels and all goals"
+      },
+      "navigation": {
+        "scrollLeft": "Scroll left",
+        "scrollRight": "Scroll right",
+        "scrollHelper": "Scroll to explore"
+      },
+      "intensity": {
+        "high": "High",
+        "moderate": "Moderate",
+        "low": "Low"
+      },
+      "activities": {
+        "attack": {
+          "name": "Attack",
+          "description": "The ultimate cardio workout, inspired by aerobics and athletics. This class works on endurance and strength, combining self-improvement and physical fitness."
+        },
+        "boxe": {
+          "name": "Boxing",
+          "description": "Intense sports activity where you work on breathing and stamina to gain endurance. Boxing helps you become more alert, agile and fast."
+        },
+        "combat": {
+          "name": "Combat",
+          "description": "Mix between intensive cardio and high-level martial arts movements: karate, boxing, taekwondo. A complete and energizing discipline."
+        },
+        "crossTraining": {
+          "name": "Cross Training",
+          "description": "Very complete activity with varied exercises in rapid succession. 30 short but very effective minutes alternating cardio and muscle strengthening."
+        },
+        "step": {
+          "name": "Step",
+          "description": "Fitness sport on steps developing cardiovascular endurance, rhythm, coordination and memorization. Accessible to all levels."
+        },
+        "pilates": {
+          "name": "Pilates",
+          "description": "The Club's novelty! Method inspired by yoga, dance and gymnastics. Floor practice with apparatus and proprioceptive accessories."
+        },
+        "pump": {
+          "name": "Pump",
+          "description": "Very intense muscle strengthening designed to sculpt your silhouette in minimum time. Try it and you'll love it!"
+        },
+        "spinning": {
+          "name": "Spinning",
+          "description": "Cardio-training on stationary bikes with music! Open to all ages and accessible to everyone. Energizing session guaranteed."
+        },
+        "taebo": {
+          "name": "Taebo",
+          "description": "Mix of boxing and taekwondo with rhythmic music. Created by Billy Blanks, American taekwondo champion."
+        },
+        "trx": {
+          "name": "TRX",
+          "description": "Total Resistance Exercises in suspension with straps. Intense and complete course to work muscles differently!"
+        },
+        "yoga": {
+          "name": "Yoga",
+          "description": "Vinyasa, Ashtanga, Stretch - spiritual and physical disciplines to free the mind through mastery of movement and breath."
+        },
+        "danseOrientale": {
+          "name": "Oriental Dance",
+          "description": "Classic, fluid and elegant style born in Egypt. Ample, supple and refined movements in an enchanting atmosphere."
+        },
+        "bachata": {
+          "name": "Bachata",
+          "description": "Sensual dance born in the Dominican Republic. Hip movements and swaying to romantic music."
+        }
+      },
+      "groupTraining": {
+        "title": "Group Training classes, always at the cutting edge!",
+        "description1": "Our group classes are one of the pillars of our L'Usine Sports Club. Led by professional and certified coaches, our classes always stay in line with novelties and innovation to allow you to always be up to date in your sports activities in our Club.",
+        "description2": "All our teams remain at your disposal to learn more about any discipline."
+      },
+      "personalTraining": {
+        "title": "Personal Training to precisely meet your expectations",
+        "description1": "Do you need to achieve goals, take or retake control of yourself, better control your health? Personal Training, with one of our coaches, will undoubtedly be the appropriate answer.",
+        "description2": "The Masters of L'Usine sports club organize and plan your individual sports training according to your objectives. They build a tailor-made plan that evolves according to progress, age, seasons and everyone's rhythms. An individual offer that combines monitoring, training, recovery. Nutritional and lifestyle advice can also be given to perfect your transformation."
+      }
+    },
+    "equipe": {
+      "header": {
+        "title": "OUR",
+        "titleHighlight": "TEAM",
+        "subtitle": "Exceptional coaches dedicated to your transformation"
+      },
+      "team": {
+        "title": "L'USINE'S ELITE TEAM",
+        "description1": "Highly qualified and motivated, L'Usine coaches are graduates of Higher Sports Education Institutions. Coming from different specialties, their academic and complementary training is focused on the practice of sports and artistic physical activities, allowing them to continuously approach coaching with new techniques, always at the cutting edge.",
+        "description2": "The coaches of our team are selected on very strict criteria, not only in relation to their sporting level, but are also controlled on their behavior and their attitude towards members, on the one hand, and their colleagues, on the other hand.",
+        "description3": "It should also be noted that our coaches are, as a whole, trained in first aid techniques, to deal with any emergency within the Club.",
+        "imageAlt": "L'Usine's elite team"
+      }
+    },
+    "info": {
+      "regulations": {
+        "title": "Internal Rules",
+        "rules": {
+          "rule1": "Please put away dumbbells after your session",
+          "rule2": "Please wear appropriate shoes for the gym",
+          "rule3": "Please use a towel during your exercise",
+          "rule4": "Please change your T-shirt if needed",
+          "rule5": "Please keep the locker rooms clean",
+          "rule6": "Please keep smiling"
+        }
+      },
+      "schedule": {
+        "title": "Opening Hours",
+        "days": {
+          "lundi": "Monday",
+          "mardi": "Tuesday",
+          "mercredi": "Wednesday",
+          "jeudi": "Thursday",
+          "vendredi": "Friday",
+          "samedi": "Saturday",
+          "dimanche": "Sunday"
+        }
+      },
+      "contact": {
+        "title": "Contact"
+      }
+    }
+  },
+  "thalion": {
+    "navigation": {
+      "home": "Home",
+      "spacesOfCare": "Treatment Spaces",
+      "escales": "Wellness Journeys",
+      "rituels": "Thali Rituals",
+      "soinsAlaCarte": "Treatments à la carte",
+      "contact": "Contact"
+    },
+    "dropdown": {
+      "nosServicesTitle": "Our Treatments & Cards",
+      "nosServicesDesc": "The THALION treatment menu takes you on a journey to discover the benefits of the sea, in a world of unforgettable sensations combining exclusive techniques with cutting-edge equipment!",
+      "nosServicesTagline": "Experience a unique marine treatment journey."
+    },
+    "soins": {
+      "lesSoinsAlaCarte": "Treatments à la carte",
+      "carteMarine": "Marine Card",
+      "carteMassages": "Massage Card"
+    },
+    "escales": {
+      "vitaliteMarine": "Marine Vitality",
+      "detoxSilhouette": "Detox Silhouette",
+      "relaxationMarine": "Marine Relaxation",
+      "forMen": "For Men",
+      "afterGolf": "After Golf",
+      "arbreDeVie": "Tree of Life",
+      "nouvelAge": "New Age",
+      "ceremoniesSpa": "Spa Ceremonies & Thalasso Treatments",
+      "weekendCool": "Cool Weekend"
+    },
+    "rituels": {
+      "orientalDetox": "Oriental Detoxifying Journey",
+      "atlantiqueRevitalisant": "Atlantic Revitalising Dive",
+      "asiatiqueApaisant": "Asian Soothing Escape",
+      "polynesienneRelaxante": "Polynesian Relaxing Getaway",
+      "amazonienneEnergisante": "Amazonian Energising Escapade"
+    },
+    "cover": {
+      "subtitle": "marine cosmetic creator",
+      "description": "For men or women, in treatments or care, full of information and practical details (including a glossary), our Thalion brochure opens all the doors to well-being, relaxation and aesthetics... Browse it with us, we obviously remain at your complete disposal to tell you more.",
+      "downloadBrochure": "Download brochure",
+      "scroll": "SCROLL",
+      "brochure2025": "BROCHURE 2025"
+    },
+    "lieuSoins": {
+      "title": "The place,",
+      "subtitle": "the treatment spaces",
+      "subtitle2": "marine cosmetic creator",
+      "fourSpaces": "4 treatment spaces",
+      "description": "Thanks to its 4 treatment spaces that make the magic of the place, THALION reveals a new way to experience thalassotherapy, a unique experience!",
+      "aquatique": {
+        "title": "AQUATIC SPACE",
+        "description": "Beyond the majestic bay windows, open to the ocean, the immense seawater pool impresses and invites you to dive in to enjoy the marine course with its whirlpool baths, waterfalls and underwater hydro-massaging jets."
+      },
+      "hydrotherapie": {
+        "title": "HYDROTHERAPY SPACE",
+        "description": "Surrounded by green patios, this space is animated by a technical platform of unequaled quality in Tunisia. Chromotherapy baths, Water beds, Underwater Shower, Watermass, these cutting-edge equipment participate in awakening all your senses thanks to the alternation of scents and colors offering unique sensations. The treatments continue with a range of marine scrubs, seaweed wraps with amazing variations, and affusion treatments with organic sea samphire."
+      },
+      "hammam": {
+        "title": "HAMMAM SPACE",
+        "description": "In a refined setting, embark on a journey to the heart of Maghreb traditions. Heat Experience, Hammam Latitudes, Duo Seaweed and Clay Ceremony, experience a multi-sensory journey combining the benefits of the marine universe with the ancestral virtues of the hammam. Open your travel diary!"
+      },
+      "serenite": {
+        "title": "SERENITY SPACE",
+        "description": "In this place bathed in light, well-being & serenity are the key words. Enjoying a splendid view of the hanging gardens and sunny terraces, discover our rich and creative massage menu, treat yourself to a beneficial break after your treatments in our rest room, or enjoy an infusion at the herbal tea bar. A timeless parenthesis to take care of yourself and your body."
+      }
+    },
+    "themeSection": {
+      "disclaimer": "Prices in euros are given for informational purposes only",
+      "viewAllPackages": "View all packages",
+      "days": "days",
+      "book": "Book",
+      "details": "Details",
+      "detailsAvailable": "Details available on request",
+      "moreOptions": "other treatments available",
+      "packages": {
+        "vitaliteMarine": {
+          "title": "Marine Vitality",
+          "description": "Revitalize your body and mind with our exceptional marine treatments"
+        },
+        "detoxSilhouette": {
+          "title": "Detox Silhouette",
+          "description": "Complete detoxification program to sculpt your silhouette"
+        },
+        "relaxationMarine": {
+          "title": "Marine Relaxation",
+          "description": "Escape stress with our relaxing treatments inspired by the sea"
+        },
+        "noStress": {
+          "title": "No Stress",
+          "description": "Complete anti-stress program to regain serenity and balance"
+        },
+        "forMen": {
+          "title": "For Men",
+          "description": "Program specially designed for masculine well-being"
+        },
+        "afterGolf": {
+          "title": "After Golf",
+          "description": "Relax after your golf game with our specialized treatments"
+        },
+        "arbreVie": {
+          "title": "Tree of Life",
+          "description": "Reconnect with your deep essence and natural vitality"
+        },
+        "nouvelAge": {
+          "title": "New Age",
+          "description": "Embrace a new era of well-being with our innovative treatments"
+        },
+        "ceremonieSpa": {
+          "title": "Spa Ceremonies & Thalasso Treatments",
+          "description": "Complete experience combining spa ceremonies and thalasso treatments"
+        },
+        "weekendCool": {
+          "title": "Cool Weekend",
+          "description": "Perfect getaway for a weekend of absolute relaxation"
+        }
+      }
+    },
+    "nosSoins": {
+      "loading": "Preparing your spa experience...",
+      "detoxLoading": "Preparing your aqua silhouette experience...",
+      "vitalityMarineTitle": "Marine Vitality",
+      "detoxSilhouetteTitle": "Detox Silhouette",
+      "relaxationMarineTitle": "Marine Relaxation Escape",
+      "supplement": "In addition",
+      "pricing": "Pricing",
+      "pricingDisclaimer": "Prices in euros are given for informational purposes only",
+      "day": "day",
+      "dayProgram": "Day program",
+      "approximateDuration": "Approximate duration: 3h30",
+      "close": "Close",
+      "moretreatments": "+1 other treatments...",
+      "clickForDetails": "Click for more details",
+      "vitaliteMarine": {
+        "description": "* Additional day on request. This revitalizing treatment restores your energy and vitality through the benefits of seawater and marine treatments. Ideal for regaining form and well-being, it combines relaxing massages, marine baths and energizing treatments. You will love: Relaxing massages and the exclusive use of Thal'ion marine products. Duration: 4, 6 or 9 days (average treatment duration per day: 3h 30)",
+        "supplement": "In addition to your Marine Escape, the marine course 'natural seawater' as well as the steam hammam are accessible before treatments.",
+        "day1": {
+          "treatment1": "Relaxing hydro-aromatic bath",
+          "treatment2": "Marine algae body scrub",
+          "treatment3": "Vitality wrap with mother waters",
+          "treatment4": "Relaxing California massage"
+        },
+        "day2": {
+          "treatment1": "Aqua-relaxation in seawater pool",
+          "treatment2": "Large relaxing toning jet",
+          "treatment3": "Marine force duo wrap",
+          "treatment4": "Hot stone massage"
+        },
+        "day3": {
+          "treatment1": "Revitalizing hydro-aromatic bath",
+          "treatment2": "Energizing marine crystal scrub",
+          "treatment3": "Detox algae wrap",
+          "treatment4": "California massage with essential oils"
+        },
+        "day4": {
+          "treatment1": "Aqua-relaxation in seawater pool",
+          "treatment2": "Draining underwater shower",
+          "treatment3": "Vitality wrap with mother waters",
+          "treatment4": "Relaxing back and neck massage"
+        },
+        "day5": {
+          "treatment1": "Relaxing hydro-aromatic bath",
+          "treatment2": "Large relaxing toning jet",
+          "treatment3": "Marine algae duo wrap",
+          "treatment4": "Full California massage"
+        },
+        "day6": {
+          "treatment1": "Aqua-relaxation in seawater pool",
+          "treatment2": "Revitalizing body scrub",
+          "treatment3": "Marine force wrap",
+          "treatment4": "Hot stone and oil massage"
+        }
+      },
+      "detoxSilhouette": {
+        "description": "* Additional day on request. This slimming treatment combines physical activities, slimming treatments and dietary advice to help you rebalance your body. The silhouette is reshaped, the skin is firmed. You regain a harmonious and toned body. You will love: The 25' or 50' massages and the personalized follow-up offered by a sports coach. Duration: 4, 6 or 9 days (average treatment duration per day: 3h 30)",
+        "supplement": "In addition to your Marine Escape, the marine course 'natural seawater' as well as the steam hammam are accessible before treatments.",
+        "day1": {
+          "treatment1": "Slimming coaching session: cardio or aquabike",
+          "treatment2": "3-tea silhouette scrub",
+          "treatment3": "Detox slimming wrap",
+          "treatment4": "Enchanted silhouette massage with mother waters"
+        },
+        "day2": {
+          "treatment1": "Slimming coaching session: cardio or aquabike",
+          "treatment2": "Large tonic jet or Pressotherapy",
+          "treatment3": "Marine force duo wrap",
+          "treatment4": "SLIM roll-and-pinch under sea shower"
+        },
+        "day3": {
+          "treatment1": "Slimming coaching session: cardio or aquabike",
+          "treatment2": "3-tea slimming duo wrap",
+          "treatment3": "Slimming aromatic bath",
+          "treatment4": "Enchanted silhouette massage with mother waters"
+        },
+        "day4": {
+          "treatment1": "Slimming coaching session: cardio or aquabike",
+          "treatment2": "Large tonic jet or Pressotherapy",
+          "treatment3": "Detox slimming wrap",
+          "treatment4": "SLIM roll-and-pinch under sea shower"
+        },
+        "day5": {
+          "treatment1": "Slimming coaching session: cardio or aquabike",
+          "treatment2": "3-tea silhouette scrub",
+          "treatment3": "Slimming aromatic bath",
+          "treatment4": "Enchanted silhouette massage with mother waters"
+        },
+        "day6": {
+          "treatment1": "Slimming coaching session: cardio or aquabike",
+          "treatment2": "Draining underwater shower",
+          "treatment3": "3-tea slimming duo wrap",
+          "treatment4": "SLIM roll-and-pinch under sea shower"
+        }
+      },
+      "relaxationMarine": {
+        "description": "Treat yourself to a marine escape away from daily turmoil. You take time to breathe, to relax and soak up the forces of the ocean. You will love: Discovering a different massage (40' to 75') every day including 2 affusion massages (25')! Duration: 5 days* (average treatment duration per day: 2h30)",
+        "supplement": "In addition to your Marine Escape, the marine course 'natural seawater' as well as the steam hammam are accessible before treatments.",
+        "day1": {
+          "treatment1": "Revitalizing essential oil body scrub",
+          "treatment2": "Marine relaxation",
+          "treatment3": "Gentle breeze massage with coconut oil"
+        },
+        "day2": {
+          "treatment1": "Relaxing aromatic bath",
+          "treatment2": "Silky cotton powder duo wrap",
+          "treatment3": "Sensitive feet massage"
+        },
+        "day3": {
+          "treatment1": "Sea mist massage with organic sea fennel",
+          "treatment2": "Marine relaxation",
+          "treatment3": "Hot stone and algae pouch massage with organic sea fennel oil"
+        },
+        "day4": {
+          "treatment1": "Relaxing gorse crystal bath",
+          "treatment2": "Gentle coconut pulp duo wrap",
+          "treatment3": "Daydream massage"
+        },
+        "day5": {
+          "treatment1": "Sea mist massage with organic sea fennel",
+          "treatment2": "Siesta bath",
+          "treatment3": "Siesta massage"
+        }
+      }
+    },
+    "mobile": {
+      "languageSection": "Language / Langue"
+    }
+  }
+}
