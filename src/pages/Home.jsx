@@ -5,7 +5,7 @@ import Testimonial from "../sections/Testimonial";
 import Services from "../sections/Services";
 import Pricing from "../sections/Pricing"; // Make sure to rename Pricinge.jsx to Pricing.jsx
 import Gallery from "../sections/Gallery";
-import { Contact } from "lucide-react";
+import Contact from "../sections/Contact";
 
 const Home = () => {
   return (
@@ -16,6 +16,7 @@ const Home = () => {
       <Services />
       <Pricing />
       <Gallery />
+      <Contact />
     </main>
   );
 };

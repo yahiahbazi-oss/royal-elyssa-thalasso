@@ -19,12 +19,18 @@ import sal2 from "./assets/SAL2.jpg";
 import sal3 from "./assets/SAL3.jpg";
 
 const ErichZemmour = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [activeCategory, setActiveCategory] = useState("coupe");
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Exchange rate TND to EUR (approximate)
   const exchangeRate = 0.31;
+
+  // Language change function
+  const changeLanguage = (languageCode) => {
+    i18n.changeLanguage(languageCode);
+  };
 
   // Handle scroll effect
   useEffect(() => {
@@ -199,6 +205,7 @@ const ErichZemmour = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20">
           <div className="flex items-center justify-between h-full">
+            {/* Logo */}
             <motion.img
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -208,66 +215,190 @@ const ErichZemmour = () => {
               className="h-12 w-auto object-contain"
             />
 
+            {/* Language Flags - Centered (Mobile) */}
+            <div className="lg:hidden flex items-center space-x-2">
+              <img
+                src="/src/assets/france.png"
+                alt="France Flag"
+                className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
+                onClick={() => changeLanguage('fr')}
+                title="Français"
+              />
+              <img
+                src="/src/assets/royaume-uni.png"
+                alt="UK Flag"
+                className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
+                onClick={() => changeLanguage('en')}
+                title="English"
+              />
+              <img
+                src="/src/assets/russie.png"
+                alt="Russia Flag"
+                className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
+                onClick={() => changeLanguage('ru')}
+                title="Русский"
+              />
+            </div>
+
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
-              <a
-                href="#"
-                onClick={handleHomeClick}
-                className="text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300"
-              >
-                {t("ericZemmour.navigation.home")}
-              </a>
-              <a
-                href="#about"
-                className="text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300"
-              >
-                {t("ericZemmour.navigation.about")}
-              </a>
-              <a
-                href="#salon"
-                className="text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300"
-              >
-                {t("ericZemmour.navigation.salon")}
-              </a>
-              <a
-                href="#services"
-                className="text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300"
-              >
-                {t("ericZemmour.navigation.services")}
-              </a>
-              <a
-                href="#contact"
-                className="text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300"
-              >
-                {t("ericZemmour.navigation.contact")}
-              </a>
-              <div className="flex items-center space-x-4 pl-4 border-l border-gray-300 text-gray-600">
-                <div className="flex items-center space-x-2">
-                  <Phone className="w-4 h-4" />
-                  <span className="text-sm font-medium">+216 73 520 591</span>
+            <div className="hidden lg:flex items-center justify-between w-full">
+              {/* Empty div for left spacing */}
+              <div></div>
+              
+              {/* Centered Language Flags */}
+              <div className="flex items-center space-x-2">
+                <img
+                  src="/src/assets/france.png"
+                  alt="France Flag"
+                  className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
+                  onClick={() => changeLanguage('fr')}
+                  title="Français"
+                />
+                <img
+                  src="/src/assets/royaume-uni.png"
+                  alt="UK Flag"
+                  className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
+                  onClick={() => changeLanguage('en')}
+                  title="English"
+                />
+                <img
+                  src="/src/assets/russie.png"
+                  alt="Russia Flag"
+                  className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
+                  onClick={() => changeLanguage('ru')}
+                  title="Русский"
+                />
+              </div>
+              
+              {/* Right side navigation links */}
+              <div className="flex items-center space-x-8">
+                <a
+                  href="#"
+                  onClick={handleHomeClick}
+                  className="text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300"
+                >
+                  {t("ericZemmour.navigation.home")}
+                </a>
+                <a
+                  href="#about"
+                  className="text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300"
+                >
+                  {t("ericZemmour.navigation.about")}
+                </a>
+                <a
+                  href="#salon"
+                  className="text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300"
+                >
+                  {t("ericZemmour.navigation.salon")}
+                </a>
+                <a
+                  href="#services"
+                  className="text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300"
+                >
+                  {t("ericZemmour.navigation.services")}
+                </a>
+                <a
+                  href="#contact"
+                  className="text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300"
+                >
+                  {t("ericZemmour.navigation.contact")}
+                </a>
+                <div className="flex items-center space-x-4 pl-4 border-l border-gray-300 text-gray-600">
+                  <div className="flex items-center space-x-2">
+                    <Phone className="w-4 h-4" />
+                    <span className="text-sm font-medium">+216 73 520 591</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Mobile Menu Button */}
             <div className="lg:hidden">
-              <button className="p-2 text-gray-700">
+              <button 
+                className="p-2 text-gray-700 hover:text-gray-900 transition-colors duration-200"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
                 <svg
                   className="w-6 h-6"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+                  {mobileMenuOpen ? (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  ) : (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  )}
                 </svg>
               </button>
             </div>
           </div>
+          
+          {/* Mobile Menu Dropdown */}
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200"
+            >
+              <div className="px-4 py-2">
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    handleHomeClick();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="block py-3 text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300 border-b border-gray-100"
+                >
+                  {t("ericZemmour.navigation.home")}
+                </a>
+                <a
+                  href="#about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-3 text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300 border-b border-gray-100"
+                >
+                  {t("ericZemmour.navigation.about")}
+                </a>
+                <a
+                  href="#salon"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-3 text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300 border-b border-gray-100"
+                >
+                  {t("ericZemmour.navigation.salon")}
+                </a>
+                <a
+                  href="#services"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-3 text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300 border-b border-gray-100"
+                >
+                  {t("ericZemmour.navigation.services")}
+                </a>
+                <a
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-3 text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300 border-b border-gray-100"
+                >
+                  {t("ericZemmour.navigation.contact")}
+                </a>
+                <div className="py-3 flex items-center justify-center space-x-2 text-gray-600">
+                  <Phone className="w-4 h-4" />
+                  <span className="text-sm font-medium">+216 73 520 591</span>
+                </div>
+              </div>
+            </motion.div>
+          )}
         </div>
       </nav>
 

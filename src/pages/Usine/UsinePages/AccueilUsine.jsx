@@ -23,7 +23,7 @@ const ImagePreloader = ({ images }) => {
 
 const AccueilUsine = () => {
   const { t } = useTranslation();
-  
+
   // Image data with routes and direct imports
   const [images] = useState([
     {
@@ -296,14 +296,6 @@ const AccueilUsine = () => {
             <p className="luxury-subtitle text-xl md:text-2xl lg:text-3xl mb-10 max-w-2xl">
               {images[currentIndex].subtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="luxury-button-primary text-black px-8 py-3 font-semibold text-sm tracking-widest uppercase">
-                {t("usine.accueil.buttons.discover")}
-              </button>
-              <button className="luxury-button-secondary text-white px-8 py-3 font-light text-sm tracking-widest uppercase">
-                {t("usine.accueil.buttons.book")}
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -337,7 +329,11 @@ const AccueilUsine = () => {
           <button
             onClick={togglePlayPause}
             className="text-white hover:text-amber-300 transition-colors"
-            aria-label={isPlaying ? t("usine.accueil.navigation.pause") : t("usine.accueil.navigation.play")}
+            aria-label={
+              isPlaying
+                ? t("usine.accueil.navigation.pause")
+                : t("usine.accueil.navigation.play")
+            }
           >
             {isPlaying ? (
               <Pause className="w-5 h-5" />
@@ -357,7 +353,9 @@ const AccueilUsine = () => {
                     ? "bg-amber-300 scale-150 shadow-md shadow-amber-300/50"
                     : "bg-white/50 hover:bg-white/80"
                 }`}
-                aria-label={`${t("usine.accueil.navigation.goToSlide")} ${index + 1}`}
+                aria-label={`${t("usine.accueil.navigation.goToSlide")} ${
+                  index + 1
+                }`}
               />
             ))}
           </div>

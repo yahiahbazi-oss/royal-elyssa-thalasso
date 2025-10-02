@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import SoinsDesign from "../../../components/SoinsDesign";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Import static images
 import jour1 from "./assets/ce1.JPG";
@@ -19,48 +20,48 @@ const dayImages = {
   4: jour4,
 };
 
-const treatments = {
-  "Cérémonies du Spa & Soin de Thalasso": {
-    description: `Les soins se succèdent, mais ne se ressemblent pas. Profitez de 4 jours pour découvrir les bienfaits
-de la thalassothérapie et les moments de détente qu'offrent les soins du spa. Le compromis idéal !
-Durée : 4 jours* (durée moyenne des soins par jour : 2 h30)`,
-    supplement:
-      "En complément de votre Escale Marine, le parcours marin « eau de mer naturelle » ainsi que le hammam vapeur sont accessibles avant les soins.",
-    pricing: [
-      { duration: "4 jours", price: "840 TND / 255 €" },
-    ],
-
-    days: {
-      1: [
-        "Accès au lagon (piscine du Spa)",
-        "Hammam Arômes & Couleurs",
-        "Gommage au savon noir",
-        "Enveloppement oriental à la crème d'argile",
-        "Massage relaxation intense",
-      ],
-      2: [
-        "Accès au parcours marin et au hammam avant les soins",
-        "Bain revitalisant à la crème d'algues",
-        "Duo enveloppement à la pulpe de coco",
-        "Massage bruine de mer à la criste marine Bio",
-      ],
-      3: [
-        "Accès au parcours marin et au hammam avant les soins",
-        "Douche drainante sous marine",
-        "Duo Boue Marine bienfaisante",
-        "Massage douceur de brise à l'huile de coco",
-      ],
-      4: [
-        "Accès au lagon (piscine du Spa)",
-        "Promenade Tropicale au hammam",
-        "Cérémonie Onsen : bain japonais",
-        "Stratégie Hydratation visage",
-      ],
-    },
-  },
-};
-
 const CeremonieSpa = () => {
+  const { t } = useTranslation();
+  
+  // Memoized treatments data with translations
+  const treatments = {
+    [t('thalion.nosSoins.ceremonieSpa.title')]: {
+      description: t('thalion.nosSoins.ceremonieSpa.description'),
+      supplement: t('thalion.nosSoins.ceremonieSpa.supplement'),
+      pricing: [
+        { 
+          duration: `4 ${t('thalion.themeSection.days')}`, 
+          price: t('thalion.nosSoins.ceremonieSpa.pricing.fourDays') 
+        },
+      ],
+      days: {
+        1: [
+          t('thalion.nosSoins.ceremonieSpa.day1.treatment1'),
+          t('thalion.nosSoins.ceremonieSpa.day1.treatment2'),
+          t('thalion.nosSoins.ceremonieSpa.day1.treatment3'),
+          t('thalion.nosSoins.ceremonieSpa.day1.treatment4'),
+          t('thalion.nosSoins.ceremonieSpa.day1.treatment5'),
+        ],
+        2: [
+          t('thalion.nosSoins.ceremonieSpa.day2.treatment1'),
+          t('thalion.nosSoins.ceremonieSpa.day2.treatment2'),
+          t('thalion.nosSoins.ceremonieSpa.day2.treatment3'),
+          t('thalion.nosSoins.ceremonieSpa.day2.treatment4'),
+        ],
+        3: [
+          t('thalion.nosSoins.ceremonieSpa.day3.treatment1'),
+          t('thalion.nosSoins.ceremonieSpa.day3.treatment2'),
+          t('thalion.nosSoins.ceremonieSpa.day3.treatment3'),
+        ],
+        4: [
+          t('thalion.nosSoins.ceremonieSpa.day4.treatment1'),
+          t('thalion.nosSoins.ceremonieSpa.day4.treatment2'),
+          t('thalion.nosSoins.ceremonieSpa.day4.treatment3'),
+          t('thalion.nosSoins.ceremonieSpa.day4.treatment4'),
+        ],
+      },
+    },
+  };
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -153,7 +154,7 @@ const CeremonieSpa = () => {
             <div className="flex flex-col items-center space-y-4">
               <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-400 rounded-full animate-spin"></div>
               <p className="text-blue-600 font-light">
-                Préparation de votre programme Cérémonies du Spa...
+                {t('thalion.nosSoins.ceremonieSpa.loading')}
               </p>
             </div>
           </div>

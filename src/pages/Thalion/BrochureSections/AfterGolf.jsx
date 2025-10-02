@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import SoinsDesign from "../../../components/SoinsDesign";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Import static images
 import jour1 from "./assets/A1.jpg";
@@ -22,32 +23,44 @@ const dayImages = {
   5: jour5,
 };
 
-const treatments = {
-  "After Golf": {
-    description:
-      "Quoi de plus agréable que de profiter d'un massage de 25' à 50', d'une douche drainante ou d'un bain hydromassant après avoir travaillé son swing? Ces soins vous apporteront la détente et la relaxation musculaire nécessaire, ou au contraire, la préparation tonifiante avant d'aller sur le parcours. Vous aimerez : L'alternance des soins le matin ou l'après-midi vous permettant de jouer au golf quand vous le souhaitez. Durée: 5 jours* (durée moyenne des soins par jour: 2h30)",
-    supplement:
-      "Vous aimerez : L'alternance des soins le matin ou l'après-midi vous permettant de jouer au golf quand vous le souhaitez.",
-    pricing: [
-      { duration: "5 jours", price: "820 TND / 249 €" },
-    ],
-    days: {
-      1: [
-        "Bain aromatique relaxant",
-        "Massage bonheur des muscles au baume camphré",
-      ],
-      2: ["Massage bruine de mer à la criste marine Bio", "Massage du dos"],
-      3: ["Douche drainante sous marine", "Massage pieds sensibles"],
-      4: ["Bain relaxant aux cristaux d'ajonc", "Massage du dos"],
-      5: [
-        "Massage bruine de mer à la criste marine Bio",
-        "Massage bonheur des muscles au baume camphré",
-      ],
-    },
-  },
-};
-
 const AfterGolf = () => {
+  const { t } = useTranslation();
+  
+  // Memoized treatments data with translations
+  const treatments = {
+    [t('thalion.nosSoins.afterGolf.title')]: {
+      description: t('thalion.nosSoins.afterGolf.description'),
+      supplement: t('thalion.nosSoins.afterGolf.supplement'),
+      pricing: [
+        { 
+          duration: `5 ${t('thalion.themeSection.days')}`, 
+          price: t('thalion.nosSoins.afterGolf.pricing.fiveDays') 
+        },
+      ],
+      days: {
+        1: [
+          t('thalion.nosSoins.afterGolf.day1.treatment1'),
+          t('thalion.nosSoins.afterGolf.day1.treatment2'),
+        ],
+        2: [
+          t('thalion.nosSoins.afterGolf.day2.treatment1'),
+          t('thalion.nosSoins.afterGolf.day2.treatment2'),
+        ],
+        3: [
+          t('thalion.nosSoins.afterGolf.day3.treatment1'),
+          t('thalion.nosSoins.afterGolf.day3.treatment2'),
+        ],
+        4: [
+          t('thalion.nosSoins.afterGolf.day4.treatment1'),
+          t('thalion.nosSoins.afterGolf.day4.treatment2'),
+        ],
+        5: [
+          t('thalion.nosSoins.afterGolf.day5.treatment1'),
+          t('thalion.nosSoins.afterGolf.day5.treatment2'),
+        ],
+      },
+    },
+  };
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -139,7 +152,7 @@ const AfterGolf = () => {
             <div className="flex flex-col items-center space-y-4">
               <div className="w-12 h-12 border-4 border-emerald-200 border-t-emerald-600 rounded-full animate-spin"></div>
               <p className="text-emerald-700 font-light">
-                Préparation de votre programme golf...
+                {t('thalion.nosSoins.afterGolf.loading')}
               </p>
             </div>
           </div>

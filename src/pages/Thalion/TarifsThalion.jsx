@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Clock } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 // Import all images (you'll need to add these)
 import orientalIcon from "./BrochureSections/assets/file (6).png";
@@ -15,53 +16,13 @@ import asiatiqueImage from "./BrochureSections/assets/B3.JPG";
 import polynesienneImage from "./BrochureSections/assets/B4.JPG";
 import amazonienneImage from "./BrochureSections/assets/B5.JPG";
 
-const TarifsThalion = ({ selectedRituel, language = "fr" }) => {
+const TarifsThalion = ({ selectedRituel }) => {
+  const { t } = useTranslation();
   const [activeRituel, setActiveRituel] = useState(
     selectedRituel || "oriental"
   );
   const [imageLoaded, setImageLoaded] = useState({});
   const [isMobile, setIsMobile] = useState(false);
-
-  // Translation object
-  const translations = {
-    fr: {
-      // Ritual names
-      orientalName: "Itinéraire Oriental Détoxifiant",
-      orientalShort: "Oriental Détoxifiant",
-      atlantiqueName: "Plongée Atlantique Revitalisante",
-      atlantiqueShort: "Atlantique Revitalisante",
-      asiatiqueName: "Échappée Asiatique Apaisante",
-      asiatiqueShort: "Asiatique Apaisante",
-      polynesienneName: "Évasion Polynésienne Relaxante",
-      polynesienneShort: "Polynésienne Relaxante",
-      amazonienneName: "Escapade Amazonienne Énergisante",
-      amazonienneShort: "Amazonienne Énergisante",
-
-      // Pricing disclaimer
-      pricingDisclaimer:
-        "Les tarifs en euros sont donnés seulement à titre indicatif",
-    },
-    en: {
-      // Ritual names
-      orientalName: "Oriental Detoxifying Journey",
-      orientalShort: "Oriental Detox",
-      atlantiqueName: "Atlantic Revitalizing Dive",
-      atlantiqueShort: "Atlantic Revitalizing",
-      asiatiqueName: "Asian Soothing Escape",
-      asiatiqueShort: "Asian Soothing",
-      polynesienneName: "Polynesian Relaxing Getaway",
-      polynesienneShort: "Polynesian Relaxing",
-      amazonienneName: "Amazonian Energizing Escapade",
-      amazonienneShort: "Amazonian Energizing",
-
-      // Pricing disclaimer
-      pricingDisclaimer:
-        "Prices in euros are given for indicative purposes only",
-    },
-  };
-
-  // Get current translations
-  const t = translations[language];
 
   // Check if mobile
   useEffect(() => {
@@ -103,93 +64,97 @@ const TarifsThalion = ({ selectedRituel, language = "fr" }) => {
 
   const rituels = {
     oriental: {
-      name: t.orientalName,
-      shortName: t.orientalShort,
-      description:
-        "Une douce exfoliation suivie d'un enveloppement pour purifier la peau en profondeur, drainer et libérer les toxines. L'itinéraire se poursuit par un massage d'une heure, ferme et rythmé qui améliore la circulation et procure une sensation de légèreté.",
-      prix: "314 TND / 94 €",
-      duree: "100 min",
+      name: t("thalion.rituels.oriental.name"),
+      shortName: t("thalion.rituels.oriental.shortName"),
+      description: t("thalion.rituels.oriental.description"),
+      prix: t("thalion.rituels.oriental.price"),
+      duree: t("thalion.rituels.oriental.duration"),
       iconPath: orientalIcon,
       image: orientalImage,
       titleColor: "#F7C570",
       themeColor: "rgb(247, 197, 112)",
       bgColor: "bg-gradient-to-br from-amber-50 to-orange-50",
       treatments: [
-        { name: "Gommage Exfoliant Vent de Sable", duration: "25mn" },
-        { name: "Enveloppement Épices et Algues", duration: "25mn" },
-        { name: "Modelage Océan de Soleil", duration: "50mn" },
+        { name: t("thalion.rituels.oriental.treatment1"), duration: "25mn" },
+        { name: t("thalion.rituels.oriental.treatment2"), duration: "25mn" },
+        { name: t("thalion.rituels.oriental.treatment3"), duration: "50mn" },
       ],
     },
     atlantique: {
-      name: t.atlantiqueName,
-      shortName: t.atlantiqueShort,
-      description:
-        "Revitalisez votre corps avec les bienfaits de l'océan. Le rituel débute par un gommage aux paillettes d'algues, pour oxygéner et recharger le corps en minéraux.",
-      prix: "314 TND / 94 €",
-      duree: "100 min",
+      name: t("thalion.rituels.atlantique.name"),
+      shortName: t("thalion.rituels.atlantique.shortName"),
+      description: t("thalion.rituels.atlantique.description"),
+      prix: t("thalion.rituels.atlantique.price"),
+      duree: t("thalion.rituels.atlantique.duration"),
       iconPath: atlantiqueIcon,
       image: atlantiqueImage,
       titleColor: "#949508",
       themeColor: "rgb(148, 149, 8)",
       bgColor: "bg-gradient-to-br from-lime-50 to-yellow-50",
       treatments: [
-        { name: "Gommage aux paillettes d'Algues", duration: "25mn" },
-        { name: "Enveloppement Iodée", duration: "25mn" },
-        { name: "Massage Revitalisant", duration: "50mn" },
+        { name: t("thalion.rituels.atlantique.treatment1"), duration: "25mn" },
+        { name: t("thalion.rituels.atlantique.treatment2"), duration: "25mn" },
+        { name: t("thalion.rituels.atlantique.treatment3"), duration: "50mn" },
       ],
     },
     asiatique: {
-      name: t.asiatiqueName,
-      shortName: t.asiatiqueShort,
-      description:
-        "Retrouvez la sérénité avec cette échappée apaisante. Association de riz et de fruits exotiques, le peeling lisse et adoucit la peau.",
-      prix: "314 TND / 94 €",
-      duree: "100 min",
+      name: t("thalion.rituels.asiatique.name"),
+      shortName: t("thalion.rituels.asiatique.shortName"),
+      description: t("thalion.rituels.asiatique.description"),
+      prix: t("thalion.rituels.asiatique.price"),
+      duree: t("thalion.rituels.asiatique.duration"),
       iconPath: asiatiqueIcon,
       image: asiatiqueImage,
       titleColor: "#B1DED2",
       themeColor: "rgb(177, 222, 210)",
       bgColor: "bg-gradient-to-br from-teal-50 to-green-50",
       treatments: [
-        { name: "Gommage aux Riz et de Fruits Exotiques", duration: "25mn" },
-        { name: "Enveloppement ou Bain", duration: "25mn" },
-        { name: "Massage Harmonisant", duration: "50mn" },
+        { name: t("thalion.rituels.asiatique.treatment1"), duration: "25mn" },
+        { name: t("thalion.rituels.asiatique.treatment2"), duration: "25mn" },
+        { name: t("thalion.rituels.asiatique.treatment3"), duration: "50mn" },
       ],
     },
     polynesienne: {
-      name: t.polynesienneName,
-      shortName: t.polynesienneShort,
-      description:
-        "Évadez-vous vers les îles paradisiaques. Tout commence par une exfoliation à la pulpe de coco. Plongez ensuite au cœur du lagon pour un enveloppement cocon.",
-      prix: "314 TND / 94 €",
-      duree: "100 min",
+      name: t("thalion.rituels.polynesienne.name"),
+      shortName: t("thalion.rituels.polynesienne.shortName"),
+      description: t("thalion.rituels.polynesienne.description"),
+      prix: t("thalion.rituels.polynesienne.price"),
+      duree: t("thalion.rituels.polynesienne.duration"),
       iconPath: polynesienneIcon,
       image: polynesienneImage,
       titleColor: "#45C1E0",
       themeColor: "rgb(69, 193, 224)",
       bgColor: "bg-gradient-to-br from-cyan-50 to-blue-50",
       treatments: [
-        { name: "Gommage exfoliant Tentation Cristalline", duration: "25mn" },
-        { name: "Enveloppement Transparence d'Attol", duration: "25mn" },
-        { name: "Massage polynésienne", duration: "50mn" },
+        {
+          name: t("thalion.rituels.polynesienne.treatment1"),
+          duration: "25mn",
+        },
+        {
+          name: t("thalion.rituels.polynesienne.treatment2"),
+          duration: "25mn",
+        },
+        {
+          name: t("thalion.rituels.polynesienne.treatment3"),
+          duration: "50mn",
+        },
       ],
     },
     amazonienne: {
-      name: t.amazonienneName,
-      shortName: t.amazonienneShort,
-      description:
-        "Puisez dans l'énergie de la forêt amazonienne. L'exfoliation du corps est une invitation à changer de peau, à oxygéner votre corps.",
-      prix: "314 TND / 94 €",
-      duree: "100 min",
+      name: t("thalion.rituels.amazonienne.name"),
+      shortName: t("thalion.rituels.amazonienne.shortName"),
+      description: t("thalion.rituels.amazonienne.description"),
+      prix: t("thalion.rituels.amazonienne.price"),
+      duree: t("thalion.rituels.amazonienne.duration"),
       iconPath: amazonienneIcon,
       image: amazonienneImage,
       titleColor: "#ED1A2F",
       themeColor: "rgb(237, 26, 47)",
       bgColor: "bg-gradient-to-br from-red-50 to-pink-50",
       treatments: [
-        { name: "Gommage Exfoliant Rouge Corail", duration: "25mn" },
-        { name: "Enveloppement Profondeur des Terres", duration: "25mn" },
-        { name: "Modelage Onde Boisée", duration: "50mn" },
+        { name: t("thalion.rituels.amazonienne.treatment1"), duration: "25mn" },
+        { name: t("thalion.rituels.amazonienne.treatment2"), duration: "25mn" },
+        { name: t("thalion.rituels.amazonienne.treatment3"), duration: "50mn" },
       ],
     },
   };
@@ -213,7 +178,7 @@ const TarifsThalion = ({ selectedRituel, language = "fr" }) => {
           className="text-center mb-6 sm:mb-8"
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-stone-800 mb-2 tracking-wide px-2">
-            Rituels Thalion
+            {t("thalion.rituels.title")}
           </h1>
 
           <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-stone-400 to-transparent mx-auto mt-3 sm:mt-4"></div>
@@ -390,7 +355,7 @@ const TarifsThalion = ({ selectedRituel, language = "fr" }) => {
                   {/* Treatment Steps */}
                   <div className="mb-6">
                     <h3 className="text-lg font-medium mb-4 text-stone-800">
-                      Programme des soins
+                      {t("thalion.rituels.treatmentProgram")}
                     </h3>
                     <div className="space-y-3">
                       {currentRitual.treatments.map((treatment, index) => (
@@ -437,7 +402,7 @@ const TarifsThalion = ({ selectedRituel, language = "fr" }) => {
                     }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    Réserver
+                    {t("thalion.rituels.book")}
                   </motion.button>
                 </div>
               </div>
@@ -527,7 +492,7 @@ const TarifsThalion = ({ selectedRituel, language = "fr" }) => {
                   {/* Treatment Steps - Desktop */}
                   <div className="mb-8">
                     <h3 className="text-xl font-medium mb-6 text-stone-800">
-                      Programme des soins
+                      {t("thalion.rituels.treatmentProgram")}
                     </h3>
                     <div className="space-y-4">
                       {currentRitual.treatments.map((treatment, index) => (
@@ -575,7 +540,7 @@ const TarifsThalion = ({ selectedRituel, language = "fr" }) => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    Réserver
+                    {t("thalion.rituels.book")}
                   </motion.button>
                 </div>
               </div>
@@ -586,7 +551,9 @@ const TarifsThalion = ({ selectedRituel, language = "fr" }) => {
 
       {/* Disclaimer */}
       <div className="text-center mt-8 mb-6">
-        <p className="text-sm text-stone-500 italic">{t.pricingDisclaimer}</p>
+        <p className="text-sm text-stone-500 italic">
+          {t("thalion.nosSoins.pricingDisclaimer")}
+        </p>
       </div>
 
       {/* Hidden preload images for faster switching */}

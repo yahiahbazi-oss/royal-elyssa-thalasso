@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import SoinsDesign from "../../../components/SoinsDesign";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Import static images
 import jour1 from "./assets/AA1.JPG";
@@ -22,51 +23,54 @@ const dayImages = {
   5: jour5,
 };
 
-const treatments = {
-  "Arbre de Vie": {
-    description:
-      "Pour lutter efficacement contre le mal de dos et prévenir les contractures musculaires cette cure alterne bains, enveloppements et massages. Les séances de rééducation vous apprendront à ménager, à renforcer votre dos et à préparer l'après-cure. Vous aimerez : Les massages du dos quotidien de 30', la rééducation en piscine et en salle, effectués par un kinésithérapeute pour personnaliser les soins en fonction de vos besoins. Durée: 6 jours* (durée moyenne des soins par jour: 2h30)",
-    supplement:
-      "En complément de votre Escale Marine, le parcours marin « eau de mer naturelle » ainsi que le hammam vapeur sont accessibles avant les soins.",
-    pricing: [
-      { duration: "6 jours", price: "1580 TND / 479 €" },
-    ],
-    days: {
-      1: [
-        "Duo Boue Marine bienfaisante",
-        "Douche drainante sous marine",
-        "Rééducation du dos en piscine",
-        "Massage du dos",
-      ],
-      2: [
-        "Bain revitalisant à la crème d'algues",
-        "Massage bruine de mer à la criste marine Bio",
-        "Rééducation du dos en salle",
-        "Massage du dos",
-      ],
-      3: [
-        "Duo Boue Marine bienfaisante",
-        "Douche drainante sous marine",
-        "Rééducation du dos en piscine",
-        "Massage du dos",
-      ],
-      4: [
-        "Bain revitalisant à la crème d'algues",
-        "Massage bruine de mer à la criste marine Bio",
-        "Rééducation du dos en salle",
-        "Massage du dos",
-      ],
-      5: [
-        "Duo Boue Marine bienfaisante",
-        "Douche drainante sous marine",
-        "Rééducation du dos en piscine",
-        "Massage du dos",
-      ],
-    },
-  },
-};
-
 const ArbreVie = () => {
+  const { t } = useTranslation();
+  
+  // Memoized treatments data with translations
+  const treatments = {
+    [t('thalion.nosSoins.arbreVie.title')]: {
+      description: t('thalion.nosSoins.arbreVie.description'),
+      supplement: t('thalion.nosSoins.arbreVie.supplement'),
+      pricing: [
+        { 
+          duration: `6 ${t('thalion.themeSection.days')}`, 
+          price: t('thalion.nosSoins.arbreVie.pricing.sixDays') 
+        },
+      ],
+      days: {
+        1: [
+          t('thalion.nosSoins.arbreVie.day1.treatment1'),
+          t('thalion.nosSoins.arbreVie.day1.treatment2'),
+          t('thalion.nosSoins.arbreVie.day1.treatment3'),
+          t('thalion.nosSoins.arbreVie.day1.treatment4'),
+        ],
+        2: [
+          t('thalion.nosSoins.arbreVie.day2.treatment1'),
+          t('thalion.nosSoins.arbreVie.day2.treatment2'),
+          t('thalion.nosSoins.arbreVie.day2.treatment3'),
+          t('thalion.nosSoins.arbreVie.day2.treatment4'),
+        ],
+        3: [
+          t('thalion.nosSoins.arbreVie.day3.treatment1'),
+          t('thalion.nosSoins.arbreVie.day3.treatment2'),
+          t('thalion.nosSoins.arbreVie.day3.treatment3'),
+          t('thalion.nosSoins.arbreVie.day3.treatment4'),
+        ],
+        4: [
+          t('thalion.nosSoins.arbreVie.day4.treatment1'),
+          t('thalion.nosSoins.arbreVie.day4.treatment2'),
+          t('thalion.nosSoins.arbreVie.day4.treatment3'),
+          t('thalion.nosSoins.arbreVie.day4.treatment4'),
+        ],
+        5: [
+          t('thalion.nosSoins.arbreVie.day5.treatment1'),
+          t('thalion.nosSoins.arbreVie.day5.treatment2'),
+          t('thalion.nosSoins.arbreVie.day5.treatment3'),
+          t('thalion.nosSoins.arbreVie.day5.treatment4'),
+        ],
+      },
+    },
+  };
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -158,7 +162,7 @@ const ArbreVie = () => {
             <div className="flex flex-col items-center space-y-4">
               <div className="w-12 h-12 border-4 border-stone-200 border-t-stone-400 rounded-full animate-spin"></div>
               <p className="text-stone-600 font-light">
-                Préparation de votre programme Arbre de Vie...
+                {t('thalion.nosSoins.arbreVie.loading')}
               </p>
             </div>
           </div>

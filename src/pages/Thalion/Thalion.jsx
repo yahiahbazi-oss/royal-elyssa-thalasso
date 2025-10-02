@@ -11,7 +11,7 @@ import ThemeSection from "./BrochureSections/ThemeSection";
 import logoThalion from "../../assets/logo/logo-thalion.png__401x85_q85_crop_subject_location--87,731_subsampling-2_upscale.png";
 
 const Thalion = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [activeTab, setActiveTab] = useState("cover");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,7 +21,22 @@ const Thalion = () => {
   const [selectedRituel, setSelectedRituel] = useState(null);
   const [selectedLanguage, setSelectedLanguage] = useState("fr"); // Default to French
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(true); // Welcome overlay state
   const navigate = useNavigate();
+
+  // Auto-hide welcome text after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowWelcome(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Language change function
+  const changeLanguage = (languageCode) => {
+    i18n.changeLanguage(languageCode);
+  };
   const brochureRef = useRef(null);
   const tarifsRef = useRef(null);
   const contactRef = useRef(null);
@@ -218,6 +233,17 @@ const Thalion = () => {
     }
   };
 
+  // Mobile scroll function that keeps the menu open for dropdowns
+  const scrollToRefMobileDropdown = (ref) => {
+    if (ref && ref.current) {
+      window.scrollTo({
+        top: ref.current.offsetTop - 80,
+        behavior: "smooth",
+      });
+      // Don't close the mobile menu - keep it open for dropdown selection
+    }
+  };
+
   const scrollToSection = (sectionName) => {
     const brochureComponent = brochureRef.current;
     if (brochureComponent) {
@@ -228,48 +254,65 @@ const Thalion = () => {
 
         switch (sectionName) {
           case "Vitalité Marine":
+          case "Marine Vitality":
+          case "Морская жизненная сила":
             targetElement =
               document.querySelector('[data-section="vitalite-marine"]') ||
               document.querySelector(".vitalite-marine-section") ||
               document.getElementById("vitalite-marine");
+            console.log("Looking for Vitalité Marine element:", targetElement);
             break;
           case "Week-end Cool":
+          case "Cool Weekend":
+          case "Прохладные выходные":
             targetElement =
               document.querySelector('[data-section="weekend-cool"]') ||
               document.querySelector(".weekend-cool-section") ||
               document.getElementById("weekend-cool");
             break;
           case "Détox Silhouette":
+          case "Detox Silhouette":
+          case "Детокс силуэт":
             targetElement =
               document.querySelector('[data-section="detox-silhouette"]') ||
               document.querySelector(".detox-silhouette-section");
             break;
           case "Relaxation Marine":
+          case "Marine Relaxation":
+          case "Морская релаксация":
             targetElement =
               document.querySelector('[data-section="relaxation-marine"]') ||
               document.querySelector(".relaxation-marine-section");
             break;
           case "For Men":
+          case "Для мужчин":
             targetElement =
               document.querySelector('[data-section="for-men"]') ||
               document.querySelector(".for-men-section");
             break;
           case "After Golf":
+          case "После гольфа":
             targetElement =
               document.querySelector('[data-section="after-golf"]') ||
               document.querySelector(".after-golf-section");
             break;
           case "Arbre de Vie":
+          case "Tree of Life":
+          case "Древо жизни":
             targetElement =
               document.querySelector('[data-section="arbre-vie"]') ||
               document.querySelector(".arbre-vie-section");
             break;
           case "Nouvel Age":
+          case "New Age":
+          case "Новый век":
             targetElement =
               document.querySelector('[data-section="nouvel-age"]') ||
               document.querySelector(".nouvel-age-section");
             break;
           case "Cérémonies du Spa & Soins de Thalasso":
+          case "Spa Ceremonies & Thalasso Treatments":
+          case "Церемонии СПА и процедуры талассо":
             targetElement =
               document.querySelector('[data-section="ceremonie-spa"]') ||
               document.querySelector(".ceremonie-spa-section");
@@ -279,12 +322,15 @@ const Thalion = () => {
         }
 
         if (targetElement) {
+          console.log("Scrolling to:", targetElement);
           targetElement.scrollIntoView({
             behavior: "smooth",
             block: "start",
           });
+        } else {
+          console.log("Target element not found for:", sectionName);
         }
-      }, 500);
+      }, 800);
     }
   };
 
@@ -343,6 +389,17 @@ const Thalion = () => {
     }
   };
 
+  // Mobile-specific tab click handler that keeps menu open for dropdowns
+  const handleMobileTabClick = (tab) => {
+    setActiveTab(tab.id);
+    setActiveSection(tab.id);
+    if (!tab.hasDropdown) {
+      scrollToRef(tab.ref); // Close menu for regular tabs
+    } else {
+      scrollToRefMobileDropdown(tab.ref); // Keep menu open for dropdown tabs
+    }
+  };
+
   const handleEscalesOptionClick = (option) => {
     scrollToSection(option);
     setActiveDropdown(null);
@@ -359,10 +416,6 @@ const Thalion = () => {
     setActiveDropdown(null);
   };
 
-  const handleHomeClick = () => {
-    window.location.href = "http://localhost:5173/";
-  };
-
   const handleLanguageSelect = (languageCode) => {
     setSelectedLanguage(languageCode);
     setLanguageDropdownOpen(false);
@@ -376,13 +429,119 @@ const Thalion = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Welcome Overlay - Appears on top of everything */}
+      {showWelcome && (
+        <div
+          className="fixed inset-0 z-[10000] flex items-center justify-center"
+          style={{
+            background:
+              "radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%)",
+            backdropFilter: "blur(8px)",
+          }}
+        >
+          <div className="text-center px-8 max-w-4xl mx-auto">
+            {/* Main Welcome Title */}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-amber-100 mb-6 tracking-wide">
+              <span className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 drop-shadow-2xl">
+                Bienvenue à Thalion
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-stone-200 text-2xl md:text-3xl lg:text-4xl font-extralight tracking-[0.3em] drop-shadow-lg mb-8">
+              CRÉATEUR DE COSMÉTIQUE MARINE
+            </p>
+
+            {/* Luxury decorative elements */}
+            <div className="flex items-center justify-center mb-8">
+              <div className="h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent w-24"></div>
+              <div className="mx-6 flex space-x-2">
+                <div className="w-3 h-3 bg-gradient-to-r from-amber-400 to-yellow-300 rounded-full shadow-lg"></div>
+                <div className="w-2 h-2 bg-gradient-to-r from-yellow-300 to-amber-400 rounded-full shadow-lg mt-0.5"></div>
+                <div className="w-3 h-3 bg-gradient-to-r from-amber-400 to-yellow-300 rounded-full shadow-lg"></div>
+              </div>
+              <div className="h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent w-24"></div>
+            </div>
+
+            {/* Location - MONASTIR */}
+            <div className="relative z-10">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-amber-100 tracking-wide">
+                <span
+                  className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 drop-shadow-2xl"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #FFD700 0%, #FFF700 25%, #FFED4E 50%, #FFF700 75%, #FFD700 100%)",
+                    backgroundClip: "text",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    textShadow:
+                      "0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.4)",
+                    filter: "drop-shadow(0 3px 6px rgba(255, 215, 0, 0.5))",
+                  }}
+                >
+                  MONASTIR
+                </span>
+              </h2>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Fixed Flag Container - Desktop: top-right, Mobile: centered - Moved down in navbar */}
+      <div
+        className="fixed top-8 left-1/2 transform -translate-x-1/2 lg:top-8 lg:right-4 lg:left-auto lg:transform-none z-[9999] flex items-center space-x-1 md:space-x-2 transition-all duration-300"
+      >
+        <img
+          src="/src/assets/france.png"
+          alt="France Flag"
+          className="h-4 w-6 md:h-6 md:w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gold-200/30"
+          onClick={() => changeLanguage("fr")}
+          title="Français - Changer en français"
+          style={{
+            filter: "drop-shadow(0 2px 4px rgba(255, 215, 0, 0.2))",
+          }}
+        />
+        <img
+          src="/src/assets/royaume-uni.png"
+          alt="UK Flag"
+          className="h-4 w-6 md:h-6 md:w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gold-200/30"
+          onClick={() => changeLanguage("en")}
+          title="English - Switch to English"
+          style={{
+            filter: "drop-shadow(0 2px 4px rgba(255, 215, 0, 0.2))",
+          }}
+        />
+        <img
+          src="/src/assets/russie.png"
+          alt="Russia Flag"
+          className="h-4 w-6 md:h-6 md:w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gold-200/30"
+          onClick={() => changeLanguage("ru")}
+          title="Русский - Переключить на русский"
+          style={{
+            filter: "drop-shadow(0 2px 4px rgba(255, 215, 0, 0.2))",
+          }}
+        />
+      </div>
+
       <style jsx>{`
         @keyframes goldShimmer {
           0% {
-            background-position: -200% 0;
+            background-position: -300% 0;
+            filter: brightness(1) saturate(1.2);
+          }
+          25% {
+            filter: brightness(1.3) saturate(1.5);
+          }
+          50% {
+            background-position: 0% 0;
+            filter: brightness(1.6) saturate(1.8);
+          }
+          75% {
+            filter: brightness(1.3) saturate(1.5);
           }
           100% {
-            background-position: 200% 0;
+            background-position: 300% 0;
+            filter: brightness(1) saturate(1.2);
           }
         }
 
@@ -390,64 +549,102 @@ const Thalion = () => {
           0%,
           100% {
             opacity: 0;
-            transform: scale(0);
+            transform: scale(0) rotate(0deg);
+          }
+          25% {
+            opacity: 0.3;
+            transform: scale(0.5) rotate(90deg);
           }
           50% {
             opacity: 1;
-            transform: scale(1);
+            transform: scale(1) rotate(180deg);
+          }
+          75% {
+            opacity: 0.7;
+            transform: scale(0.8) rotate(270deg);
+          }
+        }
+
+        @keyframes goldPulse {
+          0%,
+          100% {
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6),
+              0 0 40px rgba(255, 215, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.2);
+          }
+          50% {
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.8),
+              0 0 60px rgba(255, 215, 0, 0.6), 0 0 90px rgba(255, 215, 0, 0.4);
           }
         }
 
         .gold-text {
           background: linear-gradient(
             135deg,
-            #ffd700 0%,
-            #ffed4e 25%,
+            #ffdf00 0%,
+            #ffd700 15%,
+            #fff700 30%,
+            #ffed4e 45%,
             #fff5b7 50%,
-            #ffed4e 75%,
-            #ffd700 100%
+            #ffed4e 55%,
+            #fff700 70%,
+            #ffd700 85%,
+            #ffdf00 100%
           );
-          background-size: 200% 100%;
+          background-size: 300% 100%;
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          animation: goldShimmer 3s ease-in-out infinite;
-          text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+          animation: goldShimmer 4s ease-in-out infinite;
+          text-shadow: 0 0 20px rgba(255, 215, 0, 0.6),
+            0 0 40px rgba(255, 215, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.2);
+          filter: drop-shadow(0 2px 4px rgba(255, 215, 0, 0.3));
         }
 
         .gold-text-active {
           background: linear-gradient(
             135deg,
-            #fff5b7 0%,
-            #ffd700 50%,
-            #fff5b7 100%
+            #fff700 0%,
+            #ffdf00 20%,
+            #ffd700 40%,
+            #fff5b7 50%,
+            #ffd700 60%,
+            #ffdf00 80%,
+            #fff700 100%
           );
           background-size: 200% 100%;
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          animation: goldShimmer 1.5s ease-in-out infinite;
-          text-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+          animation: goldShimmer 2s ease-in-out infinite;
+          text-shadow: 0 0 25px rgba(255, 215, 0, 0.8),
+            0 0 50px rgba(255, 215, 0, 0.6), 0 0 75px rgba(255, 215, 0, 0.4);
+          filter: drop-shadow(0 3px 6px rgba(255, 215, 0, 0.5));
         }
 
         .sparkle::before {
           content: "✨";
           position: absolute;
-          top: -10px;
-          right: -10px;
-          font-size: 12px;
-          animation: sparkle 2s infinite;
+          top: -15px;
+          right: -15px;
+          font-size: 14px;
+          animation: sparkle 3s infinite;
           animation-delay: 0s;
+          filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
         }
 
         .sparkle::after {
-          content: "✨";
+          content: "💎";
           position: absolute;
-          bottom: -10px;
-          left: -10px;
-          font-size: 10px;
-          animation: sparkle 2s infinite;
-          animation-delay: 1s;
+          bottom: -15px;
+          left: -15px;
+          font-size: 12px;
+          animation: sparkle 3s infinite;
+          animation-delay: 1.5s;
+          filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
+        }
+
+        .gold-text:hover {
+          animation: goldPulse 2s ease-in-out infinite;
         }
 
         .navbar-glass {
@@ -480,8 +677,10 @@ const Thalion = () => {
         }
 
         .hover-glow:hover {
-          box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-          transform: translateY(-1px);
+          box-shadow: 0 0 30px rgba(255, 215, 0, 0.4),
+            0 0 60px rgba(255, 215, 0, 0.2), 0 0 90px rgba(255, 215, 0, 0.1);
+          transform: translateY(-2px);
+          border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .mobile-menu-gradient {
@@ -560,16 +759,6 @@ const Thalion = () => {
             <div className="hidden lg:flex items-center justify-center flex-1 mx-8">
               <div className="nav-tabs-container relative">
                 <div className="flex items-center space-x-2">
-                  {/* Home Button */}
-                  <button
-                    onClick={handleHomeClick}
-                    className="px-4 py-3 relative overflow-hidden group font-serif text-sm uppercase tracking-wider transition-all duration-300 hover-glow whitespace-nowrap"
-                  >
-                    <span className="gold-text group-hover:gold-text-active relative sparkle">
-                      {t.home}
-                    </span>
-                  </button>
-
                   {tabs.map((tab, index) => (
                     <div key={tab.id} className="relative" data-dropdown>
                       <button
@@ -595,7 +784,11 @@ const Thalion = () => {
                           }
                         }}
                         onMouseLeave={handleDropdownLeave}
-                        className={`px-3 py-3 relative overflow-hidden group font-serif text-sm uppercase tracking-wider transition-all duration-300 flex items-center gap-2 hover-glow nav-tab whitespace-nowrap ${
+                        className={`px-3 py-3 relative overflow-hidden group font-serif ${
+                          i18n.language === "en" || i18n.language === "ru"
+                            ? "lg:text-xs text-sm"
+                            : "text-sm"
+                        } uppercase tracking-wider transition-all duration-300 flex items-center gap-2 hover-glow nav-tab whitespace-nowrap ${
                           activeSection === tab.id ? "active" : ""
                         }`}
                       >
@@ -620,15 +813,21 @@ const Thalion = () => {
                               )
                                 ? "rotate-180"
                                 : "rotate-0"
-                            } gold-text flex-shrink-0`}
+                            } flex-shrink-0`}
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
+                            style={{
+                              color: "#ffd700",
+                              filter:
+                                "drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 12px rgba(255, 215, 0, 0.4))",
+                              transition: "all 0.3s ease",
+                            }}
                           >
                             <path
                               strokeLinecap="round"
                               strokeLinejoin="round"
-                              strokeWidth={2}
+                              strokeWidth={2.5}
                               d="M19 9l-7 7-7-7"
                             />
                           </svg>
@@ -654,7 +853,12 @@ const Thalion = () => {
                                   onClick={() =>
                                     handleEscalesOptionClick(option.name)
                                   }
-                                  className="block w-full text-left px-6 py-3 text-sm font-serif uppercase tracking-wider transition-all duration-200 hover-glow border-b border-amber-500/10 last:border-b-0"
+                                  className={`block w-full text-left px-6 py-3 ${
+                                    i18n.language === "en" ||
+                                    i18n.language === "ru"
+                                      ? "lg:text-xs text-sm"
+                                      : "text-sm"
+                                  } font-serif uppercase tracking-wider transition-all duration-200 hover-glow border-b border-amber-500/10 last:border-b-0`}
                                 >
                                   <span className="gold-text hover:gold-text-active">
                                     {option.name}
@@ -682,7 +886,12 @@ const Thalion = () => {
                                   onClick={() =>
                                     handleRituelOptionClick(option)
                                   }
-                                  className="block w-full text-left px-6 py-3 text-sm font-serif uppercase tracking-wider transition-all duration-200 hover-glow border-b border-amber-500/10 last:border-b-0"
+                                  className={`block w-full text-left px-6 py-3 ${
+                                    i18n.language === "en" ||
+                                    i18n.language === "ru"
+                                      ? "lg:text-xs text-sm"
+                                      : "text-sm"
+                                  } font-serif uppercase tracking-wider transition-all duration-200 hover-glow border-b border-amber-500/10 last:border-b-0`}
                                 >
                                   <span className="gold-text hover:gold-text-active">
                                     {option.name}
@@ -722,7 +931,12 @@ const Thalion = () => {
                                 <button
                                   key={index}
                                   onClick={() => handleSoinsOptionClick(option)}
-                                  className="block w-full text-left px-6 py-3 text-sm font-serif uppercase tracking-wider transition-all duration-200 hover-glow border-b border-amber-500/10 last:border-b-0"
+                                  className={`block w-full text-left px-6 py-3 ${
+                                    i18n.language === "en" ||
+                                    i18n.language === "ru"
+                                      ? "lg:text-xs text-sm"
+                                      : "text-sm"
+                                  } font-serif uppercase tracking-wider transition-all duration-200 hover-glow border-b border-amber-500/10 last:border-b-0`}
                                 >
                                   <span className="gold-text hover:gold-text-active flex items-center">
                                     <span className="mr-2 text-amber-400">
@@ -748,10 +962,26 @@ const Thalion = () => {
                 className="p-2 transition-all duration-300 hover-glow"
               >
                 <svg
-                  className="h-8 w-8 gold-text"
+                  className="h-8 w-8"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  style={{
+                    color: "#ffd700",
+                    filter:
+                      "drop-shadow(0 0 8px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 16px rgba(255, 215, 0, 0.4))",
+                    transition: "all 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter =
+                      "drop-shadow(0 0 12px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 24px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 36px rgba(255, 215, 0, 0.4))";
+                    e.currentTarget.style.color = "#fff700";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter =
+                      "drop-shadow(0 0 8px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 16px rgba(255, 215, 0, 0.4))";
+                    e.currentTarget.style.color = "#ffd700";
+                  }}
                 >
                   {mobileMenuOpen ? (
                     <path
@@ -764,7 +994,7 @@ const Thalion = () => {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={2.5}
                       d="M4 6h16M4 12h16M4 18h16"
                     />
                   )}
@@ -830,9 +1060,14 @@ const Thalion = () => {
                           </span>
                           {selectedLanguage === language.code && (
                             <svg
-                              className="w-4 h-4 ml-auto gold-text-active"
+                              className="w-4 h-4 ml-auto"
                               fill="currentColor"
                               viewBox="0 0 20 20"
+                              style={{
+                                color: "#ffd700",
+                                filter:
+                                  "drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 12px rgba(255, 215, 0, 0.4))",
+                              }}
                             >
                               <path
                                 fillRule="evenodd"
@@ -855,47 +1090,14 @@ const Thalion = () => {
         {mobileMenuOpen && (
           <div className="lg:hidden mobile-menu-gradient">
             <div className="px-6 py-4 space-y-2">
-              {/* Home button in mobile menu */}
-              <button
-                onClick={handleHomeClick}
-                className="block w-full text-left py-4 px-4 font-serif uppercase tracking-wider transition-all duration-300 hover-glow rounded-lg"
-              >
-                <span className="gold-text">{t.home}</span>
-              </button>
-
               {tabs.map((tab) => (
                 <div key={tab.id}>
                   <button
                     onClick={() => {
-                      if (tab.id === "brochure") {
-                        scrollToRef(brochureRef);
-                        setMobileMenuOpen(false);
-                      } else if (tab.isRituels) {
-                        const newState =
-                          activeDropdown === DROPDOWN_TYPES.RITUELS
-                            ? null
-                            : DROPDOWN_TYPES.RITUELS;
-                        setActiveDropdown(newState);
-                      } else if (tab.isSoins) {
-                        const newState =
-                          activeDropdown === DROPDOWN_TYPES.SOINS
-                            ? null
-                            : DROPDOWN_TYPES.SOINS;
-                        setActiveDropdown(newState);
-                      } else {
-                        handleTabClick(tab);
-                        if (tab.hasDropdown && !tab.isRituels && !tab.isSoins) {
-                          const newState =
-                            activeDropdown === DROPDOWN_TYPES.ESCALES
-                              ? null
-                              : DROPDOWN_TYPES.ESCALES;
-                          setActiveDropdown(newState);
-                        } else {
-                          setMobileMenuOpen(false);
-                        }
-                      }
+                      // In mobile, just scroll to the section without showing dropdowns
+                      handleTabClick(tab);
                     }}
-                    className={`flex items-center justify-between w-full text-left py-4 px-4 font-serif uppercase tracking-wider transition-all duration-300 hover-glow rounded-lg ${
+                    className={`flex items-center justify-between w-full text-left py-4 px-4 font-serif text-sm uppercase tracking-wider transition-all duration-300 hover-glow rounded-lg ${
                       activeSection === tab.id ? "bg-amber-500/10" : ""
                     }`}
                   >
@@ -908,101 +1110,8 @@ const Thalion = () => {
                     >
                       {tab.label}
                     </span>
-                    {tab.hasDropdown && (
-                      <svg
-                        className={`w-5 h-5 transition-transform duration-300 gold-text ${
-                          (
-                            tab.isRituels
-                              ? activeDropdown === DROPDOWN_TYPES.RITUELS
-                              : tab.isSoins
-                              ? activeDropdown === DROPDOWN_TYPES.SOINS
-                              : activeDropdown === DROPDOWN_TYPES.ESCALES
-                          )
-                            ? "rotate-180"
-                            : "rotate-0"
-                        }`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    )}
+                    {/* Hide dropdown arrows in mobile */}
                   </button>
-
-                  {/* Mobile Escales dropdown */}
-                  {tab.hasDropdown &&
-                    !tab.isRituels &&
-                    !tab.isSoins &&
-                    activeDropdown === DROPDOWN_TYPES.ESCALES && (
-                      <div className="pl-6 py-2 space-y-1">
-                        {escalesOptions.map((option, index) => (
-                          <button
-                            key={index}
-                            onClick={() => {
-                              handleEscalesOptionClick(option.name);
-                              setMobileMenuOpen(false);
-                            }}
-                            className="block w-full text-left py-3 px-4 text-sm font-serif uppercase tracking-wider transition-all duration-200 hover-glow rounded-lg"
-                          >
-                            <span className="gold-text hover:gold-text-active">
-                              {option.name}
-                            </span>
-                          </button>
-                        ))}
-                      </div>
-                    )}
-
-                  {/* Mobile Rituels dropdown */}
-                  {tab.isRituels &&
-                    activeDropdown === DROPDOWN_TYPES.RITUELS && (
-                      <div className="pl-6 py-2 space-y-1">
-                        {rituelsOptions.map((option, index) => (
-                          <button
-                            key={index}
-                            onClick={() => {
-                              handleRituelOptionClick(option);
-                              setMobileMenuOpen(false);
-                            }}
-                            className="block w-full text-left py-3 px-4 text-sm font-serif uppercase tracking-wider transition-all duration-200 hover-glow rounded-lg"
-                          >
-                            <span className="gold-text hover:gold-text-active">
-                              {option.name}
-                            </span>
-                          </button>
-                        ))}
-                      </div>
-                    )}
-
-                  {/* Updated Mobile Soins dropdown */}
-                  {tab.isSoins && activeDropdown === DROPDOWN_TYPES.SOINS && (
-                    <div className="pl-6 py-2 space-y-1">
-                      {/* Title for mobile */}
-                      <div className="px-4 py-2 text-sm font-serif uppercase tracking-wider gold-text font-semibold border-b border-amber-500/20 mb-2">
-                        {t.nosServicesTitle}
-                      </div>
-
-                      {soinsOptions.map((option, index) => (
-                        <button
-                          key={index}
-                          onClick={() => {
-                            handleSoinsOptionClick(option);
-                            setMobileMenuOpen(false);
-                          }}
-                          className="block w-full text-left py-3 px-4 text-sm font-serif uppercase tracking-wider transition-all duration-200 hover-glow rounded-lg"
-                        >
-                          <span className="gold-text hover:gold-text-active">
-                            {option.name}
-                          </span>
-                        </button>
-                      ))}
-                    </div>
-                  )}
                 </div>
               ))}
 
@@ -1031,9 +1140,14 @@ const Thalion = () => {
                       </span>
                       {selectedLanguage === language.code && (
                         <svg
-                          className="w-4 h-4 ml-auto gold-text-active"
+                          className="w-4 h-4 ml-auto"
                           fill="currentColor"
                           viewBox="0 0 20 20"
+                          style={{
+                            color: "#ffd700",
+                            filter:
+                              "drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 12px rgba(255, 215, 0, 0.4))",
+                          }}
                         >
                           <path
                             fillRule="evenodd"

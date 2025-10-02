@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
-  ChevronDown,
   Facebook,
   Instagram,
   Youtube,
@@ -17,7 +16,6 @@ const Header = () => {
   const [showLanguages, setShowLanguages] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [weather, setWeather] = useState({ temp: "22°C", condition: "Sunny" });
-  const [activeDropdown, setActiveDropdown] = useState(null);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const navigate = useNavigate();
@@ -30,16 +28,25 @@ const Header = () => {
       // Set scrolled state for styling
       setIsScrolled(currentScrollY > 50);
 
-      // Advanced visibility logic
-      if (currentScrollY <= 50) {
-        // At top of page - always show
+      // Check if we're on mobile (768px and below)
+      const isMobile = window.innerWidth <= 768;
+
+      // Advanced visibility logic - only hide on desktop
+      if (isMobile) {
+        // On mobile, always keep header visible
         setIsVisible(true);
-      } else if (currentScrollY < lastScrollY) {
-        // Scrolling up - show navbar
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down and past 100px - hide navbar
-        setIsVisible(false);
+      } else {
+        // Desktop behavior - hide/show based on scroll
+        if (currentScrollY <= 50) {
+          // At top of page - always show
+          setIsVisible(true);
+        } else if (currentScrollY < lastScrollY) {
+          // Scrolling up - show navbar
+          setIsVisible(true);
+        } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          // Scrolling down and past 100px - hide navbar
+          setIsVisible(false);
+        }
       }
 
       setLastScrollY(currentScrollY);
@@ -81,52 +88,7 @@ const Header = () => {
     youtube: "https://www.youtube.com/@ThalassaHotelsTunisie",
   };
 
-  const dropdownMenus = {
-    thalion: [
-      { label: t("header.navigation.thalion.brochure"), link: "#" },
-      { label: t("header.navigation.thalion.pricing"), link: "#" },
-      { label: t("header.navigation.thalion.contact"), link: "#" },
-    ],
-    spa: [{ label: t("header.navigation.spa.contact"), link: "#" }],
-    eric: [
-      {
-        label: t("header.navigation.erichZemmour.brochure"),
-        link: "/ErichZemmour",
-      },
-      {
-        label: t("header.navigation.erichZemmour.salon"),
-        link: "/ErichZemmour",
-      },
-    ],
-    usine: [
-      {
-        label: t("header.navigation.usine.activities"),
-        link: "/usine#activites",
-      },
-      { label: t("header.navigation.usine.team"), link: "/usine#equipe" },
-      { label: t("header.navigation.usine.schedule"), link: "/usine#planning" },
-      { label: t("header.navigation.usine.info"), link: "/usine#infos" },
-    ],
-    caree: [
-      { label: t("header.navigation.carreVip.presentation"), link: "/Suite" },
-    ],
-  };
 
-  const handleMouseEnter = (menu) => {
-    if (window.innerWidth >= 768) {
-      setActiveDropdown(menu);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (window.innerWidth >= 768) {
-      setActiveDropdown(null);
-    }
-  };
-
-  const toggleMobileDropdown = (menu) => {
-    setActiveDropdown(activeDropdown === menu ? null : menu);
-  };
 
   // Function to handle navigation to ERIC ZEMMOUR page
   const handleEricZemmourClick = () => {
@@ -153,6 +115,31 @@ const Header = () => {
 
   return (
     <>
+      {/* Fixed Flag Container - Always Visible on All Pages */}
+      <div className="fixed top-4 right-4 z-[9999] flex items-center space-x-2 bg-white/90 backdrop-blur-md rounded-lg p-3 shadow-xl border border-white/40 hover:bg-white/95 transition-all duration-300">
+        <img
+          src="/src/assets/france.png"
+          alt="France Flag"
+          className="h-6 w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gray-200"
+          onClick={() => changeLanguage("fr")}
+          title="Français - Changer en français"
+        />
+        <img
+          src="/src/assets/royaume-uni.png"
+          alt="UK Flag"
+          className="h-6 w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gray-200"
+          onClick={() => changeLanguage("en")}
+          title="English - Switch to English"
+        />
+        <img
+          src="/src/assets/russie.png"
+          alt="Russia Flag"
+          className="h-6 w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gray-200"
+          onClick={() => changeLanguage("ru")}
+          title="Русский - Переключить на русский"
+        />
+      </div>
+
       {/* Luxury fonts styles */}
       <style
         dangerouslySetInnerHTML={{
@@ -176,80 +163,93 @@ const Header = () => {
             -webkit-backdrop-filter: blur(12px);
           }
 
-          .dropdown-container {
-            position: relative;
+          /* 24 Karat Gold Text Styling */
+          .gold-text-24k {
+            background: linear-gradient(
+              135deg,
+              #ffdf00 0%,
+              #ffd700 15%,
+              #fff700 30%,
+              #ffed4e 45%,
+              #fff5b7 50%,
+              #ffed4e 55%,
+              #fff700 70%,
+              #ffd700 85%,
+              #ffdf00 100%
+            );
+            background-size: 300% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: goldShimmer24k 4s ease-in-out infinite;
+            text-shadow: 
+              0 0 20px rgba(255, 215, 0, 0.6),
+              0 0 40px rgba(255, 215, 0, 0.4),
+              0 0 60px rgba(255, 215, 0, 0.2);
+            filter: drop-shadow(0 2px 4px rgba(255, 215, 0, 0.3));
           }
 
-          .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            margin-top: 8px;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.90) 50%, rgba(51, 65, 85, 0.85) 100%);
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            border-radius: 16px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            padding: 12px 0;
-            min-width: 220px;
-            z-index: 1000;
-            backdrop-filter: blur(25px) saturate(180%);
-            -webkit-backdrop-filter: blur(25px) saturate(180%);
-            transform: translateY(-8px) scale(0.95);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+          .gold-text-24k:hover {
+            animation: goldPulse24k 2s ease-in-out infinite;
           }
 
-          .dropdown-container:hover .dropdown-menu,
-          .dropdown-menu:hover {
-            transform: translateY(0) scale(1);
-            opacity: 1;
-            visibility: visible;
+          .gold-text-active-24k {
+            background: linear-gradient(
+              135deg,
+              #fff700 0%,
+              #ffdf00 20%,
+              #ffd700 40%,
+              #fff5b7 50%,
+              #ffd700 60%,
+              #ffdf00 80%,
+              #fff700 100%
+            );
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: goldShimmer24k 2s ease-in-out infinite;
+            text-shadow: 
+              0 0 25px rgba(255, 215, 0, 0.8),
+              0 0 50px rgba(255, 215, 0, 0.6),
+              0 0 75px rgba(255, 215, 0, 0.4);
+            filter: drop-shadow(0 3px 6px rgba(255, 215, 0, 0.5));
           }
 
-          .dropdown-item {
-            display: block;
-            padding: 14px 24px;
-            color: #e2e8f0;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 400;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-            border-left: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
+          @keyframes goldShimmer24k {
+            0% {
+              background-position: -300% 0;
+              filter: brightness(1) saturate(1.2);
+            }
+            25% {
+              filter: brightness(1.3) saturate(1.5);
+            }
+            50% {
+              background-position: 0% 0;
+              filter: brightness(1.6) saturate(1.8);
+            }
+            75% {
+              filter: brightness(1.3) saturate(1.5);
+            }
+            100% {
+              background-position: 300% 0;
+              filter: brightness(1) saturate(1.2);
+            }
           }
 
-          .dropdown-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, rgba(251, 191, 36, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-          }
-
-          .dropdown-item:hover::before {
-            transform: translateX(0);
-          }
-
-          .dropdown-item:hover {
-            color: #fbbf24;
-            border-left-color: #f59e0b;
-            transform: translateX(6px);
-            background: rgba(251, 191, 36, 0.08);
-            font-weight: 500;
-          }
-
-          /* Right-aligned dropdown for last item */
-          .dropdown-right {
-            right: 0;
-            left: auto;
+          @keyframes goldPulse24k {
+            0%, 100% {
+              text-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.6),
+                0 0 40px rgba(255, 215, 0, 0.4),
+                0 0 60px rgba(255, 215, 0, 0.2);
+            }
+            50% {
+              text-shadow: 
+                0 0 30px rgba(255, 215, 0, 0.8),
+                0 0 60px rgba(255, 215, 0, 0.6),
+                0 0 90px rgba(255, 215, 0, 0.4);
+            }
           }
         `,
         }}
@@ -340,49 +340,21 @@ const Header = () => {
                   |
                 </span>
                 <Link
-                  to="/contact"
+                  to="/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      // If not on home page, navigate to home then scroll
+                      window.location.href = '/#contact';
+                    }
+                  }}
                   className="hover:text-amber-600 transition-all duration-300 hover:scale-105"
                 >
                   {t("header.topNav.contact")}
                 </Link>
-              </div>
-
-              {/* Language Selector */}
-              <div className="relative">
-                <button
-                  onClick={() => setShowLanguages(!showLanguages)}
-                  className={`flex items-center space-x-1 md:space-x-2 transition-all duration-300 hover:scale-105 luxury-font-sans font-medium ${
-                    isScrolled
-                      ? "text-gray-700 hover:text-amber-600"
-                      : "text-white hover:text-amber-300 text-shadow-luxury"
-                  }`}
-                >
-                  <span className="hidden sm:inline">
-                    {getCurrentLanguage().flag} {getCurrentLanguage().name}
-                  </span>
-                  <span className="sm:hidden">{getCurrentLanguage().flag}</span>
-                  <ChevronDown
-                    size={12}
-                    className={`transform transition-transform md:w-4 md:h-4 ${
-                      showLanguages ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-
-                {showLanguages && (
-                  <div className="absolute right-0 top-full mt-2 bg-white border border-gray-200 rounded-lg shadow-xl py-2 min-w-32 z-50 backdrop-blur-luxury">
-                    {languages.map((lang) => (
-                      <button
-                        key={lang.code}
-                        className="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-amber-50 transition-all duration-300 text-sm luxury-font-sans"
-                        onClick={() => changeLanguage(lang.code)}
-                      >
-                        <span>{lang.flag}</span>
-                        <span>{lang.name}</span>
-                      </button>
-                    ))}
-                  </div>
-                )}
               </div>
             </div>
           </div>
@@ -418,372 +390,291 @@ const Header = () => {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-white hover:text-amber-300 transition-all duration-300 hover:scale-110"
+                className="relative p-3 rounded-xl transition-all duration-500 group overflow-hidden border border-amber-400/30"
+                style={{
+                  background: "linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%)",
+                  backdropFilter: "blur(10px)",
+                  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.1)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = "0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.3)";
+                  e.currentTarget.style.borderColor = "rgba(255, 215, 0, 0.6)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = "0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.1)";
+                  e.currentTarget.style.borderColor = "rgba(255, 215, 0, 0.3)";
+                }}
               >
-                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {/* Background glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-400/10 via-yellow-300/5 to-amber-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Icon with golden styling */}
+                <div 
+                  className="relative z-10 transition-all duration-300"
+                  style={{
+                    color: "#ffd700",
+                    filter: "drop-shadow(0 0 8px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 16px rgba(255, 215, 0, 0.4))"
+                  }}
+                >
+                  {isMobileMenuOpen ? (
+                    <X size={24} className="transform rotate-0 group-hover:rotate-90 transition-transform duration-300" />
+                  ) : (
+                    <Menu size={24} className="transform group-hover:scale-110 transition-transform duration-300" />
+                  )}
+                </div>
+
+                {/* Sparkle effects */}
+                <div className="absolute top-1 right-1 w-2 h-2 bg-yellow-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping"></div>
+                <div className="absolute bottom-1 left-1 w-1.5 h-1.5 bg-amber-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping delay-100"></div>
               </button>
             </div>
 
             {/* Desktop Navigation Menu */}
             <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
               {/* THALION */}
-              <div className="dropdown-container">
-                <Link
-                  to="/thalion"
-                  className="flex items-center space-x-1 text-white hover:text-amber-300 transition-all duration-300 hover:scale-105 group"
-                >
-                  <div className="flex flex-col items-center">
-                    <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury">
-                      {t("header.navigation.thalion.title")}
-                    </span>
-                    <span className="text-xs text-amber-200 hidden lg:block luxury-font-sans font-light italic tracking-wider">
-                      {t("header.navigation.thalion.subtitle")}
-                    </span>
-                  </div>
-                  <ChevronDown
-                    size={16}
-                    className="text-amber-200 group-hover:text-amber-300 transition-colors"
-                  />
-                </Link>
+              <Link
+                to="/thalion"
+                className="flex items-center space-x-1 text-white hover:text-amber-300 transition-all duration-300 hover:scale-105 group"
+              >
+                <div className="flex flex-col items-center">
+                  <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury gold-text-24k">
+                    {t("header.navigation.thalion.title")}
+                  </span>
+                  <span className="text-xs text-amber-200 hidden lg:block luxury-font-sans font-light italic tracking-wider">
+                    {t("header.navigation.thalion.subtitle")}
+                  </span>
+                </div>
+              </Link>
 
-                <div className="dropdown-menu">
-                  {dropdownMenus.thalion.map((item, index) => (
-                    <Link key={index} to={item.link} className="dropdown-item">
-                      {item.label}
-                    </Link>
-                  ))}
+              {/* ERIC ZEMMOUR */}
+              <div
+                onClick={handleEricZemmourClick}
+                className="flex items-center space-x-1 text-white hover:text-amber-300 transition-all duration-300 hover:scale-105 group cursor-pointer"
+              >
+                <div className="flex flex-col items-center">
+                  <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury gold-text-24k">
+                    {t("header.navigation.erichZemmour.title")}
+                  </span>
+                  <span className="text-xs text-amber-200 hidden lg:block luxury-font-sans font-light italic tracking-wider">
+                    {t("header.navigation.erichZemmour.subtitle")}
+                  </span>
                 </div>
               </div>
 
-              {/* SPA */}
-
-              {/* ERIC ZEMMOUR - Made clickable */}
-              <div className="dropdown-container">
-                <div
-                  onClick={handleEricZemmourClick}
-                  className="flex items-center space-x-1 text-white hover:text-amber-300 transition-all duration-300 hover:scale-105 group cursor-pointer"
-                >
-                  <div className="flex flex-col items-center">
-                    <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury">
-                      {t("header.navigation.erichZemmour.title")}
-                    </span>
-                    <span className="text-xs text-amber-200 hidden lg:block luxury-font-sans font-light italic tracking-wider">
-                      {t("header.navigation.erichZemmour.subtitle")}
-                    </span>
-                  </div>
-                  <ChevronDown
-                    size={16}
-                    className="text-amber-200 group-hover:text-amber-300 transition-colors"
-                  />
-                </div>
-
-                <div className="dropdown-menu">
-                  {dropdownMenus.eric.map((item, index) => (
-                    <a key={index} href={item.link} className="dropdown-item">
-                      {item.label}
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              {/* L'USINE - Made clickable */}
-              <div className="dropdown-container">
-                <div
-                  onClick={handleUsineClick}
-                  className="flex items-center space-x-1 text-white hover:text-amber-300 transition-all duration-300 hover:scale-105 group cursor-pointer"
-                >
-                  <div className="flex flex-col items-center">
-                    <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury">
-                      {t("header.navigation.usine.title")}
-                    </span>
-                    <span className="text-xs text-amber-200 hidden lg:block luxury-font-sans font-light italic tracking-wider">
-                      {t("header.navigation.usine.subtitle")}
-                    </span>
-                  </div>
-                  <ChevronDown
-                    size={16}
-                    className="text-amber-200 group-hover:text-amber-300 transition-colors"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      // Prevent dropdown from opening on chevron click
-                    }}
-                  />
-                </div>
-
-                <div className="dropdown-menu">
-                  {dropdownMenus.usine.map((item, index) => (
-                    <div
-                      key={index}
-                      onClick={() => {
-                        if (item.link.includes("#")) {
-                          const section = item.link.split("#")[1];
-                          handleUsineSectionClick(section);
-                        } else {
-                          navigate(item.link);
-                        }
-                      }}
-                      className="dropdown-item cursor-pointer"
-                    >
-                      {item.label}
-                    </div>
-                  ))}
+              {/* L'USINE */}
+              <div
+                onClick={handleUsineClick}
+                className="flex items-center space-x-1 text-white hover:text-amber-300 transition-all duration-300 hover:scale-105 group cursor-pointer"
+              >
+                <div className="flex flex-col items-center">
+                  <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury gold-text-24k">
+                    {t("header.navigation.usine.title")}
+                  </span>
+                  <span className="text-xs text-amber-200 hidden lg:block luxury-font-sans font-light italic tracking-wider">
+                    {t("header.navigation.usine.subtitle")}
+                  </span>
                 </div>
               </div>
 
               {/* CARRÉ VIP SPA */}
-              <div className="dropdown-container">
-                <button className="flex items-center space-x-1 text-white hover:text-amber-300 transition-all duration-300 hover:scale-105 group">
-                  <div className="flex flex-col items-center">
-                    <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury">
-                      {t("header.navigation.carreVip.title")}
-                    </span>
-                    <span className="text-xs text-amber-200 hidden lg:block luxury-font-sans font-light italic tracking-wider">
-                      {t("header.navigation.carreVip.subtitle")}
-                    </span>
-                  </div>
-                  <ChevronDown
-                    size={16}
-                    className="text-amber-200 group-hover:text-amber-300 transition-colors"
-                  />
-                </button>
-
-                <div className="dropdown-menu dropdown-right">
-                  {dropdownMenus.caree.map((item, index) => (
-                    <a key={index} href={item.link} className="dropdown-item">
-                      {item.label}
-                    </a>
-                  ))}
+              <Link
+                to="/Suite"
+                className="flex items-center space-x-1 text-white hover:text-amber-300 transition-all duration-300 hover:scale-105 group"
+              >
+                <div className="flex flex-col items-center">
+                  <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury gold-text-24k">
+                    {t("header.navigation.carreVip.title")}
+                  </span>
+                  <span className="text-xs text-amber-200 hidden lg:block luxury-font-sans font-light italic tracking-wider">
+                    {t("header.navigation.carreVip.subtitle")}
+                  </span>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
 
           {/* Mobile Navigation Menu */}
           {isMobileMenuOpen && (
             <div
-              className="md:hidden mt-4 rounded-2xl shadow-2xl overflow-hidden"
+              className="md:hidden mt-6 mx-4 rounded-3xl shadow-2xl overflow-hidden border border-amber-300/20 relative"
               style={{
-                background:
-                  "linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 50%, rgba(51, 65, 85, 0.90) 100%)",
-                backdropFilter: "blur(25px) saturate(180%)",
-                border: "1px solid rgba(148, 163, 184, 0.2)",
-                boxShadow:
-                  "0 25px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+                background: "linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(15, 15, 15, 0.98) 50%, rgba(0, 0, 0, 0.95) 100%)",
+                backdropFilter: "blur(30px) saturate(180%)",
+                boxShadow: `
+                  0 25px 50px rgba(0, 0, 0, 0.5),
+                  0 0 30px rgba(255, 215, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 215, 0, 0.1),
+                  inset 0 -1px 0 rgba(255, 215, 0, 0.05)
+                `,
               }}
             >
-              <div className="py-4">
+              {/* Luxury background pattern */}
+              <div className="absolute inset-0 opacity-5">
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: `radial-gradient(circle at 25% 25%, #FFD700 1px, transparent 1px), 
+                                   radial-gradient(circle at 75% 75%, #FFA500 1px, transparent 1px)`,
+                    backgroundSize: "40px 40px",
+                  }}
+                ></div>
+              </div>
+
+              {/* Top golden border accent */}
+              <div className="h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+              
+              <div className="py-6 relative z-10">
                 {/* Mobile Navigation Items */}
-                <div className="px-6 py-3 border-b border-slate-600/30">
-                  <button
-                    onClick={() => toggleMobileDropdown("thalion")}
-                    className="flex justify-between items-center w-full text-left text-slate-100 hover:text-amber-300 transition-all duration-300 luxury-font-serif"
+                <div className="px-8 py-4 border-b border-amber-500/20 hover:bg-amber-500/5 transition-all duration-300 group">
+                  <Link
+                    to="/thalion"
+                    className="flex justify-between items-center w-full text-left transition-all duration-300"
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <div>
-                      <div className="font-semibold text-lg">
+                      <div className="font-semibold text-lg luxury-font-serif text-amber-100 group-hover:text-amber-300">
                         {t("header.navigation.thalion.title")}
                       </div>
-                      <div className="text-xs text-amber-200 luxury-font-sans font-light italic">
+                      <div className="text-sm text-amber-200/80 luxury-font-sans font-light italic mt-1">
                         {t("header.navigation.thalion.subtitle")}
                       </div>
                     </div>
-                    <ChevronDown
-                      size={18}
-                      className={`transform transition-transform text-amber-200 ${
-                        activeDropdown === "thalion" ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  {activeDropdown === "thalion" && (
-                    <div className="mt-3 pl-4 space-y-2">
-                      {dropdownMenus.thalion.map((item, index) => (
-                        <a
-                          key={index}
-                          href={item.link}
-                          className="block text-slate-300 hover:text-amber-300 transition-all duration-300 luxury-font-sans py-2 px-3 rounded-lg hover:bg-amber-500/10 border-l-2 border-transparent hover:border-amber-400"
-                        >
-                          {item.label}
-                        </a>
-                      ))}
+                    <div className="ml-4 p-2 rounded-full bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
+                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
                     </div>
-                  )}
+                  </Link>
                 </div>
 
-                <div className="px-6 py-3 border-b border-sale-600/30">
-                  <button
-                    onClick={() => toggleMobileDropdown("spa")}
-                    className="flex justify-between items-center w-full text-left text-slate-100 hover:text-amber-300 transition-all duration-300 font-semibold luxury-font-serif text-lg"
-                  >
-                    {t("header.navigation.spa.title")}
-                    <ChevronDown
-                      size={18}
-                      className={`transform transition-transform text-amber-200 ${
-                        activeDropdown === "spa" ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  {activeDropdown === "spa" && (
-                    <div className="mt-3 pl-4 space-y-2">
-                      {dropdownMenus.spa.map((item, index) => (
-                        <a
-                          key={index}
-                          href={item.link}
-                          className="block text-slate-300 hover:text-amber-300 transition-all duration-300 luxury-font-sans py-2 px-3 rounded-lg hover:bg-amber-500/10 border-l-2 border-transparent hover:border-amber-400"
-                        >
-                          {item.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                <div className="px-6 py-3 border-b border-slate-600/30">
+                <div className="px-8 py-4 border-b border-amber-500/20 hover:bg-amber-500/5 transition-all duration-300 group">
                   <div
-                    onClick={handleEricZemmourClick}
-                    className="flex justify-between items-center w-full text-left text-slate-100 hover:text-amber-300 transition-all duration-300 luxury-font-serif cursor-pointer"
+                    onClick={() => {
+                      handleEricZemmourClick();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="flex justify-between items-center w-full text-left cursor-pointer transition-all duration-300"
                   >
                     <div>
-                      <div className="font-semibold text-lg">
+                      <div className="font-semibold text-lg luxury-font-serif text-amber-100 group-hover:text-amber-300">
                         {t("header.navigation.erichZemmour.title")}
                       </div>
-                      <div className="text-xs text-amber-200 luxury-font-sans font-light italic">
+                      <div className="text-sm text-amber-200/80 luxury-font-sans font-light italic mt-1">
                         {t("header.navigation.erichZemmour.subtitle")}
                       </div>
                     </div>
-                    <ChevronDown
-                      size={18}
-                      className={`transform transition-transform text-amber-200 ${
-                        activeDropdown === "eric" ? "rotate-180" : ""
-                      }`}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        toggleMobileDropdown("eric");
-                      }}
-                    />
-                  </div>
-                  {activeDropdown === "eric" && (
-                    <div className="mt-3 pl-4 space-y-2">
-                      {dropdownMenus.eric.map((item, index) => (
-                        <a
-                          key={index}
-                          href={item.link}
-                          className="block text-slate-300 hover:text-amber-300 transition-all duration-300 luxury-font-sans py-2 px-3 rounded-lg hover:bg-amber-500/10 border-l-2 border-transparent hover:border-amber-400"
-                        >
-                          {item.label}
-                        </a>
-                      ))}
+                    <div className="ml-4 p-2 rounded-full bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
+                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
                     </div>
-                  )}
+                  </div>
                 </div>
 
-                <div className="px-6 py-3 border-b border-slate-600/30">
+                <div className="px-8 py-4 border-b border-amber-500/20 hover:bg-amber-500/5 transition-all duration-300 group">
                   <div
-                    onClick={handleUsineClick}
-                    className="flex justify-between items-center w-full text-left text-slate-100 hover:text-amber-300 transition-all duration-300 luxury-font-serif cursor-pointer"
+                    onClick={() => {
+                      handleUsineClick();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="flex justify-between items-center w-full text-left cursor-pointer transition-all duration-300"
                   >
                     <div>
-                      <div className="font-semibold text-lg">
+                      <div className="font-semibold text-lg luxury-font-serif text-amber-100 group-hover:text-amber-300">
                         {t("header.navigation.usine.title")}
                       </div>
-                      <div className="text-xs text-amber-200 luxury-font-sans font-light italic">
+                      <div className="text-sm text-amber-200/80 luxury-font-sans font-light italic mt-1">
                         {t("header.navigation.usine.subtitle")}
                       </div>
                     </div>
-                    <ChevronDown
-                      size={18}
-                      className={`transform transition-transform text-amber-200 ${
-                        activeDropdown === "usine" ? "rotate-180" : ""
-                      }`}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        toggleMobileDropdown("usine");
-                      }}
-                    />
-                  </div>
-                  {activeDropdown === "usine" && (
-                    <div className="mt-3 pl-4 space-y-2">
-                      {dropdownMenus.usine.map((item, index) => (
-                        <div
-                          key={index}
-                          onClick={() => {
-                            if (item.link.includes("#")) {
-                              const section = item.link.split("#")[1];
-                              handleUsineSectionClick(section);
-                            } else {
-                              navigate(item.link);
-                            }
-                          }}
-                          className="block text-slate-300 hover:text-amber-300 transition-all duration-300 luxury-font-sans py-2 px-3 rounded-lg hover:bg-amber-500/10 border-l-2 border-transparent hover:border-amber-400 cursor-pointer"
-                        >
-                          {item.label}
-                        </div>
-                      ))}
+                    <div className="ml-4 p-2 rounded-full bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
+                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
                     </div>
-                  )}
+                  </div>
                 </div>
 
-                <div className="px-6 py-3 border-b border-slate-600/30">
-                  <button
-                    onClick={() => toggleMobileDropdown("caree")}
-                    className="flex justify-between items-center w-full text-left text-slate-100 hover:text-amber-300 transition-all duration-300 luxury-font-serif"
+                <div className="px-8 py-4 border-b border-amber-500/20 hover:bg-amber-500/5 transition-all duration-300 group">
+                  <Link
+                    to="/Suite"
+                    className="flex justify-between items-center w-full text-left transition-all duration-300"
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <div>
-                      <div className="font-semibold text-lg">
+                      <div className="font-semibold text-lg luxury-font-serif text-amber-100 group-hover:text-amber-300">
                         {t("header.navigation.carreVip.title")}
                       </div>
-                      <div className="text-xs text-amber-200 luxury-font-sans font-light italic">
+                      <div className="text-sm text-amber-200/80 luxury-font-sans font-light italic mt-1">
                         {t("header.navigation.carreVip.subtitle")}
                       </div>
                     </div>
-                    <ChevronDown
-                      size={18}
-                      className={`transform transition-transform text-amber-200 ${
-                        activeDropdown === "caree" ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  {activeDropdown === "caree" && (
-                    <div className="mt-3 pl-4 space-y-2">
-                      {dropdownMenus.caree.map((item, index) => (
-                        <a
-                          key={index}
-                          href={item.link}
-                          className="block text-slate-300 hover:text-amber-300 transition-all duration-300 luxury-font-sans py-2 px-3 rounded-lg hover:bg-amber-500/10 border-l-2 border-transparent hover:border-amber-400"
-                        >
-                          {item.label}
-                        </a>
-                      ))}
+                    <div className="ml-4 p-2 rounded-full bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
+                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
                     </div>
-                  )}
+                  </Link>
                 </div>
 
                 {/* Mobile Top Nav Links */}
-                <div className="mt-6 pt-4 px-6 space-y-3 border-t border-slate-600/30">
+                <div className="mt-8 pt-6 px-8 space-y-2 border-t border-amber-500/20">
+                  <div className="text-xs uppercase tracking-wider text-amber-400/80 font-semibold mb-4 luxury-font-sans">
+                    Services
+                  </div>
+                  
                   <a
                     href="#"
-                    className="block text-slate-200 hover:text-amber-300 transition-all duration-300 luxury-font-sans font-medium text-lg py-2 px-3 rounded-lg hover:bg-amber-500/10"
+                    className="flex items-center text-amber-100 hover:text-amber-300 transition-all duration-300 luxury-font-sans text-base py-3 px-4 rounded-xl hover:bg-amber-500/10 group"
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
+                    <div className="mr-3 p-1.5 rounded-lg bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
+                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                      </svg>
+                    </div>
                     {t("header.topNav.press")}
                   </a>
+                  
                   <a
                     href="#"
-                    className="hover:text-amber-600 transition-all duration-300 hover:scale-105"
+                    className="flex items-center text-amber-100 hover:text-amber-300 transition-all duration-300 luxury-font-sans text-base py-3 px-4 rounded-xl hover:bg-amber-500/10 group"
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
+                    <div className="mr-3 p-1.5 rounded-lg bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
+                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                      </svg>
+                    </div>
                     {t("header.topNav.offers")}
                   </a>
-                  <span
-                    className={
-                      isScrolled ? "text-gray-300" : "text-white opacity-60"
-                    }
-                  >
-                    |
-                  </span>
+                  
                   <Link
-                    to="/contact"
-                    className="block text-slate-200 hover:text-amber-300 transition-all duration-300 luxury-font-sans font-medium text-lg py-2 px-3 rounded-lg hover:bg-amber-500/10"
+                    to="/"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsMobileMenuOpen(false);
+                      const contactSection = document.getElementById('contact');
+                      if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                      } else {
+                        // If not on home page, navigate to home then scroll
+                        window.location.href = '/#contact';
+                      }
+                    }}
+                    className="flex items-center text-amber-100 hover:text-amber-300 transition-all duration-300 luxury-font-sans text-base py-3 px-4 rounded-xl hover:bg-amber-500/10 group"
                   >
+                    <div className="mr-3 p-1.5 rounded-lg bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
+                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
                     {t("header.topNav.contact")}
                   </Link>
                 </div>
+
+                {/* Bottom decorative border */}
+                <div className="mt-6 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
               </div>
             </div>
           )}

@@ -14,6 +14,18 @@ const Hero = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
+  // Welcome overlay state
+  const [showWelcome, setShowWelcome] = useState(true);
+
+  // Auto-hide welcome text after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowWelcome(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   // Your images with corresponding texts and navigation routes
   const images = [
     {
@@ -177,6 +189,53 @@ const Hero = () => {
 
   return (
     <section className="relative w-full h-screen overflow-hidden bg-black">
+      {/* Welcome Overlay - Appears on top of everything */}
+      {showWelcome && (
+        <div className="fixed inset-0 z-[10000] flex items-center justify-center welcome-overlay">
+          <div className="text-center px-8 max-w-4xl mx-auto">
+            {/* Main Welcome Title */}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-amber-100 mb-6 tracking-wide">
+              <span className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 drop-shadow-2xl">
+                Bienvenue à Royal Elyssa
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-stone-200 text-2xl md:text-3xl lg:text-4xl font-extralight tracking-[0.3em] drop-shadow-lg mb-8">
+              THALASSO & SPA
+            </p>
+
+            {/* Luxury decorative elements */}
+            <div className="flex items-center justify-center mb-8">
+              <div className="h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent w-24"></div>
+              <div className="mx-6 flex space-x-2">
+                <div className="w-3 h-3 bg-gradient-to-r from-amber-400 to-yellow-300 rounded-full shadow-lg"></div>
+                <div className="w-2 h-2 bg-gradient-to-r from-yellow-300 to-amber-400 rounded-full shadow-lg mt-0.5"></div>
+                <div className="w-3 h-3 bg-gradient-to-r from-amber-400 to-yellow-300 rounded-full shadow-lg"></div>
+              </div>
+              <div className="h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent w-24"></div>
+            </div>
+
+            {/* Location - MONASTIR */}
+            <div className="relative z-10">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-amber-100 tracking-wide">
+                <span className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 drop-shadow-2xl"
+                      style={{
+                        background: 'linear-gradient(135deg, #FFD700 0%, #FFF700 25%, #FFED4E 50%, #FFF700 75%, #FFD700 100%)',
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        textShadow: '0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.4)',
+                        filter: 'drop-shadow(0 3px 6px rgba(255, 215, 0, 0.5))'
+                      }}>
+                  MONASTIR
+                </span>
+              </h2>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Premium luxury fonts and styles */}
       <style jsx global>{`
         @import url("https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@500;600;700&family=Marcellus+SC&display=swap");
@@ -253,6 +312,64 @@ const Hero = () => {
           color: #2c1810;
           box-shadow: 0 8px 32px rgba(248, 245, 240, 0.3);
           transform: translateY(-2px) scale(1.02);
+        }
+
+        /* Welcome Overlay Styles */
+        .welcome-overlay {
+          background: radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%);
+          backdrop-filter: blur(8px);
+          animation: welcomeFadeIn 0.8s ease-out;
+        }
+
+        .welcome-text {
+          font-family: 'Marcellus SC', serif;
+          background: linear-gradient(45deg, #FFD700, #FFF700, #FFED4E, #FFD700);
+          background-size: 300% 100%;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: welcomeGoldShimmer 3s ease-in-out infinite, welcomeFloat 2s ease-in-out infinite alternate;
+          text-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.3);
+        }
+
+        .welcome-subtitle {
+          font-family: 'Cormorant Upright', serif;
+          color: #F5F5DC;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+          animation: welcomeSubtitleFade 1s ease-out 0.5s both;
+        }
+
+        @keyframes welcomeFadeIn {
+          from {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        @keyframes welcomeGoldShimmer {
+          0% { background-position: -300% 0; }
+          50% { background-position: 0% 0; }
+          100% { background-position: 300% 0; }
+        }
+
+        @keyframes welcomeFloat {
+          from { transform: translateY(0px); }
+          to { transform: translateY(-10px); }
+        }
+
+        @keyframes welcomeSubtitleFade {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 0.9;
+            transform: translateY(0);
+          }
         }
       `}</style>
 

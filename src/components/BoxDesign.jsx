@@ -55,13 +55,6 @@ const BoxDesign = ({
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" />
 
         {/* Elegant overlay for ESCALES MARINES */}
-        <div className="absolute top-4 right-4">
-          <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-            <span className="text-slate-700 text-xs font-medium tracking-wider">
-              {displayOptions.length} SOINS
-            </span>
-          </div>
-        </div>
       </div>
 
       {/* Content */}

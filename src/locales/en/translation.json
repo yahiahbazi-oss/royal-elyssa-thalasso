@@ -48,6 +48,41 @@
       }
     }
   },
+  "suite": {
+    "navigation": {
+      "home": "Home",
+      "homeAriaLabel": "Return to home page"
+    },
+    "description": {
+      "title": "An Exquisite Sanctuary",
+      "paragraph1": "You have a choice for your accommodation: either you can stay at the Royal Thalassa Monastir*****, directly connected to the Royal Elyssa Thalasso & Spa, or you may prefer to live in the heart of our center, on the second floor, in the magnificent VIP Spa Square, composed of twenty suites, overlooking both luxuriant hanging gardens, the nearby Mediterranean and a private pool, exclusively reserved for VIP Square residents.",
+      "paragraph2": "The Spa Suites are luxuriously decorated in a contemporary and refined style. They feature spacious bathrooms and some even offer jacuzzis on their private terraces.",
+      "paragraph3": "If you stay in our VIP square, you can easily access all our thalasso and spa spaces directly in a bathrobe."
+    },
+    "gallery": {
+      "mainSuite": "Main Suite",
+      "suiteDetail": "Suite Detail",
+      "viewLarge": "View Large"
+    },
+    "booking": {
+      "title": "Book Your Stay",
+      "description": "Experience the pinnacle of luxury hospitality. Your sanctuary of elegance awaits in an exceptional setting at the heart of the Mediterranean.",
+      "bookNow": "BOOK NOW"
+    },
+    "contact": {
+      "title": "Information & Reservations",
+      "onlineBooking": "Online Booking",
+      "emailBooking": "Email Booking",
+      "information": "Information"
+    },
+    "amenities": {
+      "title": "Facilities & Services",
+      "description": "Discover the luxury amenities and exclusive services that make your stay an unforgettable experience",
+      "kingBed": "King Size Bed",
+      "marbleBathroom": "Marble Bathroom",
+      "privatePool": "Private Pool"
+    }
+  },
   "whyChoose": {
     "title": {
       "name": "Royal Elyssa",
@@ -162,6 +197,12 @@
     },
     "map": {
       "directions": "Directions"
+    },
+    "thalion": {
+      "contact": "CONTACT",
+      "phone": "+216 73 520 589",
+      "email": "dg.elyssa@thalassa-hotels.com",
+      "address": "Tourist Route Skanes, Monastir, Tunisia"
     },
     "address": {
       "title": "Our address",
@@ -517,11 +558,64 @@
       "weekendCool": "Cool Weekend"
     },
     "rituels": {
+      "title": "Thali'sens Rituals",
+      "treatmentProgram": "Treatment Program",
+      "book": "Book",
       "orientalDetox": "Oriental Detoxifying Journey",
       "atlantiqueRevitalisant": "Atlantic Revitalising Dive",
       "asiatiqueApaisant": "Asian Soothing Escape",
       "polynesienneRelaxante": "Polynesian Relaxing Getaway",
-      "amazonienneEnergisante": "Amazonian Energising Escapade"
+      "amazonienneEnergisante": "Amazonian Energising Escapade",
+      "oriental": {
+        "name": "Oriental Detoxifying Journey",
+        "shortName": "Oriental Detox",
+        "description": "A gentle exfoliation followed by a wrap to deeply purify the skin, drain and release toxins. The journey continues with a one-hour massage, firm and rhythmic that improves circulation and provides a feeling of lightness.",
+        "price": "314 TND / 94 €",
+        "duration": "100 min",
+        "treatment1": "Desert Wind Exfoliating Scrub",
+        "treatment2": "Spices and Algae Wrap",
+        "treatment3": "Ocean of Sun Massage"
+      },
+      "atlantique": {
+        "name": "Atlantic Revitalising Dive",
+        "shortName": "Atlantic Revitalising",
+        "description": "Revitalise your body with the benefits of the ocean. The ritual begins with a scrub with algae flakes, to oxygenate and recharge the body with minerals.",
+        "price": "314 TND / 94 €",
+        "duration": "100 min",
+        "treatment1": "Algae Flakes Scrub",
+        "treatment2": "Iodine Wrap",
+        "treatment3": "Revitalising Massage"
+      },
+      "asiatique": {
+        "name": "Asian Soothing Escape",
+        "shortName": "Asian Soothing",
+        "description": "Find serenity with this soothing escape. A combination of rice and exotic fruits, the peeling smoothes and softens the skin.",
+        "price": "314 TND / 94 €",
+        "duration": "100 min",
+        "treatment1": "Rice and Exotic Fruits Scrub",
+        "treatment2": "Wrap or Bath",
+        "treatment3": "Harmonising Massage"
+      },
+      "polynesienne": {
+        "name": "Polynesian Relaxing Getaway",
+        "shortName": "Polynesian Relaxing",
+        "description": "Escape to the paradise islands. It all starts with an exfoliation with coconut pulp. Then dive into the heart of the lagoon for a cocoon wrap.",
+        "price": "314 TND / 94 €",
+        "duration": "100 min",
+        "treatment1": "Crystalline Temptation Exfoliating Scrub",
+        "treatment2": "Atoll Transparency Wrap",
+        "treatment3": "Polynesian Massage"
+      },
+      "amazonienne": {
+        "name": "Amazonian Energising Escapade",
+        "shortName": "Amazonian Energising",
+        "description": "Draw from the energy of the Amazon rainforest. Body exfoliation is an invitation to change skin, to oxygenate your body.",
+        "price": "314 TND / 94 €",
+        "duration": "100 min",
+        "treatment1": "Coral Red Exfoliating Scrub",
+        "treatment2": "Depth of Lands Wrap",
+        "treatment3": "Woody Wave Massage"
+      }
     },
     "cover": {
       "subtitle": "marine cosmetic creator",
@@ -613,12 +707,16 @@
       "supplement": "In addition",
       "pricing": "Pricing",
       "pricingDisclaimer": "Prices in euros are given for informational purposes only",
-      "day": "day",
+      "day": "Day",
       "dayProgram": "Day program",
       "approximateDuration": "Approximate duration: 3h30",
       "close": "Close",
       "moretreatments": "+1 other treatments...",
       "clickForDetails": "Click for more details",
+      "treatments": "treatments",
+      "completeWellnessExperience": "Complete wellness experience",
+      "discoverDetailedProgram": "Discover the detailed program",
+      "otherTreatments": "other treatments...",
       "vitaliteMarine": {
         "description": "* Additional day on request. This revitalizing treatment restores your energy and vitality through the benefits of seawater and marine treatments. Ideal for regaining form and well-being, it combines relaxing massages, marine baths and energizing treatments. You will love: Relaxing massages and the exclusive use of Thal'ion marine products. Duration: 4, 6 or 9 days (average treatment duration per day: 3h 30)",
         "supplement": "In addition to your Marine Escape, the marine course 'natural seawater' as well as the steam hammam are accessible before treatments.",
@@ -727,10 +825,435 @@
           "treatment2": "Siesta bath",
           "treatment3": "Siesta massage"
         }
+      },
+      "cureNoStress": {
+        "title": "No Stress",
+        "description": "Treat yourself to a wellness break to release stress and regain your inner balance. This treatment specially designed to combat the effects of daily stress combines the benefits of marine magnesium and deep relaxation techniques.",
+        "supplement": "In addition to your Marine Escape, the marine pathway with 'natural seawater' as well as the steam hammam are accessible before treatments.",
+        "loading": "Preparing the anti-stress experience...",
+        "day1": {
+          "treatment1": "Remineralizing essential oil scrub",
+          "treatment2": "Beneficial marine mud duo",
+          "treatment3": "Signature massage with marine magnesium oil"
+        },
+        "day2": {
+          "treatment1": "Affusion massage with magnesium oil",
+          "treatment2": "Beneficial marine mud duo",
+          "treatment3": "Signature massage with marine magnesium oil"
+        },
+        "day3": {
+          "treatment1": "Energizing marine magnesium bath",
+          "treatment2": "Marine oligo-mineral duo wrap",
+          "treatment3": "Gentle massage with marine magnesium oil"
+        },
+        "day4": {
+          "treatment1": "Affusion massage with magnesium oil",
+          "treatment2": "Revitalizing duo wrap",
+          "treatment3": "Signature massage"
+        },
+        "day5": {
+          "treatment1": "Relaxing marine magnesium bath",
+          "treatment2": "Beneficial marine mud duo",
+          "treatment3": "Gentle massage"
+        }
+      },
+      "escaleMen": {
+        "title": "Escape For Men",
+        "description": "Specially designed for men, this treatment offers a comprehensive program combining face and body treatments, including massages from 25 to 50 minutes, to regain strength and vitality. Our promise: In just 4 or 6 days to boost your energy reserves! Duration: 4 or 6 days* (average treatment duration per day: 2h30)",
+        "supplement": "In addition to your Marine Escape, the marine pathway with 'natural seawater' as well as the steam hammam are accessible before treatments.",
+        "loading": "Preparing the spa experience...",
+        "day1": {
+          "treatment1": "Revitalizing essential oil scrub",
+          "treatment2": "Revitalizing algae cream bath",
+          "treatment3": "Energy breath massage with Brazil nut oil"
+        },
+        "day2": {
+          "treatment1": "Tonic grand jet",
+          "treatment2": "Beneficial marine mud duo",
+          "treatment3": "Back massage"
+        },
+        "day3": {
+          "treatment1": "Underwater draining shower",
+          "treatment2": "Sea mist massage with organic sea fennel",
+          "treatment3": "Energy breath massage with Brazil nut oil"
+        },
+        "day4": {
+          "treatment1": "Tonic grand jet",
+          "treatment2": "Beneficial marine mud duo",
+          "treatment3": "Back massage"
+        },
+        "day5": {
+          "treatment1": "Revitalizing algae cream bath",
+          "treatment2": "Sea mist massage with organic sea fennel",
+          "treatment3": "Sensitive feet massage"
+        },
+        "day6": {
+          "treatment1": "Beneficial marine mud duo",
+          "treatment2": "Muscle bliss massage with camphor balm",
+          "treatment3": "Facial Oxygen Booster treatment"
+        }
+      },
+      "afterGolf": {
+        "title": "After Golf",
+        "description": "What could be more pleasant than enjoying a 25' to 50' massage, a draining shower or a hydro-massage bath after working on your swing? These treatments will provide you with the necessary relaxation and muscle relaxation, or conversely, the toning preparation before going on the course. You will love: The alternation of treatments in the morning or afternoon allowing you to play golf when you want. Duration: 5 days* (average treatment duration per day: 2h30)",
+        "supplement": "You will love: The alternation of treatments in the morning or afternoon allowing you to play golf when you want.",
+        "loading": "Preparing your golf program...",
+        "pricing": {
+          "fiveDays": "820 TND / 249 €"
+        },
+        "day1": {
+          "treatment1": "Relaxing aromatic bath",
+          "treatment2": "Muscle bliss massage with camphor balm"
+        },
+        "day2": {
+          "treatment1": "Sea mist massage with organic sea fennel",
+          "treatment2": "Back massage"
+        },
+        "day3": {
+          "treatment1": "Underwater draining shower",
+          "treatment2": "Sensitive feet massage"
+        },
+        "day4": {
+          "treatment1": "Relaxing bath with gorse crystals",
+          "treatment2": "Back massage"
+        },
+        "day5": {
+          "treatment1": "Sea mist massage with organic sea fennel",
+          "treatment2": "Muscle bliss massage with camphor balm"
+        }
+      },
+      "arbreVie": {
+        "title": "Tree of Life",
+        "description": "To effectively fight against back pain and prevent muscle contractures, this treatment alternates baths, wraps and massages. The rehabilitation sessions will teach you to care for, strengthen your back and prepare for post-treatment. You will love: The daily 30' back massages, pool and room rehabilitation, performed by a physiotherapist to personalize treatments according to your needs. Duration: 6 days* (average treatment duration per day: 2h30)",
+        "supplement": "In addition to your Marine Escape, the marine pathway with 'natural seawater' as well as the steam hammam are accessible before treatments.",
+        "loading": "Preparing your Tree of Life program...",
+        "pricing": {
+          "sixDays": "1580 TND / 479 €"
+        },
+        "day1": {
+          "treatment1": "Beneficial marine mud duo",
+          "treatment2": "Underwater draining shower",
+          "treatment3": "Back rehabilitation in pool",
+          "treatment4": "Back massage"
+        },
+        "day2": {
+          "treatment1": "Revitalizing algae cream bath",
+          "treatment2": "Sea mist massage with organic sea fennel",
+          "treatment3": "Back rehabilitation in room",
+          "treatment4": "Back massage"
+        },
+        "day3": {
+          "treatment1": "Beneficial marine mud duo",
+          "treatment2": "Underwater draining shower",
+          "treatment3": "Back rehabilitation in pool",
+          "treatment4": "Back massage"
+        },
+        "day4": {
+          "treatment1": "Revitalizing algae cream bath",
+          "treatment2": "Sea mist massage with organic sea fennel",
+          "treatment3": "Back rehabilitation in room",
+          "treatment4": "Back massage"
+        },
+        "day5": {
+          "treatment1": "Beneficial marine mud duo",
+          "treatment2": "Underwater draining shower",
+          "treatment3": "Back rehabilitation in pool",
+          "treatment4": "Back massage"
+        }
+      },
+      "ceremonieSpa": {
+        "title": "Spa Ceremonies & Thalassotherapy Treatments",
+        "description": "Treatments follow one another, but are never the same. Enjoy 4 days to discover the benefits of thalassotherapy and the relaxing moments offered by spa treatments. The ideal compromise! Duration: 4 days* (average treatment duration per day: 2h30)",
+        "supplement": "In addition to your Marine Escape, the marine pathway with 'natural seawater' as well as the steam hammam are accessible before treatments.",
+        "loading": "Preparing your Spa Ceremonies program...",
+        "pricing": {
+          "fourDays": "840 TND / 255 €"
+        },
+        "day1": {
+          "treatment1": "Access to the lagoon (Spa pool)",
+          "treatment2": "Aromas & Colors Hammam",
+          "treatment3": "Black soap scrub",
+          "treatment4": "Oriental clay cream wrap",
+          "treatment5": "Intense relaxation massage"
+        },
+        "day2": {
+          "treatment1": "Access to marine pathway and hammam before treatments",
+          "treatment2": "Revitalizing algae cream bath",
+          "treatment3": "Coconut pulp duo wrap",
+          "treatment4": "Sea mist massage with organic sea fennel"
+        },
+        "day3": {
+          "treatment1": "Access to marine pathway and hammam before treatments",
+          "treatment2": "Underwater draining shower",
+          "treatment3": "Beneficial marine mud duo",
+          "treatment4": "Gentle breeze massage with coconut oil"
+        },
+        "day4": {
+          "treatment1": "Access to the lagoon (Spa pool)",
+          "treatment2": "Tropical Walk in the hammam",
+          "treatment3": "Onsen Ceremony: Japanese bath",
+          "treatment4": "Facial Hydration Strategy"
+        }
+      },
+      "nouvelAge": {
+        "title": "New Age",
+        "description": "A true fountain of youth, the New Age Escape brings you an incredible sense of inner well-being by working on both body and mind. You combine face and body treatments to restore youth and beauty to your entire being. You will love: The treatment program that alternates aesthetic treatments, massages (25' to 40') and hydrotherapy to enhance anti-aging effectiveness. Duration: 4 or 6 days* (average treatment duration per day: 2h00)",
+        "supplement": "In addition to your Marine Escape, the marine pathway with 'natural seawater' as well as the steam hammam are accessible before treatments.",
+        "loading": "Preparing your New Age program...",
+        "pricing": {
+          "fourDays": "900 TND / 273 €",
+          "sixDays": "1450 TND / 440 €"
+        },
+        "day1": {
+          "treatment1": "Bora Bora gentle scrub",
+          "treatment2": "Gentle coconut pulp duo wrap",
+          "treatment3": "Personalized Essential Beauty facial"
+        },
+        "day2": {
+          "treatment1": "SLIM roll-pinch under sea rain",
+          "treatment2": "Performance Firmness body treatment",
+          "treatment3": "Draining facial massage"
+        },
+        "day3": {
+          "treatment1": "Relaxing aromatic bath",
+          "treatment2": "New skin duo wrap with fruit enzymes",
+          "treatment3": "4-finger facial treatment"
+        },
+        "day4": {
+          "treatment1": "Silky cotton powder duo wrap",
+          "treatment2": "Gentle breeze massage with coconut oil",
+          "treatment3": "Lift Expert Eye treatment"
+        },
+        "day5": {
+          "treatment1": "Slimming aromatic bath",
+          "treatment2": "Cellu Contour body treatment",
+          "treatment3": "Personalized Essential Beauty facial"
+        },
+        "day6": {
+          "treatment1": "SLIM roll-pinch under sea rain",
+          "treatment2": "New skin duo wrap with fruit enzymes",
+          "treatment3": "Absolute Lift facial treatment"
+        }
+      },
+      "weekendCool": {
+        "title": "Cool Weekend",
+        "description": "Escape and recharge over a weekend to enjoy the benefits of seawater and algae rich in trace elements. You make a stopover to experience a moment of relaxation and gentleness. You will love: The face and body treatments, including 40' massages, for a comprehensive care of your entire being",
+        "supplement": "In addition to your Marine Escape, the marine pathway with 'natural seawater' as well as the steam hammam are accessible before treatments.",
+        "loading": "Preparing your Cool Weekend program...",
+        "pricing": {
+          "twoDays": "630 TND / 191 €"
+        },
+        "day1": {
+          "treatment1": "Bora Bora gentle scrub",
+          "treatment2": "Relaxing bath with gorse crystals",
+          "treatment3": "Marine force duo wrap",
+          "treatment4": "Gentle breeze massage with coconut oil"
+        },
+        "day2": {
+          "treatment1": "Relaxing aromatic bath",
+          "treatment2": "Warm algae-cocoa duo wrap",
+          "treatment3": "Breath of energy massage with Brazil nut oil",
+          "treatment4": "Beauty Enhancement facial treatment"
+        }
       }
     },
     "mobile": {
       "languageSection": "Language / Langue"
+    }
+  },
+  "soins": {
+    "sections": {
+      "allTreatments": "All Treatments",
+      "allTreatmentsDesc": "All our treatments at a glance",
+      "treatmentsAlaCarte": "À la Carte Treatments",
+      "treatmentsAlaCarteDesc": "Personalized treatments according to your needs",
+      "marineCard": "Marine Card",
+      "marineCardDesc": "Benefits of thalassotherapy",
+      "massageCard": "Massage Card",
+      "massageCardDesc": "Deep relaxation and wellness"
+    },
+    "categories": {
+      "face": "FACE",
+      "faceSubtitle": "BEAUTY",
+      "faceDescription": "TREATMENT THAT COMBINES THE BENEFITS OF THALASSO WITH THOSE OF AESTHETICS",
+      "men": "MEN",
+      "menSubtitle": "FOR MEN",
+      "menDescription": "TREATMENTS SPECIALLY DESIGNED FOR MEN",
+      "body": "BODY",
+      "bodySubtitle": "WELLNESS",
+      "bodyDescription": "RELAXING AND REVITALIZING BODY TREATMENTS",
+      "massagesAffusions": "MASSAGES UNDER AFFUSIONS",
+      "massagesAffusionsSubtitle": "WELLNESS",
+      "massagesAffusionsDescription": "RELAXING MASSAGES UNDER SEAWATER MIST",
+      "massagesWellbeing": "MASSAGES & WELLNESS",
+      "massagesWellbeingSubtitle": "RELAXATION",
+      "massagesWellbeingDescription": "RELAXING AND THERAPEUTIC MASSAGES FOR YOUR WELLNESS",
+      "showersBaths": "SHOWERS & BATHS",
+      "showersBathsSubtitle": "HYDROTHERAPY",
+      "showersBathsDescription": "BENEFITS OF SEAWATER AND HYDROTHERAPY",
+      "scrubsWraps": "SCRUBS & WRAPS",
+      "scrubsWrapsSubtitle": "RITUALS",
+      "scrubsWrapsDescription": "EXFOLIATING SCRUBS AND NOURISHING WRAPS",
+      "careTherapies": "TREATMENTS & THERAPIES",
+      "careTherapiesSubtitle": "THERAPEUTIC",
+      "careTherapiesDescription": "SPECIALIZED TREATMENTS AND MANUAL THERAPIES",
+      "hammamMassages": "HAMMAM & MASSAGES",
+      "hammamMassagesSubtitle": "RITUAL",
+      "hammamMassagesDescription": "AUTHENTIC TRADITIONAL HAMMAM EXPERIENCE"
+    },
+    "buttons": {
+      "learnMore": "LEARN MORE",
+      "back": "Back",
+      "close": "Close",
+      "duration": "Duration",
+      "price": "Price",
+      "sessions": "sessions",
+      "book": "Book",
+      "categoriesAvailable": "categories available",
+      "treatmentsAvailable": "treatments available"
+    },
+    "subcategories": {
+      "essentialBeauty": "Essential Beauty",
+      "eyeBeauty": "Eye Beauty",
+      "eternalYouth": "Eternal Youth",
+      "relaxation": "Relaxation",
+      "silhouette": "Silhouette",
+      "specialMen": "For Men",
+      "marineCourse": "Marine Course",
+      "marineRelaxation": "Marine Relaxation",
+      "showers": "Showers",
+      "baths": "Baths",
+      "siesta": "The Siesta",
+      "bodyScrubs": "Body Scrubs",
+      "wraps": "Wraps",
+      "massageWellness": "Massage & Wellness",
+      "careTherapies": "Treatments & Therapies",
+      "hammamExperience": "Hammam Experience",
+      "massagesUnderAffusion": "Massages under Affusion",
+      "asianMassages": "Asian Massages",
+      "therapeuticMassages": "Therapeutic Massages",
+      "wellnessMassages": "Wellness Massages"
+    },
+    "introduction": {
+      "title": "Our Treatments & Cards",
+      "text1": "The",
+      "text1After": "treatment card takes you on a journey to discover the benefits of the sea, in a universe of unforgettable sensations combining exclusive gestures with cutting-edge equipment!",
+      "text2": "Experience a unique marine treatment experience.",
+      "pricingDisclaimer": "Prices in euros are given for indicative purposes only"
+    },
+    "treatments": {
+      "beautyTreatment30": "Beauty Treatment",
+      "beautyTreatment30Desc": "Need hydration, nutrition, softness or purity? After a professional diagnosis of your skin, the beautician will advise you on your personalized treatment.",
+      "beautyTreatment60": "Beauty Treatment",
+      "beautyTreatment60Desc": "Scrub, mask and massage follow one another to enhance your skin. It radiates freshness.",
+      "eyeLiftExpert": "Expert Eye Lift",
+      "eyeLiftExpertDesc": "Specialized eye contour treatment, reducing signs of fatigue and first wrinkles.",
+      "absoluteRelaxation": "Absolute Relaxation",
+      "absoluteRelaxationDesc": "The Relaxing Energy Modeling (M.E.R.) rebalances and harmonizes body energies. A deeply relaxing and regenerating escape.",
+      "firmness": "Firmness Performance",
+      "firmnessDesc": "Anti-aging toning body mask, ideal for preserving skin tone. Objective: reshape the silhouette, firm and densify the skin.",
+      "tonicLegs": "Tonic Legs",
+      "tonicLegsDesc": "Ally of heavy legs, this decongestant treatment provides instant relief. The legs regain shape, lightness and vitality.",
+      "silhouetteDrainage": "Silhouette Drainage",
+      "silhouetteDrainageDesc": "Fights against circulatory disorders of the lower limbs by combining the virtues of the sea with manual draining maneuvers.",
+      "stretchMarks": "Stretch Mark Action",
+      "stretchMarksDesc": "Preventive and reducing effect that restores skin elasticity and restructures tissues.",
+      "celluContour": "Cellu'contour",
+      "celluContourDesc": "Intensive tailor-made anti-cellulite treatment. Its active ingredients concentrated in marine and plant extracts combined with innovative modeling techniques.",
+      "detoxRitual": "Body Detox Ritual",
+      "detoxRitualDesc": "After a tonic scrub, a concentrate of marine active ingredients is rubbed with specific detox gestures.",
+      "facialOxygen": "Facial Oxygen Booster",
+      "facialOxygenDesc": "Objective: restore tone and firmness, thanks to deep modeling of the scalp, face, trapezius and neck.",
+      "goodLookExpress": "Good Look Express",
+      "goodLookExpressDesc": "This express treatment fills the skin with ultra-concentrated active ingredients for immediate results.",
+      "backRelaxation": "Back Relaxation",
+      "backRelaxationDesc": "Its action on muscle mass makes this treatment a moment of extreme relaxation.",
+      "bodyScrubChoice": "Choose from",
+      "bodyScrubChoiceDesc": "The scrub refines, softens the epidermis and prepares the skin to optimize the following treatments. Thanks to this wide choice of delicious ingredients, vary the pleasures for the greatest happiness of the senses.",
+      "fullBodyWrap": "Full Body Wrap",
+      "fullBodyWrapDesc": "Performed on a floating warm water bed offering unique color variations, these 'Duo Wraps' combine the application of algae wraps on the whole body with a scalp massage.",
+      "seaMistMassage": "Organic Sea Mist Massage with Sea Samphire",
+      "seaMistMassageDesc": "Massage under a fine mist of seawater enriched with organic sea samphire, for a unique relaxation experience.",
+      "supremeSeaMist": "Supreme 4-Hand Sea Mist Massage",
+      "supremeSeaMistDesc": "Exceptional four-hand massage under sea mist, enriched with organic sea samphire for supreme relaxation.",
+      "palperRoulerSlim": "SLIM Roll-Pinch Session",
+      "palperRoulerSlimDesc": "SLIM roll-pinch under sea rain: slimming massage with roll-pinch technique under seawater rain.",
+      "palperRouler5Sessions": "5 SLIM Roll-Pinch Sessions",
+      "palperRouler5SessionsDesc": "Package of 5 SLIM roll-pinch sessions for optimal and lasting results.",
+      "liftAbsolu": "Absolute Lift",
+      "liftAbsoluDesc": "Its plumping and smoothing action visibly reduces the signs of time. Under the action of personalized restructuring modeling, features are rested.",
+      "eclatOriginel": "Original Radiance",
+      "eclatOriginelDesc": "True innovation combining marine benefits with fruit enzymes and vitamin C to stimulate cellular renewal of dull skin.",
+      "expertAntiAge": "Anti-Aging Expert",
+      "expertAntiAgeDesc": "Targeted response against the effects of time to restore your youth capital. This high-precision tailor-made treatment fills wrinkles and fine lines.",
+      "marineEntry": "The Entry",
+      "marineEntryDesc": "In a magnificent heated seawater pool, enjoy whirlpools, waterfalls, underwater jets, hydromassage beds, aquabikes and counter-current walking course to activate your blood circulation and improve your muscle tone.",
+      "marinePackage5": "5-Entry Package",
+      "marinePackage5Desc": "Economic package to regularly enjoy the benefits of the marine course. Activate your circulation and strengthen your muscle tone.",
+      "marineEntryHammam": "Marine Course + Hammam Entry",
+      "marineEntryHammamDesc": "Perfect combination between the benefits of the marine course and the relaxation of the traditional hammam.",
+      "marinePackage5Hammam": "5-Entry Marine Course + Hammam Package",
+      "marinePackage5HammamDesc": "Privilege package combining marine course and hammam for a complete wellness experience.",
+      "marineRelaxation": "Marine Relaxation",
+      "marineRelaxationDesc": "This massage performed in our warm seawater pool invites you to a true journey through the senses. While you float, the therapist performs fluid movements and light stretches that relax the muscles.",
+      "underwaterDrainageShower": "Underwater Drainage Shower",
+      "underwaterDrainageShowerDesc": "This treatment is performed by a hydrotherapist in a heated seawater bath at 37°C. The entire body is massaged and drained thanks to a powerful jet that promotes circulation.",
+      "grandJetTonic": "Grand Tonic Jet & Apple Shower",
+      "grandJetTonicDesc": "The hydrotherapist sweeps the entire body with a powerful seawater jet. The adjustable pressure of the jet improves muscle tone and relaxes the body.",
+      "seaBaths": "Sea Baths",
+      "seaBathsDesc": "There is a particular affinity between our cells and the original marine environment. In contact with the sea, we recharge and its vital force stimulates our entire being. Dive into the discovery of sea baths, fantastic health reservoirs.",
+      "sieste": "The Siesta",
+      "siesteDesc": "To begin this ritual, you dive into a generous and sensual basin to enjoy a relaxing aromatic bath (20'). You let your senses wander, then a complete body massage begins (60').",
+      "fiveSessionsPalperRouler": "5 Palper-Rouler SLIM Sessions",
+      "fiveSessionsPalperRoulerDesc": "Package of 5 palper-rouler SLIM sessions for optimal and lasting results.",
+      "awakeDream": "Awake Dream",
+      "awakeDreamDesc": "Relaxing massage for deep relaxation and a unique sensory journey.",
+      "coconutBreezeGentleness": "Coconut Breeze Gentleness",
+      "coconutBreezeGentlenessDesc": "Gentle coconut oil massage to nourish and moisturize the skin.",
+      "muscleBlissCamphor": "Muscle Bliss with Camphor Balm",
+      "muscleBlissCamphorDesc": "Toning camphor balm massage to relieve muscular tension.",
+      "backMassage": "Back Massage",
+      "backMassageDesc": "Targeted back massage to relax and soothe the dorsal area.",
+      "brazilianNutEnergyBreath": "Brazilian Nut Oil Energy Breath",
+      "brazilianNutEnergyBreathDesc": "Energizing Brazilian nut oil massage to restore vitality.",
+      "enchantedSilhouetteSeawater": "Enchanted Silhouette with Sea Waters",
+      "enchantedSilhouetteSeawaterDesc": "Sculpting massage with sea waters to refine and tone the silhouette.",
+      "westernReflexology": "Western Plantar Reflexology",
+      "westernReflexologyDesc": "Complete plantar reflexology session to rebalance the body.",
+      "sensitiveFeet": "Sensitive Feet",
+      "sensitiveFeetDesc": "Specialized treatment for sensitive and tired feet.",
+      "hotStonesAlgaePouches": "Hot Stones & Algae Pouches Duo",
+      "hotStonesAlgaePouchesDesc": "Hot stone and algae pouch massage with organic sea buckthorn oil.",
+      "lymphaticDrainage": "Lymphatic Drainage",
+      "lymphaticDrainageDesc": "Specialized lymphatic drainage technique to improve circulation.",
+      "balineseMassage": "Balinese Massage",
+      "balineseMassageDesc": "Traditional Indonesian massage combining kneading, acupressure and stretching to harmonize body and mind.",
+      "abhyangaMassage": "Abhyanga Massage",
+      "abhyangaMassageDesc": "Traditional Ayurvedic hot oil massage that revitalizes the body and balances energies.",
+      "thaiMassage": "Thai Massage",
+      "thaiMassageDesc": "Traditional Thai massage combining acupressure, stretching and energy work for deep relaxation.",
+      "pressotherapy": "Pressotherapy",
+      "pressotherapyDesc": "Mechanical lymphatic drainage treatment that improves blood and lymphatic circulation, helps eliminate toxins and reduces heavy leg sensation.",
+      "heatExperience": "Heat Experience",
+      "heatExperienceDesc": "Complete thermal experience combining different heat sources for deep detoxification and intense relaxation.",
+      "sauna": "Sauna",
+      "saunaDesc": "Traditional sauna session to eliminate toxins, relax muscles and purify skin through perspiration.",
+      "algaeClayCeremony": "Algae & Clay Duo Ceremony",
+      "algaeClayCeremonyDesc": "Purifying and revitalizing ritual combining the benefits of marine algae and clay to detoxify, nourish and regenerate skin deeply.",
+      "hammamComplete": "Hammam + scrub + wrap + massage",
+      "hammamCompleteDesc": "Complete hammam ritual with green soap scrub, Earth and Sea application (beneficial marine mud), followed by relaxing massage. An authentic experience from the 'Land of a Thousand and One Nights'.",
+      "hammamMassage": "Hammam + massage",
+      "hammamMassageDesc": "Hammam session followed by relaxing massage to extend the benefits of humid heat.",
+      "hammamScrub": "Hammam + scrub",
+      "hammamScrubDesc": "Traditional hammam followed by green soap scrub to purify and soften the skin.",
+      "hammamLatitudeIslands": "Hammam Latitude Islands",
+      "hammamLatitudeIslandsDesc": "Hammam + Bora Bora Gentle Scrub + Coconut Pulp Gentle Wrap. Sensory journey with the scents of paradise islands.",
+      "hammamLatitudeOasis": "Hammam Latitude Oasis",
+      "hammamLatitudeOasisDesc": "Hammam + Citrus Tonic Scrub + Silky 'Cotton Powder' Wrap. Escape to the heart of a wellness oasis.",
+      "hammamLatitudeSunrise": "Hammam Latitude Sunrise",
+      "hammamLatitudeSunriseDesc": "Hammam + 3-Tea Silhouette Scrub + 3-Tea Slimming Wrap. Energizing ritual inspired by oriental traditions.",
+      "hammamLatitudeOceanic": "Hammam Latitude Oceanic",
+      "hammamLatitudeOceanicDesc": "Hammam + Essential Oil Revitalizing Scrub + Marine Force Wrap. Revitalizing dive into oceanic depths."
     }
   }
 }

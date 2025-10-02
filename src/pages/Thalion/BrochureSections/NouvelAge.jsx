@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useInView } from "react-intersection-observer";
 import SoinsDesign from "../../../components/SoinsDesign";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Import static images
 import jour1 from "./assets/na1.JPG";
@@ -15,6 +16,8 @@ import jour6 from "./assets/na6.JPG";
 import nouvelAgeVideo from "./assets/na.webm";
 
 const NouvelAge = () => {
+  const { t } = useTranslation();
+  
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -57,50 +60,51 @@ const NouvelAge = () => {
     6: jour6,
   };
 
+  // Memoized treatments data with translations
   const treatments = {
-    "Nouvel Age": {
-      description: `Véritable cure de jouvence, l'Escale Nouvel Age vous apporte un incroyable sentiment de bien-être intérieur
-en agissant sur le corps et l'esprit. Vous conjuguez des soins visage et corps pour redonner
-à tout votre être, jeunesse et beauté.
-Vous aimerez : Le programme de soins qui alterne soins esthétiques, massages (de 25' à 40')
-et hydrothérapie pour renforcer l'efficacité anti-âge.
-Durée: 4 ou 6 jours* (durée moyenne des soins par jour: 2h00)`,
-      supplement:
-        "En complément de votre Escale Marine, le parcours marin « eau de mer naturelle » ainsi que le hammam vapeur sont accessibles avant les soins.",
+    [t('thalion.nosSoins.nouvelAge.title')]: {
+      description: t('thalion.nosSoins.nouvelAge.description'),
+      supplement: t('thalion.nosSoins.nouvelAge.supplement'),
       pricing: [
-        { duration: "4 jours", price: "900 TND / 273 €" },
-        { duration: "6 jours", price: "1450 TND / 440 €" },
+        { 
+          duration: `4 ${t('thalion.themeSection.days')}`, 
+          price: t('thalion.nosSoins.nouvelAge.pricing.fourDays') 
+        },
+        { 
+          duration: `6 ${t('thalion.themeSection.days')}`, 
+          price: t('thalion.nosSoins.nouvelAge.pricing.sixDays') 
+        },
       ],
       days: {
         1: [
-          "Gommage douceur Bora Bora",
-          "Duo enveloppement douceur à la pulpe de coco",
-          "Soin visage Beauté Essentielle personnalisé",
+          t('thalion.nosSoins.nouvelAge.day1.treatment1'),
+          t('thalion.nosSoins.nouvelAge.day1.treatment2'),
+          t('thalion.nosSoins.nouvelAge.day1.treatment3'),
         ],
         2: [
-          "Palper-rouler SLIM sous pluie de mer",
-          "Soin corps Performance Fermeté",
-          "Massage drainant du visage",
+          t('thalion.nosSoins.nouvelAge.day2.treatment1'),
+          t('thalion.nosSoins.nouvelAge.day2.treatment2'),
+          t('thalion.nosSoins.nouvelAge.day2.treatment3'),
         ],
         3: [
-          "Bain aromatique relaxant",
-          "Duo enveloppement peau neuve aux enzymes de fruits",
-          "Soin 4 doigts visage",
+          t('thalion.nosSoins.nouvelAge.day3.treatment1'),
+          t('thalion.nosSoins.nouvelAge.day3.treatment2'),
+          t('thalion.nosSoins.nouvelAge.day3.treatment3'),
         ],
         4: [
-          "Duo enveloppement soyeux poudre de coton",
-          "Massage douceur de brise à l'huile de coco",
-          "Soin yeux Lift Expert Regard",
+          t('thalion.nosSoins.nouvelAge.day4.treatment1'),
+          t('thalion.nosSoins.nouvelAge.day4.treatment2'),
+          t('thalion.nosSoins.nouvelAge.day4.treatment3'),
         ],
         5: [
-          "Bain aromatique amincissant",
-          "Soin corps Cellu Contour",
-          "Soin visage Beauté Essentielle personnalisé",
+          t('thalion.nosSoins.nouvelAge.day5.treatment1'),
+          t('thalion.nosSoins.nouvelAge.day5.treatment2'),
+          t('thalion.nosSoins.nouvelAge.day5.treatment3'),
         ],
         6: [
-          "Palper-rouler SLIM sous pluie de mer",
-          "Duo enveloppement peau neuve aux enzymes de fruits",
-          "Soin visage Lift Absolu",
+          t('thalion.nosSoins.nouvelAge.day6.treatment1'),
+          t('thalion.nosSoins.nouvelAge.day6.treatment2'),
+          t('thalion.nosSoins.nouvelAge.day6.treatment3'),
         ],
       },
     },
@@ -150,7 +154,7 @@ Durée: 4 ou 6 jours* (durée moyenne des soins par jour: 2h00)`,
             <div className="flex flex-col items-center space-y-4">
               <div className="w-12 h-12 border-4 border-purple-200 border-t-purple-400 rounded-full animate-spin"></div>
               <p className="text-purple-600 font-light">
-                Préparation de votre programme Nouvel Age...
+                {t('thalion.nosSoins.nouvelAge.loading')}
               </p>
             </div>
           </div>

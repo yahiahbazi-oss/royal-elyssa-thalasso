@@ -15,287 +15,19 @@ import {
   Flower2,
   X,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 // Import images for fallback (Marine and Massages still need these)
 import marineImage from "../assets/Thalasso_7.jpg";
 import massageImage from "../assets/Thalasso_Thal'ion_17.jpg";
 
-const SoinsALaCarteNew = ({ language = "fr" }) => {
+const SoinsALaCarteNew = () => {
+  const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState("toutes-les-soins");
   const [activeCategory, setActiveCategory] = useState(null);
   const [expandedService, setExpandedService] = useState(null);
   const [selectedCategoryModal, setSelectedCategoryModal] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
-
-  // Translation object
-  const translations = {
-    fr: {
-      // Navigation sections
-      allTreatments: "Toutes les soins",
-      allTreatmentsDesc: "Tous nos traitements en un coup d'œil",
-      treatmentsAlaCarte: "Les soins à la carte",
-      treatmentsAlaCarteDesc: "Soins personnalisés selon vos besoins",
-      marineCard: "Carte Marine",
-      marineCardDesc: "Bienfaits de la thalassothérapie",
-      massageCard: "Carte Massages",
-      massageCardDesc: "Détente et relaxation profonde",
-
-      // Category titles
-      face: "VISAGE",
-      faceSubtitle: "BEAUTÉ",
-      faceDescription:
-        "CURE QUI ASSOCIE LES BIENFAITS DE LA THALASSO À CEUX DE L'ESTHÉTIQUE",
-      men: "HOMME",
-      menSubtitle: "SPÉCIAL HOMME",
-      menDescription: "SOINS SPÉCIALEMENT CONÇUS POUR LES HOMMES",
-      body: "CORPS",
-      bodySubtitle: "BIEN-ÊTRE",
-      bodyDescription: "SOINS CORPORELS RELAXANTS ET REVITALISANTS",
-      massagesAffusions: "MASSAGES SOUS AFFUSIONS",
-      massagesAffusionsSubtitle: "BIEN-ÊTRE",
-      massagesAffusionsDescription:
-        "MASSAGES RELAXANTS SOUS BRUINE D'EAU DE MER",
-      massagesWellbeing: "MASSAGES & BIEN-ÊTRE",
-      massagesWellbeingSubtitle: "DÉTENTE",
-      massagesWellbeingDescription:
-        "MASSAGES RELAXANTS ET THÉRAPEUTIQUES POUR VOTRE BIEN-ÊTRE",
-
-      // Button texts
-      learnMore: "EN SAVOIR +",
-      back: "Retour",
-      close: "Fermer",
-      duration: "Durée",
-      price: "Prix",
-      sessions: "séances",
-
-      // Beauty categories
-      essentialBeauty: "Beauté Essentielle",
-      eyeBeauty: "Beauté des Yeux",
-      relaxation: "Relaxation",
-      silhouette: "Silhouette",
-
-      // Men's category
-      specialMen: "Spécial Homme",
-
-      // Body categories
-      bodyScrubs: "Gommages Corps",
-      wraps: "Enveloppements",
-
-      // Massage categories
-      massagesUnderAffusion: "Massages sous Affusion",
-      asianMassages: "Massages Asiatiques",
-      therapeuticMassages: "Massages Thérapeutiques",
-      wellnessMassages: "Massages Bien-être",
-
-      // Pricing disclaimer
-      pricingDisclaimer:
-        "Les tarifs en euros sont donnés seulement à titre indicatif",
-
-      // Introduction
-      introTitle: "Nos Soins & Cartes",
-      introText1: "La carte de soins",
-      introText1After:
-        "vous emmène à la découverte des bienfaits de la mer, dans un univers de sensations inoubliables alliant des gestuelles exclusives à des équipements de pointe !",
-      introText2: "Les tarifs en euros sont donnés seulement à titre indicatif",
-
-      // Treatment names and descriptions - Face
-      beautyTreatment30: "Mise en beauté",
-      beautyTreatment30Desc:
-        "Besoin d'hydratation, de nutrition, de douceur ou de pureté ? Après un diagnostic professionnel de votre peau, l'esthéticienne vous conseillera votre soin personnalisé.",
-      beautyTreatment60: "Mise en beauté",
-      beautyTreatment60Desc:
-        "Gommage, masque et massage se succèdent pour sublimer votre peau. Elle est radieuse de fraîcheur.",
-      eyeLiftExpert: "Lift expert regard",
-      eyeLiftExpertDesc:
-        "Soin spécialisé pour le contour des yeux, réduisant les signes de fatigue et les premières rides.",
-      absoluteRelaxation: "Détente absolue",
-      absoluteRelaxationDesc:
-        "Le Modelage Énergétique Relaxant (M.E.R.) rééquilibre et harmonise les énergies corporelles. Une évasion profondément relaxante et régénérante.",
-
-      // Treatment names - Silhouette
-      firmness: "Performance fermeté",
-      firmnessDesc:
-        "Masque corporel anti-âge tonifiant, idéal pour préserver la tonicité de la peau. Objectif : remodeler la silhouette, raffermir et densifier la peau.",
-      tonicLegs: "Jambes toniques",
-      tonicLegsDesc:
-        "Allié des jambes lourdes, ce soin décongestionnant soulage instantanément. Les jambes retrouvent galbe, légèreté et vitalité.",
-      silhouetteDrainage: "Drainage silhouette",
-      silhouetteDrainageDesc:
-        "Lutte contre les troubles circulatoires des membres inférieurs en associant les vertus de la mer à des manœuvres manuelles drainantes.",
-      stretchMarks: "Action vergetures",
-      stretchMarksDesc:
-        "Effet préventif et réducteur qui restaure l'élasticité de la peau et restructure les tissus.",
-      celluContour: "Cellu'contour",
-      celluContourDesc:
-        "Traitement anti-cellulite intensif sur-mesure. Ses actifs concentrés en extraits marins et végétaux associés aux techniques de modelage novatrices.",
-      detoxRitual: "Rituel détox corps",
-      detoxRitualDesc:
-        "Après un gommage tonique, un concentré d'actifs marins est frictionné avec une gestuelle spécifique détox.",
-
-      // Treatment names - Men
-      facialOxygen: "Facial oxygen booster",
-      facialOxygenDesc:
-        "Soin revitalisant spécialement conçu pour la peau masculine, apportant fraîcheur et éclat.",
-
-      // Treatment names - Body scrubs
-      bodyScrubChoice: "Au choix parmi",
-      bodyScrubChoiceDesc:
-        "Le gommage affine, adoucit l'épiderme et prépare la peau pour optimiser les soins suivants. Grâce à ce large choix d'ingrédients gourmands, variez les plaisirs pour le plus grand bonheur des sens.",
-
-      // Treatment names - Wraps
-      fullBodyWrap: "Enveloppement corps complet",
-      fullBodyWrapDesc:
-        "Réalisés sur un lit d'eau chaude flottant offrant une variation de couleurs uniques, ces « Duo Enveloppements » associent l'application, sur tout le corps, d'enveloppements d'algues à un massage du cuir chevelu.",
-
-      // Treatment names - Massages under affusion
-      seaMistMassage: "Massage bruine de mer à la criste marine Bio",
-      seaMistMassageDesc:
-        "Massage sous une fine bruine d'eau de mer enrichie à la criste marine biologique, pour une expérience de détente unique.",
-      supremeSeaMist: "Suprême massage bruine de mer à 4 mains",
-      supremeSeaMistDesc:
-        "Massage d'exception à quatre mains sous bruine de mer, enrichi à la criste marine biologique pour une relaxation suprême.",
-      palperRoulerSlim: "La séance palper-rouler SLIM",
-      palperRoulerSlimDesc:
-        "Palper-rouler SLIM sous pluie de sea : massage amincissant avec technique de palper-rouler sous une pluie d'eau de mer.",
-      palperRouler5Sessions: "Les 5 séances palper-rouler SLIM",
-      palperRouler5SessionsDesc:
-        "Forfait de 5 séances de palper-rouler SLIM pour des résultats optimaux et durables.",
-    },
-    en: {
-      // Navigation sections
-      allTreatments: "All Treatments",
-      allTreatmentsDesc: "All our treatments at a glance",
-      treatmentsAlaCarte: "À la Carte Treatments",
-      treatmentsAlaCarteDesc: "Personalized treatments according to your needs",
-      marineCard: "Marine Card",
-      marineCardDesc: "Benefits of thalassotherapy",
-      massageCard: "Massage Card",
-      massageCardDesc: "Deep relaxation and wellness",
-
-      // Category titles
-      face: "FACE",
-      faceSubtitle: "BEAUTY",
-      faceDescription:
-        "TREATMENT THAT COMBINES THE BENEFITS OF THALASSO WITH THOSE OF AESTHETICS",
-      men: "MEN",
-      menSubtitle: "FOR MEN",
-      menDescription: "TREATMENTS SPECIALLY DESIGNED FOR MEN",
-      body: "BODY",
-      bodySubtitle: "WELLNESS",
-      bodyDescription: "RELAXING AND REVITALIZING BODY TREATMENTS",
-      massagesAffusions: "MASSAGES UNDER AFFUSIONS",
-      massagesAffusionsSubtitle: "WELLNESS",
-      massagesAffusionsDescription: "RELAXING MASSAGES UNDER SEAWATER MIST",
-      massagesWellbeing: "MASSAGES & WELLNESS",
-      massagesWellbeingSubtitle: "RELAXATION",
-      massagesWellbeingDescription:
-        "RELAXING AND THERAPEUTIC MASSAGES FOR YOUR WELLNESS",
-
-      // Button texts
-      learnMore: "LEARN MORE",
-      back: "Back",
-      close: "Close",
-      duration: "Duration",
-      price: "Price",
-      sessions: "sessions",
-
-      // Beauty categories
-      essentialBeauty: "Essential Beauty",
-      eyeBeauty: "Eye Beauty",
-      relaxation: "Relaxation",
-      silhouette: "Silhouette",
-
-      // Men's category
-      specialMen: "For Men",
-
-      // Body categories
-      bodyScrubs: "Body Scrubs",
-      wraps: "Wraps",
-
-      // Massage categories
-      massagesUnderAffusion: "Massages under Affusion",
-      asianMassages: "Asian Massages",
-      therapeuticMassages: "Therapeutic Massages",
-      wellnessMassages: "Wellness Massages",
-
-      // Pricing disclaimer
-      pricingDisclaimer:
-        "Prices in euros are given for indicative purposes only",
-
-      // Introduction
-      introTitle: "Our Treatments & Cards",
-      introText1: "The",
-      introText1After:
-        "treatment card takes you on a journey to discover the benefits of the sea, in a universe of unforgettable sensations combining exclusive gestures with cutting-edge equipment!",
-      introText2: "Experience a unique marine treatment experience.",
-
-      // Treatment names and descriptions - Face
-      beautyTreatment30: "Beauty Treatment",
-      beautyTreatment30Desc:
-        "Need hydration, nutrition, softness or purity? After a professional diagnosis of your skin, the beautician will advise you on your personalized treatment.",
-      beautyTreatment60: "Beauty Treatment",
-      beautyTreatment60Desc:
-        "Scrub, mask and massage follow one another to enhance your skin. It radiates freshness.",
-      eyeLiftExpert: "Expert Eye Lift",
-      eyeLiftExpertDesc:
-        "Specialized eye contour treatment, reducing signs of fatigue and first wrinkles.",
-      absoluteRelaxation: "Absolute Relaxation",
-      absoluteRelaxationDesc:
-        "The Relaxing Energy Modeling (M.E.R.) rebalances and harmonizes body energies. A deeply relaxing and regenerating escape.",
-
-      // Treatment names - Silhouette
-      firmness: "Firmness Performance",
-      firmnessDesc:
-        "Anti-aging toning body mask, ideal for preserving skin tone. Objective: reshape the silhouette, firm and densify the skin.",
-      tonicLegs: "Tonic Legs",
-      tonicLegsDesc:
-        "Ally of heavy legs, this decongestant treatment provides instant relief. The legs regain shape, lightness and vitality.",
-      silhouetteDrainage: "Silhouette Drainage",
-      silhouetteDrainageDesc:
-        "Fights against circulatory disorders of the lower limbs by combining the virtues of the sea with manual draining maneuvers.",
-      stretchMarks: "Stretch Mark Action",
-      stretchMarksDesc:
-        "Preventive and reducing effect that restores skin elasticity and restructures tissues.",
-      celluContour: "Cellu'contour",
-      celluContourDesc:
-        "Intensive tailor-made anti-cellulite treatment. Its active ingredients concentrated in marine and plant extracts combined with innovative modeling techniques.",
-      detoxRitual: "Body Detox Ritual",
-      detoxRitualDesc:
-        "After a tonic scrub, a concentrate of marine active ingredients is rubbed with specific detox gestures.",
-
-      // Treatment names - Men
-      facialOxygen: "Facial Oxygen Booster",
-      facialOxygenDesc:
-        "Revitalizing treatment specially designed for masculine skin, bringing freshness and radiance.",
-
-      // Treatment names - Body scrubs
-      bodyScrubChoice: "Choose from",
-      bodyScrubChoiceDesc:
-        "The scrub refines, softens the epidermis and prepares the skin to optimize the following treatments. Thanks to this wide choice of delicious ingredients, vary the pleasures for the greatest happiness of the senses.",
-
-      // Treatment names - Wraps
-      fullBodyWrap: "Full Body Wrap",
-      fullBodyWrapDesc:
-        "Performed on a floating warm water bed offering unique color variations, these 'Duo Wraps' combine the application of algae wraps on the whole body with a scalp massage.",
-
-      // Treatment names - Massages under affusion
-      seaMistMassage: "Organic Sea Mist Massage with Sea Samphire",
-      seaMistMassageDesc:
-        "Massage under a fine mist of seawater enriched with organic sea samphire, for a unique relaxation experience.",
-      supremeSeaMist: "Supreme 4-Hand Sea Mist Massage",
-      supremeSeaMistDesc:
-        "Exceptional four-hand massage under sea mist, enriched with organic sea samphire for supreme relaxation.",
-      palperRoulerSlim: "SLIM Roll-Pinch Session",
-      palperRoulerSlimDesc:
-        "SLIM roll-pinch under sea rain: slimming massage with roll-pinch technique under seawater rain.",
-      palperRouler5Sessions: "5 SLIM Roll-Pinch Sessions",
-      palperRouler5SessionsDesc:
-        "Package of 5 SLIM roll-pinch sessions for optimal and lasting results.",
-    },
-  };
-
-  // Get current translations
-  const t = translations[language];
 
   useEffect(() => {
     const checkMobile = () => {
@@ -346,23 +78,23 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
   const sections = [
     {
       id: "toutes-les-soins",
-      title: t.allTreatments,
-      description: t.allTreatmentsDesc,
+      title: t("soins.sections.allTreatments"),
+      description: t("soins.sections.allTreatmentsDesc"),
     },
     {
       id: "soins-carte",
-      title: t.treatmentsAlaCarte,
-      description: t.treatmentsAlaCarteDesc,
+      title: t("soins.sections.treatmentsAlaCarte"),
+      description: t("soins.sections.treatmentsAlaCarteDesc"),
     },
     {
       id: "carte-marine",
-      title: t.marineCard,
-      description: t.marineCardDesc,
+      title: t("soins.sections.marineCard"),
+      description: t("soins.sections.marineCardDesc"),
     },
     {
       id: "carte-massages",
-      title: t.massageCard,
-      description: t.massageCardDesc,
+      title: t("soins.sections.massageCard"),
+      description: t("soins.sections.massageCardDesc"),
     },
   ];
 
@@ -371,85 +103,82 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
     categories: [
       {
         id: "visage",
-        title: t.face,
-        subtitle: t.faceSubtitle,
-        description: t.faceDescription,
+        title: t("soins.categories.face"),
+        subtitle: t("soins.categories.faceSubtitle"),
+        description: t("soins.categories.faceDescription"),
         image: "/src/pages/Thalion/BrochureSections/assets/alacarte/V1.webp",
-        buttonText: t.learnMore,
+        buttonText: t("soins.buttons.learnMore"),
         icon: <Sparkles className="w-5 h-5" />,
         services: [
           {
             id: "beaute-essentielle",
-            category: t.essentialBeauty,
+            category: t("soins.subcategories.essentialBeauty"),
             image:
               "/src/pages/Thalion/BrochureSections/assets/alacarte/V2.webp",
             treatments: [
               {
-                name: t.beautyTreatment30,
+                name: t("soins.treatments.beautyTreatment30"),
                 duration: "30'",
                 price: "100 TND / 31 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V3.webp",
-                description: t.beautyTreatment30Desc,
+                description: t("soins.treatments.beautyTreatment30Desc"),
               },
               {
-                name: t.beautyTreatment60,
+                name: t("soins.treatments.beautyTreatment60"),
                 duration: "60'",
                 price: "190 TND / 58 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V4.webp",
-                description: t.beautyTreatment60Desc,
+                description: t("soins.treatments.beautyTreatment60Desc"),
               },
             ],
           },
           {
             id: "beaute-yeux",
-            category: t.eyeBeauty,
+            category: t("soins.subcategories.eyeBeauty"),
             image:
               "/src/pages/Thalion/BrochureSections/assets/alacarte/V5.webp",
             treatments: [
               {
-                name: t.eyeLiftExpert,
+                name: t("soins.treatments.eyeLiftExpert"),
                 duration: "30'",
                 price: "100 TND / 31 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V6.webp",
-                description: t.eyeLiftExpertDesc,
+                description: t("soins.treatments.eyeLiftExpertDesc"),
               },
             ],
           },
           {
             id: "eternelle-jeunesse",
-            category: "Eternelle Jeunesse",
+            category: t("soins.subcategories.eternalYouth"),
             image:
               "/src/pages/Thalion/BrochureSections/assets/alacarte/V7.webp",
             treatments: [
               {
-                name: "Lift absolu",
+                name: t("soins.treatments.liftAbsolu"),
                 duration: "60'",
                 price: "200 TND / 61 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V8.webp",
-                description:
-                  "Son action repulpante et défroissante atténue visiblement les marques du temps. Sous l'action du modelage restructurant personnalisé, les traits sont reposés.",
+                description: t("soins.treatments.liftAbsoluDesc"),
               },
               {
-                name: "Eclat originel",
+                name: t("soins.treatments.eclatOriginel"),
                 duration: "60'",
                 price: "180 TND / 55 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V9.webp",
-                description:
-                  "Véritable innovation alliant bienfaits marins aux enzymes de fruits et à la vitamine C pour stimuler le renouvellement cellulaire des peaux ternes.",
+                description: t("soins.treatments.eclatOriginelDesc"),
               },
               {
-                name: "Expert anti-âge",
+                name: t("soins.treatments.expertAntiAge"),
                 duration: "75'",
                 price: "200 TND / 61 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V10.webp",
-                description:
-                  "Réponse ciblée contre les effets du temps pour restaurer votre capital jeunesse. Ce soin sur-mesure haute précision comble rides et ridules.",
+                description: t("soins.treatments.expertAntiAgeDesc"),
               },
             ],
           },
@@ -457,89 +186,82 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
       },
       {
         id: "corps",
-        title: t.body,
-        subtitle: t.bodySubtitle,
-        description: t.bodyDescription,
+        title: t("soins.categories.body"),
+        subtitle: t("soins.categories.bodySubtitle"),
+        description: t("soins.categories.bodyDescription"),
         image: "/src/pages/Thalion/BrochureSections/assets/alacarte/V11.webp",
-        buttonText: t.learnMore,
+        buttonText: t("soins.buttons.learnMore"),
         icon: <Leaf className="w-5 h-5" />,
         services: [
           {
             id: "relaxation",
-            category: t.relaxation,
+            category: t("soins.subcategories.relaxation"),
             image:
               "/src/pages/Thalion/BrochureSections/assets/alacarte/V12.webp",
             treatments: [
               {
-                name: "Détente absolue",
+                name: t("soins.treatments.absoluteRelaxation"),
                 duration: "60'",
                 price: "180 TND / 55 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V13.webp",
-                description:
-                  "Le Modelage Énergétique Relaxant (M.E.R.) rééquilibre et harmonise les énergies corporelles. Une évasion profondément relaxante et régénérante.",
+                description: t("soins.treatments.absoluteRelaxationDesc"),
               },
             ],
           },
           {
             id: "silhouette",
-            category: "Silhouette",
+            category: t("soins.subcategories.silhouette"),
             image:
               "/src/pages/Thalion/BrochureSections/assets/alacarte/V14.webp",
             treatments: [
               {
-                name: "Performance fermeté",
+                name: t("soins.treatments.firmness"),
                 duration: "45'",
                 price: "150 TND / 46 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V15.webp",
-                description:
-                  "Masque corporel anti-âge tonifiant, idéal pour préserver la tonicité de la peau. Objectif : remodeler la silhouette, raffermir et densifier la peau.",
+                description: t("soins.treatments.firmnessDesc"),
               },
               {
-                name: "Jambes toniques",
+                name: t("soins.treatments.tonicLegs"),
                 duration: "30'",
                 price: "95 TND / 29 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V16.webp",
-                description:
-                  "Allié des jambes lourdes, ce soin décongestionnant soulage instantanément. Les jambes retrouvent galbe, légèreté et vitalité.",
+                description: t("soins.treatments.tonicLegsDesc"),
               },
               {
-                name: "Drainage silhouette",
+                name: t("soins.treatments.silhouetteDrainage"),
                 duration: "60'",
                 price: "180 TND / 55 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V17.webp",
-                description:
-                  "Lutte contre les troubles circulatoires des membres inférieurs en associant les vertus de la mer à des manœuvres manuelles drainantes.",
+                description: t("soins.treatments.silhouetteDrainageDesc"),
               },
               {
-                name: "Action vergetures",
+                name: t("soins.treatments.stretchMarks"),
                 duration: "45'",
                 price: "150 TND / 46 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V18.webp",
-                description:
-                  "Effet préventif et réducteur qui restaure l'élasticité de la peau et restructure les tissus.",
+                description: t("soins.treatments.stretchMarksDesc"),
               },
               {
-                name: "Cellu'contour",
+                name: t("soins.treatments.celluContour"),
                 duration: "60'",
                 price: "200 TND / 61 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V19.webp",
-                description:
-                  "Traitement anti-cellulite intensif sur-mesure. Ses actifs concentrés en extraits marins et végétaux associés aux techniques de modelage novatrices.",
+                description: t("soins.treatments.celluContourDesc"),
               },
               {
-                name: "Rituel détox corps",
+                name: t("soins.treatments.detoxRitual"),
                 duration: "90'",
                 price: "270 TND / 82 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V20.webp",
-                description:
-                  "Après un gommage tonique, un concentré d'actifs marins est frictionné avec une gestuelle spécifique détox.",
+                description: t("soins.treatments.detoxRitualDesc"),
               },
             ],
           },
@@ -547,45 +269,42 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
       },
       {
         id: "homme",
-        title: t.men,
-        subtitle: t.menSubtitle,
-        description: t.menDescription,
+        title: t("soins.categories.men"),
+        subtitle: t("soins.categories.menSubtitle"),
+        description: t("soins.categories.menDescription"),
         image: "/src/pages/Thalion/BrochureSections/assets/alacarte/V21.webp",
-        buttonText: t.learnMore,
+        buttonText: t("soins.buttons.learnMore"),
         icon: <Heart className="w-5 h-5" />,
         services: [
           {
             id: "special-homme",
-            category: t.specialMen,
+            category: t("soins.subcategories.specialMen"),
             image:
               "/src/pages/Thalion/BrochureSections/assets/alacarte/V21.webp",
             treatments: [
               {
-                name: "Facial oxygen booster",
+                name: t("soins.treatments.facialOxygen"),
                 duration: "60'",
                 price: "160 TND / 49 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V22.webp",
-                description:
-                  "Objectif : redonner tonus et fermeté, grâce à des modelages profonds du cuir chevelu, du visage, des trapèzes et de la nuque.",
+                description: t("soins.treatments.facialOxygenDesc"),
               },
               {
-                name: "Bonne mine express",
+                name: t("soins.treatments.goodLookExpress"),
                 duration: "30'",
                 price: "95 TND / 29 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V23.webp",
-                description:
-                  "Ce soin express comble la peau d'actifs ultra concentrés pour un résultat immédiat.",
+                description: t("soins.treatments.goodLookExpressDesc"),
               },
               {
-                name: "Décontraction dos",
+                name: t("soins.treatments.backRelaxation"),
                 duration: "45'",
                 price: "135 TND / 41 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/V24.webp",
-                description:
-                  "Son action sur la masse musculaire fait de ce soin un moment d'extrême relaxation.",
+                description: t("soins.treatments.backRelaxationDesc"),
               },
             ],
           },
@@ -608,64 +327,59 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
         services: [
           {
             id: "parcours-marin",
-            category: "Parcours Marin",
+            category: t("soins.subcategories.marineCourse"),
             image:
               "/src/pages/Thalion/BrochureSections/assets/alacarte/C1.webp",
             treatments: [
               {
-                name: "L'entrée",
+                name: t("soins.treatments.marineEntry"),
                 duration: "20'",
                 price: "50 TND / 16 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/C2.webp",
-                description:
-                  "Dans une magnifique piscine d'eau de mer chauffée, profitez des bains à remous, des cascades, des jets sous-marins, des lits hydromassants, des aquabikes et du parcours de marche à contre-courant pour activer votre circulation sanguine et améliorer votre tonicité musculaire.",
+                description: t("soins.treatments.marineEntryDesc"),
               },
               {
-                name: "Le forfait de 5 entrées",
+                name: t("soins.treatments.marinePackage5"),
                 duration: "20'",
                 price: "160 TND / 49 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/C3.webp",
-                description:
-                  "Forfait économique pour profiter régulièrement des bienfaits du parcours marin. Activez votre circulation et renforcez votre tonicité musculaire.",
+                description: t("soins.treatments.marinePackage5Desc"),
                 entries: "5 entrées",
               },
               {
-                name: "L'entrée parcours marin + hammam",
+                name: t("soins.treatments.marineEntryHammam"),
                 duration: "20'",
                 price: "60 TND / 19 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/C4.webp",
-                description:
-                  "Combinaison parfaite entre les bienfaits du parcours marin et la détente du hammam traditionnel.",
+                description: t("soins.treatments.marineEntryHammamDesc"),
               },
               {
-                name: "Le forfait de 5 entrées parcours + hammam",
+                name: t("soins.treatments.marinePackage5Hammam"),
                 duration: "20'",
                 price: "200 TND / 61 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/C5.webp",
-                description:
-                  "Forfait privilège alliant parcours marin et hammam pour une expérience complète de bien-être.",
+                description: t("soins.treatments.marinePackage5HammamDesc"),
                 entries: "5 entrées",
               },
             ],
           },
           {
             id: "relaxation-marine",
-            category: "Relaxation Marine",
+            category: t("soins.subcategories.marineRelaxation"),
             image:
               "/src/pages/Thalion/BrochureSections/assets/alacarte/C8.webp",
             treatments: [
               {
-                name: "Relaxation Marine",
+                name: t("soins.treatments.marineRelaxation"),
                 duration: "20'",
                 price: "125 TND / 38 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/C9.webp",
-                description:
-                  "Ce massage réalisé dans notre piscine d'eau de mer chaude, vous invite à un véritable voyage à travers les sens. Pendant que vous flottez, le thérapeute effectue des mouvements fluides et des étirements légers qui détendent les muscles.",
+                description: t("soins.treatments.marineRelaxationDesc"),
               },
             ],
           },
@@ -673,70 +387,66 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
       },
       {
         id: "douches-bains",
-        title: "DOUCHES & BAINS",
-        subtitle: "HYDROTHÉRAPIE",
-        description: "BIENFAITS DE L'EAU DE MER ET DE L'HYDROTHÉRAPIE",
+        title: t("soins.categories.showersBaths"),
+        subtitle: t("soins.categories.showersBathsSubtitle"),
+        description: t("soins.categories.showersBathsDescription"),
         image: "/src/pages/Thalion/BrochureSections/assets/alacarte/C12.webp",
-        buttonText: "EN SAVOIR +",
+        buttonText: t("soins.buttons.learnMore"),
         icon: <Droplets className="w-5 h-5" />,
         services: [
           {
             id: "douches",
-            category: "Douches",
+            category: t("soins.subcategories.showers"),
             image:
               "/src/pages/Thalion/BrochureSections/assets/alacarte/C13.webp",
             treatments: [
               {
-                name: "Douche drainante sous marine",
+                name: t("soins.treatments.underwaterDrainageShower"),
                 duration: "20'",
                 price: "85 TND / 26 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/C14.webp",
-                description:
-                  "Ce soin est réalisé par un hydrothérapeute dans un bain de mer chauffée à 37 °C. L'ensemble du corps est massé et drainé grâce à un jet puissant favorisant ainsi la circulation.",
+                description: t("soins.treatments.underwaterDrainageShowerDesc"),
               },
               {
-                name: "Grand jet tonique & douche à pomme",
+                name: t("soins.treatments.grandJetTonic"),
                 duration: "15'",
                 price: "75 TND / 23 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/C15.webp",
-                description:
-                  "L'hydrothérapeute balaye tout le corps grâce à un puissant jet d'eau de mer. La pression réglable du jet améliore le tonus musculaire et décontracte le corps.",
+                description: t("soins.treatments.grandJetTonicDesc"),
               },
             ],
           },
           {
             id: "bains",
-            category: "Bains",
+            category: t("soins.subcategories.baths"),
             image:
               "/src/pages/Thalion/BrochureSections/assets/alacarte/C16.webp",
             treatments: [
               {
-                name: "Bains",
+                name: t("soins.treatments.seaBaths"),
                 duration: "20'",
                 price: "85 TND / 26 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/C17.webp",
-                description:
-                  "Il existe une affinité particulière entre nos cellules et le milieu marin originel. Au contact de la mer, on se ressource et sa force vitale stimule tout notre être. Plongez à la découverte des bains de mer, fantastiques réservoirs de santé.",
+                description: t("soins.treatments.seaBathsDesc"),
               },
             ],
           },
           {
             id: "la-sieste",
-            category: "Le Siesté",
+            category: t("soins.subcategories.siesta"),
             image:
               "/src/pages/Thalion/BrochureSections/assets/alacarte/C10.webp",
             treatments: [
               {
-                name: "Le Siesté",
+                name: t("soins.treatments.sieste"),
                 duration: "80'",
                 price: "310 TND / 94 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/C11.webp",
-                description:
-                  "Pour débuter ce rituel, vous plongez dans une vasque généreuse et sensuelle pour profiter d'un bain aromatique relaxant (20'). Vous laissez vos sens vagabonder, puis un massage complet du corps commence (60').",
+                description: t("soins.treatments.siesteDesc"),
               },
             ],
           },
@@ -744,44 +454,42 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
       },
       {
         id: "gommages-enveloppements",
-        title: "GOMMAGES & ENVELOPPEMENTS",
-        subtitle: "RITUELS",
-        description: "GOMMAGES EXFOLIANTS ET ENVELOPPEMENTS NOURRISSANTS",
+        title: t("soins.categories.scrubsWraps"),
+        subtitle: t("soins.categories.scrubsWrapsSubtitle"),
+        description: t("soins.categories.scrubsWrapsDescription"),
         image: "/src/pages/Thalion/BrochureSections/assets/alacarte/C25.webp",
-        buttonText: "EN SAVOIR +",
+        buttonText: t("soins.buttons.learnMore"),
         icon: <Bath className="w-5 h-5" />,
         services: [
           {
             id: "gommages",
-            category: "Gommages Corporels",
+            category: t("soins.subcategories.bodyScrubs"),
             image:
               "/src/pages/Thalion/BrochureSections/assets/alacarte/C26.webp",
             treatments: [
               {
-                name: "Gommage corps complet",
+                name: t("soins.treatments.fullBodyScrub"),
                 duration: "20'",
                 price: "95 TND / 29 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/C27.webp",
-                description:
-                  "Le gommage affine, adoucit l'épiderme et prépare la peau pour optimiser les soins suivants. Grâce à ce large choix d'ingrédients gourmands, variez les plaisirs pour le plus grand bonheur des sens.",
+                description: t("soins.treatments.fullBodyScrubDesc"),
               },
             ],
           },
           {
             id: "enveloppements",
-            category: "Enveloppements",
+            category: t("soins.subcategories.wraps"),
             image:
               "/src/pages/Thalion/BrochureSections/assets/alacarte/C28.webp",
             treatments: [
               {
-                name: "Enveloppement corps complet",
+                name: t("soins.treatments.fullBodyWrap"),
                 duration: "20'",
                 price: "110 TND / 34 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/C29.webp",
-                description:
-                  "Réalisés sur un lit d'eau chaude flottant offrant une variation de couleurs uniques, ces « Duo Enveloppements » associent l'application, sur tout le corps, d'enveloppements d'algues à un massage du cuir chevelu.",
+                description: t("soins.treatments.fullBodyWrapDesc"),
               },
             ],
           },
@@ -789,55 +497,51 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
       },
       {
         id: "massages-affusions",
-        title: "MASSAGES SOUS AFFUSIONS",
-        subtitle: "BIEN-ÊTRE",
-        description: "MASSAGES RELAXANTS SOUS BRUINE D'EAU DE MER",
+        title: t("soins.categories.massagesAffusions"),
+        subtitle: t("soins.categories.massagesAffusionsSubtitle"),
+        description: t("soins.categories.massagesAffusionsDescription"),
         image: "/src/pages/Thalion/BrochureSections/assets/alacarte/C18.webp",
-        buttonText: "EN SAVOIR +",
+        buttonText: t("soins.buttons.learnMore"),
         icon: <Heart className="w-5 h-5" />,
         services: [
           {
             id: "massages-affusion",
-            category: "Massages sous Affusion",
+            category: t("soins.subcategories.massagesUnderAffusion"),
             image:
               "/src/pages/Thalion/BrochureSections/assets/alacarte/C19.webp",
             treatments: [
               {
-                name: "Massage bruine de mer à la criste marine Bio",
+                name: t("soins.treatments.seaMistMassage"),
                 duration: "25'",
                 price: "110 TND / 34 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/C20.webp",
-                description:
-                  "Massage sous une fine bruine d'eau de mer enrichie à la criste marine biologique, pour une expérience de détente unique.",
+                description: t("soins.treatments.seaMistMassageDesc"),
               },
               {
-                name: "Suprême massage bruine de mer à 4 mains",
+                name: t("soins.treatments.supremeSeaMist"),
                 duration: "25'",
                 price: "190 TND / 58 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/C21.webp",
-                description:
-                  "Massage d'exception à quatre mains sous bruine de mer, enrichi à la criste marine biologique pour une relaxation suprême.",
+                description: t("soins.treatments.supremeSeaMistDesc"),
               },
               {
-                name: "La séance palper-rouler SLIM",
+                name: t("soins.treatments.palperRoulerSlim"),
                 duration: "25'",
                 price: "150 TND / 46 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/C23.webp",
-                description:
-                  "Palper-rouler SLIM sous pluie de sea : massage amincissant avec technique de palper-rouler sous une pluie d'eau de mer.",
+                description: t("soins.treatments.palperRoulerSlimDesc"),
               },
               {
-                name: "Les 5 séances palper-rouler SLIM",
+                name: t("soins.treatments.fiveSessionsPalperRouler"),
                 duration: "25'",
                 price: "570 TND / 173 €",
                 image:
                   "/src/pages/Thalion/BrochureSections/assets/alacarte/C24.webp",
-                description:
-                  "Forfait de 5 séances de palper-rouler SLIM pour des résultats optimaux et durables.",
-                entries: "5 séances",
+                description: t("soins.treatments.fiveSessionsPalperRoulerDesc"),
+                entries: `5 ${t("soins.buttons.sessions")}`,
               },
             ],
           },
@@ -851,129 +555,115 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
     categories: [
       {
         id: "massages-bien-etre",
-        title: "MASSAGES & BIEN-ÊTRE",
-        subtitle: "DÉTENTE",
-        description:
-          "MASSAGES RELAXANTS ET THÉRAPEUTIQUES POUR VOTRE BIEN-ÊTRE",
+        title: t("soins.categories.massagesWellbeing"),
+        subtitle: t("soins.categories.massagesWellbeingSubtitle"),
+        description: t("soins.categories.massagesWellbeingDescription"),
         image: "/src/pages/Thalion/BrochureSections/assets/X1.JPG",
-        buttonText: "EN SAVOIR +",
+        buttonText: t("soins.buttons.learnMore"),
         icon: <HandHeart className="w-5 h-5" />,
         services: [
           {
             id: "massage-bien-etre",
-            category: "Massage & Bien-être",
+            category: t("soins.subcategories.massageWellness"),
             image: "/src/pages/Thalion/BrochureSections/assets/X5.JPG",
             treatments: [
               {
-                name: "Rêve éveillé",
+                name: t("soins.treatments.awakeDream"),
                 duration: "40'",
                 price: "190 TND / 58 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X6.JPG",
-                description:
-                  "Massage relaxant pour une détente profonde et un voyage sensoriel unique.",
+                description: t("soins.treatments.awakeDreamDesc"),
               },
               {
-                name: "Douceur de brise à l'huile de coco",
+                name: t("soins.treatments.coconutBreezeGentleness"),
                 duration: "40'",
                 price: "130 TND / 40 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X7.JPG",
-                description:
-                  "Massage doux à l'huile de coco pour nourrir et hydrater la peau.",
+                description: t("soins.treatments.coconutBreezeGentlenessDesc"),
               },
               {
-                name: "Bonheur des muscles au baume camphré",
+                name: t("soins.treatments.muscleBlissCamphor"),
                 duration: "50'",
                 price: "190 TND / 58 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X8.JPG",
-                description:
-                  "Massage tonifiant au baume camphré pour soulager les tensions musculaires.",
+                description: t("soins.treatments.muscleBlissCamphorDesc"),
               },
               {
-                name: "Massage du dos",
+                name: t("soins.treatments.backMassage"),
                 duration: "25'",
                 price: "95 TND / 29 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X9.JPG",
-                description:
-                  "Massage ciblé du dos pour décontracter et relaxer la zone dorsale.",
+                description: t("soins.treatments.backMassageDesc"),
               },
               {
-                name: "Souffle d'énergie à l'huile de noix du Brésil",
+                name: t("soins.treatments.brazilianNutEnergyBreath"),
                 duration: "40'",
                 price: "130 TND / 40 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X10.JPG",
-                description:
-                  "Massage énergisant à l'huile de noix du Brésil pour retrouver vitalité.",
+                description: t("soins.treatments.brazilianNutEnergyBreathDesc"),
               },
               {
-                name: "Silhouette enchantée aux eaux-mères",
+                name: t("soins.treatments.enchantedSilhouetteSeawater"),
                 duration: "50'",
                 price: "200 TND / 61 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X11.JPG",
-                description:
-                  "Massage modelant aux eaux-mères pour affiner et tonifier la silhouette.",
+                description: t("soins.treatments.enchantedSilhouetteSeawaterDesc"),
               },
               {
-                name: "Grande réflexologie plantaire de l'Occident",
+                name: t("soins.treatments.westernReflexology"),
                 duration: "75'",
                 price: "290 TND / 88 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X20.JPG",
-                description:
-                  "Séance complète de réflexologie plantaire pour rééquilibrer l'organisme.",
+                description: t("soins.treatments.westernReflexologyDesc"),
               },
               {
-                name: "Pieds sensibles",
+                name: t("soins.treatments.sensitiveFeet"),
                 duration: "40'",
                 price: "165 TND / 50 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X21.JPG",
-                description:
-                  "Soin spécialisé pour les pieds sensibles et fatigués.",
+                description: t("soins.treatments.sensitiveFeetDesc"),
               },
               {
-                name: "Duo aux galets chauds & pochons d'algues",
+                name: t("soins.treatments.hotStonesAlgaePouches"),
                 duration: "75'",
                 price: "290 TND / 88 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X22.JPG",
-                description:
-                  "Massage aux galets chauds et pochons d'algues à l'huile de criste marine Bio.",
+                description: t("soins.treatments.hotStonesAlgaePouchesDesc"),
               },
               {
-                name: "Drainage Lymphatique",
+                name: t("soins.treatments.lymphaticDrainage"),
                 duration: "60'",
                 price: "280 TND / 85 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X23.JPG",
-                description:
-                  "Technique spécialisée de drainage lymphatique pour améliorer la circulation.",
+                description: t("soins.treatments.lymphaticDrainageDesc"),
               },
             ],
           },
           {
             id: "massages-asiatiques",
-            category: "Massages Asiatiques",
+            category: t("soins.subcategories.asianMassages"),
             image: "/src/pages/Thalion/BrochureSections/assets/X1.JPG",
             treatments: [
               {
-                name: "Massage Balinais",
+                name: t("soins.treatments.balineseMassage"),
                 duration: "60'",
                 price: "270 TND / 82 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X2.JPG",
-                description:
-                  "Massage traditionnel indonésien qui combine pétrissage, acupression et étirements pour harmoniser le corps et l'esprit.",
+                description: t("soins.treatments.balineseMassageDesc"),
               },
               {
-                name: "Massage Abyhanga",
+                name: t("soins.treatments.abhyangaMassage"),
                 duration: "60'",
                 price: "270 TND / 82 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X3.JPG",
-                description:
-                  "Massage ayurvédique traditionnel à l'huile chaude qui revitalise le corps et équilibre les énergies.",
+                description: t("soins.treatments.abhyangaMassageDesc"),
               },
               {
-                name: "Massage Thai",
+                name: t("soins.treatments.thaiMassage"),
                 duration: "60'",
                 price: "300 TND / 91 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X4.JPG",
-                description:
-                  "Massage traditionnel thaïlandais qui combine acupression, étirements et travail énergétique pour une relaxation profonde.",
+                description: t("soins.treatments.thaiMassageDesc"),
               },
             ],
           },
@@ -981,49 +671,45 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
       },
       {
         id: "soins-therapies",
-        title: "SOINS & THÉRAPIES",
-        subtitle: "THÉRAPEUTIQUE",
-        description: "SOINS SPÉCIALISÉS ET THÉRAPIES MANUELLES",
+        title: t("soins.categories.careTherapies"),
+        subtitle: t("soins.categories.careTherapiesSubtitle"),
+        description: t("soins.categories.careTherapiesDescription"),
         image: "/src/pages/Thalion/BrochureSections/assets/X23.JPG",
-        buttonText: "EN SAVOIR +",
+        buttonText: t("soins.buttons.learnMore"),
         icon: <Heart className="w-5 h-5" />,
         services: [
           {
             id: "soins-therapies",
-            category: "Soins & Thérapies",
+            category: t("soins.subcategories.careTherapies"),
             image: "/src/pages/Thalion/BrochureSections/assets/X23.JPG",
             treatments: [
               {
-                name: "Pressothérapie",
+                name: t("soins.treatments.pressotherapy"),
                 duration: "20'",
                 price: "95 TND / 29 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X24.JPG",
-                description:
-                  "Traitement de drainage lymphatique mécanique qui améliore la circulation sanguine et lymphatique, aide à éliminer les toxines et réduit la sensation de jambes lourdes.",
+                description: t("soins.treatments.pressotherapyDesc"),
               },
               {
-                name: "Heat Experience",
+                name: t("soins.treatments.heatExperience"),
                 duration: "60'",
                 price: "180 TND / 55 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X30.JPG",
-                description:
-                  "Expérience thermale complète combinant différentes sources de chaleur pour une détoxification profonde et une relaxation intense.",
+                description: t("soins.treatments.heatExperienceDesc"),
               },
               {
-                name: "Sauna",
+                name: t("soins.treatments.sauna"),
                 duration: "20'",
                 price: "55 TND / 17 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X31.JPG",
-                description:
-                  "Séance de sauna traditionnel pour éliminer les toxines, détendre les muscles et purifier la peau par la transpiration.",
+                description: t("soins.treatments.saunaDesc"),
               },
               {
-                name: "Cérémonie Duo d'Algues & Argile",
+                name: t("soins.treatments.algaeClayCeremony"),
                 duration: "50'",
                 price: "165 TND / 50 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X32.JPG",
-                description:
-                  "Rituel purifiant et revitalisant combinant les bienfaits des algues marines et de l'argile pour détoxifier, nourrir et régénérer la peau en profondeur.",
+                description: t("soins.treatments.algaeClayCeremonyDesc"),
               },
             ],
           },
@@ -1031,73 +717,66 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
       },
       {
         id: "ceremonie-hammam",
-        title: "HAMMAM  & MASSAGES",
-        subtitle: "RITUEL",
-        description: "EXPÉRIENCE AUTHENTIQUE DU HAMMAM TRADITIONNEL",
+        title: t("soins.categories.hammamMassages"),
+        subtitle: t("soins.categories.hammamMassagesSubtitle"),
+        description: t("soins.categories.hammamMassagesDescription"),
         image: "/src/pages/Thalion/BrochureSections/assets/X33.JPG",
-        buttonText: "EN SAVOIR +",
+        buttonText: t("soins.buttons.learnMore"),
         icon: <Bath className="w-5 h-5" />,
         services: [
           {
             id: "hammam-experience",
-            category: "Hammam Experience",
+            category: t("soins.subcategories.hammamExperience"),
             image: "/src/pages/Thalion/BrochureSections/assets/X33.JPG",
             treatments: [
               {
-                name: "Hammam + gommage + enveloppement + massage",
+                name: t("soins.treatments.hammamComplete"),
                 duration: "60'",
                 price: "240 TND / 73 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X34.JPG",
-                description:
-                  "Rituel complet du hammam avec gommage au savon vert, application Terre et Mer (boue marine bienfaisante), suivi d'un massage relaxant. Une expérience authentique du « Pays des Mille et Une Nuits ».",
+                description: t("soins.treatments.hammamCompleteDesc"),
               },
               {
-                name: "Hammam + massage",
+                name: t("soins.treatments.hammamMassage"),
                 duration: "30'",
                 price: "95 TND / 29 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X35.JPG",
-                description:
-                  "Séance de hammam suivie d'un massage relaxant pour prolonger les bienfaits de la chaleur humide.",
+                description: t("soins.treatments.hammamMassageDesc"),
               },
               {
-                name: "Hammam + gommage",
+                name: t("soins.treatments.hammamScrub"),
                 duration: "30'",
                 price: "90 TND / 28 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X36.JPG",
-                description:
-                  "Hammam traditionnel suivi d'un gommage au savon vert pour purifier et adoucir la peau.",
+                description: t("soins.treatments.hammamScrubDesc"),
               },
               {
-                name: "Hammam Latitude des îles",
+                name: t("soins.treatments.hammamLatitudeIslands"),
                 duration: "50'",
                 price: "210 TND / 64 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X37.JPG",
-                description:
-                  "Hammam + Gommage douceur Bora Bora + Enveloppement douceur à la pulpe de coco. Voyage sensoriel aux parfums des îles paradisiaques.",
+                description: t("soins.treatments.hammamLatitudeIslandsDesc"),
               },
               {
-                name: "Hammam Latitude oasis",
+                name: t("soins.treatments.hammamLatitudeOasis"),
                 duration: "50'",
                 price: "210 TND / 64 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X1.JPG",
-                description:
-                  "Hammam + Gommage tonique aux agrumes + Enveloppement soyeux « poudre de coton ». Évasion au cœur d'une oasis de bien-être.",
+                description: t("soins.treatments.hammamLatitudeOasisDesc"),
               },
               {
-                name: "Hammam Latitude du soleil levant",
+                name: t("soins.treatments.hammamLatitudeSunrise"),
                 duration: "50'",
                 price: "210 TND / 64 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X2.JPG",
-                description:
-                  "Hammam + Gommage silhouette aux 3 thés + Enveloppement minceur aux 3 thés. Rituel énergisant inspiré des traditions orientales.",
+                description: t("soins.treatments.hammamLatitudeSunriseDesc"),
               },
               {
-                name: "Hammam Latitude océane",
+                name: t("soins.treatments.hammamLatitudeOceanic"),
                 duration: "50'",
                 price: "210 TND / 64 €",
                 image: "/src/pages/Thalion/BrochureSections/assets/X3.JPG",
-                description:
-                  "Hammam + Gommage revitalisant aux huiles essentielles + Enveloppement force marine. Plongée revitalisante dans les profondeurs océanes.",
+                description: t("soins.treatments.hammamLatitudeOceanicDesc"),
               },
             ],
           },
@@ -1135,7 +814,7 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
         animate={{ opacity: 1, y: 0 }}
         className="text-3xl sm:text-4xl md:text-6xl font-light text-gray-800 mb-6 md:mb-8"
       >
-        {t.introTitle}
+        {t("soins.introduction.title")}
       </motion.h1>
 
       <motion.div
@@ -1145,13 +824,13 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
         className="space-y-4 md:space-y-6 text-gray-700 text-base md:text-lg leading-relaxed"
       >
         <p className="px-2">
-          {t.introText1}{" "}
+          {t("soins.introduction.text1")}{" "}
           <span className="font-semibold text-amber-600">THALION</span>{" "}
-          {t.introText1After}
+          {t("soins.introduction.text1After")}
         </p>
 
         <p className="text-lg md:text-xl font-medium text-amber-700 px-2">
-          {t.introText2}
+          {t("soins.introduction.text2")}
         </p>
       </motion.div>
 
@@ -1268,7 +947,7 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
                   <div className="flex items-center gap-1 text-xs opacity-90 mb-2">
                     {category.icon}
                     <span className="text-xs">
-                      {category.services?.length || 0} catégories disponibles
+                      {category.services?.length || 0} {t("soins.buttons.categoriesAvailable")}
                     </span>
                   </div>
 
@@ -1302,7 +981,7 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
             className="flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
-            <span>{t.back}</span>
+            <span>{t("soins.buttons.back")}</span>
           </button>
           <div className="h-6 w-px bg-gray-300" />
           <h3 className="text-2xl font-light text-gray-800">
@@ -1330,7 +1009,7 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
                       {service.category}
                     </h4>
                     <p className="text-sm text-gray-600">
-                      {service.treatments.length} soins disponibles
+                      {service.treatments.length} {t("soins.buttons.treatmentsAvailable")}
                     </p>
                   </div>
                 </div>
@@ -1410,7 +1089,7 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
 
                                 {/* Reserve Button */}
                                 <button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 transform group-hover:scale-105">
-                                  Réserver
+                                  {t("soins.buttons.book")}
                                 </button>
 
                                 {treatment.entries && (
@@ -1427,7 +1106,7 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
                       {/* Pricing Disclaimer */}
                       <div className="mt-6 text-center">
                         <p className="text-sm text-gray-500 italic">
-                          {t.pricingDisclaimer}
+                          {t("soins.introduction.pricingDisclaimer")}
                         </p>
                       </div>
                     </div>
@@ -1501,7 +1180,7 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
                           </span>
                         )}
                         <button className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white py-2 rounded-lg font-medium hover:from-teal-600 hover:to-cyan-700 transition-all duration-300">
-                          Réserver
+                          {t("soins.buttons.book")}
                         </button>
                       </div>
                     ))}
@@ -1512,7 +1191,7 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
               {/* Pricing Disclaimer */}
               <div className="mt-6 text-center border-t border-gray-200 pt-4">
                 <p className="text-sm text-gray-500 italic">
-                  {t.pricingDisclaimer}
+                  {t("soins.introduction.pricingDisclaimer")}
                 </p>
               </div>
             </div>
@@ -1627,7 +1306,7 @@ const SoinsALaCarteNew = ({ language = "fr" }) => {
                                 </p>
 
                                 <button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 text-sm sm:text-base">
-                                  Réserver
+                                  {t("soins.buttons.book")}
                                 </button>
 
                                 {treatment.entries && (

@@ -34,7 +34,7 @@ const ContactPage = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-stone-50 to-amber-50">
+    <div id="contact" className="min-h-screen flex flex-col bg-gradient-to-b from-stone-50 to-amber-50">
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative py-20 px-6 bg-gradient-to-r from-amber-900/5 to-amber-900/10">

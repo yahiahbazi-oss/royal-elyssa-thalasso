@@ -48,6 +48,41 @@
       }
     }
   },
+  "suite": {
+    "navigation": {
+      "home": "Accueil",
+      "homeAriaLabel": "Retour à la page d'accueil"
+    },
+    "description": {
+      "title": "Un Sanctuaire Exquis",
+      "paragraph1": "Vous avez le choix pour votre hébergement : soit vous pouvez résider au Royal Thalassa Monastir*****, directement relié au Royal Elyssa Thalasso & Spa, soit vous préférerez habiter au cœur de notre centre, au deuxième étage, dans le magnifique Carré VIP Suites Spa, composé de vingt suites, donnant à la fois sur de luxuriants jardins suspendus, la Méditerranée toute proche et une piscine privée, uniquement réservée aux résidents du Carré VIP.",
+      "paragraph2": "Les Suites Spa sont luxueusement décorées dans un style contemporain et épuré. Elles sont dotées de salles de bains spacieuses et certaines vous offrent même des jacuzzis sur leurs terrasses privatives.",
+      "paragraph3": "Si vous résidez dans notre carré VIP, vous pourrez en toute facilité accéder directement à tous nos espaces thalasso et spa en peignoir."
+    },
+    "gallery": {
+      "mainSuite": "Suite Principale",
+      "suiteDetail": "Détail de la suite",
+      "viewLarge": "Voir en grand"
+    },
+    "booking": {
+      "title": "Réservez Votre Séjour",
+      "description": "Vivez l'apogée de l'hospitalité de luxe. Votre sanctuaire d'élégance vous attend dans un cadre d'exception au cœur de la Méditerranée.",
+      "bookNow": "RÉSERVER MAINTENANT"
+    },
+    "contact": {
+      "title": "Informations & Réservations",
+      "onlineBooking": "Réservation en ligne",
+      "emailBooking": "Réservation par mail",
+      "information": "Informations"
+    },
+    "amenities": {
+      "title": "Équipements & Services",
+      "description": "Découvrez les équipements de luxe et services exclusifs qui font de votre séjour une expérience inoubliable",
+      "kingBed": "Lit King Size",
+      "marbleBathroom": "Salle de Bain en Marbre",
+      "privatePool": "Piscine Privée"
+    }
+  },
   "whyChoose": {
     "title": {
       "name": "Royal Elyssa",
@@ -146,7 +181,7 @@
       "play": "Jouer"
     },
     "mobile": {
-      "swipeIndicator": "← Glissez pour découvrir →"
+      "swipeIndicator": ""
     }
   },
   "contact": {
@@ -162,6 +197,12 @@
     },
     "map": {
       "directions": "Itinéraire"
+    },
+    "thalion": {
+      "contact": "CONTACT",
+      "phone": "+216 73 520 589",
+      "email": "dg.elyssa@thalassa-hotels.com",
+      "address": "Route Touristique Skanes, Monastir, Tunisie"
     },
     "address": {
       "title": "Notre adresse",
@@ -526,11 +567,64 @@
       "weekendCool": "Week-end Cool"
     },
     "rituels": {
+      "title": "Rituels Thali'sens",
+      "treatmentProgram": "Programme des soins",
+      "book": "Réserver",
       "orientalDetox": "Itinéraire Oriental Détoxifiant",
       "atlantiqueRevitalisant": "Plongée Atlantique Revitalisante",
       "asiatiqueApaisant": "Échappée Asiatique Apaisante",
       "polynesienneRelaxante": "Évasion Polynésienne Relaxante",
-      "amazonienneEnergisante": "Escapade Amazonienne Énergisante"
+      "amazonienneEnergisante": "Escapade Amazonienne Énergisante",
+      "oriental": {
+        "name": "Itinéraire Oriental Détoxifiant",
+        "shortName": "Oriental Détoxifiant",
+        "description": "Une douce exfoliation suivie d'un enveloppement pour purifier la peau en profondeur, drainer et libérer les toxines. L'itinéraire se poursuit par un massage d'une heure, ferme et rythmé qui améliore la circulation et procure une sensation de légèreté.",
+        "price": "314 TND / 94 €",
+        "duration": "100 min",
+        "treatment1": "Gommage Exfoliant Vent de Sable",
+        "treatment2": "Enveloppement Épices et Algues",
+        "treatment3": "Modelage Océan de Soleil"
+      },
+      "atlantique": {
+        "name": "Plongée Atlantique Revitalisante",
+        "shortName": "Atlantique Revitalisante",
+        "description": "Revitalisez votre corps avec les bienfaits de l'océan. Le rituel débute par un gommage aux paillettes d'algues, pour oxygéner et recharger le corps en minéraux.",
+        "price": "314 TND / 94 €",
+        "duration": "100 min",
+        "treatment1": "Gommage aux paillettes d'Algues",
+        "treatment2": "Enveloppement Iodée",
+        "treatment3": "Massage Revitalisant"
+      },
+      "asiatique": {
+        "name": "Échappée Asiatique Apaisante",
+        "shortName": "Asiatique Apaisante",
+        "description": "Retrouvez la sérénité avec cette échappée apaisante. Association de riz et de fruits exotiques, le peeling lisse et adoucit la peau.",
+        "price": "314 TND / 94 €",
+        "duration": "100 min",
+        "treatment1": "Gommage aux Riz et de Fruits Exotiques",
+        "treatment2": "Enveloppement ou Bain",
+        "treatment3": "Massage Harmonisant"
+      },
+      "polynesienne": {
+        "name": "Évasion Polynésienne Relaxante",
+        "shortName": "Polynésienne Relaxante",
+        "description": "Évadez-vous vers les îles paradisiaques. Tout commence par une exfoliation à la pulpe de coco. Plongez ensuite au cœur du lagon pour un enveloppement cocon.",
+        "price": "314 TND / 94 €",
+        "duration": "100 min",
+        "treatment1": "Gommage exfoliant Tentation Cristalline",
+        "treatment2": "Enveloppement Transparence d'Attol",
+        "treatment3": "Massage polynésienne"
+      },
+      "amazonienne": {
+        "name": "Escapade Amazonienne Énergisante",
+        "shortName": "Amazonienne Énergisante",
+        "description": "Puisez dans l'énergie de la forêt amazonienne. L'exfoliation du corps est une invitation à changer de peau, à oxygéner votre corps.",
+        "price": "314 TND / 94 €",
+        "duration": "100 min",
+        "treatment1": "Gommage Exfoliant Rouge Corail",
+        "treatment2": "Enveloppement Profondeur des Terres",
+        "treatment3": "Modelage Onde Boisée"
+      }
     },
     "cover": {
       "subtitle": "créateur de cosmétique marine",
@@ -622,12 +716,16 @@
       "supplement": "En complément",
       "pricing": "Tarifs",
       "pricingDisclaimer": "Les tarifs en euros sont donnés seulement à titre indicatif",
-      "day": "jour",
+      "day": "Jour",
       "dayProgram": "Programme du jour",
       "approximateDuration": "Durée approximative: 3h30",
       "close": "Fermer",
       "moretreatments": "+1 autres soins...",
       "clickForDetails": "Cliquez pour plus de détails",
+      "treatments": "soins",
+      "completeWellnessExperience": "Expérience complète de bien-être",
+      "discoverDetailedProgram": "Découvrez le programme détaillé",
+      "otherTreatments": "autres soins...",
       "vitaliteMarine": {
         "description": "* Journée supplémentaire sur demande. Cette cure revitalisante vous redonne énergie et vitalité grâce aux bienfaits de l'eau de mer et aux soins marins. Idéale pour retrouver forme et bien-être, elle combine massages relaxants, bains marins et soins énergisants. Vous aimerez : Les massages relaxants et l'utilisation exclusive des produits marins Thal'ion. Durée : 4, 6 ou 9 jours (durée moyenne des soins par jour : 3 h 30)",
         "supplement": "En complément de votre Escale Marine, le parcours marin « eau de mer naturelle » ainsi que le hammam vapeur sont accessibles avant les soins.",
@@ -736,10 +834,435 @@
           "treatment2": "Bain Siesté",
           "treatment3": "Massage Siesté"
         }
+      },
+      "cureNoStress": {
+        "title": "No Stress",
+        "description": "Offrez-vous une parenthèse de bien-être pour évacuer le stress et retrouver votre équilibre intérieur. Cette cure spécialement conçue pour lutter contre les effets du stress quotidien combine les bienfaits du magnésium marin et des techniques de relaxation profondes.",
+        "supplement": "En complément de votre Escale Marine, le parcours marin « eau de mer naturelle » ainsi que le hammam vapeur sont accessibles avant les soins.",
+        "loading": "Préparation de l'expérience anti-stress...",
+        "day1": {
+          "treatment1": "Gommage reminéralisant aux huiles essentielles",
+          "treatment2": "Duo boue marine bienfaisante",
+          "treatment3": "Modelage signature à l'huile de Magnésium marin"
+        },
+        "day2": {
+          "treatment1": "Modelage sous affusion à l'huile de Magnésium",
+          "treatment2": "Duo boue marine bienfaisante",
+          "treatment3": "Modelage signature à l'huile de Magnésium marin"
+        },
+        "day3": {
+          "treatment1": "Bain énergisant au magnésium marin",
+          "treatment2": "Duo enveloppement marin oligo-minéral",
+          "treatment3": "Modelage douceur à l'huile de magnésium marin"
+        },
+        "day4": {
+          "treatment1": "Modelage sous affusion à l'huile de Magnésium",
+          "treatment2": "Duo enveloppement revitalisant",
+          "treatment3": "Modelage signature"
+        },
+        "day5": {
+          "treatment1": "Bain détente au magnésium marin",
+          "treatment2": "Duo boue marine bienfaisante",
+          "treatment3": "Modelage douceur"
+        }
+      },
+      "escaleMen": {
+        "title": "Escale For Men",
+        "description": "Spécialement conçue pour vous les hommes, cette cure propose un programme complet alliant soins du visage et du corps, dont des massages de 25 à 50', pour retrouver force et vitalité. Notre promesse: En 4 ou 6 jours chrono pour rebooster votre capital énergétique! Durée: 4 ou 6 jours* (durée moyenne des soins par jour: 2h30)",
+        "supplement": "En complément de votre Escale Marine, le parcours marin « eau de mer naturelle » ainsi que le hammam vapeur sont accessibles avant les soins.",
+        "loading": "Préparation de l'expérience spa...",
+        "day1": {
+          "treatment1": "Gommage revitalisant aux huiles essentielles",
+          "treatment2": "Bain revitalisant à la crème d'algues",
+          "treatment3": "Massage souffle d'énergie à l'huile de noix du Brésil"
+        },
+        "day2": {
+          "treatment1": "Grand jet tonique",
+          "treatment2": "Duo Boue Marine bienfaisante",
+          "treatment3": "Massage du dos"
+        },
+        "day3": {
+          "treatment1": "Douche drainante sous marine",
+          "treatment2": "Massage bruine de mer à la criste marine Bio",
+          "treatment3": "Massage souffle d'énergie à l'huile de noix du Brésil"
+        },
+        "day4": {
+          "treatment1": "Grand jet tonique",
+          "treatment2": "Duo Boue Marine bienfaisante",
+          "treatment3": "Massage du dos"
+        },
+        "day5": {
+          "treatment1": "Bain revitalisant à la crème d'algues",
+          "treatment2": "Massage bruine de mer à la criste marine Bio",
+          "treatment3": "Massage pieds sensibles"
+        },
+        "day6": {
+          "treatment1": "Duo Boue Marine bienfaisante",
+          "treatment2": "Massage bonheur des muscles au baume camphré",
+          "treatment3": "Soin visage Facial Oxygen Booster"
+        }
+      },
+      "afterGolf": {
+        "title": "After Golf",
+        "description": "Quoi de plus agréable que de profiter d'un massage de 25' à 50', d'une douche drainante ou d'un bain hydromassant après avoir travaillé son swing? Ces soins vous apporteront la détente et la relaxation musculaire nécessaire, ou au contraire, la préparation tonifiante avant d'aller sur le parcours. Vous aimerez : L'alternance des soins le matin ou l'après-midi vous permettant de jouer au golf quand vous le souhaitez. Durée: 5 jours* (durée moyenne des soins par jour: 2h30)",
+        "supplement": "Vous aimerez : L'alternance des soins le matin ou l'après-midi vous permettant de jouer au golf quand vous le souhaitez.",
+        "loading": "Préparation de votre programme golf...",
+        "pricing": {
+          "fiveDays": "820 TND / 249 €"
+        },
+        "day1": {
+          "treatment1": "Bain aromatique relaxant",
+          "treatment2": "Massage bonheur des muscles au baume camphré"
+        },
+        "day2": {
+          "treatment1": "Massage bruine de mer à la criste marine Bio",
+          "treatment2": "Massage du dos"
+        },
+        "day3": {
+          "treatment1": "Douche drainante sous marine",
+          "treatment2": "Massage pieds sensibles"
+        },
+        "day4": {
+          "treatment1": "Bain relaxant aux cristaux d'ajonc",
+          "treatment2": "Massage du dos"
+        },
+        "day5": {
+          "treatment1": "Massage bruine de mer à la criste marine Bio",
+          "treatment2": "Massage bonheur des muscles au baume camphré"
+        }
+      },
+      "arbreVie": {
+        "title": "Arbre de Vie",
+        "description": "Pour lutter efficacement contre le mal de dos et prévenir les contractures musculaires cette cure alterne bains, enveloppements et massages. Les séances de rééducation vous apprendront à ménager, à renforcer votre dos et à préparer l'après-cure. Vous aimerez : Les massages du dos quotidien de 30', la rééducation en piscine et en salle, effectués par un kinésithérapeute pour personnaliser les soins en fonction de vos besoins. Durée: 6 jours* (durée moyenne des soins par jour: 2h30)",
+        "supplement": "En complément de votre Escale Marine, le parcours marin « eau de mer naturelle » ainsi que le hammam vapeur sont accessibles avant les soins.",
+        "loading": "Préparation de votre programme Arbre de Vie...",
+        "pricing": {
+          "sixDays": "1580 TND / 479 €"
+        },
+        "day1": {
+          "treatment1": "Duo Boue Marine bienfaisante",
+          "treatment2": "Douche drainante sous marine",
+          "treatment3": "Rééducation du dos en piscine",
+          "treatment4": "Massage du dos"
+        },
+        "day2": {
+          "treatment1": "Bain revitalisant à la crème d'algues",
+          "treatment2": "Massage bruine de mer à la criste marine Bio",
+          "treatment3": "Rééducation du dos en salle",
+          "treatment4": "Massage du dos"
+        },
+        "day3": {
+          "treatment1": "Duo Boue Marine bienfaisante",
+          "treatment2": "Douche drainante sous marine",
+          "treatment3": "Rééducation du dos en piscine",
+          "treatment4": "Massage du dos"
+        },
+        "day4": {
+          "treatment1": "Bain revitalisant à la crème d'algues",
+          "treatment2": "Massage bruine de mer à la criste marine Bio",
+          "treatment3": "Rééducation du dos en salle",
+          "treatment4": "Massage du dos"
+        },
+        "day5": {
+          "treatment1": "Duo Boue Marine bienfaisante",
+          "treatment2": "Douche drainante sous marine",
+          "treatment3": "Rééducation du dos en piscine",
+          "treatment4": "Massage du dos"
+        }
+      },
+      "ceremonieSpa": {
+        "title": "Cérémonies du Spa & Soin de Thalasso",
+        "description": "Les soins se succèdent, mais ne se ressemblent pas. Profitez de 4 jours pour découvrir les bienfaits de la thalassothérapie et les moments de détente qu'offrent les soins du spa. Le compromis idéal ! Durée : 4 jours* (durée moyenne des soins par jour : 2 h30)",
+        "supplement": "En complément de votre Escale Marine, le parcours marin « eau de mer naturelle » ainsi que le hammam vapeur sont accessibles avant les soins.",
+        "loading": "Préparation de votre programme Cérémonies du Spa...",
+        "pricing": {
+          "fourDays": "840 TND / 255 €"
+        },
+        "day1": {
+          "treatment1": "Accès au lagon (piscine du Spa)",
+          "treatment2": "Hammam Arômes & Couleurs",
+          "treatment3": "Gommage au savon noir",
+          "treatment4": "Enveloppement oriental à la crème d'argile",
+          "treatment5": "Massage relaxation intense"
+        },
+        "day2": {
+          "treatment1": "Accès au parcours marin et au hammam avant les soins",
+          "treatment2": "Bain revitalisant à la crème d'algues",
+          "treatment3": "Duo enveloppement à la pulpe de coco",
+          "treatment4": "Massage bruine de mer à la criste marine Bio"
+        },
+        "day3": {
+          "treatment1": "Accès au parcours marin et au hammam avant les soins",
+          "treatment2": "Douche drainante sous marine",
+          "treatment3": "Duo Boue Marine bienfaisante",
+          "treatment4": "Massage douceur de brise à l'huile de coco"
+        },
+        "day4": {
+          "treatment1": "Accès au lagon (piscine du Spa)",
+          "treatment2": "Promenade Tropicale au hammam",
+          "treatment3": "Cérémonie Onsen : bain japonais",
+          "treatment4": "Stratégie Hydratation visage"
+        }
+      },
+      "nouvelAge": {
+        "title": "Nouvel Age",
+        "description": "Véritable cure de jouvence, l'Escale Nouvel Age vous apporte un incroyable sentiment de bien-être intérieur en agissant sur le corps et l'esprit. Vous conjuguez des soins visage et corps pour redonner à tout votre être, jeunesse et beauté. Vous aimerez : Le programme de soins qui alterne soins esthétiques, massages (de 25' à 40') et hydrothérapie pour renforcer l'efficacité anti-âge. Durée: 4 ou 6 jours* (durée moyenne des soins par jour: 2h00)",
+        "supplement": "En complément de votre Escale Marine, le parcours marin « eau de mer naturelle » ainsi que le hammam vapeur sont accessibles avant les soins.",
+        "loading": "Préparation de votre programme Nouvel Age...",
+        "pricing": {
+          "fourDays": "900 TND / 273 €",
+          "sixDays": "1450 TND / 440 €"
+        },
+        "day1": {
+          "treatment1": "Gommage douceur Bora Bora",
+          "treatment2": "Duo enveloppement douceur à la pulpe de coco",
+          "treatment3": "Soin visage Beauté Essentielle personnalisé"
+        },
+        "day2": {
+          "treatment1": "Palper-rouler SLIM sous pluie de mer",
+          "treatment2": "Soin corps Performance Fermeté",
+          "treatment3": "Massage drainant du visage"
+        },
+        "day3": {
+          "treatment1": "Bain aromatique relaxant",
+          "treatment2": "Duo enveloppement peau neuve aux enzymes de fruits",
+          "treatment3": "Soin 4 doigts visage"
+        },
+        "day4": {
+          "treatment1": "Duo enveloppement soyeux poudre de coton",
+          "treatment2": "Massage douceur de brise à l'huile de coco",
+          "treatment3": "Soin yeux Lift Expert Regard"
+        },
+        "day5": {
+          "treatment1": "Bain aromatique amincissant",
+          "treatment2": "Soin corps Cellu Contour",
+          "treatment3": "Soin visage Beauté Essentielle personnalisé"
+        },
+        "day6": {
+          "treatment1": "Palper-rouler SLIM sous pluie de mer",
+          "treatment2": "Duo enveloppement peau neuve aux enzymes de fruits",
+          "treatment3": "Soin visage Lift Absolu"
+        }
+      },
+      "weekendCool": {
+        "title": "Week-end Cool",
+        "description": "Partez et ressourcez-vous un week-end pour profiter des bienfaits de l'eau de mer et des algues riches en oligo-éléments. Vous faites escale pour vivre un instant de détente et de douceur. Vous aimerez : Les soins visage et corps, dont les massages de 40', pour une prise en charge globale de tout votre être",
+        "supplement": "En complément de votre Escale Marine, le parcours marin « eau de mer naturelle » ainsi que le hammam vapeur sont accessibles avant les soins.",
+        "loading": "Préparation de votre programme Week-end Cool...",
+        "pricing": {
+          "twoDays": "630 TND / 191 €"
+        },
+        "day1": {
+          "treatment1": "Gommage douceur Bora Bora",
+          "treatment2": "Bain relaxant aux cristaux d'ajonc",
+          "treatment3": "Duo enveloppement force marine",
+          "treatment4": "Massage douceur de brise à l'huile de coco"
+        },
+        "day2": {
+          "treatment1": "Bain aromatique relaxant",
+          "treatment2": "Duo enveloppement chaleur algues-cacao",
+          "treatment3": "Massage souffle d'énergie à l'huile de noix du Brésil",
+          "treatment4": "Soin visage Mise en Beauté"
+        }
       }
     },
     "mobile": {
       "languageSection": "Langue / Language"
+    }
+  },
+  "soins": {
+    "sections": {
+      "allTreatments": "Toutes les soins",
+      "allTreatmentsDesc": "Tous nos traitements en un coup d'œil",
+      "treatmentsAlaCarte": "Les soins à la carte",
+      "treatmentsAlaCarteDesc": "Soins personnalisés selon vos besoins",
+      "marineCard": "Carte Marine",
+      "marineCardDesc": "Bienfaits de la thalassothérapie",
+      "massageCard": "Carte Massages",
+      "massageCardDesc": "Détente et relaxation profonde"
+    },
+    "categories": {
+      "face": "VISAGE",
+      "faceSubtitle": "BEAUTÉ",
+      "faceDescription": "CURE QUI ASSOCIE LES BIENFAITS DE LA THALASSO À CEUX DE L'ESTHÉTIQUE",
+      "men": "HOMME",
+      "menSubtitle": "SPÉCIAL HOMME",
+      "menDescription": "SOINS SPÉCIALEMENT CONÇUS POUR LES HOMMES",
+      "body": "CORPS",
+      "bodySubtitle": "BIEN-ÊTRE",
+      "bodyDescription": "SOINS CORPORELS RELAXANTS ET REVITALISANTS",
+      "massagesAffusions": "MASSAGES SOUS AFFUSIONS",
+      "massagesAffusionsSubtitle": "BIEN-ÊTRE",
+      "massagesAffusionsDescription": "MASSAGES RELAXANTS SOUS BRUINE D'EAU DE MER",
+      "massagesWellbeing": "MASSAGES & BIEN-ÊTRE",
+      "massagesWellbeingSubtitle": "DÉTENTE",
+      "massagesWellbeingDescription": "MASSAGES RELAXANTS ET THÉRAPEUTIQUES POUR VOTRE BIEN-ÊTRE",
+      "showersBaths": "DOUCHES & BAINS",
+      "showersBathsSubtitle": "HYDROTHÉRAPIE",
+      "showersBathsDescription": "BIENFAITS DE L'EAU DE MER ET DE L'HYDROTHÉRAPIE",
+      "scrubsWraps": "GOMMAGES & ENVELOPPEMENTS",
+      "scrubsWrapsSubtitle": "RITUELS",
+      "scrubsWrapsDescription": "GOMMAGES EXFOLIANTS ET ENVELOPPEMENTS NOURRISSANTS",
+      "careTherapies": "SOINS & THÉRAPIES",
+      "careTherapiesSubtitle": "THÉRAPEUTIQUE",
+      "careTherapiesDescription": "SOINS SPÉCIALISÉS ET THÉRAPIES MANUELLES",
+      "hammamMassages": "HAMMAM & MASSAGES",
+      "hammamMassagesSubtitle": "RITUEL",
+      "hammamMassagesDescription": "EXPÉRIENCE AUTHENTIQUE DU HAMMAM TRADITIONNEL"
+    },
+    "buttons": {
+      "learnMore": "EN SAVOIR +",
+      "back": "Retour",
+      "close": "Fermer",
+      "duration": "Durée",
+      "price": "Prix",
+      "sessions": "séances",
+      "book": "Réserver",
+      "categoriesAvailable": "catégories disponibles",
+      "treatmentsAvailable": "soins disponibles"
+    },
+    "subcategories": {
+      "essentialBeauty": "Beauté Essentielle",
+      "eyeBeauty": "Beauté des Yeux",
+      "eternalYouth": "Eternelle Jeunesse",
+      "relaxation": "Relaxation",
+      "silhouette": "Silhouette",
+      "specialMen": "Spécial Homme",
+      "marineCourse": "Parcours Marin",
+      "marineRelaxation": "Relaxation Marine",
+      "showers": "Douches",
+      "baths": "Bains",
+      "siesta": "Le Siesté",
+      "bodyScrubs": "Gommages Corps",
+      "wraps": "Enveloppements",
+      "massageWellness": "Massage & Bien-être",
+      "careTherapies": "Soins & Thérapies",
+      "hammamExperience": "Hammam Experience",
+      "massagesUnderAffusion": "Massages sous Affusion",
+      "asianMassages": "Massages Asiatiques",
+      "therapeuticMassages": "Massages Thérapeutiques",
+      "wellnessMassages": "Massages Bien-être"
+    },
+    "introduction": {
+      "title": "Nos Soins & Cartes",
+      "text1": "La carte de soins",
+      "text1After": "vous emmène à la découverte des bienfaits de la mer, dans un univers de sensations inoubliables alliant des gestuelles exclusives à des équipements de pointe !",
+      "text2": "Les tarifs en euros sont donnés seulement à titre indicatif",
+      "pricingDisclaimer": "Les tarifs en euros sont donnés seulement à titre indicatif"
+    },
+    "treatments": {
+      "beautyTreatment30": "Mise en beauté",
+      "beautyTreatment30Desc": "Besoin d'hydratation, de nutrition, de douceur ou de pureté ? Après un diagnostic professionnel de votre peau, l'esthéticienne vous conseillera votre soin personnalisé.",
+      "beautyTreatment60": "Mise en beauté",
+      "beautyTreatment60Desc": "Gommage, masque et massage se succèdent pour sublimer votre peau. Elle est radieuse de fraîcheur.",
+      "eyeLiftExpert": "Lift expert regard",
+      "eyeLiftExpertDesc": "Soin spécialisé pour le contour des yeux, réduisant les signes de fatigue et les premières rides.",
+      "absoluteRelaxation": "Détente absolue",
+      "absoluteRelaxationDesc": "Le Modelage Énergétique Relaxant (M.E.R.) rééquilibre et harmonise les énergies corporelles. Une évasion profondément relaxante et régénérante.",
+      "firmness": "Performance fermeté",
+      "firmnessDesc": "Masque corporel anti-âge tonifiant, idéal pour préserver la tonicité de la peau. Objectif : remodeler la silhouette, raffermir et densifier la peau.",
+      "tonicLegs": "Jambes toniques",
+      "tonicLegsDesc": "Allié des jambes lourdes, ce soin décongestionnant soulage instantanément. Les jambes retrouvent galbe, légèreté et vitalité.",
+      "silhouetteDrainage": "Drainage silhouette",
+      "silhouetteDrainageDesc": "Lutte contre les troubles circulatoires des membres inférieurs en associant les vertus de la mer à des manœuvres manuelles drainantes.",
+      "stretchMarks": "Action vergetures",
+      "stretchMarksDesc": "Effet préventif et réducteur qui restaure l'élasticité de la peau et restructure les tissus.",
+      "celluContour": "Cellu'contour",
+      "celluContourDesc": "Traitement anti-cellulite intensif sur-mesure. Ses actifs concentrés en extraits marins et végétaux associés aux techniques de modelage novatrices.",
+      "detoxRitual": "Rituel détox corps",
+      "detoxRitualDesc": "Après un gommage tonique, un concentré d'actifs marins est frictionné avec une gestuelle spécifique détox.",
+      "facialOxygen": "Facial oxygen booster",
+      "facialOxygenDesc": "Objectif : redonner tonus et fermeté, grâce à des modelages profonds du cuir chevelu, du visage, des trapèzes et de la nuque.",
+      "goodLookExpress": "Bonne mine express",
+      "goodLookExpressDesc": "Ce soin express comble la peau d'actifs ultra concentrés pour un résultat immédiat.",
+      "backRelaxation": "Décontraction dos",
+      "backRelaxationDesc": "Son action sur la masse musculaire fait de ce soin un moment d'extrême relaxation.",
+      "bodyScrubChoice": "Au choix parmi",
+      "bodyScrubChoiceDesc": "Le gommage affine, adoucit l'épiderme et prépare la peau pour optimiser les soins suivants. Grâce à ce large choix d'ingrédients gourmands, variez les plaisirs pour le plus grand bonheur des sens.",
+      "fullBodyWrap": "Enveloppement corps complet",
+      "fullBodyWrapDesc": "Réalisés sur un lit d'eau chaude flottant offrant une variation de couleurs uniques, ces « Duo Enveloppements » associent l'application, sur tout le corps, d'enveloppements d'algues à un massage du cuir chevelu.",
+      "seaMistMassage": "Massage bruine de mer à la criste marine Bio",
+      "seaMistMassageDesc": "Massage sous une fine bruine d'eau de mer enrichie à la criste marine biologique, pour une expérience de détente unique.",
+      "supremeSeaMist": "Suprême massage bruine de mer à 4 mains",
+      "supremeSeaMistDesc": "Massage d'exception à quatre mains sous bruine de mer, enrichi à la criste marine biologique pour une relaxation suprême.",
+      "palperRoulerSlim": "La séance palper-rouler SLIM",
+      "palperRoulerSlimDesc": "Palper-rouler SLIM sous pluie de sea : massage amincissant avec technique de palper-rouler sous une pluie d'eau de mer.",
+      "palperRouler5Sessions": "Les 5 séances palper-rouler SLIM",
+      "palperRouler5SessionsDesc": "Forfait de 5 séances de palper-rouler SLIM pour des résultats optimaux et durables.",
+      "liftAbsolu": "Lift absolu",
+      "liftAbsoluDesc": "Son action repulpante et défroissante atténue visiblement les marques du temps. Sous l'action du modelage restructurant personnalisé, les traits sont reposés.",
+      "eclatOriginel": "Eclat originel",
+      "eclatOriginelDesc": "Véritable innovation alliant bienfaits marins aux enzymes de fruits et à la vitamine C pour stimuler le renouvellement cellulaire des peaux ternes.",
+      "expertAntiAge": "Expert anti-âge",
+      "expertAntiAgeDesc": "Réponse ciblée contre les effets du temps pour restaurer votre capital jeunesse. Ce soin sur-mesure haute précision comble rides et ridules.",
+      "marineEntry": "L'entrée",
+      "marineEntryDesc": "Dans une magnifique piscine d'eau de mer chauffée, profitez des bains à remous, des cascades, des jets sous-marins, des lits hydromassants, des aquabikes et du parcours de marche à contre-courant pour activer votre circulation sanguine et améliorer votre tonicité musculaire.",
+      "marinePackage5": "Le forfait de 5 entrées",
+      "marinePackage5Desc": "Forfait économique pour profiter régulièrement des bienfaits du parcours marin. Activez votre circulation et renforcez votre tonicité musculaire.",
+      "marineEntryHammam": "L'entrée parcours marin + hammam",
+      "marineEntryHammamDesc": "Combinaison parfaite entre les bienfaits du parcours marin et la détente du hammam traditionnel.",
+      "marinePackage5Hammam": "Le forfait de 5 entrées parcours + hammam",
+      "marinePackage5HammamDesc": "Forfait privilège alliant parcours marin et hammam pour une expérience complète de bien-être.",
+      "marineRelaxation": "Relaxation Marine",
+      "marineRelaxationDesc": "Ce massage réalisé dans notre piscine d'eau de mer chaude, vous invite à un véritable voyage à travers les sens. Pendant que vous flottez, le thérapeute effectue des mouvements fluides et des étirements légers qui détendent les muscles.",
+      "underwaterDrainageShower": "Douche drainante sous marine",
+      "underwaterDrainageShowerDesc": "Ce soin est réalisé par un hydrothérapeute dans un bain de mer chauffée à 37 °C. L'ensemble du corps est massé et drainé grâce à un jet puissant favorisant ainsi la circulation.",
+      "grandJetTonic": "Grand jet tonique & douche à pomme",
+      "grandJetTonicDesc": "L'hydrothérapeute balaye tout le corps grâce à un puissant jet d'eau de mer. La pression réglable du jet améliore le tonus musculaire et décontracte le corps.",
+      "seaBaths": "Bains",
+      "seaBathsDesc": "Il existe une affinité particulière entre nos cellules et le milieu marin originel. Au contact de la mer, on se ressource et sa force vitale stimule tout notre être. Plongez à la découverte des bains de mer, fantastiques réservoirs de santé.",
+      "sieste": "Le Siesté",
+      "siesteDesc": "Pour débuter ce rituel, vous plongez dans une vasque généreuse et sensuelle pour profiter d'un bain aromatique relaxant (20'). Vous laissez vos sens vagabonder, puis un massage complet du corps commence (60').",
+      "fiveSessionsPalperRouler": "Les 5 séances palper-rouler SLIM",
+      "fiveSessionsPalperRoulerDesc": "Forfait de 5 séances de palper-rouler SLIM pour des résultats optimaux et durables.",
+      "awakeDream": "Rêve éveillé",
+      "awakeDreamDesc": "Massage relaxant pour une détente profonde et un voyage sensoriel unique.",
+      "coconutBreezeGentleness": "Douceur de brise à l'huile de coco",
+      "coconutBreezeGentlenessDesc": "Massage doux à l'huile de coco pour nourrir et hydrater la peau.",
+      "muscleBlissCamphor": "Bonheur des muscles au baume camphré",
+      "muscleBlissCamphorDesc": "Massage tonifiant au baume camphré pour soulager les tensions musculaires.",
+      "backMassage": "Massage du dos",
+      "backMassageDesc": "Massage ciblé du dos pour décontracter et relaxer la zone dorsale.",
+      "brazilianNutEnergyBreath": "Souffle d'énergie à l'huile de noix du Brésil",
+      "brazilianNutEnergyBreathDesc": "Massage énergisant à l'huile de noix du Brésil pour retrouver vitalité.",
+      "enchantedSilhouetteSeawater": "Silhouette enchantée aux eaux-mères",
+      "enchantedSilhouetteSeawaterDesc": "Massage modelant aux eaux-mères pour affiner et tonifier la silhouette.",
+      "westernReflexology": "Grande réflexologie plantaire de l'Occident",
+      "westernReflexologyDesc": "Séance complète de réflexologie plantaire pour rééquilibrer l'organisme.",
+      "sensitiveFeet": "Pieds sensibles",
+      "sensitiveFeetDesc": "Soin spécialisé pour les pieds sensibles et fatigués.",
+      "hotStonesAlgaePouches": "Duo aux galets chauds & pochons d'algues",
+      "hotStonesAlgaePouchesDesc": "Massage aux galets chauds et pochons d'algues à l'huile de criste marine Bio.",
+      "lymphaticDrainage": "Drainage Lymphatique",
+      "lymphaticDrainageDesc": "Technique spécialisée de drainage lymphatique pour améliorer la circulation.",
+      "balineseMassage": "Massage Balinais",
+      "balineseMassageDesc": "Massage traditionnel indonésien qui combine pétrissage, acupression et étirements pour harmoniser le corps et l'esprit.",
+      "abhyangaMassage": "Massage Abyhanga",
+      "abhyangaMassageDesc": "Massage ayurvédique traditionnel à l'huile chaude qui revitalise le corps et équilibre les énergies.",
+      "thaiMassage": "Massage Thai",
+      "thaiMassageDesc": "Massage traditionnel thaïlandais qui combine acupression, étirements et travail énergétique pour une relaxation profonde.",
+      "pressotherapy": "Pressothérapie",
+      "pressotherapyDesc": "Traitement de drainage lymphatique mécanique qui améliore la circulation sanguine et lymphatique, aide à éliminer les toxines et réduit la sensation de jambes lourdes.",
+      "heatExperience": "Heat Experience",
+      "heatExperienceDesc": "Expérience thermale complète combinant différentes sources de chaleur pour une détoxification profonde et une relaxation intense.",
+      "sauna": "Sauna",
+      "saunaDesc": "Séance de sauna traditionnel pour éliminer les toxines, détendre les muscles et purifier la peau par la transpiration.",
+      "algaeClayCeremony": "Cérémonie Duo d'Algues & Argile",
+      "algaeClayCeremonyDesc": "Rituel purifiant et revitalisant combinant les bienfaits des algues marines et de l'argile pour détoxifier, nourrir et régénérer la peau en profondeur.",
+      "hammamComplete": "Hammam + gommage + enveloppement + massage",
+      "hammamCompleteDesc": "Rituel complet du hammam avec gommage au savon vert, application Terre et Mer (boue marine bienfaisante), suivi d'un massage relaxant. Une expérience authentique du « Pays des Mille et Une Nuits ».",
+      "hammamMassage": "Hammam + massage",
+      "hammamMassageDesc": "Séance de hammam suivie d'un massage relaxant pour prolonger les bienfaits de la chaleur humide.",
+      "hammamScrub": "Hammam + gommage",
+      "hammamScrubDesc": "Hammam traditionnel suivi d'un gommage au savon vert pour purifier et adoucir la peau.",
+      "hammamLatitudeIslands": "Hammam Latitude des îles",
+      "hammamLatitudeIslandsDesc": "Hammam + Gommage douceur Bora Bora + Enveloppement douceur à la pulpe de coco. Voyage sensoriel aux parfums des îles paradisiaques.",
+      "hammamLatitudeOasis": "Hammam Latitude oasis",
+      "hammamLatitudeOasisDesc": "Hammam + Gommage tonique aux agrumes + Enveloppement soyeux « poudre de coton ». Évasion au cœur d'une oasis de bien-être.",
+      "hammamLatitudeSunrise": "Hammam Latitude du soleil levant",
+      "hammamLatitudeSunriseDesc": "Hammam + Gommage silhouette aux 3 thés + Enveloppement minceur aux 3 thés. Rituel énergisant inspiré des traditions orientales.",
+      "hammamLatitudeOceanic": "Hammam Latitude océane",
+      "hammamLatitudeOceanicDesc": "Hammam + Gommage revitalisant aux huiles essentielles + Enveloppement force marine. Plongée revitalisante dans les profondeurs océanes."
     }
   }
 }

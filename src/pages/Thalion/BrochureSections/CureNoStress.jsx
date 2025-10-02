@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
 import SoinsDesign from "../../../components/SoinsDesign";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Import static images
 import jour1 from "./assets/NS1.jpg";
@@ -13,6 +14,7 @@ import jour5 from "./assets/NS5.jpg";
 import masseurVideo from "./assets/curenonstress.webm";
 
 const CureNoStress = React.memo(() => {
+  const { t } = useTranslation();
   const location = useLocation();
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
@@ -32,44 +34,40 @@ const CureNoStress = React.memo(() => {
 
   const treatments = useMemo(
     () => ({
-      "No Stress": {
-        description:
-          "Offrez-vous une parenthèse de bien-être pour évacuer le stress et retrouver votre équilibre intérieur. Cette cure spécialement conçue pour lutter contre les effets du stress quotidien combine les bienfaits du magnésium marin et des techniques de relaxation profondes.",
-        supplement:
-          "En complément de votre Escale Marine, le parcours marin « eau de mer naturelle  » ainsi que le hammam vapeur sont accessibles avant les soins.",
-        pricing: [
-          { duration: "6 jours", price: "1018 TND / 308 €" },
-        ],
+      [t("thalion.nosSoins.cureNoStress.title")]: {
+        description: t("thalion.nosSoins.cureNoStress.description"),
+        supplement: t("thalion.nosSoins.cureNoStress.supplement"),
+        pricing: [{ duration: `6 ${t("thalion.themeSection.days")}`, price: "1018 TND / 308 €" }],
         days: {
           1: [
-            "Gommage reminéralisant aux huiles essentielles",
-            "Duo boue marine bienfaisante",
-            "Modelage signature à l'huile de Magnésium marin",
+            t("thalion.nosSoins.cureNoStress.day1.treatment1"),
+            t("thalion.nosSoins.cureNoStress.day1.treatment2"),
+            t("thalion.nosSoins.cureNoStress.day1.treatment3"),
           ],
           2: [
-            "Modelage sous affusion à l'huile de Magnésium",
-            "Duo boue marine bienfaisante",
-            "Modelage signature à l'huile de Magnésium marin",
+            t("thalion.nosSoins.cureNoStress.day2.treatment1"),
+            t("thalion.nosSoins.cureNoStress.day2.treatment2"),
+            t("thalion.nosSoins.cureNoStress.day2.treatment3"),
           ],
           3: [
-            "Bain énergisant au magnésium marin",
-            "Duo enveloppement marin oligo-minéral",
-            "Modelage douceur à l'huile de magnésium marin",
+            t("thalion.nosSoins.cureNoStress.day3.treatment1"),
+            t("thalion.nosSoins.cureNoStress.day3.treatment2"),
+            t("thalion.nosSoins.cureNoStress.day3.treatment3"),
           ],
           4: [
-            "Modelage sous affusion à l'huile de Magnésium",
-            "Duo enveloppement revitalisant",
-            "Modelage signature",
+            t("thalion.nosSoins.cureNoStress.day4.treatment1"),
+            t("thalion.nosSoins.cureNoStress.day4.treatment2"),
+            t("thalion.nosSoins.cureNoStress.day4.treatment3"),
           ],
           5: [
-            "Bain détente au magnésium marin",
-            "Duo boue marine bienfaisante",
-            "Modelage douceur",
+            t("thalion.nosSoins.cureNoStress.day5.treatment1"),
+            t("thalion.nosSoins.cureNoStress.day5.treatment2"),
+            t("thalion.nosSoins.cureNoStress.day5.treatment3"),
           ],
         },
       },
     }),
-    []
+    [t]
   );
 
   const handleVideoLoad = useCallback(() => {
@@ -144,7 +142,7 @@ const CureNoStress = React.memo(() => {
             <div className="flex flex-col items-center space-y-4">
               <div className="w-12 h-12 border-4 border-purple-200 border-t-purple-500 rounded-full animate-spin"></div>
               <p className="text-purple-600 font-light">
-                Préparation de l'expérience anti-stress...
+                {t("thalion.nosSoins.cureNoStress.loading")}
               </p>
             </div>
           </div>

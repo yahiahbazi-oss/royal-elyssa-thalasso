@@ -250,7 +250,7 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
   );
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden" id="vitalite-marine" data-section="vitalite-marine">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -318,6 +318,7 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
                     expanded={expandedDays[day]}
                     onToggleExpand={() => toggleDayExpansion(day)}
                     colors={colors}
+                    t={t}
                   />
                 )
               )}
@@ -342,6 +343,7 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
                   isHovered={hoveredDay === day}
                   isMobile={false}
                   colors={colors}
+                  t={t}
                 />
               )
             )}
@@ -437,6 +439,7 @@ const MobileDayCard = ({
   expanded,
   onToggleExpand,
   colors,
+  t,
 }) => {
   return (
     <motion.div
@@ -462,7 +465,7 @@ const MobileDayCard = ({
         <div className="absolute top-4 left-4">
           <div className="bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
             <span className="text-stone-800 font-serif font-medium text-lg">
-              Jour {day}
+              {t("thalion.nosSoins.day")} {day}
             </span>
           </div>
         </div>
@@ -487,7 +490,7 @@ const MobileDayCard = ({
           <div className="flex items-center gap-2">
             <Clock className="h-3 w-3 text-white" />
             <span className="text-white text-xs font-medium">
-              {activities?.length || 0} soins • 3h30
+              {activities?.length || 0} {t("thalion.nosSoins.treatments")} • 3h30
             </span>
           </div>
         </div>
@@ -538,7 +541,7 @@ const MobileDayCard = ({
                 <div className="flex items-center justify-center gap-2 text-stone-500">
                   <Sparkles className="h-4 w-4" />
                   <span className="text-sm italic">
-                    Expérience complète de bien-être
+                    {t("thalion.nosSoins.completeWellnessExperience")}
                   </span>
                   <Sparkles className="h-4 w-4" />
                 </div>
@@ -553,7 +556,7 @@ const MobileDayCard = ({
         <div className="p-4 border-t border-stone-200">
           <div className="flex items-center justify-between">
             <span className="text-stone-600 text-sm font-light">
-              Découvrez le programme détaillé
+              {t("thalion.nosSoins.discoverDetailedProgram")}
             </span>
             <div className="flex -space-x-1">
               {[1, 2, 3].map((dot) => (
@@ -586,6 +589,7 @@ const CircleItem = React.memo(
     isHovered,
     isMobile,
     colors,
+    t,
   }) => {
     return (
       <motion.div
@@ -625,7 +629,7 @@ const CircleItem = React.memo(
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.2 + 0.3 }}
         >
-          Jour {day}
+          {t("thalion.nosSoins.day")} {day}
         </motion.div>
 
         <div className="relative">
@@ -675,11 +679,11 @@ const CircleItem = React.memo(
               >
                 <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-xl p-3 border border-white/50">
                   <h4 className="text-xs font-semibold text-stone-800 mb-1">
-                    Jour {day}
+                    {t("thalion.nosSoins.day")} {day}
                   </h4>
                   <div className="flex items-center text-stone-500 text-xs mb-1">
                     <Clock className="h-3 w-3 mr-1" />
-                    <span>{activities?.length || 0} soins - 3h30</span>
+                    <span>{activities?.length || 0} {t("thalion.nosSoins.treatments")} - 3h30</span>
                   </div>
                   <div className="space-y-0.5">
                     {activities?.slice(0, 3).map((activity, i) => (
@@ -697,12 +701,12 @@ const CircleItem = React.memo(
                     ))}
                     {activities?.length > 3 && (
                       <div className="text-xs text-stone-400 italic mt-1">
-                        +{activities.length - 3} autres soins...
+                        +{activities.length - 3} {t("thalion.nosSoins.otherTreatments")}
                       </div>
                     )}
                   </div>
                   <div className="text-xs text-stone-400 mt-1">
-                    Cliquez pour plus de détails
+                    {t("thalion.nosSoins.clickForDetails")}
                   </div>
                 </div>
               </motion.div>
@@ -761,7 +765,8 @@ const CircleItem = React.memo(
       prevProps.isMobile === nextProps.isMobile &&
       prevProps.index === nextProps.index &&
       prevProps.colors === nextProps.colors &&
-      prevProps.activities?.length === nextProps.activities?.length
+      prevProps.activities?.length === nextProps.activities?.length &&
+      prevProps.t === nextProps.t
     );
   }
 );

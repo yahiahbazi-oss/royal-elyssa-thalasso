@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useRef,
 } from "react";
+import { useTranslation } from "react-i18next";
 import {
   ChevronLeft,
   ChevronRight,
@@ -12,14 +13,11 @@ import {
   Maximize,
   Bed,
   Bath,
-  Car,
-  Wifi,
-  Coffee,
-  Users,
   Play,
   Pause,
   Menu,
   Home, // Added Home icon
+  Waves, // Added for private pool
 } from "lucide-react";
 
 // Import your local images - replace these mock imports with your actual ones
@@ -75,6 +73,12 @@ const LazyImage = ({ src, alt, className, onClick, loading = "lazy" }) => {
 };
 
 const Suite = () => {
+  const { t, i18n } = useTranslation();
+
+  // Language change function
+  const changeLanguage = (languageCode) => {
+    i18n.changeLanguage(languageCode);
+  };
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [lightboxImageIndex, setLightboxImageIndex] = useState(0);
@@ -137,13 +141,19 @@ const Suite = () => {
   );
 
   const nextImage = useCallback(() => {
-    setCurrentImageIndex((prev) => (prev + 1) % suiteImages.length);
+    setCurrentImageIndex((prev) => {
+      const nextIndex = (prev + 1) % suiteImages.length;
+      console.log("Next image:", nextIndex, "from", prev);
+      return nextIndex;
+    });
   }, [suiteImages.length]);
 
   const prevImage = useCallback(() => {
-    setCurrentImageIndex(
-      (prev) => (prev - 1 + suiteImages.length) % suiteImages.length
-    );
+    setCurrentImageIndex((prev) => {
+      const prevIndex = (prev - 1 + suiteImages.length) % suiteImages.length;
+      console.log("Previous image:", prevIndex, "from", prev);
+      return prevIndex;
+    });
   }, [suiteImages.length]);
 
   const openLightbox = useCallback((index) => {
@@ -203,6 +213,14 @@ const Suite = () => {
     return () => clearInterval(interval);
   }, [isAutoPlay, nextImage]);
 
+  // Preload images for smoother transitions
+  useEffect(() => {
+    suiteImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [suiteImages]);
+
   // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -237,41 +255,57 @@ const Suite = () => {
   };
 
   const amenities = [
-    { icon: <Bed className="w-5 h-5 md:w-6 md:h-6" />, text: "Lit King Size" },
+    { icon: <Bed className="w-5 h-5 md:w-6 md:h-6" />, text: t("suite.amenities.kingBed") },
     {
       icon: <Bath className="w-5 h-5 md:w-6 md:h-6" />,
-      text: "Salle de Bain en Marbre",
+      text: t("suite.amenities.marbleBathroom"),
     },
     {
-      icon: <Car className="w-5 h-5 md:w-6 md:h-6" />,
-      text: "Service de Voiturier",
-    },
-    {
-      icon: <Wifi className="w-5 h-5 md:w-6 md:h-6" />,
-      text: "WiFi Haut Débit",
-    },
-    {
-      icon: <Coffee className="w-5 h-5 md:w-6 md:h-6" />,
-      text: "Service en Chambre 24/7",
-    },
-    {
-      icon: <Users className="w-5 h-5 md:w-6 md:h-6" />,
-      text: "Service Concierge",
+      icon: <Waves className="w-5 h-5 md:w-6 md:h-6" />,
+      text: t("suite.amenities.privatePool"),
     },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-stone-100">
-      {/* Home Button */}
-      <button
-        onClick={goToHomePage}
-        className="fixed top-4 left-4 z-50 flex items-center gap-2 bg-beige-500 hover:bg-beige-600 rounded-full px-4 py-2 transition-all duration-300 shadow-md hover:shadow-lg"
-        aria-label="Retour à la page d'accueil"
-        style={{ backgroundColor: "#d7ccc8", color: "#5d4037" }} // Couleur beige et texte marron
-      >
-        <Home className="w-5 h-5 md:w-6 md:h-6" />
-        <span className="text-sm font-medium">Accueil</span>
-      </button>
+      {/* Top Navigation with Home Button and Language Flags */}
+      <div className="fixed top-4 left-4 right-4 z-50 flex items-center justify-between">
+        {/* Home Button */}
+        <button
+          onClick={goToHomePage}
+          className="flex items-center gap-2 bg-beige-500 hover:bg-beige-600 rounded-full px-4 py-2 transition-all duration-300 shadow-md hover:shadow-lg"
+          aria-label={t("suite.navigation.homeAriaLabel")}
+          style={{ backgroundColor: "#d7ccc8", color: "#5d4037" }} // Couleur beige et texte marron
+        >
+          <Home className="w-5 h-5 md:w-6 md:h-6" />
+          <span className="text-sm font-medium">{t("suite.navigation.home")}</span>
+        </button>
+
+        {/* Language Flags */}
+        <div className="flex items-center space-x-2 bg-white/80 backdrop-blur-md rounded-full px-3 py-2 shadow-md">
+          <img
+            src="/src/assets/france.png"
+            alt="France Flag"
+            className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-stone-300"
+            onClick={() => changeLanguage('fr')}
+            title="Français"
+          />
+          <img
+            src="/src/assets/royaume-uni.png"
+            alt="UK Flag"
+            className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-stone-300"
+            onClick={() => changeLanguage('en')}
+            title="English"
+          />
+          <img
+            src="/src/assets/russie.png"
+            alt="Russia Flag"
+            className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-stone-300"
+            onClick={() => changeLanguage('ru')}
+            title="Русский"
+          />
+        </div>
+      </div>
 
       {/* Hero Section with Enhanced Image Carousel */}
       <div
@@ -282,53 +316,85 @@ const Suite = () => {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-10"></div>
 
-        <LazyImage
-          src={suiteImages[currentImageIndex]}
-          alt="Carré VIP Spa"
-          className="w-full h-full"
-          loading="eager"
-        />
+        {/* Image Container with smooth transitions */}
+        <div className="relative w-full h-full">
+          {suiteImages.map((image, index) => (
+            <div
+              key={`hero-image-${index}`}
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                index === currentImageIndex
+                  ? "opacity-100 scale-100"
+                  : "opacity-0 scale-105"
+              }`}
+              style={{
+                zIndex: index === currentImageIndex ? 5 : 1,
+              }}
+            >
+              <LazyImage
+                src={image}
+                alt={`Carré VIP Spa ${index + 1}`}
+                className="w-full h-full object-cover"
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            </div>
+          ))}
+        </div>
 
         {/* Enhanced Navigation */}
-        <div className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 z-20 flex justify-between px-4 md:px-6">
+        <div className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 z-30 flex justify-between px-4 md:px-8">
           <button
-            onClick={prevImage}
-            className="bg-white/10 backdrop-blur-md hover:bg-white/20 rounded-full p-2 md:p-4 transition-all duration-300 border border-white/20 hover:scale-110"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              prevImage();
+            }}
+            className="group bg-white/10 backdrop-blur-md hover:bg-white/25 rounded-full p-4 md:p-5 transition-all duration-300 border border-white/20 hover:border-white/40 hover:scale-110 shadow-xl hover:shadow-2xl"
             aria-label="Image précédente"
+            type="button"
           >
-            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white" />
+            <ChevronLeft className="w-6 h-6 md:w-7 md:h-7 text-white group-hover:text-white transition-colors duration-300" />
           </button>
           <button
-            onClick={nextImage}
-            className="bg-white/10 backdrop-blur-md hover:bg-white/20 rounded-full p-2 md:p-4 transition-all duration-300 border border-white/20 hover:scale-110"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              nextImage();
+            }}
+            className="group bg-white/10 backdrop-blur-md hover:bg-white/25 rounded-full p-4 md:p-5 transition-all duration-300 border border-white/20 hover:border-white/40 hover:scale-110 shadow-xl hover:shadow-2xl"
             aria-label="Image suivante"
+            type="button"
           >
-            <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
+            <ChevronRight className="w-6 h-6 md:w-7 md:h-7 text-white group-hover:text-white transition-colors duration-300" />
           </button>
         </div>
 
         {/* Title Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center z-20 px-4">
+        <div className="absolute inset-0 flex items-center justify-center z-20 px-4 pointer-events-none">
           <div className="text-center text-white max-w-4xl">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-light mb-4 md:mb-6 tracking-wide drop-shadow-2xl">
-              CARRÉ VIP SUITES SPA
+              {t("header.navigation.carreVip.title")}
             </h1>
             <p className="text-sm sm:text-base md:text-lg lg:text-2xl font-light tracking-widest opacity-90 drop-shadow-lg">
-              LE LUXE, TOUT SIMPLEMENT
+              {t("header.navigation.carreVip.subtitle")}
             </p>
           </div>
         </div>
 
         {/* Enhanced Controls */}
-        <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-20 flex items-center gap-2 md:gap-4">
+        <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-30 flex items-center gap-2 md:gap-4">
           <button
-            onClick={() => setIsAutoPlay(!isAutoPlay)}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIsAutoPlay(!isAutoPlay);
+            }}
             className="bg-white/10 backdrop-blur-md hover:bg-white/20 rounded-full p-2 md:p-3 transition-all duration-300 border border-white/20 hover:scale-110"
             aria-label={
               isAutoPlay
                 ? "Arrêter le défilement automatique"
                 : "Démarrer le défilement automatique"
             }
+            type="button"
           >
             {isAutoPlay ? (
               <Pause className="w-4 h-4 md:w-5 md:h-5 text-white" />
@@ -344,23 +410,29 @@ const Suite = () => {
         </div>
 
         {/* Image Dots Navigation */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex gap-1 md:gap-2">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex gap-2 md:gap-3">
           {suiteImages.map((_, index) => (
             <button
-              key={index}
-              onClick={() => setCurrentImageIndex(index)}
-              className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
+              key={`dot-${index}`}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("Dot clicked:", index);
+                setCurrentImageIndex(index);
+              }}
+              className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 border border-white/30 ${
                 index === currentImageIndex
-                  ? "bg-white scale-125"
-                  : "bg-white/40 hover:bg-white/70"
+                  ? "bg-white scale-125 shadow-lg"
+                  : "bg-white/40 hover:bg-white/70 hover:scale-110"
               }`}
               aria-label={`Aller à l'image ${index + 1}`}
+              type="button"
             />
           ))}
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-20 md:bottom-4">
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-30 md:bottom-4">
           <div className="w-4 h-6 md:w-6 md:h-10 border-2 border-white/50 rounded-full flex justify-center">
             <div className="w-1 h-2 md:h-3 bg-white/50 rounded-full mt-1 md:mt-2 animate-bounce"></div>
           </div>
@@ -372,29 +444,17 @@ const Suite = () => {
         <div className="grid lg:grid-cols-2 gap-10 md:gap-20 items-start">
           <div className="lg:sticky lg:top-8">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-stone-800 mb-6 md:mb-8 tracking-wide">
-              Un Sanctuaire Exquis
+              {t("suite.description.title")}
             </h2>
             <div className="space-y-4 md:space-y-6 text-stone-700 leading-relaxed">
               <p className="text-base md:text-lg lg:text-xl font-light">
-                Vous avez le choix pour votre hébergement : soit vous pouvez
-                résider au Royal Thalassa Monastir*****, directement relié au
-                Royal Elyssa Thalasso & Spa, soit vous préférerez habiter au
-                cœur de notre centre, au deuxième étage, dans le magnifique
-                Carré VIP Suites Spa, composé de vingt suites, donnant à la fois
-                sur de luxuriants jardins suspendus, la Méditerranée toute
-                proche et une piscine privée, uniquement réservée aux résidents
-                du Carré VIP.
+                {t("suite.description.paragraph1")}
               </p>
               <p className="text-sm md:text-base lg:text-lg font-light opacity-90">
-                Les Suites Spa sont luxueusement décorées dans un style
-                contemporain et épuré. Elles sont dotées de salles de bains
-                spacieuses et certaines vous offrent même des jacuzzis sur leurs
-                terrasses privatives.
+                {t("suite.description.paragraph2")}
               </p>
               <p className="text-sm md:text-base lg:text-lg font-light opacity-90">
-                Si vous résidez dans notre carré VIP, vous pourrez en toute
-                facilité accéder directement à tous nos espaces thalasso et spa
-                en peignoir.
+                {t("suite.description.paragraph3")}
               </p>
             </div>
           </div>
@@ -405,7 +465,7 @@ const Suite = () => {
             <div className="relative group overflow-hidden rounded-xl md:rounded-2xl">
               <LazyImage
                 src={galleryImages[0]}
-                alt="Suite principale"
+                alt={t("suite.gallery.mainSuite")}
                 className="w-full h-60 md:h-80 group-hover:scale-110 transition-transform duration-700"
                 onClick={() => openLightbox(suiteImages.length)}
               />
@@ -413,13 +473,13 @@ const Suite = () => {
               <button
                 onClick={() => openLightbox(suiteImages.length)}
                 className="absolute top-2 right-2 md:top-4 md:right-4 bg-white/20 backdrop-blur-md rounded-full p-2 md:p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/30"
-                aria-label="Voir en grand"
+                aria-label={t("suite.gallery.viewLarge")}
               >
                 <Maximize className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </button>
               <div className="absolute bottom-2 left-2 md:bottom-4 md:left-4 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <h3 className="text-sm md:text-lg font-light">
-                  Suite Principale
+                  {t("suite.gallery.mainSuite")}
                 </h3>
               </div>
             </div>
@@ -433,7 +493,7 @@ const Suite = () => {
                 >
                   <LazyImage
                     src={image}
-                    alt={`Détail de la suite ${index + 2}`}
+                    alt={`${t("suite.gallery.suiteDetail")} ${index + 2}`}
                     className="w-full h-40 md:h-48 group-hover:scale-110 transition-transform duration-500"
                     onClick={() => openLightbox(suiteImages.length + index + 1)}
                   />
@@ -441,7 +501,7 @@ const Suite = () => {
                   <button
                     onClick={() => openLightbox(suiteImages.length + index + 1)}
                     className="absolute top-1 right-1 md:top-2 md:right-2 bg-white/20 backdrop-blur-md rounded-full p-1 md:p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/30"
-                    aria-label="Voir en grand"
+                    aria-label={t("suite.gallery.viewLarge")}
                   >
                     <Maximize className="w-3 h-3 md:w-4 md:h-4 text-white" />
                   </button>
@@ -513,6 +573,51 @@ const Suite = () => {
       </section>
 
       {/* Enhanced Amenities Section */}
+      <section className="py-12 md:py-20 bg-gradient-to-br from-stone-100 via-white to-stone-50">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-stone-800 mb-4 md:mb-6 tracking-wide">
+              {t("suite.amenities.title")}
+            </h2>
+            <p className="text-base md:text-lg text-stone-600 font-light max-w-2xl mx-auto leading-relaxed">
+              {t("suite.amenities.description")}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-6 justify-items-center max-w-4xl mx-auto">
+            {amenities.map((amenity, index) => (
+              <div
+                key={index}
+                className="group relative bg-white rounded-xl md:rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-stone-100 w-full max-w-xs"
+              >
+                {/* Background gradient on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-stone-50 to-stone-100 rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                {/* Content */}
+                <div className="relative z-10 text-center">
+                  {/* Icon container with elegant design */}
+                  <div className="mb-4 md:mb-6 flex justify-center">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-stone-600 to-stone-700 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-lg">
+                      <div className="text-white group-hover:scale-110 transition-transform duration-300">
+                        {amenity.icon}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Text */}
+                  <h3 className="text-sm md:text-base font-light text-stone-800 tracking-wide leading-relaxed group-hover:text-stone-900 transition-colors duration-300 text-center">
+                    {amenity.text}
+                  </h3>
+                </div>
+
+                {/* Decorative elements */}
+                <div className="absolute top-2 right-2 w-16 h-16 border border-stone-200 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <div className="absolute bottom-2 left-2 w-8 h-8 border border-stone-200 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-700"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Call to Action */}
       <section className="py-12 md:py-24 bg-gradient-to-r from-stone-800 via-stone-700 to-stone-800 text-white relative overflow-hidden">
@@ -521,17 +626,16 @@ const Suite = () => {
         </div>
         <div className="max-w-4xl mx-auto text-center px-4 md:px-6 relative z-10">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light mb-6 md:mb-8 tracking-wide">
-            Réservez Votre Séjour
+            {t("suite.booking.title")}
           </h2>
           <p className="text-base md:text-lg lg:text-xl font-light mb-8 md:mb-12 opacity-90 leading-relaxed max-w-2xl mx-auto">
-            Vivez l'apogée de l'hospitalité de luxe. Votre sanctuaire d'élégance
-            vous attend dans un cadre d'exception au cœur de la Méditerranée.
+            {t("suite.booking.description")}
           </p>
           <button
             onClick={handleBookNow}
             className="bg-white text-stone-800 px-8 py-3 md:px-12 md:py-4 rounded-full font-light tracking-wide hover:bg-stone-100 hover:scale-105 transition-all duration-300 text-base md:text-lg shadow-lg hover:shadow-xl"
           >
-            RÉSERVER MAINTENANT
+            {t("suite.booking.bookNow")}
           </button>
         </div>
       </section>
@@ -540,13 +644,13 @@ const Suite = () => {
       <section className="py-12 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-light text-stone-800 text-center mb-10 md:mb-16 tracking-wide">
-            Informations & Réservations
+            {t("suite.contact.title")}
           </h2>
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 text-stone-700">
             <div className="bg-gradient-to-br from-stone-50 to-stone-100 p-6 md:p-8 rounded-xl md:rounded-2xl shadow-md space-y-4 md:space-y-6">
               <div className="pb-3 md:pb-4 border-b border-stone-200">
                 <h3 className="font-light text-lg md:text-xl mb-2 md:mb-3 text-stone-800">
-                  Réservation en ligne
+                  {t("suite.contact.onlineBooking")}
                 </h3>
                 <a
                   href="https://thalassa-hotels.com"
@@ -559,7 +663,7 @@ const Suite = () => {
               </div>
               <div>
                 <h3 className="font-light text-lg md:text-xl mb-2 md:mb-3 text-stone-800">
-                  Réservation par mail
+                  {t("suite.contact.emailBooking")}
                 </h3>
                 <a
                   href="mailto:booking.monastir@thalassa-hotels.com"
@@ -572,7 +676,7 @@ const Suite = () => {
             <div className="bg-gradient-to-br from-stone-50 to-stone-100 p-6 md:p-8 rounded-xl md:rounded-2xl shadow-md space-y-4 md:space-y-6">
               <div className="pb-3 md:pb-4 border-b border-stone-200">
                 <h3 className="font-light text-lg md:text-xl mb-2 md:mb-3 text-stone-800">
-                  Informations
+                  {t("suite.contact.information")}
                 </h3>
                 <a
                   href="tel:+21693953465"

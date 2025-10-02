@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
 import SoinsDesign from "../../../components/SoinsDesign";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Import static images
 import jour1 from "./assets/MM1.jpg";
@@ -14,6 +15,7 @@ import jour6 from "./assets/MM6.jpg";
 import masseurVideo from "./assets/mv.webm";
 
 const EscaleMen = React.memo(() => {
+  const { t } = useTranslation();
   const location = useLocation();
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
@@ -34,52 +36,48 @@ const EscaleMen = React.memo(() => {
 
   const treatments = useMemo(
     () => ({
-      "Escale For Men": {
-        description: `Spécialement conçue pour vous les hommes, cette cure propose un programme complet
-alliant soins du visage et du corps, dont des massages de 25 à 50', pour retrouver force et vitalité.
-Notre promesse: En 4 ou 6 jours chrono pour rebooster votre capital énergétique!
-Durée: 4 ou 6 jours* (durée moyenne des soins par jour: 2h30)`,
-        supplement:
-          "En complément de votre Escale Marine, le parcours marin « eau de mer naturelle  » ainsi que le hammam vapeur sont accessibles avant les soins.",
+      [t("thalion.nosSoins.escaleMen.title")]: {
+        description: t("thalion.nosSoins.escaleMen.description"),
+        supplement: t("thalion.nosSoins.escaleMen.supplement"),
         pricing: [
-          { duration: "4 jours", price: "850 TND / 258 €" },
-          { duration: "6 jours", price: "1330 TND / 404 €" },
+          { duration: `4 ${t("thalion.themeSection.days")}`, price: "850 TND / 258 €" },
+          { duration: `6 ${t("thalion.themeSection.days")}`, price: "1330 TND / 404 €" },
         ],
         days: {
           1: [
-            "Gommage revitalisant aux huiles essentielles",
-            "Bain revitalisant à la crème d'algues",
-            "Massage souffle d'énergie à l'huile de noix du Brésil",
+            t("thalion.nosSoins.escaleMen.day1.treatment1"),
+            t("thalion.nosSoins.escaleMen.day1.treatment2"),
+            t("thalion.nosSoins.escaleMen.day1.treatment3"),
           ],
           2: [
-            "Grand jet tonique",
-            "Duo Boue Marine bienfaisante",
-            "Massage du dos",
+            t("thalion.nosSoins.escaleMen.day2.treatment1"),
+            t("thalion.nosSoins.escaleMen.day2.treatment2"),
+            t("thalion.nosSoins.escaleMen.day2.treatment3"),
           ],
           3: [
-            "Douche drainante sous marine",
-            "Massage bruine de mer à la criste marine Bio",
-            "Massage souffle d'énergie à l'huile de noix du Brésil",
+            t("thalion.nosSoins.escaleMen.day3.treatment1"),
+            t("thalion.nosSoins.escaleMen.day3.treatment2"),
+            t("thalion.nosSoins.escaleMen.day3.treatment3"),
           ],
           4: [
-            "Grand jet tonique",
-            "Duo Boue Marine bienfaisante",
-            "Massage du dos",
+            t("thalion.nosSoins.escaleMen.day4.treatment1"),
+            t("thalion.nosSoins.escaleMen.day4.treatment2"),
+            t("thalion.nosSoins.escaleMen.day4.treatment3"),
           ],
           5: [
-            "Bain revitalisant à la crème d'algues",
-            "Massage bruine de mer à la criste marine Bio",
-            "Massage pieds sensibles",
+            t("thalion.nosSoins.escaleMen.day5.treatment1"),
+            t("thalion.nosSoins.escaleMen.day5.treatment2"),
+            t("thalion.nosSoins.escaleMen.day5.treatment3"),
           ],
           6: [
-            "Duo Boue Marine bienfaisante",
-            "Massage bonheur des muscles au baume camphré",
-            "Soin visage Facial Oxygen Booster",
+            t("thalion.nosSoins.escaleMen.day6.treatment1"),
+            t("thalion.nosSoins.escaleMen.day6.treatment2"),
+            t("thalion.nosSoins.escaleMen.day6.treatment3"),
           ],
         },
       },
     }),
-    []
+    [t]
   );
 
   const handleVideoLoad = useCallback(() => {
@@ -156,7 +154,7 @@ Durée: 4 ou 6 jours* (durée moyenne des soins par jour: 2h30)`,
             <div className="flex flex-col items-center space-y-4">
               <div className="w-12 h-12 border-4 border-stone-200 border-t-stone-400 rounded-full animate-spin"></div>
               <p className="text-stone-600 font-light">
-                Préparation de l'expérience spa...
+                {t("thalion.nosSoins.escaleMen.loading")}
               </p>
             </div>
           </div>
