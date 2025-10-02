@@ -5,11 +5,11 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 // Import static images
-import jour1 from "./assets/A1.jpg";
-import jour2 from "./assets/A2.jpg";
-import jour3 from "./assets/A3.jpg";
-import jour4 from "./assets/A4.jpg";
-import jour5 from "./assets/A5.jpg";
+import jour1 from "./assets/A1.JPG";
+import jour2 from "./assets/A2.JPG";
+import jour3 from "./assets/A3.JPG";
+import jour4 from "./assets/A4.JPG";
+import jour5 from "./assets/A5.JPG";
 
 // Import Video
 import golfVideo from "./assets/golf.webm";

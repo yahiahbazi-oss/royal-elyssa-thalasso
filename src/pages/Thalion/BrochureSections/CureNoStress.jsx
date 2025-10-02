@@ -4,11 +4,11 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 // Import static images
-import jour1 from "./assets/NS1.jpg";
-import jour2 from "./assets/NS2.jpg";
-import jour3 from "./assets/NS3.jpg";
-import jour4 from "./assets/NS4.jpg";
-import jour5 from "./assets/NS5.jpg";
+import jour1 from "./assets/NS1.JPG";
+import jour2 from "./assets/NS2.JPG";
+import jour3 from "./assets/NS3.JPG";
+import jour4 from "./assets/NS4.JPG";
+import jour5 from "./assets/NS5.JPG";
 
 // Import Video
 import masseurVideo from "./assets/curenonstress.webm";

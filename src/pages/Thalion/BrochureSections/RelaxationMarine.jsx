@@ -4,11 +4,11 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 // Import static images
-import jour1 from "./assets/RR1.jpg";
-import jour2 from "./assets/RR2.jpg";
-import jour3 from "./assets/RR3.jpg";
-import jour4 from "./assets/RR4.jpg";
-import jour5 from "./assets/RR5.jpg";
+import jour1 from "./assets/RR1.JPG";
+import jour2 from "./assets/RR2.JPG";
+import jour3 from "./assets/RR3.JPG";
+import jour4 from "./assets/RR4.JPG";
+import jour5 from "./assets/RR5.JPG";
 
 // Import Video - Updated to use unemasseusesea.webm
 import masseurVideo from "./assets/unemasseusesea.webm";

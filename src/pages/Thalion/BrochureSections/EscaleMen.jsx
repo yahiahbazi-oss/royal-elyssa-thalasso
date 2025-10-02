@@ -4,12 +4,12 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 // Import static images
-import jour1 from "./assets/MM1.jpg";
-import jour2 from "./assets/MM2.jpg";
-import jour3 from "./assets/MM3.jpg";
-import jour4 from "./assets/MM4.jpg";
-import jour5 from "./assets/MM5.jpg";
-import jour6 from "./assets/MM6.jpg";
+import jour1 from "./assets/MM1.JPG";
+import jour2 from "./assets/MM2.JPG";
+import jour3 from "./assets/MM3.JPG";
+import jour4 from "./assets/MM4.JPG";
+import jour5 from "./assets/MM5.JPG";
+import jour6 from "./assets/MM6.JPG";
 
 // Import Video
 import masseurVideo from "./assets/mv.webm";

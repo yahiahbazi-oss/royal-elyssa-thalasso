@@ -4,12 +4,12 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 // Import static images for DetoxSilhouette
-import jour1 from "./assets/SI1.jpg";
-import jour2 from "./assets/SI2.jpg";
-import jour3 from "./assets/SI3.jpg";
-import jour4 from "./assets/SI4.jpg";
-import jour5 from "./assets/SI5.jpg";
-import jour6 from "./assets/SI6.jpg";
+import jour1 from "./assets/SI1.JPG";
+import jour2 from "./assets/SI2.JPG";
+import jour3 from "./assets/SI3.JPG";
+import jour4 from "./assets/SI4.JPG";
+import jour5 from "./assets/SI5.JPG";
+import jour6 from "./assets/SI6.JPG";
 
 // Import Video
 import aquaVideo from "./assets/Aquacycling_compressed.mp4";
