@@ -10,6 +10,11 @@ import EquipeUsine from "./UsinePages/EquipeUsine";
 // Import du logo
 import UsineLogo from "./assets/usinelogo.png";
 
+// Import flag images
+import francFlag from "../../assets/france.png";
+import ukFlag from "../../assets/royaume-uni.png";
+import russiaFlag from "../../assets/russie.png";
+
 const Usine = () => {
   const { t, i18n } = useTranslation();
 
@@ -121,21 +126,21 @@ const Usine = () => {
             {/* Language Flags - Centered (Mobile) */}
             <div className="md:hidden flex items-center space-x-2">
               <img
-                src="/src/assets/france.png"
+                src={francFlag}
                 alt="France Flag"
                 className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-amber-400/30"
                 onClick={() => changeLanguage('fr')}
                 title="Français"
               />
               <img
-                src="/src/assets/royaume-uni.png"
+                src={ukFlag}
                 alt="UK Flag"
                 className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-amber-400/30"
                 onClick={() => changeLanguage('en')}
                 title="English"
               />
               <img
-                src="/src/assets/russie.png"
+                src={russiaFlag}
                 alt="Russia Flag"
                 className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-amber-400/30"
                 onClick={() => changeLanguage('ru')}
@@ -165,21 +170,21 @@ const Usine = () => {
               {/* Language Flags - Right side (Desktop) */}
               <div className="flex items-center space-x-2 pl-4 border-l border-amber-400/30">
                 <img
-                  src="/src/assets/france.png"
+                  src={francFlag}
                   alt="France Flag"
                   className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-amber-400/30"
                   onClick={() => changeLanguage('fr')}
                   title="Français"
                 />
                 <img
-                  src="/src/assets/royaume-uni.png"
+                  src={ukFlag}
                   alt="UK Flag"
                   className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-amber-400/30"
                   onClick={() => changeLanguage('en')}
                   title="English"
                 />
                 <img
-                  src="/src/assets/russie.png"
+                  src={russiaFlag}
                   alt="Russia Flag"
                   className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-amber-400/30"
                   onClick={() => changeLanguage('ru')}

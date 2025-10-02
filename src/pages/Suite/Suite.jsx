@@ -40,6 +40,11 @@ import SuitesSPA18 from "./assets/Suites_SPA_18.jpg";
 import SuitesSPA19 from "./assets/Suites_SPA_19.jpg";
 import SuitesSPA20 from "./assets/Suites_SPA_20.jpg";
 
+// Import flag images
+import francFlag from "../../assets/france.png";
+import ukFlag from "../../assets/royaume-uni.png";
+import russiaFlag from "../../assets/russie.png";
+
 // Lazy loading component for images
 const LazyImage = ({ src, alt, className, onClick, loading = "lazy" }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -284,21 +289,21 @@ const Suite = () => {
         {/* Language Flags */}
         <div className="flex items-center space-x-2 bg-white/80 backdrop-blur-md rounded-full px-3 py-2 shadow-md">
           <img
-            src="/src/assets/france.png"
+            src={francFlag}
             alt="France Flag"
             className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-stone-300"
             onClick={() => changeLanguage('fr')}
             title="Français"
           />
           <img
-            src="/src/assets/royaume-uni.png"
+            src={ukFlag}
             alt="UK Flag"
             className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-stone-300"
             onClick={() => changeLanguage('en')}
             title="English"
           />
           <img
-            src="/src/assets/russie.png"
+            src={russiaFlag}
             alt="Russia Flag"
             className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-stone-300"
             onClick={() => changeLanguage('ru')}

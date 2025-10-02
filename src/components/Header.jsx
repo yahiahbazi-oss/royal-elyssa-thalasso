@@ -15,6 +15,9 @@ import francFlag from "../assets/france.png";
 import ukFlag from "../assets/royaume-uni.png";
 import russiaFlag from "../assets/russie.png";
 
+// Import logo
+import royalElyssaLogo from "../assets/logo3.png";
+
 const Header = () => {
   const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -384,7 +387,7 @@ const Header = () => {
             <div className="flex items-center flex-grow justify-center md:flex-grow-0">
               <Link to="/">
                 <img
-                  src="/src/assets/logo3.png"
+                  src={royalElyssaLogo}
                   alt="Royal Elyssa Logo"
                   className="h-24 md:h-20 lg:h-24 w-auto transition-all duration-300 hover:scale-105"
                 />
