@@ -20,6 +20,80 @@ import { useTranslation } from "react-i18next";
 // Import images for fallback (Marine and Massages still need these)
 import marineImage from "../assets/Thalasso_7.jpg";
 import massageImage from "../assets/Thalasso_Thal'ion_17.jpg";
+import V1 from "../pages/Thalion/BrochureSections/assets/alacarte/V1.webp";
+import V2 from "../pages/Thalion/BrochureSections/assets/alacarte/V2.webp";
+import V3 from "../pages/Thalion/BrochureSections/assets/alacarte/V3.webp";
+import V4 from "../pages/Thalion/BrochureSections/assets/alacarte/V4.webp";
+import V5 from "../pages/Thalion/BrochureSections/assets/alacarte/V5.webp";
+import V6 from "../pages/Thalion/BrochureSections/assets/alacarte/V6.webp";
+import V7 from "../pages/Thalion/BrochureSections/assets/alacarte/V7.webp";
+import V8 from "../pages/Thalion/BrochureSections/assets/alacarte/V8.webp";
+import V9 from "../pages/Thalion/BrochureSections/assets/alacarte/V9.webp";
+import V10 from "../pages/Thalion/BrochureSections/assets/alacarte/V10.webp";
+import V11 from "../pages/Thalion/BrochureSections/assets/alacarte/V11.webp";
+import V12 from "../pages/Thalion/BrochureSections/assets/alacarte/V12.webp";
+import V13 from "../pages/Thalion/BrochureSections/assets/alacarte/V13.webp";
+import V14 from "../pages/Thalion/BrochureSections/assets/alacarte/V14.webp";
+import V15 from "../pages/Thalion/BrochureSections/assets/alacarte/V15.webp";
+import V16 from "../pages/Thalion/BrochureSections/assets/alacarte/V16.webp";
+import V17 from "../pages/Thalion/BrochureSections/assets/alacarte/V17.webp";
+import V18 from "../pages/Thalion/BrochureSections/assets/alacarte/V18.webp";
+import V19 from "../pages/Thalion/BrochureSections/assets/alacarte/V19.webp";
+import V20 from "../pages/Thalion/BrochureSections/assets/alacarte/V20.webp";
+import V21 from "../pages/Thalion/BrochureSections/assets/alacarte/V21.webp";
+import V22 from "../pages/Thalion/BrochureSections/assets/alacarte/V22.webp";
+import V23 from "../pages/Thalion/BrochureSections/assets/alacarte/V23.webp";
+import V24 from "../pages/Thalion/BrochureSections/assets/alacarte/V24.webp";
+import C0 from "../pages/Thalion/BrochureSections/assets/alacarte/C0.webp";
+import C1 from "../pages/Thalion/BrochureSections/assets/alacarte/C1.webp";
+import C2 from "../pages/Thalion/BrochureSections/assets/alacarte/C2.webp";
+import C3 from "../pages/Thalion/BrochureSections/assets/alacarte/C3.webp";
+import C4 from "../pages/Thalion/BrochureSections/assets/alacarte/C4.webp";
+import C5 from "../pages/Thalion/BrochureSections/assets/alacarte/C5.webp";
+import C8 from "../pages/Thalion/BrochureSections/assets/alacarte/C8.webp";
+import C9 from "../pages/Thalion/BrochureSections/assets/alacarte/C9.webp";
+import C10 from "../pages/Thalion/BrochureSections/assets/alacarte/C10.webp";
+import C11 from "../pages/Thalion/BrochureSections/assets/alacarte/C11.webp";
+import C12 from "../pages/Thalion/BrochureSections/assets/alacarte/C12.webp";
+import C13 from "../pages/Thalion/BrochureSections/assets/alacarte/C13.webp";
+import C14 from "../pages/Thalion/BrochureSections/assets/alacarte/C14.webp";
+import C15 from "../pages/Thalion/BrochureSections/assets/alacarte/C15.webp";
+import C16 from "../pages/Thalion/BrochureSections/assets/alacarte/C16.webp";
+import C17 from "../pages/Thalion/BrochureSections/assets/alacarte/C17.webp";
+import C18 from "../pages/Thalion/BrochureSections/assets/alacarte/C18.webp";
+import C19 from "../pages/Thalion/BrochureSections/assets/alacarte/C19.webp";
+import C20 from "../pages/Thalion/BrochureSections/assets/alacarte/C20.webp";
+import C21 from "../pages/Thalion/BrochureSections/assets/alacarte/C21.webp";
+import C23 from "../pages/Thalion/BrochureSections/assets/alacarte/C23.webp";
+import C24 from "../pages/Thalion/BrochureSections/assets/alacarte/C24.webp";
+import C25 from "../pages/Thalion/BrochureSections/assets/alacarte/C25.webp";
+import C26 from "../pages/Thalion/BrochureSections/assets/alacarte/C26.webp";
+import C27 from "../pages/Thalion/BrochureSections/assets/alacarte/C27.webp";
+import C28 from "../pages/Thalion/BrochureSections/assets/alacarte/C28.webp"; 
+import X1 from "../pages/Thalion/BrochureSections/assets/X1.JPG";
+import X2 from "../pages/Thalion/BrochureSections/assets/X2.JPG";
+import X3 from "../pages/Thalion/BrochureSections/assets/X3.JPG";
+import X4 from "../pages/Thalion/BrochureSections/assets/X4.JPG";
+import X5 from "../pages/Thalion/BrochureSections/assets/X5.JPG";
+import X6 from "../pages/Thalion/BrochureSections/assets/X6.JPG";
+import X7 from "../pages/Thalion/BrochureSections/assets/X7.JPG";
+import X8 from "../pages/Thalion/BrochureSections/assets/X8.JPG";
+import X9 from "../pages/Thalion/BrochureSections/assets/X9.JPG";
+import X10 from "../pages/Thalion/BrochureSections/assets/X10.JPG";
+import X11 from "../pages/Thalion/BrochureSections/assets/X11.JPG";
+import X20 from "../pages/Thalion/BrochureSections/assets/X20.JPG";
+import X21 from "../pages/Thalion/BrochureSections/assets/X21.JPG";
+import X22 from "../pages/Thalion/BrochureSections/assets/X22.JPG";
+import X23 from "../pages/Thalion/BrochureSections/assets/X23.JPG";
+import X24 from "../pages/Thalion/BrochureSections/assets/X24.JPG";
+import X30 from "../pages/Thalion/BrochureSections/assets/X30.JPG";
+import X31 from "../pages/Thalion/BrochureSections/assets/X31.JPG";
+import X32 from "../pages/Thalion/BrochureSections/assets/X32.JPG";
+import X33 from "../pages/Thalion/BrochureSections/assets/X33.JPG";
+import X34 from "../pages/Thalion/BrochureSections/assets/X34.JPG";
+import X35 from "../pages/Thalion/BrochureSections/assets/X35.JPG";
+import X36 from "../pages/Thalion/BrochureSections/assets/X36.JPG";
+import X37 from "../pages/Thalion/BrochureSections/assets/X37.JPG";
 
 const SoinsALaCarteNew = () => {
   const { t } = useTranslation();
@@ -106,30 +180,27 @@ const SoinsALaCarteNew = () => {
         title: t("soins.categories.face"),
         subtitle: t("soins.categories.faceSubtitle"),
         description: t("soins.categories.faceDescription"),
-        image: "/src/pages/Thalion/BrochureSections/assets/alacarte/V1.webp",
+        image: V1,
         buttonText: t("soins.buttons.learnMore"),
         icon: <Sparkles className="w-5 h-5" />,
         services: [
           {
             id: "beaute-essentielle",
             category: t("soins.subcategories.essentialBeauty"),
-            image:
-              "/src/pages/Thalion/BrochureSections/assets/alacarte/V2.webp",
+            image: V2,
             treatments: [
               {
                 name: t("soins.treatments.beautyTreatment30"),
                 duration: "30'",
                 price: "100 TND / 31 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V3.webp",
+                image: V3,
                 description: t("soins.treatments.beautyTreatment30Desc"),
               },
               {
                 name: t("soins.treatments.beautyTreatment60"),
                 duration: "60'",
                 price: "190 TND / 58 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V4.webp",
+                image: V4,
                 description: t("soins.treatments.beautyTreatment60Desc"),
               },
             ],
@@ -137,15 +208,13 @@ const SoinsALaCarteNew = () => {
           {
             id: "beaute-yeux",
             category: t("soins.subcategories.eyeBeauty"),
-            image:
-              "/src/pages/Thalion/BrochureSections/assets/alacarte/V5.webp",
+            image: V5,
             treatments: [
               {
                 name: t("soins.treatments.eyeLiftExpert"),
                 duration: "30'",
                 price: "100 TND / 31 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V6.webp",
+                image: V6,
                 description: t("soins.treatments.eyeLiftExpertDesc"),
               },
             ],
@@ -153,31 +222,27 @@ const SoinsALaCarteNew = () => {
           {
             id: "eternelle-jeunesse",
             category: t("soins.subcategories.eternalYouth"),
-            image:
-              "/src/pages/Thalion/BrochureSections/assets/alacarte/V7.webp",
+            image: V7,
             treatments: [
               {
                 name: t("soins.treatments.liftAbsolu"),
                 duration: "60'",
                 price: "200 TND / 61 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V8.webp",
+                image: V8,
                 description: t("soins.treatments.liftAbsoluDesc"),
               },
               {
                 name: t("soins.treatments.eclatOriginel"),
                 duration: "60'",
                 price: "180 TND / 55 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V9.webp",
+                image: V9,
                 description: t("soins.treatments.eclatOriginelDesc"),
               },
               {
                 name: t("soins.treatments.expertAntiAge"),
                 duration: "75'",
                 price: "200 TND / 61 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V10.webp",
+                image: V10,
                 description: t("soins.treatments.expertAntiAgeDesc"),
               },
             ],
@@ -189,22 +254,20 @@ const SoinsALaCarteNew = () => {
         title: t("soins.categories.body"),
         subtitle: t("soins.categories.bodySubtitle"),
         description: t("soins.categories.bodyDescription"),
-        image: "/src/pages/Thalion/BrochureSections/assets/alacarte/V11.webp",
+        image: V11,
         buttonText: t("soins.buttons.learnMore"),
         icon: <Leaf className="w-5 h-5" />,
         services: [
           {
             id: "relaxation",
             category: t("soins.subcategories.relaxation"),
-            image:
-              "/src/pages/Thalion/BrochureSections/assets/alacarte/V12.webp",
+            image: V12,
             treatments: [
               {
                 name: t("soins.treatments.absoluteRelaxation"),
                 duration: "60'",
                 price: "180 TND / 55 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V13.webp",
+                image: V13,
                 description: t("soins.treatments.absoluteRelaxationDesc"),
               },
             ],
@@ -212,55 +275,48 @@ const SoinsALaCarteNew = () => {
           {
             id: "silhouette",
             category: t("soins.subcategories.silhouette"),
-            image:
-              "/src/pages/Thalion/BrochureSections/assets/alacarte/V14.webp",
+            image: V14,
             treatments: [
               {
                 name: t("soins.treatments.firmness"),
                 duration: "45'",
                 price: "150 TND / 46 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V15.webp",
+                image: V15,
                 description: t("soins.treatments.firmnessDesc"),
               },
               {
                 name: t("soins.treatments.tonicLegs"),
                 duration: "30'",
                 price: "95 TND / 29 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V16.webp",
+                image: V16,
                 description: t("soins.treatments.tonicLegsDesc"),
               },
               {
                 name: t("soins.treatments.silhouetteDrainage"),
                 duration: "60'",
                 price: "180 TND / 55 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V17.webp",
+                image: V17,
                 description: t("soins.treatments.silhouetteDrainageDesc"),
               },
               {
                 name: t("soins.treatments.stretchMarks"),
                 duration: "45'",
                 price: "150 TND / 46 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V18.webp",
+                image: V18,
                 description: t("soins.treatments.stretchMarksDesc"),
               },
               {
                 name: t("soins.treatments.celluContour"),
                 duration: "60'",
                 price: "200 TND / 61 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V19.webp",
+                image: V19,
                 description: t("soins.treatments.celluContourDesc"),
               },
               {
                 name: t("soins.treatments.detoxRitual"),
                 duration: "90'",
                 price: "270 TND / 82 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V20.webp",
+                image: V20,
                 description: t("soins.treatments.detoxRitualDesc"),
               },
             ],
@@ -272,38 +328,34 @@ const SoinsALaCarteNew = () => {
         title: t("soins.categories.men"),
         subtitle: t("soins.categories.menSubtitle"),
         description: t("soins.categories.menDescription"),
-        image: "/src/pages/Thalion/BrochureSections/assets/alacarte/V21.webp",
+        image: V21,
         buttonText: t("soins.buttons.learnMore"),
         icon: <Heart className="w-5 h-5" />,
         services: [
           {
             id: "special-homme",
             category: t("soins.subcategories.specialMen"),
-            image:
-              "/src/pages/Thalion/BrochureSections/assets/alacarte/V21.webp",
+            image: V21,
             treatments: [
               {
                 name: t("soins.treatments.facialOxygen"),
                 duration: "60'",
                 price: "160 TND / 49 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V22.webp",
+                image: V22,
                 description: t("soins.treatments.facialOxygenDesc"),
               },
               {
                 name: t("soins.treatments.goodLookExpress"),
                 duration: "30'",
                 price: "95 TND / 29 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V23.webp",
+                image: V23,
                 description: t("soins.treatments.goodLookExpressDesc"),
               },
               {
                 name: t("soins.treatments.backRelaxation"),
                 duration: "45'",
                 price: "135 TND / 41 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/V24.webp",
+                image: V24,
                 description: t("soins.treatments.backRelaxationDesc"),
               },
             ],
@@ -321,30 +373,27 @@ const SoinsALaCarteNew = () => {
         title: "PARCOURS & RELAXATION",
         subtitle: "AQUATIQUE",
         description: "BAINS À REMOUS, CASCADES ET JETS SOUS-MARINS",
-        image: "/src/pages/Thalion/BrochureSections/assets/alacarte/C0.webp",
+        image: C0,
         buttonText: "EN SAVOIR +",
         icon: <Waves className="w-5 h-5" />,
         services: [
           {
             id: "parcours-marin",
             category: t("soins.subcategories.marineCourse"),
-            image:
-              "/src/pages/Thalion/BrochureSections/assets/alacarte/C1.webp",
+            image: C1,
             treatments: [
               {
                 name: t("soins.treatments.marineEntry"),
                 duration: "20'",
                 price: "50 TND / 16 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/C2.webp",
+                image: C2,
                 description: t("soins.treatments.marineEntryDesc"),
               },
               {
                 name: t("soins.treatments.marinePackage5"),
                 duration: "20'",
                 price: "160 TND / 49 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/C3.webp",
+                image: C3,
                 description: t("soins.treatments.marinePackage5Desc"),
                 entries: "5 entrées",
               },
@@ -352,16 +401,14 @@ const SoinsALaCarteNew = () => {
                 name: t("soins.treatments.marineEntryHammam"),
                 duration: "20'",
                 price: "60 TND / 19 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/C4.webp",
+                image: C4,
                 description: t("soins.treatments.marineEntryHammamDesc"),
               },
               {
                 name: t("soins.treatments.marinePackage5Hammam"),
                 duration: "20'",
                 price: "200 TND / 61 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/C5.webp",
+                image: C5,
                 description: t("soins.treatments.marinePackage5HammamDesc"),
                 entries: "5 entrées",
               },
@@ -370,15 +417,13 @@ const SoinsALaCarteNew = () => {
           {
             id: "relaxation-marine",
             category: t("soins.subcategories.marineRelaxation"),
-            image:
-              "/src/pages/Thalion/BrochureSections/assets/alacarte/C8.webp",
+            image: C8,
             treatments: [
               {
                 name: t("soins.treatments.marineRelaxation"),
                 duration: "20'",
                 price: "125 TND / 38 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/C9.webp",
+                image: C9,
                 description: t("soins.treatments.marineRelaxationDesc"),
               },
             ],
@@ -390,30 +435,27 @@ const SoinsALaCarteNew = () => {
         title: t("soins.categories.showersBaths"),
         subtitle: t("soins.categories.showersBathsSubtitle"),
         description: t("soins.categories.showersBathsDescription"),
-        image: "/src/pages/Thalion/BrochureSections/assets/alacarte/C12.webp",
+        image: C12,
         buttonText: t("soins.buttons.learnMore"),
         icon: <Droplets className="w-5 h-5" />,
         services: [
           {
             id: "douches",
             category: t("soins.subcategories.showers"),
-            image:
-              "/src/pages/Thalion/BrochureSections/assets/alacarte/C13.webp",
+            image: C13,
             treatments: [
               {
                 name: t("soins.treatments.underwaterDrainageShower"),
                 duration: "20'",
                 price: "85 TND / 26 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/C14.webp",
+                image: C14,
                 description: t("soins.treatments.underwaterDrainageShowerDesc"),
               },
               {
                 name: t("soins.treatments.grandJetTonic"),
                 duration: "15'",
                 price: "75 TND / 23 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/C15.webp",
+                image: C15,
                 description: t("soins.treatments.grandJetTonicDesc"),
               },
             ],
@@ -421,15 +463,13 @@ const SoinsALaCarteNew = () => {
           {
             id: "bains",
             category: t("soins.subcategories.baths"),
-            image:
-              "/src/pages/Thalion/BrochureSections/assets/alacarte/C16.webp",
+            image: C16,
             treatments: [
               {
                 name: t("soins.treatments.seaBaths"),
                 duration: "20'",
                 price: "85 TND / 26 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/C17.webp",
+                image: C17,
                 description: t("soins.treatments.seaBathsDesc"),
               },
             ],
@@ -437,15 +477,13 @@ const SoinsALaCarteNew = () => {
           {
             id: "la-sieste",
             category: t("soins.subcategories.siesta"),
-            image:
-              "/src/pages/Thalion/BrochureSections/assets/alacarte/C10.webp",
+            image: C10,
             treatments: [
               {
                 name: t("soins.treatments.sieste"),
                 duration: "80'",
                 price: "310 TND / 94 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/C11.webp",
+                image: C11,
                 description: t("soins.treatments.siesteDesc"),
               },
             ],
@@ -457,22 +495,20 @@ const SoinsALaCarteNew = () => {
         title: t("soins.categories.scrubsWraps"),
         subtitle: t("soins.categories.scrubsWrapsSubtitle"),
         description: t("soins.categories.scrubsWrapsDescription"),
-        image: "/src/pages/Thalion/BrochureSections/assets/alacarte/C25.webp",
+        image: C25,
         buttonText: t("soins.buttons.learnMore"),
         icon: <Bath className="w-5 h-5" />,
         services: [
           {
             id: "gommages",
             category: t("soins.subcategories.bodyScrubs"),
-            image:
-              "/src/pages/Thalion/BrochureSections/assets/alacarte/C26.webp",
+            image: C26,
             treatments: [
               {
                 name: t("soins.treatments.fullBodyScrub"),
                 duration: "20'",
                 price: "95 TND / 29 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/C27.webp",
+                image: C27,
                 description: t("soins.treatments.fullBodyScrubDesc"),
               },
             ],
@@ -480,15 +516,13 @@ const SoinsALaCarteNew = () => {
           {
             id: "enveloppements",
             category: t("soins.subcategories.wraps"),
-            image:
-              "/src/pages/Thalion/BrochureSections/assets/alacarte/C28.webp",
+            image: C28,
             treatments: [
               {
                 name: t("soins.treatments.fullBodyWrap"),
                 duration: "20'",
                 price: "110 TND / 34 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/C29.webp",
+                image: C28,
                 description: t("soins.treatments.fullBodyWrapDesc"),
               },
             ],
@@ -500,46 +534,41 @@ const SoinsALaCarteNew = () => {
         title: t("soins.categories.massagesAffusions"),
         subtitle: t("soins.categories.massagesAffusionsSubtitle"),
         description: t("soins.categories.massagesAffusionsDescription"),
-        image: "/src/pages/Thalion/BrochureSections/assets/alacarte/C18.webp",
+        image: C18,
         buttonText: t("soins.buttons.learnMore"),
         icon: <Heart className="w-5 h-5" />,
         services: [
           {
             id: "massages-affusion",
             category: t("soins.subcategories.massagesUnderAffusion"),
-            image:
-              "/src/pages/Thalion/BrochureSections/assets/alacarte/C19.webp",
+            image: C19,
             treatments: [
               {
                 name: t("soins.treatments.seaMistMassage"),
                 duration: "25'",
                 price: "110 TND / 34 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/C20.webp",
+                image: C20,
                 description: t("soins.treatments.seaMistMassageDesc"),
               },
               {
                 name: t("soins.treatments.supremeSeaMist"),
                 duration: "25'",
                 price: "190 TND / 58 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/C21.webp",
+                image: C21,
                 description: t("soins.treatments.supremeSeaMistDesc"),
               },
               {
                 name: t("soins.treatments.palperRoulerSlim"),
                 duration: "25'",
                 price: "150 TND / 46 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/C23.webp",
+                image: C23,
                 description: t("soins.treatments.palperRoulerSlimDesc"),
               },
               {
                 name: t("soins.treatments.fiveSessionsPalperRouler"),
                 duration: "25'",
                 price: "570 TND / 173 €",
-                image:
-                  "/src/pages/Thalion/BrochureSections/assets/alacarte/C24.webp",
+                image: C24,
                 description: t("soins.treatments.fiveSessionsPalperRoulerDesc"),
                 entries: `5 ${t("soins.buttons.sessions")}`,
               },
@@ -558,83 +587,83 @@ const SoinsALaCarteNew = () => {
         title: t("soins.categories.massagesWellbeing"),
         subtitle: t("soins.categories.massagesWellbeingSubtitle"),
         description: t("soins.categories.massagesWellbeingDescription"),
-        image: "/src/pages/Thalion/BrochureSections/assets/X1.JPG",
+        image: X1,
         buttonText: t("soins.buttons.learnMore"),
         icon: <HandHeart className="w-5 h-5" />,
         services: [
           {
             id: "massage-bien-etre",
             category: t("soins.subcategories.massageWellness"),
-            image: "/src/pages/Thalion/BrochureSections/assets/X5.JPG",
+            image: X5,
             treatments: [
               {
                 name: t("soins.treatments.awakeDream"),
                 duration: "40'",
                 price: "190 TND / 58 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X6.JPG",
+                image: X6,
                 description: t("soins.treatments.awakeDreamDesc"),
               },
               {
                 name: t("soins.treatments.coconutBreezeGentleness"),
                 duration: "40'",
                 price: "130 TND / 40 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X7.JPG",
+                image: X7,
                 description: t("soins.treatments.coconutBreezeGentlenessDesc"),
               },
               {
                 name: t("soins.treatments.muscleBlissCamphor"),
                 duration: "50'",
                 price: "190 TND / 58 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X8.JPG",
+                image: X8,
                 description: t("soins.treatments.muscleBlissCamphorDesc"),
               },
               {
                 name: t("soins.treatments.backMassage"),
                 duration: "25'",
                 price: "95 TND / 29 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X9.JPG",
+                image: X9,
                 description: t("soins.treatments.backMassageDesc"),
               },
               {
                 name: t("soins.treatments.brazilianNutEnergyBreath"),
                 duration: "40'",
                 price: "130 TND / 40 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X10.JPG",
+                image: X10,
                 description: t("soins.treatments.brazilianNutEnergyBreathDesc"),
               },
               {
                 name: t("soins.treatments.enchantedSilhouetteSeawater"),
                 duration: "50'",
                 price: "200 TND / 61 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X11.JPG",
+                image: X11,
                 description: t("soins.treatments.enchantedSilhouetteSeawaterDesc"),
               },
               {
                 name: t("soins.treatments.westernReflexology"),
                 duration: "75'",
                 price: "290 TND / 88 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X20.JPG",
+                image: X20,
                 description: t("soins.treatments.westernReflexologyDesc"),
               },
               {
                 name: t("soins.treatments.sensitiveFeet"),
                 duration: "40'",
                 price: "165 TND / 50 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X21.JPG",
+                image: X21,
                 description: t("soins.treatments.sensitiveFeetDesc"),
               },
               {
                 name: t("soins.treatments.hotStonesAlgaePouches"),
                 duration: "75'",
                 price: "290 TND / 88 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X22.JPG",
+                image: X22,
                 description: t("soins.treatments.hotStonesAlgaePouchesDesc"),
               },
               {
                 name: t("soins.treatments.lymphaticDrainage"),
                 duration: "60'",
                 price: "280 TND / 85 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X23.JPG",
+                image: X23,
                 description: t("soins.treatments.lymphaticDrainageDesc"),
               },
             ],
@@ -642,27 +671,27 @@ const SoinsALaCarteNew = () => {
           {
             id: "massages-asiatiques",
             category: t("soins.subcategories.asianMassages"),
-            image: "/src/pages/Thalion/BrochureSections/assets/X1.JPG",
+            image: X1,
             treatments: [
               {
                 name: t("soins.treatments.balineseMassage"),
                 duration: "60'",
                 price: "270 TND / 82 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X2.JPG",
+                image: X2,
                 description: t("soins.treatments.balineseMassageDesc"),
               },
               {
                 name: t("soins.treatments.abhyangaMassage"),
                 duration: "60'",
                 price: "270 TND / 82 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X3.JPG",
+                image: X3,
                 description: t("soins.treatments.abhyangaMassageDesc"),
               },
               {
                 name: t("soins.treatments.thaiMassage"),
                 duration: "60'",
                 price: "300 TND / 91 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X4.JPG",
+                image: X4,
                 description: t("soins.treatments.thaiMassageDesc"),
               },
             ],
@@ -674,41 +703,41 @@ const SoinsALaCarteNew = () => {
         title: t("soins.categories.careTherapies"),
         subtitle: t("soins.categories.careTherapiesSubtitle"),
         description: t("soins.categories.careTherapiesDescription"),
-        image: "/src/pages/Thalion/BrochureSections/assets/X23.JPG",
+        image: X23,
         buttonText: t("soins.buttons.learnMore"),
         icon: <Heart className="w-5 h-5" />,
         services: [
           {
             id: "soins-therapies",
             category: t("soins.subcategories.careTherapies"),
-            image: "/src/pages/Thalion/BrochureSections/assets/X23.JPG",
+            image: X23,
             treatments: [
               {
                 name: t("soins.treatments.pressotherapy"),
                 duration: "20'",
                 price: "95 TND / 29 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X24.JPG",
+                image: X24,
                 description: t("soins.treatments.pressotherapyDesc"),
               },
               {
                 name: t("soins.treatments.heatExperience"),
                 duration: "60'",
                 price: "180 TND / 55 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X30.JPG",
+                image: X30,
                 description: t("soins.treatments.heatExperienceDesc"),
               },
               {
                 name: t("soins.treatments.sauna"),
                 duration: "20'",
                 price: "55 TND / 17 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X31.JPG",
+                image: X31,
                 description: t("soins.treatments.saunaDesc"),
               },
               {
                 name: t("soins.treatments.algaeClayCeremony"),
                 duration: "50'",
                 price: "165 TND / 50 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X32.JPG",
+                image: X32,
                 description: t("soins.treatments.algaeClayCeremonyDesc"),
               },
             ],
@@ -720,62 +749,62 @@ const SoinsALaCarteNew = () => {
         title: t("soins.categories.hammamMassages"),
         subtitle: t("soins.categories.hammamMassagesSubtitle"),
         description: t("soins.categories.hammamMassagesDescription"),
-        image: "/src/pages/Thalion/BrochureSections/assets/X33.JPG",
+        image: X33,
         buttonText: t("soins.buttons.learnMore"),
         icon: <Bath className="w-5 h-5" />,
         services: [
           {
             id: "hammam-experience",
             category: t("soins.subcategories.hammamExperience"),
-            image: "/src/pages/Thalion/BrochureSections/assets/X33.JPG",
+            image: X33,
             treatments: [
               {
                 name: t("soins.treatments.hammamComplete"),
                 duration: "60'",
                 price: "240 TND / 73 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X34.JPG",
+                image: X34,
                 description: t("soins.treatments.hammamCompleteDesc"),
               },
               {
                 name: t("soins.treatments.hammamMassage"),
                 duration: "30'",
                 price: "95 TND / 29 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X35.JPG",
+                image: X35,
                 description: t("soins.treatments.hammamMassageDesc"),
               },
               {
                 name: t("soins.treatments.hammamScrub"),
                 duration: "30'",
                 price: "90 TND / 28 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X36.JPG",
+                image: X36,
                 description: t("soins.treatments.hammamScrubDesc"),
               },
               {
                 name: t("soins.treatments.hammamLatitudeIslands"),
                 duration: "50'",
                 price: "210 TND / 64 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X37.JPG",
+                image: X37,
                 description: t("soins.treatments.hammamLatitudeIslandsDesc"),
               },
               {
                 name: t("soins.treatments.hammamLatitudeOasis"),
                 duration: "50'",
                 price: "210 TND / 64 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X1.JPG",
+                image: X1,
                 description: t("soins.treatments.hammamLatitudeOasisDesc"),
               },
               {
                 name: t("soins.treatments.hammamLatitudeSunrise"),
                 duration: "50'",
                 price: "210 TND / 64 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X2.JPG",
+                image: X2,
                 description: t("soins.treatments.hammamLatitudeSunriseDesc"),
               },
               {
                 name: t("soins.treatments.hammamLatitudeOceanic"),
                 duration: "50'",
                 price: "210 TND / 64 €",
-                image: "/src/pages/Thalion/BrochureSections/assets/X3.JPG",
+                image: X3,
                 description: t("soins.treatments.hammamLatitudeOceanicDesc"),
               },
             ],
