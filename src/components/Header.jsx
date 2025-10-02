@@ -123,28 +123,28 @@ const Header = () => {
 
   return (
     <>
-      {/* Fixed Flag Container - Always Visible on All Pages */}
-      <div className="fixed top-4 right-4 z-[9999] flex items-center space-x-2 bg-white/90 backdrop-blur-md rounded-lg p-3 shadow-xl border border-white/40 hover:bg-white/95 transition-all duration-300">
+      {/* Fixed Flag Container - Clean & Minimal Design */}
+      <div className="fixed top-2 right-6 z-[9999] flex items-center space-x-1.5 transition-all duration-300">
         <img
           src={francFlag}
-          alt="France Flag"
-          className="h-6 w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gray-200"
+          alt="Français"
+          className="h-4 w-5 object-cover rounded-sm hover:scale-110 transition-all duration-200 cursor-pointer opacity-80 hover:opacity-100 shadow-sm hover:shadow-md"
           onClick={() => changeLanguage("fr")}
-          title="Français - Changer en français"
+          title="Français"
         />
         <img
           src={ukFlag}
-          alt="UK Flag"
-          className="h-6 w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gray-200"
+          alt="English"
+          className="h-4 w-5 object-cover rounded-sm hover:scale-110 transition-all duration-200 cursor-pointer opacity-80 hover:opacity-100 shadow-sm hover:shadow-md"
           onClick={() => changeLanguage("en")}
-          title="English - Switch to English"
+          title="English"
         />
         <img
           src={russiaFlag}
-          alt="Russia Flag"
-          className="h-6 w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gray-200"
+          alt="Русский"
+          className="h-4 w-5 object-cover rounded-sm hover:scale-110 transition-all duration-200 cursor-pointer opacity-80 hover:opacity-100 shadow-sm hover:shadow-md"
           onClick={() => changeLanguage("ru")}
-          title="Русский - Переключить на русский"
+          title="Русский"
         />
       </div>
 

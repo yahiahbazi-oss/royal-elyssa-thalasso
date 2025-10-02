@@ -22,7 +22,9 @@ const CoverSection = ({ language = "fr" }) => {
         {/* Changed from fixed to absolute */}
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${coverImage})` }}
+          style={{
+            backgroundImage: `url(https://res.cloudinary.com/dxoje33mm/image/upload/v1759448440/thaliion_uneryj.jpg)`,
+          }}
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}

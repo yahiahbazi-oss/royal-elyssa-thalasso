@@ -20,25 +20,25 @@ import {
   Waves, // Added for private pool
 } from "lucide-react";
 
-// Import your local images - replace these mock imports with your actual ones
-import SuiteImage from "./assets/Suites_SPA_11.jpg";
-import CarreVIP4 from "./assets/carre_VIP_suite_spa_(4).jpg";
-import CarreVIP5 from "./assets/carre_VIP_suite_spa_(5).JPG";
-import CarreVIP6 from "./assets/carre_VIP_suite_spa_(6).jpg";
-import CarreVIP7 from "./assets/carre_VIP_suite_spa_(7).jpg";
-import SuitesSPA1 from "./assets/Suites_SPA_1.jpg";
-import SuitesSPA2 from "./assets/Suites_SPA_2.jpg";
-import SuitesSPA3 from "./assets/Suites_SPA_3.jpg";
-import SuitesSPA4 from "./assets/Suites_SPA_4.jpg";
-import SuitesSPA5 from "./assets/Suites_SPA_5.jpg";
-import SuitesSPA8 from "./assets/Suites_SPA_8.jpg";
-import SuitesSPA9 from "./assets/Suites_SPA_9.jpg";
-import SuitesSPA11 from "./assets/Suites_SPA_11.jpg";
-import SuitesSPA14 from "./assets/Suites_SPA_14.jpg";
-import SuitesSPA15 from "./assets/Suites_SPA_15.jpg";
-import SuitesSPA18 from "./assets/Suites_SPA_18.jpg";
-import SuitesSPA19 from "./assets/Suites_SPA_19.jpg";
-import SuitesSPA20 from "./assets/Suites_SPA_20.jpg";
+// Cloudinary images - optimized for web delivery (Updated URLs)
+const SuiteImage = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447159/Suites_SPA_11_ovryar.jpg"; // Main suite image
+const CarreVIP4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447108/carre_VIP_suite_spa__4_u74ne3.jpg";
+const CarreVIP5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__5_weh6ut.jpg";
+const CarreVIP6 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__6_viruqq.jpg";
+const CarreVIP7 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__7_dzbbhq.jpg";
+const SuitesSPA1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447110/Suites_SPA_1_jjuv1l.jpg";
+const SuitesSPA2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447238/Suites_SPA_2_ifiupl.jpg";
+const SuitesSPA3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447259/Suites_SPA_3_qu8rsv.jpg";
+const SuitesSPA4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447260/Suites_SPA_4_ztyewk.jpg";
+const SuitesSPA5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447261/Suites_SPA_5_zgdpmb.jpg";
+const SuitesSPA8 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447284/Suites_SPA_8_etp2ck.jpg";
+const SuitesSPA9 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447285/Suites_SPA_9_y66vyn.jpg";
+const SuitesSPA11 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447159/Suites_SPA_11_ovryar.jpg";
+const SuitesSPA14 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447220/Suites_SPA_14_guxjuq.jpg";
+const SuitesSPA15 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447220/Suites_SPA_15_xpaavy.jpg";
+const SuitesSPA18 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447232/Suites_SPA_18_ag3lo8.jpg";
+const SuitesSPA19 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447237/Suites_SPA_19_zmvw3v.jpg";
+const SuitesSPA20 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447244/Suites_SPA_20_on55ap.jpg";
 
 // Import flag images
 import francFlag from "../../assets/france.png";
@@ -273,19 +273,8 @@ const Suite = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-stone-100">
-      {/* Top Navigation with Home Button and Language Flags */}
-      <div className="fixed top-4 left-4 right-4 z-50 flex items-center justify-between">
-        {/* Home Button */}
-        <button
-          onClick={goToHomePage}
-          className="flex items-center gap-2 bg-beige-500 hover:bg-beige-600 rounded-full px-4 py-2 transition-all duration-300 shadow-md hover:shadow-lg"
-          aria-label={t("suite.navigation.homeAriaLabel")}
-          style={{ backgroundColor: "#d7ccc8", color: "#5d4037" }} // Couleur beige et texte marron
-        >
-          <Home className="w-5 h-5 md:w-6 md:h-6" />
-          <span className="text-sm font-medium">{t("suite.navigation.home")}</span>
-        </button>
-
+      {/* Top Navigation with Language Flags */}
+      <div className="fixed top-4 right-4 z-50">
         {/* Language Flags */}
         <div className="flex items-center space-x-2 bg-white/80 backdrop-blur-md rounded-full px-3 py-2 shadow-md">
           <img

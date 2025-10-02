@@ -433,7 +433,7 @@ const Thalion = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Welcome Overlay - Appears on top of everything */}
       {showWelcome && (
         <div
@@ -492,9 +492,9 @@ const Thalion = () => {
         </div>
       )}
 
-      {/* Fixed Flag Container - Desktop: top-right, Mobile: centered - Moved down in navbar */}
+      {/* Fixed Flag Container - Always positioned to the right and high up */}
       <div
-        className="fixed top-8 left-1/2 transform -translate-x-1/2 lg:top-8 lg:right-4 lg:left-auto lg:transform-none z-[9999] flex items-center space-x-1 md:space-x-2 transition-all duration-300"
+        className="fixed top-2 right-4 z-[9999] flex items-center space-x-1 md:space-x-2 transition-all duration-300"
       >
         <img
           src={francFlag}
@@ -1171,7 +1171,7 @@ const Thalion = () => {
       </nav>
 
       {/* Content Area */}
-      <div className="pt-24">
+      <div className="pt-24 overflow-x-hidden">
         <div ref={coverRef}>
           <CoverSection language={selectedLanguage} />
         </div>
