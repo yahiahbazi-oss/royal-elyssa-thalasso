@@ -5,6 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./Footer.css"; // Import the CSS file from the same directory
 
+import lusineLogo from "../../assets/logo/usinelogo.png";
+import thalionLogo from "../../assets/logo/logo-thalion.png__401x85_q85_crop_subject_location--87,731_subsampling-2_upscale.png";
+import royalThalassaLogo from "../../assets/logo/Royal_Thalassa_Monastir_5_-removebg-preview.png";
+import tcLogo from "../../assets/logo/TC_inverted_standard logo_L_2024.png";
+import royalElyssaLogo from "../../assets/logo/logo3.png";
+
 const Footer = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -13,22 +19,22 @@ const Footer = () => {
   const partnerLogos = [
     {
       name: "Lusine",
-      src: "/src/assets/logo/usinelogo.png",
+      src: lusineLogo,
       size: "h-12",
     },
     {
       name: "Thalion",
-      src: "/src/assets/logo/logo-thalion.png__401x85_q85_crop_subject_location--87,731_subsampling-2_upscale.png",
+      src: thalionLogo,
       size: "h-9",
     },
     {
       name: "Royal Thalassa",
-      src: "/src/assets/logo/Royal_Thalassa_Monastir_5_-removebg-preview.png",
+      src: royalThalassaLogo,
       size: "h-35",
     },
     {
       name: "TC Logo",
-      src: "/src/assets/logo/TC_inverted_standard logo_L_2024.png",
+      src: tcLogo,
       size: "h-25",
     },
   ];
@@ -103,7 +109,7 @@ const Footer = () => {
             <div className="flex justify-center lg:justify-start">
               <div className="transform hover:scale-105 transition-transform duration-300">
                 <img
-                  src="/src/assets/logo/logo3.png"
+                  src={royalElyssaLogo}
                   alt="Royal Elyssa Spa Logo"
                   className="h-30 w-auto object-contain filter drop-shadow-2xl"
                 />
