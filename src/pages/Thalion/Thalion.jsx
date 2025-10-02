@@ -493,9 +493,7 @@ const Thalion = () => {
       )}
 
       {/* Fixed Flag Container - Always positioned to the right and high up */}
-      <div
-        className="fixed top-2 right-4 z-[9999] flex items-center space-x-1 md:space-x-2 transition-all duration-300"
-      >
+      <div className="fixed top-2 right-4 z-[9999] flex items-center space-x-1 md:space-x-2 transition-all duration-300">
         <img
           src={francFlag}
           alt="France Flag"

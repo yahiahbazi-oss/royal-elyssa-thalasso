@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import {
-  Facebook,
-  Instagram,
-  Youtube,
-  Cloud,
-  Menu,
-  X,
-} from "lucide-react";
+import { Facebook, Instagram, Youtube, Cloud, Menu, X } from "lucide-react";
 
 // Import flag images
 import francFlag from "../assets/france.png";
@@ -95,8 +88,6 @@ const Header = () => {
     instagram: "https://www.instagram.com/thalassahotels/",
     youtube: "https://www.youtube.com/@ThalassaHotelsTunisie",
   };
-
-
 
   // Function to handle navigation to ERIC ZEMMOUR page
   const handleEricZemmourClick = () => {
@@ -351,12 +342,12 @@ const Header = () => {
                   to="/"
                   onClick={(e) => {
                     e.preventDefault();
-                    const contactSection = document.getElementById('contact');
+                    const contactSection = document.getElementById("contact");
                     if (contactSection) {
-                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                      contactSection.scrollIntoView({ behavior: "smooth" });
                     } else {
                       // If not on home page, navigate to home then scroll
-                      window.location.href = '/#contact';
+                      window.location.href = "/#contact";
                     }
                   }}
                   className="hover:text-amber-600 transition-all duration-300 hover:scale-105"
@@ -400,34 +391,45 @@ const Header = () => {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="relative p-3 rounded-xl transition-all duration-500 group overflow-hidden border border-amber-400/30"
                 style={{
-                  background: "linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%)",
+                  background:
+                    "linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%)",
                   backdropFilter: "blur(10px)",
-                  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.1)",
+                  boxShadow:
+                    "0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.1)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = "0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.3)";
+                  e.currentTarget.style.boxShadow =
+                    "0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.3)";
                   e.currentTarget.style.borderColor = "rgba(255, 215, 0, 0.6)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = "0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.1)";
+                  e.currentTarget.style.boxShadow =
+                    "0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.1)";
                   e.currentTarget.style.borderColor = "rgba(255, 215, 0, 0.3)";
                 }}
               >
                 {/* Background glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-400/10 via-yellow-300/5 to-amber-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
+
                 {/* Icon with golden styling */}
-                <div 
+                <div
                   className="relative z-10 transition-all duration-300"
                   style={{
                     color: "#ffd700",
-                    filter: "drop-shadow(0 0 8px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 16px rgba(255, 215, 0, 0.4))"
+                    filter:
+                      "drop-shadow(0 0 8px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 16px rgba(255, 215, 0, 0.4))",
                   }}
                 >
                   {isMobileMenuOpen ? (
-                    <X size={24} className="transform rotate-0 group-hover:rotate-90 transition-transform duration-300" />
+                    <X
+                      size={24}
+                      className="transform rotate-0 group-hover:rotate-90 transition-transform duration-300"
+                    />
                   ) : (
-                    <Menu size={24} className="transform group-hover:scale-110 transition-transform duration-300" />
+                    <Menu
+                      size={24}
+                      className="transform group-hover:scale-110 transition-transform duration-300"
+                    />
                   )}
                 </div>
 
@@ -506,7 +508,8 @@ const Header = () => {
             <div
               className="md:hidden mt-6 mx-4 rounded-3xl shadow-2xl overflow-hidden border border-amber-300/20 relative"
               style={{
-                background: "linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(15, 15, 15, 0.98) 50%, rgba(0, 0, 0, 0.95) 100%)",
+                background:
+                  "linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(15, 15, 15, 0.98) 50%, rgba(0, 0, 0, 0.95) 100%)",
                 backdropFilter: "blur(30px) saturate(180%)",
                 boxShadow: `
                   0 25px 50px rgba(0, 0, 0, 0.5),
@@ -530,7 +533,7 @@ const Header = () => {
 
               {/* Top golden border accent */}
               <div className="h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
-              
+
               <div className="py-6 relative z-10">
                 {/* Mobile Navigation Items */}
                 <div className="px-8 py-4 border-b border-amber-500/20 hover:bg-amber-500/5 transition-all duration-300 group">
@@ -548,8 +551,18 @@ const Header = () => {
                       </div>
                     </div>
                     <div className="ml-4 p-2 rounded-full bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
-                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <svg
+                        className="w-4 h-4 text-amber-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
                       </svg>
                     </div>
                   </Link>
@@ -572,8 +585,18 @@ const Header = () => {
                       </div>
                     </div>
                     <div className="ml-4 p-2 rounded-full bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
-                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <svg
+                        className="w-4 h-4 text-amber-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
                       </svg>
                     </div>
                   </div>
@@ -596,8 +619,18 @@ const Header = () => {
                       </div>
                     </div>
                     <div className="ml-4 p-2 rounded-full bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
-                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <svg
+                        className="w-4 h-4 text-amber-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
                       </svg>
                     </div>
                   </div>
@@ -618,8 +651,18 @@ const Header = () => {
                       </div>
                     </div>
                     <div className="ml-4 p-2 rounded-full bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
-                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <svg
+                        className="w-4 h-4 text-amber-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
                       </svg>
                     </div>
                   </Link>
@@ -630,51 +673,81 @@ const Header = () => {
                   <div className="text-xs uppercase tracking-wider text-amber-400/80 font-semibold mb-4 luxury-font-sans">
                     Services
                   </div>
-                  
+
                   <a
                     href="#"
                     className="flex items-center text-amber-100 hover:text-amber-300 transition-all duration-300 luxury-font-sans text-base py-3 px-4 rounded-xl hover:bg-amber-500/10 group"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <div className="mr-3 p-1.5 rounded-lg bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
-                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                      <svg
+                        className="w-4 h-4 text-amber-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                        />
                       </svg>
                     </div>
                     {t("header.topNav.press")}
                   </a>
-                  
+
                   <a
                     href="#"
                     className="flex items-center text-amber-100 hover:text-amber-300 transition-all duration-300 luxury-font-sans text-base py-3 px-4 rounded-xl hover:bg-amber-500/10 group"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <div className="mr-3 p-1.5 rounded-lg bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
-                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                      <svg
+                        className="w-4 h-4 text-amber-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"
+                        />
                       </svg>
                     </div>
                     {t("header.topNav.offers")}
                   </a>
-                  
+
                   <Link
                     to="/"
                     onClick={(e) => {
                       e.preventDefault();
                       setIsMobileMenuOpen(false);
-                      const contactSection = document.getElementById('contact');
+                      const contactSection = document.getElementById("contact");
                       if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                        contactSection.scrollIntoView({ behavior: "smooth" });
                       } else {
                         // If not on home page, navigate to home then scroll
-                        window.location.href = '/#contact';
+                        window.location.href = "/#contact";
                       }
                     }}
                     className="flex items-center text-amber-100 hover:text-amber-300 transition-all duration-300 luxury-font-sans text-base py-3 px-4 rounded-xl hover:bg-amber-500/10 group"
                   >
                     <div className="mr-3 p-1.5 rounded-lg bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
-                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      <svg
+                        className="w-4 h-4 text-amber-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
                       </svg>
                     </div>
                     {t("header.topNav.contact")}

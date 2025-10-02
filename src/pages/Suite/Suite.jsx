@@ -21,24 +21,42 @@ import {
 } from "lucide-react";
 
 // Cloudinary images - optimized for web delivery (Updated URLs)
-const SuiteImage = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447159/Suites_SPA_11_ovryar.jpg"; // Main suite image
-const CarreVIP4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447108/carre_VIP_suite_spa__4_u74ne3.jpg";
-const CarreVIP5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__5_weh6ut.jpg";
-const CarreVIP6 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__6_viruqq.jpg";
-const CarreVIP7 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__7_dzbbhq.jpg";
-const SuitesSPA1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447110/Suites_SPA_1_jjuv1l.jpg";
-const SuitesSPA2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447238/Suites_SPA_2_ifiupl.jpg";
-const SuitesSPA3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447259/Suites_SPA_3_qu8rsv.jpg";
-const SuitesSPA4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447260/Suites_SPA_4_ztyewk.jpg";
-const SuitesSPA5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447261/Suites_SPA_5_zgdpmb.jpg";
-const SuitesSPA8 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447284/Suites_SPA_8_etp2ck.jpg";
-const SuitesSPA9 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447285/Suites_SPA_9_y66vyn.jpg";
-const SuitesSPA11 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447159/Suites_SPA_11_ovryar.jpg";
-const SuitesSPA14 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447220/Suites_SPA_14_guxjuq.jpg";
-const SuitesSPA15 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447220/Suites_SPA_15_xpaavy.jpg";
-const SuitesSPA18 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447232/Suites_SPA_18_ag3lo8.jpg";
-const SuitesSPA19 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447237/Suites_SPA_19_zmvw3v.jpg";
-const SuitesSPA20 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447244/Suites_SPA_20_on55ap.jpg";
+const SuiteImage =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447159/Suites_SPA_11_ovryar.jpg"; // Main suite image
+const CarreVIP4 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447108/carre_VIP_suite_spa__4_u74ne3.jpg";
+const CarreVIP5 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__5_weh6ut.jpg";
+const CarreVIP6 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__6_viruqq.jpg";
+const CarreVIP7 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__7_dzbbhq.jpg";
+const SuitesSPA1 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447110/Suites_SPA_1_jjuv1l.jpg";
+const SuitesSPA2 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447238/Suites_SPA_2_ifiupl.jpg";
+const SuitesSPA3 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447259/Suites_SPA_3_qu8rsv.jpg";
+const SuitesSPA4 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447260/Suites_SPA_4_ztyewk.jpg";
+const SuitesSPA5 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447261/Suites_SPA_5_zgdpmb.jpg";
+const SuitesSPA8 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447284/Suites_SPA_8_etp2ck.jpg";
+const SuitesSPA9 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447285/Suites_SPA_9_y66vyn.jpg";
+const SuitesSPA11 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447159/Suites_SPA_11_ovryar.jpg";
+const SuitesSPA14 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447220/Suites_SPA_14_guxjuq.jpg";
+const SuitesSPA15 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447220/Suites_SPA_15_xpaavy.jpg";
+const SuitesSPA18 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447232/Suites_SPA_18_ag3lo8.jpg";
+const SuitesSPA19 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447237/Suites_SPA_19_zmvw3v.jpg";
+const SuitesSPA20 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447244/Suites_SPA_20_on55ap.jpg";
 
 // Import flag images
 import francFlag from "../../assets/france.png";
@@ -260,7 +278,10 @@ const Suite = () => {
   };
 
   const amenities = [
-    { icon: <Bed className="w-5 h-5 md:w-6 md:h-6" />, text: t("suite.amenities.kingBed") },
+    {
+      icon: <Bed className="w-5 h-5 md:w-6 md:h-6" />,
+      text: t("suite.amenities.kingBed"),
+    },
     {
       icon: <Bath className="w-5 h-5 md:w-6 md:h-6" />,
       text: t("suite.amenities.marbleBathroom"),
@@ -281,21 +302,21 @@ const Suite = () => {
             src={francFlag}
             alt="France Flag"
             className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-stone-300"
-            onClick={() => changeLanguage('fr')}
+            onClick={() => changeLanguage("fr")}
             title="Français"
           />
           <img
             src={ukFlag}
             alt="UK Flag"
             className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-stone-300"
-            onClick={() => changeLanguage('en')}
+            onClick={() => changeLanguage("en")}
             title="English"
           />
           <img
             src={russiaFlag}
             alt="Russia Flag"
             className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-stone-300"
-            onClick={() => changeLanguage('ru')}
+            onClick={() => changeLanguage("ru")}
             title="Русский"
           />
         </div>
