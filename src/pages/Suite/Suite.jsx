@@ -22,10 +22,10 @@ import {
 
 // Import your local images - replace these mock imports with your actual ones
 import SuiteImage from "./assets/Suites_SPA_11.jpg";
-import CarreVIP4 from "./assets/carre_VIP_suite_spa_(4).JPG";
+import CarreVIP4 from "./assets/carre_VIP_suite_spa_(4).jpg";
 import CarreVIP5 from "./assets/carre_VIP_suite_spa_(5).JPG";
-import CarreVIP6 from "./assets/carre_VIP_suite_spa_(6).JPG";
-import CarreVIP7 from "./assets/carre_VIP_suite_spa_(7).JPG";
+import CarreVIP6 from "./assets/carre_VIP_suite_spa_(6).jpg";
+import CarreVIP7 from "./assets/carre_VIP_suite_spa_(7).jpg";
 import SuitesSPA1 from "./assets/Suites_SPA_1.jpg";
 import SuitesSPA2 from "./assets/Suites_SPA_2.jpg";
 import SuitesSPA3 from "./assets/Suites_SPA_3.jpg";
