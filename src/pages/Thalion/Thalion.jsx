@@ -10,6 +10,11 @@ import CoverSection from "./BrochureSections/CoverSection";
 import ThemeSection from "./BrochureSections/ThemeSection";
 import logoThalion from "../../assets/logo/logo-thalion.png__401x85_q85_crop_subject_location--87,731_subsampling-2_upscale.png";
 
+// Import flag images
+import francFlag from "../../assets/france.png";
+import ukFlag from "../../assets/royaume-uni.png";
+import russiaFlag from "../../assets/russie.png";
+
 const Thalion = () => {
   const { t, i18n } = useTranslation();
 
@@ -492,7 +497,7 @@ const Thalion = () => {
         className="fixed top-8 left-1/2 transform -translate-x-1/2 lg:top-8 lg:right-4 lg:left-auto lg:transform-none z-[9999] flex items-center space-x-1 md:space-x-2 transition-all duration-300"
       >
         <img
-          src="/src/assets/france.png"
+          src={francFlag}
           alt="France Flag"
           className="h-4 w-6 md:h-6 md:w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gold-200/30"
           onClick={() => changeLanguage("fr")}
@@ -502,7 +507,7 @@ const Thalion = () => {
           }}
         />
         <img
-          src="/src/assets/royaume-uni.png"
+          src={ukFlag}
           alt="UK Flag"
           className="h-4 w-6 md:h-6 md:w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gold-200/30"
           onClick={() => changeLanguage("en")}
@@ -512,7 +517,7 @@ const Thalion = () => {
           }}
         />
         <img
-          src="/src/assets/russie.png"
+          src={russiaFlag}
           alt="Russia Flag"
           className="h-4 w-6 md:h-6 md:w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gold-200/30"
           onClick={() => changeLanguage("ru")}

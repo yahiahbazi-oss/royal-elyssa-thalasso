@@ -10,6 +10,11 @@ import {
   X,
 } from "lucide-react";
 
+// Import flag images
+import francFlag from "../assets/france.png";
+import ukFlag from "../assets/royaume-uni.png";
+import russiaFlag from "../assets/russie.png";
+
 const Header = () => {
   const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -118,21 +123,21 @@ const Header = () => {
       {/* Fixed Flag Container - Always Visible on All Pages */}
       <div className="fixed top-4 right-4 z-[9999] flex items-center space-x-2 bg-white/90 backdrop-blur-md rounded-lg p-3 shadow-xl border border-white/40 hover:bg-white/95 transition-all duration-300">
         <img
-          src="/src/assets/france.png"
+          src={francFlag}
           alt="France Flag"
           className="h-6 w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gray-200"
           onClick={() => changeLanguage("fr")}
           title="Français - Changer en français"
         />
         <img
-          src="/src/assets/royaume-uni.png"
+          src={ukFlag}
           alt="UK Flag"
           className="h-6 w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gray-200"
           onClick={() => changeLanguage("en")}
           title="English - Switch to English"
         />
         <img
-          src="/src/assets/russie.png"
+          src={russiaFlag}
           alt="Russia Flag"
           className="h-6 w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gray-200"
           onClick={() => changeLanguage("ru")}
