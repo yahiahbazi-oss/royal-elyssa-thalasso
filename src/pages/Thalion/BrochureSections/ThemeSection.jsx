@@ -16,17 +16,17 @@ import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 
 // Import images directly
-import VitaliteMarine from "./assets/vm.jpg";
-import DetoxSilhouette from "./assets/dss.jpg";
-import RelaxationMarine from "./assets/rm.jpg";
+import VitaliteMarine from "./assets/vm.JPG";
+import DetoxSilhouette from "./assets/dss.JPG";
+import RelaxationMarine from "./assets/rm.JPG";
 // import CureNoStress from "./assets/cns.jpg"; // Uncomment when you add the image file
-import ForMen from "./assets/fm.jpg";
-import AfterGolf from "./assets/ag.jpg";
-import ArbreDeVie from "./assets/av.jpg";
-import NouvelAge from "./assets/nag.jpg";
-import CeremoniesSpa from "./assets/Cs.jpg";
-import WeekendCool from "./assets/wco.jpg";
-import BelleJournee from "./assets/xc.jpg";
+import ForMen from "./assets/fm.JPG";
+import AfterGolf from "./assets/ag.JPG";
+import ArbreDeVie from "./assets/av.JPG";
+import NouvelAge from "./assets/nag.JPG";
+import CeremoniesSpa from "./assets/cs.JPG";
+import WeekendCool from "./assets/wco.JPG";
+import BelleJournee from "./assets/xc.JPG";
 
 // Temporary placeholder for Cure No Stress - replace when you add your actual image
 const CureNoStress =
