@@ -13,10 +13,10 @@ import { useTranslation } from "react-i18next";
 
 // Import assets
 import logo from "./assets/logo.png";
-import ericImage from "./assets/eric.webp";
-import sal1 from "./assets/SAL1.jpg";
-import sal2 from "./assets/SAL2.jpg";
-import sal3 from "./assets/SAL3.jpg";
+const ericImage = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759481608/eric_hoysn6.jpg";
+const sal1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478066/Salon_de_coiffure_Eric_Zemmour_1_hhyomz.jpg";
+const sal2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478065/Salon_de_coiffure_Eric_Zemmour_2_ukur02.jpg";
+const sal3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478065/Salon_de_coiffure_Eric_Zemmour_3_re4ih0.jpg";
 
 // Import flag images
 import francFlag from "../../assets/france.png";
@@ -412,7 +412,7 @@ const ErichZemmour = () => {
         <div className="absolute inset-0 bg-black/40" />
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${sal1})` }}
+          style={{ backgroundImage: `url(https://res.cloudinary.com/dxoje33mm/image/upload/v1759477822/thalion-royalelyssa.jpg__3876x1912_q85_crop_subsampling-2_upscale_qxd1c0.jpg)` }}
         />
 
         <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">

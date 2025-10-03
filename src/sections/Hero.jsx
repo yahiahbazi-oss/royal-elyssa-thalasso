@@ -4,11 +4,11 @@ import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 // Import your images
-import Thalasso_Thalion_3 from "../assets/Thalasso_Thal'ion_3.jpg";
-import Espace_THEMAE_9 from "../assets/Espace_THEMAE_9.jpg";
-import Thalion_RoyalElyssa from "../assets/thalion-royalelyssa.jpg__3876x1912_q85_crop_subsampling-2_upscale.jpg";
-import Photo_14_sur_56 from "../assets/Photo__(14_sur_56).jpg";
-import Suites_SPA_11 from "../assets/Suites_SPA_11.jpg";
+const Thalasso_Thalion_3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477821/Thalasso_Thal_ion_3_nfaihh.jpg";
+const Espace_THEMAE_9 = "../assets/Espace_THEMAE_9.jpg";
+const Thalion_RoyalElyssa = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477822/thalion-royalelyssa.jpg__3876x1912_q85_crop_subsampling-2_upscale_qxd1c0.jpg";
+const Photo_14_sur_56 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477822/Photo___14_sur_56_dvdjlu.jpg";
+const Suites_SPA_11 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477815/Suites_SPA_11_wkegfc.jpg";
 
 const Hero = () => {
   const { t } = useTranslation();

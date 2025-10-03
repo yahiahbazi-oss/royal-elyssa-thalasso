@@ -1,29 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import thalion20 from "../assets/Thalasso_Thal20.jpg";
-import thalion7 from "../assets/Thalasso_7.jpg";
-import thalion14 from "../assets/Thalasso_14.jpg";
-import royalElyssa from "../assets/royal_elyssa_thalas.JPG";
-import thalion from "../assets/Thalasso_.jpg";
-import Salon_de_coiffure_Eric_Zemmour_1 from "../assets/Salon_de_coiffure_Eric_Zemmour/Salon_de_coiffure_Eric_Zemmour_1.jpg";
-import Salon_de_coiffure_Eric_Zemmour_2 from "../assets/Salon_de_coiffure_Eric_Zemmour/Salon_de_coiffure_Eric_Zemmour_2.jpg";
-import Salon_de_coiffure_Eric_Zemmour_3 from "../assets/Salon_de_coiffure_Eric_Zemmour/Salon_de_coiffure_Eric_Zemmour_3.jpg";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+const thalion20 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479075/Thalasso_Thal20_z1hdgo.jpg";
+const thalion7 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479076/Thalasso_7_b3qv13.jpg";
+const thalion14 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479075/Thalasso_14_xroo2d.jpg";
+const royalElyssa = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479075/royal_elyssa_thalas_jbqp8y.jpg";
+const thalion = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479076/Thalasso__yanho8.jpg";
+const Salon_de_coiffure_Eric_Zemmour_1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478066/Salon_de_coiffure_Eric_Zemmour_1_hhyomz.jpg";
+const Salon_de_coiffure_Eric_Zemmour_2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478065/Salon_de_coiffure_Eric_Zemmour_2_ukur02.jpg";
+const Salon_de_coiffure_Eric_Zemmour_3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478065/Salon_de_coiffure_Eric_Zemmour_3_re4ih0.jpg";
 import Club_de_sport_lusine_2 from "../assets/club_de_sport_lusine/Club_de_sport_lusine_2.jpg";
 import Club_de_sport_lusine_6 from "../assets/club_de_sport_lusine/Club_de_sport_lusine_6.jpg";
-import Photo_35_sur_56 from "../assets/club_de_sport_lusine/Photo__(35_sur_56).jpg";
-import Photo_24_sur_56 from "../assets/club_de_sport_lusine/Photo__(24_sur_56).jpg";
-import Photo_1_sur_56 from "../assets/club_de_sport_lusine/Photo__(1_sur_56).jpg";
-import Photo_13_sur_56 from "../assets/club_de_sport_lusine/Photo__(13_sur_56).jpg";
-import Suites_SPA_11 from "../assets/Suites_SPA/Suites_SPA_11.jpg";
-import Suites_SPA_10 from "../assets/Suites_SPA/Suites_SPA_10.jpg";
-import Suites_SPA_20 from "../assets/Suites_SPA/Suites_SPA_20.jpg";
-import Suites_SPA_14 from "../assets/Suites_SPA/Suites_SPA_14.jpg";
-import carre_VIP_suite_spa_6 from "../assets/Suites_SPA/carre_VIP_suite_spa_(6).JPG";
-import carre_VIP_suite_spa_7 from "../assets/Suites_SPA/carre_VIP_suite_spa_(7).JPG";
+const Photo_35_sur_56 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478570/Photo___35_sur_56_em1rly.jpg";
+const Photo_24_sur_56 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478571/Photo___24_sur_56_vatjoc.jpg";
+const Photo_1_sur_56 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478570/Photo___1_sur_56_npr6ws.jpg";
+const Photo_13_sur_56 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478571/Photo___13_sur_56_cycwou.jpg";
+const Suites_SPA_11 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447159/Suites_SPA_11_ovryar.jpg";
+const Suites_SPA_10 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447120/Suites_SPA_10_dm4ufo.jpg";
+const Suites_SPA_20 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447244/Suites_SPA_20_on55ap.jpg";
+const Suites_SPA_14 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447220/Suites_SPA_14_guxjuq.jpg";
+const carre_VIP_suite_spa_6 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__6_viruqq.jpg";
+const carre_VIP_suite_spa_7 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__7_dzbbhq.jpg";
 
 const Testimonial = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   // THALION section state
   const [currentThalionIndex, setCurrentThalionIndex] = useState(0);
   const thalionImages = [thalion7, thalion14, royalElyssa, thalion, thalion20];
@@ -77,7 +79,7 @@ const Testimonial = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const navigate = (section, direction) => {
+  const navigateCarousel = (section, direction) => {
     if (section === "thalion") {
       setCurrentThalionIndex((prev) =>
         direction === "next"
@@ -146,13 +148,13 @@ const Testimonial = () => {
             </div>
 
             <button
-              onClick={() => navigate("thalion", "prev")}
+                        onClick={() => navigateCarousel('thalion', 'prev')}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-amber-100 p-2 rounded-full hover:bg-white/30 backdrop-blur-sm transition-all duration-300 z-10"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
-              onClick={() => navigate("thalion", "next")}
+              onClick={() => navigateCarousel("thalion", "next")}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-amber-100 p-2 rounded-full hover:bg-white/30 backdrop-blur-sm transition-all duration-300 z-10"
             >
               <ChevronRight className="w-6 h-6" />
@@ -196,6 +198,19 @@ const Testimonial = () => {
                 {t("testimonial.thalion.paragraphs.p3")}
               </p>
             </div>
+
+            {/* See More Icon for Desktop */}
+            <div className="flex justify-center">
+              <div 
+                className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
+                onClick={() => {
+                  navigate('/thalion');
+                  window.scrollTo(0, 0);
+                }}
+              >
+                <ArrowRight className="w-6 h-6" />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -223,21 +238,17 @@ const Testimonial = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#"
-              className="group flex items-center px-6 py-3 bg-stone-700 text-amber-50 rounded-sm hover:bg-amber-700 transition-all duration-300 font-['Cormorant_Garamond']"
+          {/* See More Icon */}
+          <div className="flex justify-center">
+            <div 
+              className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
+              onClick={() => {
+                navigate('/thalion');
+                window.scrollTo(0, 0);
+              }}
             >
-              <span>{t("testimonial.thalion.buttons.learnMore")}</span>
-              <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#"
-              className="group flex items-center px-6 py-3 border border-stone-400 text-stone-700 rounded-sm hover:bg-stone-700 hover:text-amber-50 transition-all duration-300 font-['Cormorant_Garamond']"
-            >
-              <span>{t("testimonial.thalion.buttons.bookNow")}</span>
-              <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+              <ArrowRight className="w-6 h-6" />
+            </div>
           </div>
         </div>
       </div>{" "}
@@ -266,13 +277,13 @@ const Testimonial = () => {
             </div>
 
             <button
-              onClick={() => navigate("ericZemmour", "prev")}
+              onClick={() => navigateCarousel("ericZemmour", "prev")}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-amber-100 p-2 rounded-full hover:bg-white/30 backdrop-blur-sm transition-all duration-300 z-10"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
-              onClick={() => navigate("ericZemmour", "next")}
+              onClick={() => navigateCarousel("ericZemmour", "next")}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-amber-100 p-2 rounded-full hover:bg-white/30 backdrop-blur-sm transition-all duration-300 z-10"
             >
               <ChevronRight className="w-6 h-6" />
@@ -321,6 +332,19 @@ const Testimonial = () => {
                 {t("testimonial.ericZemmour.paragraphs.phone")}
               </p>
             </div>
+
+            {/* See More Icon for Desktop */}
+            <div className="flex justify-center">
+              <div 
+                className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
+                onClick={() => {
+                  navigate('/erich-zemmour');
+                  window.scrollTo(0, 0);
+                }}
+              >
+                <ArrowRight className="w-6 h-6" />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -353,25 +377,17 @@ const Testimonial = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#"
-              className="group flex items-center px-6 py-3 bg-stone-700 text-amber-50 rounded-sm hover:bg-amber-700 transition-all duration-300 font-['Cormorant_Garamond']"
+          {/* See More Icon */}
+          <div className="flex justify-center">
+            <div 
+              className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
+              onClick={() => {
+                navigate('/erich-zemmour');
+                window.scrollTo(0, 0);
+              }}
             >
-              <span>
-                {t("testimonial.ericZemmour.buttons.discoverServices")}
-              </span>
-              <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#"
-              className="group flex items-center px-6 py-3 border border-stone-400 text-stone-700 rounded-sm hover:bg-stone-700 hover:text-amber-50 transition-all duration-300 font-['Cormorant_Garamond']"
-            >
-              <span>
-                {t("testimonial.ericZemmour.buttons.bookAppointment")}
-              </span>
-              <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+              <ArrowRight className="w-6 h-6" />
+            </div>
           </div>
         </div>
       </div>
@@ -398,13 +414,13 @@ const Testimonial = () => {
             </div>
 
             <button
-              onClick={() => navigate("usine", "prev")}
+              onClick={() => navigateCarousel("usine", "prev")}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-amber-100 p-2 rounded-full hover:bg-white/30 backdrop-blur-sm transition-all duration-300 z-10"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
-              onClick={() => navigate("usine", "next")}
+              onClick={() => navigateCarousel("usine", "next")}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-amber-100 p-2 rounded-full hover:bg-white/30 backdrop-blur-sm transition-all duration-300 z-10"
             >
               <ChevronRight className="w-6 h-6" />
@@ -451,6 +467,19 @@ const Testimonial = () => {
                 {t("testimonial.usine.paragraphs.p4")}
               </p>
             </div>
+
+            {/* See More Icon for Desktop */}
+            <div className="flex justify-center">
+              <div 
+                className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
+                onClick={() => {
+                  navigate('/usine');
+                  window.scrollTo(0, 0);
+                }}
+              >
+                <ArrowRight className="w-6 h-6" />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -481,21 +510,17 @@ const Testimonial = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#"
-              className="group flex items-center px-6 py-3 bg-stone-700 text-amber-50 rounded-sm hover:bg-amber-700 transition-all duration-300 font-['Cormorant_Garamond']"
+          {/* See More Icon */}
+          <div className="flex justify-center">
+            <div 
+              className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
+              onClick={() => {
+                navigate('/usine');
+                window.scrollTo(0, 0);
+              }}
             >
-              <span>{t("testimonial.usine.buttons.discoverActivities")}</span>
-              <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#"
-              className="group flex items-center px-6 py-3 border border-stone-400 text-stone-700 rounded-sm hover:bg-stone-700 hover:text-amber-50 transition-all duration-300 font-['Cormorant_Garamond']"
-            >
-              <span>{t("testimonial.usine.buttons.bookSession")}</span>
-              <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+              <ArrowRight className="w-6 h-6" />
+            </div>
           </div>
         </div>
       </div>
@@ -524,13 +549,13 @@ const Testimonial = () => {
             </div>
 
             <button
-              onClick={() => navigate("vipSuites", "prev")}
+              onClick={() => navigateCarousel("vipSuites", "prev")}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-amber-100 p-2 rounded-full hover:bg-white/30 backdrop-blur-sm transition-all duration-300 z-10"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
-              onClick={() => navigate("vipSuites", "next")}
+              onClick={() => navigateCarousel("vipSuites", "next")}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-amber-100 p-2 rounded-full hover:bg-white/30 backdrop-blur-sm transition-all duration-300 z-10"
             >
               <ChevronRight className="w-6 h-6" />
@@ -574,6 +599,19 @@ const Testimonial = () => {
                 {t("testimonial.carreVip.paragraphs.p3")}
               </p>
             </div>
+
+            {/* See More Icon for Desktop */}
+            <div className="flex justify-center">
+              <div 
+                className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
+                onClick={() => {
+                  navigate('/suite');
+                  window.scrollTo(0, 0);
+                }}
+              >
+                <ArrowRight className="w-6 h-6" />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -601,21 +639,17 @@ const Testimonial = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#"
-              className="group flex items-center px-6 py-3 bg-stone-700 text-amber-50 rounded-sm hover:bg-amber-700 transition-all duration-300 font-['Cormorant_Garamond']"
+          {/* See More Icon */}
+          <div className="flex justify-center">
+            <div 
+              className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
+              onClick={() => {
+                navigate('/suite');
+                window.scrollTo(0, 0);
+              }}
             >
-              <span>{t("testimonial.carreVip.buttons.discoverSuites")}</span>
-              <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#"
-              className="group flex items-center px-6 py-3 border border-stone-400 text-stone-700 rounded-sm hover:bg-stone-700 hover:text-amber-50 transition-all duration-300 font-['Cormorant_Garamond']"
-            >
-              <span>{t("testimonial.carreVip.buttons.bookSuite")}</span>
-              <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+              <ArrowRight className="w-6 h-6" />
+            </div>
           </div>
         </div>
       </div>
