@@ -162,19 +162,19 @@ const Header = () => {
             -webkit-backdrop-filter: blur(12px);
           }
 
-          /* 24 Karat Gold Text Styling */
+          /* Muted Gold Text Styling */
           .gold-text-24k {
             background: linear-gradient(
               135deg,
-              #ffdf00 0%,
-              #ffd700 15%,
-              #fff700 30%,
-              #ffed4e 45%,
-              #fff5b7 50%,
-              #ffed4e 55%,
-              #fff700 70%,
-              #ffd700 85%,
-              #ffdf00 100%
+              #d4af37 0%,
+              #b8941f 15%,
+              #c9a96e 30%,
+              #b8941f 45%,
+              #d4af37 50%,
+              #b8941f 55%,
+              #c9a96e 70%,
+              #b8941f 85%,
+              #d4af37 100%
             );
             background-size: 300% 100%;
             background-clip: text;
@@ -182,10 +182,10 @@ const Header = () => {
             -webkit-text-fill-color: transparent;
             animation: goldShimmer24k 4s ease-in-out infinite;
             text-shadow: 
-              0 0 20px rgba(255, 215, 0, 0.6),
-              0 0 40px rgba(255, 215, 0, 0.4),
-              0 0 60px rgba(255, 215, 0, 0.2);
-            filter: drop-shadow(0 2px 4px rgba(255, 215, 0, 0.3));
+              0 0 10px rgba(212, 175, 55, 0.3),
+              0 0 20px rgba(212, 175, 55, 0.2),
+              0 0 30px rgba(212, 175, 55, 0.1);
+            filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.2));
           }
 
           .gold-text-24k:hover {
@@ -195,13 +195,13 @@ const Header = () => {
           .gold-text-active-24k {
             background: linear-gradient(
               135deg,
-              #fff700 0%,
-              #ffdf00 20%,
-              #ffd700 40%,
-              #fff5b7 50%,
-              #ffd700 60%,
-              #ffdf00 80%,
-              #fff700 100%
+              #c9a96e 0%,
+              #d4af37 20%,
+              #b8941f 40%,
+              #c9a96e 50%,
+              #b8941f 60%,
+              #d4af37 80%,
+              #c9a96e 100%
             );
             background-size: 200% 100%;
             background-clip: text;
@@ -209,10 +209,10 @@ const Header = () => {
             -webkit-text-fill-color: transparent;
             animation: goldShimmer24k 2s ease-in-out infinite;
             text-shadow: 
-              0 0 25px rgba(255, 215, 0, 0.8),
-              0 0 50px rgba(255, 215, 0, 0.6),
-              0 0 75px rgba(255, 215, 0, 0.4);
-            filter: drop-shadow(0 3px 6px rgba(255, 215, 0, 0.5));
+              0 0 15px rgba(212, 175, 55, 0.4),
+              0 0 30px rgba(212, 175, 55, 0.3),
+              0 0 45px rgba(212, 175, 55, 0.2);
+            filter: drop-shadow(0 3px 6px rgba(212, 175, 55, 0.3));
           }
 
           @keyframes goldShimmer24k {
@@ -279,8 +279,8 @@ const Header = () => {
                 rel="noopener noreferrer"
                 className={`transition-all duration-300 hover:scale-110 ${
                   isScrolled
-                    ? "text-blue-600 hover:text-blue-800"
-                    : "text-white hover:text-blue-300 text-shadow-luxury"
+                    ? "text-blue-500 hover:text-blue-700"
+                    : "text-gray-200 hover:text-blue-200 text-shadow-luxury"
                 }`}
               >
                 <Facebook size={18} className="md:w-5 md:h-5" />
@@ -291,8 +291,8 @@ const Header = () => {
                 rel="noopener noreferrer"
                 className={`transition-all duration-300 hover:scale-110 ${
                   isScrolled
-                    ? "text-pink-600 hover:text-pink-800"
-                    : "text-white hover:text-pink-300 text-shadow-luxury"
+                    ? "text-pink-500 hover:text-pink-700"
+                    : "text-gray-200 hover:text-pink-200 text-shadow-luxury"
                 }`}
               >
                 <Instagram size={18} className="md:w-5 md:h-5" />
@@ -444,13 +444,13 @@ const Header = () => {
               {/* THALION */}
               <Link
                 to="/thalion"
-                className="flex items-center space-x-1 text-white hover:text-amber-300 transition-all duration-300 hover:scale-105 group"
+                className="flex items-center space-x-1 text-white hover:text-stone-300 transition-all duration-300 hover:scale-105 group"
               >
                 <div className="flex flex-col items-center">
                   <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury gold-text-24k">
                     {t("header.navigation.thalion.title")}
                   </span>
-                  <span className="text-xs text-amber-200 hidden lg:block luxury-font-sans font-light italic tracking-wider">
+                  <span className="text-xs text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider">
                     {t("header.navigation.thalion.subtitle")}
                   </span>
                 </div>
@@ -459,13 +459,13 @@ const Header = () => {
               {/* ERIC ZEMMOUR */}
               <div
                 onClick={handleEricZemmourClick}
-                className="flex items-center space-x-1 text-white hover:text-amber-300 transition-all duration-300 hover:scale-105 group cursor-pointer"
+                className="flex items-center space-x-1 text-white hover:text-stone-300 transition-all duration-300 hover:scale-105 group cursor-pointer"
               >
                 <div className="flex flex-col items-center">
                   <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury gold-text-24k">
                     {t("header.navigation.erichZemmour.title")}
                   </span>
-                  <span className="text-xs text-amber-200 hidden lg:block luxury-font-sans font-light italic tracking-wider">
+                  <span className="text-xs text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider">
                     {t("header.navigation.erichZemmour.subtitle")}
                   </span>
                 </div>
@@ -474,13 +474,13 @@ const Header = () => {
               {/* L'USINE */}
               <div
                 onClick={handleUsineClick}
-                className="flex items-center space-x-1 text-white hover:text-amber-300 transition-all duration-300 hover:scale-105 group cursor-pointer"
+                className="flex items-center space-x-1 text-white hover:text-stone-300 transition-all duration-300 hover:scale-105 group cursor-pointer"
               >
                 <div className="flex flex-col items-center">
                   <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury gold-text-24k">
                     {t("header.navigation.usine.title")}
                   </span>
-                  <span className="text-xs text-amber-200 hidden lg:block luxury-font-sans font-light italic tracking-wider">
+                  <span className="text-xs text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider">
                     {t("header.navigation.usine.subtitle")}
                   </span>
                 </div>
@@ -489,13 +489,13 @@ const Header = () => {
               {/* CARRÉ VIP SPA */}
               <Link
                 to="/Suite"
-                className="flex items-center space-x-1 text-white hover:text-amber-300 transition-all duration-300 hover:scale-105 group"
+                className="flex items-center space-x-1 text-white hover:text-stone-300 transition-all duration-300 hover:scale-105 group"
               >
                 <div className="flex flex-col items-center">
                   <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury gold-text-24k">
                     {t("header.navigation.carreVip.title")}
                   </span>
-                  <span className="text-xs text-amber-200 hidden lg:block luxury-font-sans font-light italic tracking-wider">
+                  <span className="text-xs text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider">
                     {t("header.navigation.carreVip.subtitle")}
                   </span>
                 </div>
