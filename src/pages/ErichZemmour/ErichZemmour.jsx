@@ -29,8 +29,8 @@ const ErichZemmour = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Exchange rate TND to EUR (approximate)
-  const exchangeRate = 0.31;
+  // Exchange rate TND to EUR (1 EUR = 3.3 TND)
+  const exchangeRate = 1 / 3.3;
 
   // Language change function
   const changeLanguage = (languageCode) => {
@@ -46,9 +46,10 @@ const ErichZemmour = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Convert TND to EUR
+  // Convert TND to EUR with proper rounding
   const convertToEur = (tndPrice) => {
-    return (tndPrice * exchangeRate).toFixed(0);
+    const eurPrice = tndPrice * exchangeRate;
+    return Math.round(eurPrice);
   };
 
   // Pricing data
@@ -90,7 +91,7 @@ const ErichZemmour = () => {
           ],
         },
         {
-          category: t("ericZemmour.pricingData.children"),
+          category: t("ericZemmour.pricingData.children") + " (12 ans)",
           services: [
             { name: t("ericZemmour.pricingData.services.fillette"), tnd: 50 },
             { name: t("ericZemmour.pricingData.services.garcon"), tnd: 30 },
@@ -103,24 +104,18 @@ const ErichZemmour = () => {
       icon: <Crown className="w-6 h-6" />,
       items: [
         {
-          category: t("ericZemmour.pricingData.styling"),
+          category: t("ericZemmour.pricingData.forfaitsCoiffage"),
           services: [
             {
-              name: t(
-                "ericZemmour.services.pricing.services.shampoingSoinsCoiffageCourt"
-              ),
+              name: t("ericZemmour.pricingData.services.shampoingSoinsCoiffageCourt"),
               tnd: 30,
             },
             {
-              name: t(
-                "ericZemmour.services.pricing.services.shampoingSoinsCoiffageMiLong"
-              ),
+              name: t("ericZemmour.pricingData.services.shampoingSoinsCoiffageMiLong"),
               tnd: 35,
             },
             {
-              name: t(
-                "ericZemmour.services.pricing.services.shampoingSoinsCoiffageLong"
-              ),
+              name: t("ericZemmour.pricingData.services.shampoingSoinsCoiffageLong"),
               tnd: 40,
             },
           ],
@@ -132,18 +127,15 @@ const ErichZemmour = () => {
       icon: <Sparkles className="w-6 h-6" />,
       items: [
         {
-          category: t("ericZemmour.pricingData.technicalServices"),
+          category: t("ericZemmour.pricingData.techniquesCapillaires"),
           note: t("ericZemmour.pricingData.technicalNote"),
           services: [
-            { name: t("ericZemmour.pricingData.services.racinesMajirelRichesse"), tnd: 60 },
-            { name: t("ericZemmour.pricingData.services.inoa"), tnd: 80 },
-            { name: t("ericZemmour.pricingData.services.doseSupplementaire"), tnd: null },
-            { name: t("ericZemmour.pricingData.services.gommageDemaquillant"), tnd: 60 },
-            { name: t("ericZemmour.pricingData.services.balayage"), tnd: 60 },
-            { name: t("ericZemmour.pricingData.services.meches"), tnd: 100 },
-            { name: t("ericZemmour.pricingData.services.decollementRacinePermanente"), tnd: 60 },
-            { name: t("ericZemmour.pricingData.services.defrisageXTenso"), tnd: 75 },
-            { name: t("ericZemmour.pricingData.services.soinSpecifiqueMassage"), tnd: 20 },
+            { name: t("ericZemmour.pricingData.services.racinesMajirelRichessePartir"), tnd: 60 },
+            { name: t("ericZemmour.pricingData.services.racinesInoaPartir"), tnd: 80 },
+            { name: t("ericZemmour.pricingData.services.doseSupplementairePartir"), tnd: 20 },
+            { name: t("ericZemmour.pricingData.services.balayagePartir"), tnd: 60 },
+            { name: t("ericZemmour.pricingData.services.mechesPartir"), tnd: 100 },
+            { name: t("ericZemmour.pricingData.services.physioDose"), tnd: 55 },
           ],
         },
       ],
@@ -156,25 +148,16 @@ const ErichZemmour = () => {
           category: t("ericZemmour.pricingData.nail"),
           services: [
             { name: t("ericZemmour.pricingData.services.poseVernis"), tnd: 15 },
-            { name: t("ericZemmour.pricingData.services.poseFrench"), tnd: 20 },
+            { name: t("ericZemmour.pricingData.services.poseFrench"), tnd: 25 },
             { name: t("ericZemmour.pricingData.services.fantaisie"), tnd: 10 },
           ],
         },
         {
           category: t("ericZemmour.pricingData.manicure"),
           services: [
-            { name: t("ericZemmour.pricingData.classic"), tnd: 30 },
-            { name: t("ericZemmour.pricingData.spa"), tnd: 45 },
-          ],
-        },
-        {
-          category: t("ericZemmour.pricingData.fakeNails"),
-          services: [
-            { name: t("ericZemmour.pricingData.services.poseCapsuleGel"), tnd: 115 },
-            { name: t("ericZemmour.pricingData.services.poseCapsuleGelFrench"), tnd: 135 },
-            { name: t("ericZemmour.pricingData.services.renforcementGel"), tnd: 85 },
-            { name: t("ericZemmour.pricingData.services.renforcementGelFrench"), tnd: 95 },
-            { name: t("ericZemmour.pricingData.services.renforcementGelCouleur"), tnd: 105 },
+            { name: t("ericZemmour.pricingData.services.manucureClassique"), tnd: 30 },
+            { name: t("ericZemmour.pricingData.services.manucureSpa"), tnd: 45 },
+            { name: t("ericZemmour.pricingData.services.soinsParaffine"), tnd: 40 },
           ],
         },
       ],
@@ -186,8 +169,40 @@ const ErichZemmour = () => {
         {
           category: t("ericZemmour.pricingData.pedicure"),
           services: [
-            { name: t("ericZemmour.pricingData.classic"), tnd: 35 },
-            { name: t("ericZemmour.pricingData.spa"), tnd: 50 },
+            { name: t("ericZemmour.pricingData.services.pedicureClassique"), tnd: 35 },
+            { name: t("ericZemmour.pricingData.services.pedicureSpa"), tnd: 50 },
+            { name: t("ericZemmour.pricingData.services.soinsParaffine"), tnd: 40 },
+          ],
+        },
+      ],
+    },
+    onglerie: {
+      title: t("ericZemmour.services.categories.onglerie"),
+      icon: <Sparkles className="w-6 h-6" />,
+      items: [
+        {
+          category: t("ericZemmour.pricingData.vernisExtensions"),
+          services: [
+            { name: t("ericZemmour.pricingData.services.vernisPermament"), tnd: 25 },
+            { name: t("ericZemmour.pricingData.services.vernisPermamentGel"), tnd: 40 },
+            { name: t("ericZemmour.pricingData.services.capsuleGelVernisPermament"), tnd: 80 },
+            { name: t("ericZemmour.pricingData.services.extensionGelVernisPermament"), tnd: 50 },
+            { name: t("ericZemmour.pricingData.services.gelPoudreCapsuleVernisPermament"), tnd: 90 },
+            { name: t("ericZemmour.pricingData.services.gelPoudreVernisPermament"), tnd: 50 },
+            { name: t("ericZemmour.pricingData.services.extensionGelPoudreVernisPermament"), tnd: 60 },
+          ],
+        },
+      ],
+    },
+    cils: {
+      title: t("ericZemmour.services.categories.extensionsCils"),
+      icon: <Star className="w-6 h-6" />,
+      items: [
+        {
+          category: t("ericZemmour.pricingData.cils"),
+          services: [
+            { name: t("ericZemmour.pricingData.services.cilACilPermament"), tnd: 120 },
+            { name: t("ericZemmour.pricingData.services.cilACil"), tnd: 40 },
           ],
         },
       ],

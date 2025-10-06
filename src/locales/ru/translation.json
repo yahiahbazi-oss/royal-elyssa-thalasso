@@ -16,6 +16,13 @@
       "russian": "Русский"
     },
     "navigation": {
+      "royalElyssa": {
+        "title": "ROYAL ELYSSA",
+        "accueil": "ГЛАВНАЯ",
+        "ericZemmour": "ЭРИК ЗЕММУР",
+        "usine": "Л'ЮЗИН",
+        "carreVip": "ВИП СПА СЬЮТ"
+      },
       "thalion": {
         "title": "THALION",
         "subtitle": "создатель морской косметики",
@@ -29,12 +36,12 @@
       },
       "erichZemmour": {
         "title": "ЭРИК ЗЕММУР",
-        "subtitle": "ЭКСПЕРТ ПО ВЫСОКОЙ ПАРИКМАХЕРИИ",
+        "subtitle": "ЭКСПЕРТ ВЫСОКОЙ ПАРИКМАХЕРИИ",
         "brochure": "Брошюра",
         "salon": "Салон в Монастире"
       },
       "usine": {
-        "title": "L'USINE",
+        "title": "Л'ЮЗИН",
         "subtitle": "СПОРТИВНЫЙ КЛУБ",
         "activities": "Наши спортивные мероприятия",
         "team": "Команда",
@@ -42,7 +49,7 @@
         "info": "Практическая информация"
       },
       "carreVip": {
-        "title": "VIP СПА КВАДРАТ",
+        "title": "ВИП СПА СЬЮТ",
         "subtitle": "РОСКОШЬ, ПРОСТО",
         "presentation": "Презентация"
       }
@@ -241,7 +248,9 @@
         "coiffage": "Пакеты Укладок",
         "techniques": "Техники",
         "beauteMainsPieds": "Красота Рук и Ног",
-        "beautePieds": "Красота Ног"
+        "beautePieds": "Красота Ног",
+        "onglerie": "Нейл-арт и Наращивание",
+        "extensionsCils": "Наращивание Ресниц"
       },
       "pricing": {
         "notice": "В нашей брошюре цены указаны в тунисских динарах. Для справки мы конвертировали наши цены в евро.",
@@ -316,11 +325,17 @@
     "pricingData": {
       "children": "Дети",
       "technicalServices": "Технические услуги",
-      "technicalNote": "Для всех технических услуг предлагается расценка",
+      "technicalNote": "Начиная от - Цены могут варьироваться в зависимости от длины и толщины волос",
+      "forfaitsCoiffage": "Пакеты Укладок",
+      "techniquesCapillaires": "Техники для Волос",
       "nail": "Лак для ногтей",
       "manicure": "Маникюр",
       "fakeNails": "Искусственные ногти",
       "pedicure": "Педикюр",
+      "onglerie": "Нейл-арт и Наращивание",
+      "vernisExtensions": "Постоянный лак и Наращивание",
+      "extensionsCils": "Наращивание Ресниц",
+      "cils": "Ресницы",
       "styling": "Укладка",
       "classic": "Классический",
       "spa": "Спа (скраб + маска + массаж)",
@@ -344,7 +359,30 @@
         "poseCapsuleGelFrench": "Наращивание капсулами (гель французский)",
         "renforcementGel": "Укрепление (гель)",
         "renforcementGelFrench": "Укрепление (гель французский)",
-        "renforcementGelCouleur": "Укрепление (цветной гель)"
+        "renforcementGelCouleur": "Укрепление (цветной гель)",
+        "shampoingSoinsCoiffageCourt": "Шампунь + Уход + Укладка - Короткие волосы",
+        "shampoingSoinsCoiffageMiLong": "Шампунь + Уход + Укладка - Средние волосы", 
+        "shampoingSoinsCoiffageLong": "Шампунь + Уход + Укладка - Длинные волосы",
+        "racinesMajirelRichessePartir": "Корни - Majirel/Richesse (от)",
+        "racinesInoaPartir": "Корни - Inoa (от)",
+        "doseSupplementairePartir": "Дополнительная доза (от)",
+        "balayagePartir": "Балаяж (от)",
+        "mechesPartir": "Мелирование (от)",
+        "physioDose": "Физио доза",
+        "manucureClassique": "Классический маникюр",
+        "manucureSpa": "СПА маникюр (скраб + маска + массаж)",
+        "soinsParaffine": "Парафинотерапия",
+        "pedicureClassique": "Классический педикюр",
+        "pedicureSpa": "СПА педикюр (скраб + маска + массаж)",
+        "vernisPermament": "Постоянный лак",
+        "vernisPermamentGel": "Постоянный лак + гель",
+        "capsuleGelVernisPermament": "Капсула + гель + постоянный лак",
+        "extensionGelVernisPermament": "Наращивание + гель + постоянный лак",
+        "gelPoudreCapsuleVernisPermament": "Гель-пудра + капсула + постоянный лак",
+        "gelPoudreVernisPermament": "Гель-пудра + постоянный лак",
+        "extensionGelPoudreVernisPermament": "Наращивание + гель-пудра + постоянный лак",
+        "cilACilPermament": "Постоянное наращивание ресниц",
+        "cilACil": "Наращивание ресниц"
       }
     },
     "finalContact": {
@@ -621,6 +659,7 @@
       "subtitle": "создатель морской косметики",
       "description": "Для мужчин или женщин, в процедурах или уходе, полная информации и практических деталей (включая глоссарий), наша брошюра Thalion открывает все двери к благополучию, расслаблению и эстетике... Просматривайте её с нами, мы, очевидно, остаёмся в полном вашем распоряжении, чтобы рассказать больше.",
       "downloadBrochure": "Скачать брошюру",
+      "viewPricing": "Скачать наши тарифы",
       "scroll": "ПРОКРУТКА",
       "brochure2025": "БРОШЮРА 2025"
     },

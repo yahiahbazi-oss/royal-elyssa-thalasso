@@ -2,27 +2,24 @@ import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-// Import aquatic space images
-import aq1 from "./assets/aq1.webp";
-import aq2 from "./assets/aq2.webp";
-import aq3 from "./assets/aq3.webp";
+// Cloudinary image URLs
+const aq1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746493/aq1_qc3iqh.jpg";
+const aq2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746512/aq2_zpzx0i.jpg";
+const aq3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746607/aq3_jgjglc.jpg";
 
-// Import hydrothérapie images
-import hydro1 from "./assets/hydro1.webp";
-import hydro2 from "./assets/hydro2.webp";
-import hydro3 from "./assets/hydro3.webp";
-import hydro4 from "./assets/hydro4.webp"; // Added hydro4
+const hydro1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746610/hydro1_mti38o.webp";
+const hydro2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746610/hydro2_bcpky3.webp";
+const hydro3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746610/hydro3_xphxey.webp";
+const hydro4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746612/hydro4_xp2byj.webp";
 
-// Import hammam images
-import hammam1 from "./assets/hammam1.webp";
-import hammam2 from "./assets/hammam2.webp";
-import hammam3 from "./assets/hammam3.webp";
-import hammam4 from "./assets/hammam4.webp"; // Added hammam4
+const hammam1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746609/hammam1_asixfp.webp";
+const hammam2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746611/hammam2_mrefcz.webp";
+const hammam3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746608/hammam3_ffaavz.webp";
+const hammam4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746609/hammam4_xldjzk.webp";
 
-// Import sérénité images
-import serenite1 from "./assets/serenite1.webp";
-import serenite2 from "./assets/serenite2.webp";
-import serenite3 from "./assets/serenite3.webp";
+const serenite1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746640/serenite1_dgxkyc.webp";
+const serenite2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746657/serenite2_tamd0j.webp";
+const serenite3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746658/serenite3_yxyv75.webp";
 
 const LieuSoins = () => {
   const { t } = useTranslation();
@@ -449,40 +446,40 @@ const LieuSoins = () => {
         </div>
 
         {/* Content Overlay */}
-        <div className="absolute inset-0 flex items-center justify-start z-10">
+        <div className="absolute inset-0 flex items-center justify-center z-10">
           <div className="container mx-auto px-8 lg:px-16">
             <div
-              className={`max-w-4xl transition-all duration-1500 ease-out ${
+              className={`max-w-4xl transition-all duration-1500 ease-out text-center ${
                 secondSectionVisible
                   ? "opacity-100 transform translate-y-0"
                   : "opacity-0 transform translate-y-8"
               }`}
             >
-              <h1 className="luxury-title-aqua text-4xl md:text-6xl lg:text-7xl mb-6">
+              <h1 className="luxury-title-aqua text-3xl md:text-4xl lg:text-5xl mb-6">
                 {t("thalion.lieuSoins.aquatique.title")}
               </h1>
-              <p className="luxury-subtitle-aqua text-xl md:text-2xl lg:text-3xl mb-10 max-w-3xl leading-relaxed">
+              <p className="luxury-subtitle-aqua text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">
                 {t("thalion.lieuSoins.aquatique.description")}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Navigation Controls */}
-        <div className="absolute inset-y-0 left-0 flex items-center z-20">
+        {/* Navigation Controls - Positioned lower to avoid text */}
+        <div className="absolute bottom-10 left-0 flex items-center z-20">
           <button
             onClick={() => prevImage("aqua")}
-            className="ml-6 bg-black/20 hover:bg-black/40 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/20 hover:border-white/40"
+            className="ml-6 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/30 hover:border-white/50"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
         </div>
 
-        <div className="absolute inset-y-0 right-0 flex items-center z-20">
+        <div className="absolute bottom-10 right-0 flex items-center z-20">
           <button
             onClick={() => nextImage("aqua")}
-            className="mr-6 bg-black/20 hover:bg-black/40 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/20 hover:border-white/40"
+            className="mr-6 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/30 hover:border-white/50"
             aria-label="Next image"
           >
             <ChevronRight className="w-6 h-6" />
@@ -521,40 +518,40 @@ const LieuSoins = () => {
         </div>
 
         {/* Content Overlay */}
-        <div className="absolute inset-0 flex items-center justify-start z-10">
+        <div className="absolute inset-0 flex items-center justify-center z-10">
           <div className="container mx-auto px-8 lg:px-16">
             <div
-              className={`max-w-4xl transition-all duration-1500 ease-out ${
+              className={`max-w-4xl transition-all duration-1500 ease-out text-center ${
                 thirdSectionVisible
                   ? "opacity-100 transform translate-y-0"
                   : "opacity-0 transform translate-y-8"
               }`}
             >
-              <h1 className="luxury-title-aqua text-4xl md:text-6xl lg:text-7xl mb-6">
+              <h1 className="luxury-title-aqua text-3xl md:text-4xl lg:text-5xl mb-6">
                 {t("thalion.lieuSoins.hydrotherapie.title")}
               </h1>
-              <p className="luxury-subtitle-aqua text-xl md:text-2xl lg:text-3xl mb-10 max-w-5xl leading-relaxed">
+              <p className="luxury-subtitle-aqua text-lg md:text-xl lg:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed">
                 {t("thalion.lieuSoins.hydrotherapie.description")}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Navigation Controls */}
-        <div className="absolute inset-y-0 left-0 flex items-center z-20">
+        {/* Navigation Controls - Positioned lower to avoid text */}
+        <div className="absolute bottom-10 left-0 flex items-center z-20">
           <button
             onClick={() => prevImage("hydro")}
-            className="ml-6 bg-black/20 hover:bg-black/40 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/20 hover:border-white/40"
+            className="ml-6 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/30 hover:border-white/50"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
         </div>
 
-        <div className="absolute inset-y-0 right-0 flex items-center z-20">
+        <div className="absolute bottom-10 right-0 flex items-center z-20">
           <button
             onClick={() => nextImage("hydro")}
-            className="mr-6 bg-black/20 hover:bg-black/40 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/20 hover:border-white/40"
+            className="mr-6 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/30 hover:border-white/50"
             aria-label="Next image"
           >
             <ChevronRight className="w-6 h-6" />
@@ -593,40 +590,40 @@ const LieuSoins = () => {
         </div>
 
         {/* Content Overlay */}
-        <div className="absolute inset-0 flex items-center justify-start z-10">
+        <div className="absolute inset-0 flex items-center justify-center z-10">
           <div className="container mx-auto px-8 lg:px-16">
             <div
-              className={`max-w-4xl transition-all duration-1500 ease-out ${
+              className={`max-w-4xl transition-all duration-1500 ease-out text-center ${
                 fourthSectionVisible
                   ? "opacity-100 transform translate-y-0"
                   : "opacity-0 transform translate-y-8"
               }`}
             >
-              <h1 className="luxury-title-aqua text-4xl md:text-6xl lg:text-7xl mb-6">
+              <h1 className="luxury-title-aqua text-3xl md:text-4xl lg:text-5xl mb-6">
                 {t("thalion.lieuSoins.hammam.title")}
               </h1>
-              <p className="luxury-subtitle-aqua text-xl md:text-2xl lg:text-3xl mb-10 max-w-5xl leading-relaxed">
+              <p className="luxury-subtitle-aqua text-lg md:text-xl lg:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed">
                 {t("thalion.lieuSoins.hammam.description")}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Navigation Controls */}
-        <div className="absolute inset-y-0 left-0 flex items-center z-20">
+        {/* Navigation Controls - Positioned lower to avoid text */}
+        <div className="absolute bottom-10 left-0 flex items-center z-20">
           <button
             onClick={() => prevImage("hammam")}
-            className="ml-6 bg-black/20 hover:bg-black/40 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/20 hover:border-white/40"
+            className="ml-6 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/30 hover:border-white/50"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
         </div>
 
-        <div className="absolute inset-y-0 right-0 flex items-center z-20">
+        <div className="absolute bottom-10 right-0 flex items-center z-20">
           <button
             onClick={() => nextImage("hammam")}
-            className="mr-6 bg-black/20 hover:bg-black/40 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/20 hover:border-white/40"
+            className="mr-6 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/30 hover:border-white/50"
             aria-label="Next image"
           >
             <ChevronRight className="w-6 h-6" />
@@ -665,40 +662,40 @@ const LieuSoins = () => {
         </div>
 
         {/* Content Overlay */}
-        <div className="absolute inset-0 flex items-center justify-start z-10">
+        <div className="absolute inset-0 flex items-center justify-center z-10">
           <div className="container mx-auto px-8 lg:px-16">
             <div
-              className={`max-w-4xl transition-all duration-1500 ease-out ${
+              className={`max-w-4xl transition-all duration-1500 ease-out text-center ${
                 fifthSectionVisible
                   ? "opacity-100 transform translate-y-0"
                   : "opacity-0 transform translate-y-8"
               }`}
             >
-              <h1 className="luxury-title-aqua text-4xl md:text-6xl lg:text-7xl mb-6">
+              <h1 className="luxury-title-aqua text-3xl md:text-4xl lg:text-5xl mb-6">
                 {t("thalion.lieuSoins.serenite.title")}
               </h1>
-              <p className="luxury-subtitle-aqua text-xl md:text-2xl lg:text-3xl mb-10 max-w-5xl leading-relaxed">
+              <p className="luxury-subtitle-aqua text-lg md:text-xl lg:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed">
                 {t("thalion.lieuSoins.serenite.description")}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Navigation Controls */}
-        <div className="absolute inset-y-0 left-0 flex items-center z-20">
+        {/* Navigation Controls - Positioned lower to avoid text */}
+        <div className="absolute bottom-10 left-0 flex items-center z-20">
           <button
             onClick={() => prevImage("serenite")}
-            className="ml-6 bg-black/20 hover:bg-black/40 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/20 hover:border-white/40"
+            className="ml-6 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/30 hover:border-white/50"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
         </div>
 
-        <div className="absolute inset-y-0 right-0 flex items-center z-20">
+        <div className="absolute bottom-10 right-0 flex items-center z-20">
           <button
             onClick={() => nextImage("serenite")}
-            className="mr-6 bg-black/20 hover:bg-black/40 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/20 hover:border-white/40"
+            className="mr-6 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 border border-white/30 hover:border-white/50"
             aria-label="Next image"
           >
             <ChevronRight className="w-6 h-6" />

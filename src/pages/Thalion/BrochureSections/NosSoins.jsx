@@ -3,16 +3,16 @@ import SoinsDesign from "../../../components/SoinsDesign";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-// Import static images for Vitalité Marine
-import jour1 from "./assets/3.png";
-import jour2 from "./assets/13304a729648d950fe3fdd55e651d332-d23.jpg";
-import jour3 from "./assets/Relaxant-detox-energisant-quel-bain-pour-quel-soin.jpg";
-import jour4 from "./assets/news_image_55669 (1).jpg";
-import jour5 from "./assets/oneworld-spa-treatment-cream-bath-1.jpg";
-import jour6 from "./assets/Linstant-Spa-Photo-4.jpg";
+// Import static images for Vitalité Marine - replaced with Cloudinary URLs
+const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749905/3_rqwrmq.jpg";
+const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749905/13304a729648d950fe3fdd55e651d332-d23_b6ylcw.jpg";
+const jour3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749906/Relaxant-detox-energisant-quel-bain-pour-quel-soin_eqyuye.jpg";
+const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749906/news_image_55669_1_ii7px1.jpg";
+const jour5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749906/oneworld-spa-treatment-cream-bath-1_sbyvxw.jpg";
+const jour6 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749906/Linstant-Spa-Photo-4_bgcldn.jpg";
 
-// Import Video
-import masseurVideo from "./assets/Masseur.webm";
+// Import Video - replaced with Cloudinary URL
+const masseurVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/v1759750090/Masseur_aitjwi.webm";
 
 const NosSoins = React.memo(() => {
   const { t } = useTranslation();

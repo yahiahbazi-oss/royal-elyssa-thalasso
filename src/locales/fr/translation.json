@@ -16,6 +16,13 @@
       "russian": "русский"
     },
     "navigation": {
+      "royalElyssa": {
+        "title": "ROYAL ELYSSA",
+        "accueil": "ACCUEIL",
+        "ericZemmour": "ERIC ZEMMOUR",
+        "usine": "L'USINE",
+        "carreVip": "CARRÉ VIP SPA"
+      },
       "thalion": {
         "title": "THALION",
         "subtitle": "créateur de cosmétique marine",
@@ -241,7 +248,9 @@
         "coiffage": "Forfaits Coiffage",
         "techniques": "Techniques",
         "beauteMainsPieds": "Beauté des Mains et des Pieds",
-        "beautePieds": "Beauté des Pieds"
+        "beautePieds": "Beauté des Pieds",
+        "onglerie": "Onglerie",
+        "extensionsCils": "Extensions de Cils"
       },
       "pricing": {
         "notice": "Notre brochure mentionne nos prix qui sont libellés en dinars tunisiens. À titre informatif, nous avons converti nos prix en euros.",
@@ -325,11 +334,17 @@
     "pricingData": {
       "children": "Enfants",
       "technicalServices": "Services Techniques",
-      "technicalNote": "Pour tous services techniques, un devis est proposé",
+      "technicalNote": "Tarifs à partir de - Prix peuvent varier selon la longueur et l'épaisseur des cheveux",
+      "forfaitsCoiffage": "Forfaits Coiffage",
+      "techniquesCapillaires": "Techniques Capillaires",
       "nail": "Vernis",
       "manicure": "Manucure",
       "fakeNails": "Faux Ongles",
       "pedicure": "Pédicure",
+      "onglerie": "Onglerie",
+      "vernisExtensions": "Vernis Permanent et Extensions",
+      "extensionsCils": "Extensions de Cils",
+      "cils": "Cils",
       "styling": "Coiffage",
       "classic": "Classique",
       "spa": "Spa (gommage + masque + massage)",
@@ -353,7 +368,30 @@
         "poseCapsuleGelFrench": "Pose Capsule (gel french)",
         "renforcementGel": "Renforcement (gel)",
         "renforcementGelFrench": "Renforcement (gel french)",
-        "renforcementGelCouleur": "Renforcement (gel couleur)"
+        "renforcementGelCouleur": "Renforcement (gel couleur)",
+        "shampoingSoinsCoiffageCourt": "Shampoing + Soins + Coiffage - Cheveux Courts",
+        "shampoingSoinsCoiffageMiLong": "Shampoing + Soins + Coiffage - Cheveux Mi-longs", 
+        "shampoingSoinsCoiffageLong": "Shampoing + Soins + Coiffage - Cheveux Longs",
+        "racinesMajirelRichessePartir": "Racines - Majirel/Richesse (à partir de)",
+        "racinesInoaPartir": "Racines - Inoa (à partir de)",
+        "doseSupplementairePartir": "Dose supplémentaire (à partir de)",
+        "balayagePartir": "Balayage (à partir de)",
+        "mechesPartir": "Mèches (à partir de)",
+        "physioDose": "Physio dose",
+        "manucureClassique": "Manucure Classique",
+        "manucureSpa": "Manucure SPA (gommage + masque + massage)",
+        "soinsParaffine": "Soins paraffine",
+        "pedicureClassique": "Pédicure Classique",
+        "pedicureSpa": "Pédicure SPA (gommage + masque + massage)",
+        "vernisPermament": "Vernis permanent",
+        "vernisPermamentGel": "Vernis permanent + gel",
+        "capsuleGelVernisPermament": "Capsule + gel + vernis permanent",
+        "extensionGelVernisPermament": "Extension + gel + vernis permanent",
+        "gelPoudreCapsuleVernisPermament": "Gel poudre + capsule + vernis permanent",
+        "gelPoudreVernisPermament": "Gel poudre + vernis permanent",
+        "extensionGelPoudreVernisPermament": "Extension + gel poudre + vernis permanent",
+        "cilACilPermament": "Cil à cil permanent",
+        "cilACil": "Cil à cil"
       }
     },
     "finalContact": {
@@ -630,6 +668,7 @@
       "subtitle": "créateur de cosmétique marine",
       "description": "Au masculin ou au féminin, en cures ou en soins, pleine d'informations et de détails pratiques (y compris un lexique), notre brochure Thalion vous ouvre toutes les portes du bien-être, de la relaxation et de l'esthétique... Feuilletez-la avec nous, nous restons bien évidemment à votre entière disposition pour vous en dire plus.",
       "downloadBrochure": "Télécharger la brochure",
+      "viewPricing": "Télécharger nos tarifs",
       "scroll": "SCROLL",
       "brochure2025": "BROCHURE 2025"
     },

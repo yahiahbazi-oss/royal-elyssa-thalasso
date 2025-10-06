@@ -4,7 +4,8 @@ import { useTranslation } from "react-i18next";
 import BrochureThalion from "./BrochureThalion";
 import TarifsThalion from "./TarifsThalion";
 import SoinsALaCarteNew from "../../components/SoinsALaCarteNew";
-import ContactThalion from "./ContactThalion";
+import Footer from "../../components/Footer/Footer";
+import Contact from "../../sections/Contact";
 import LieuSoins from "./BrochureSections/LieuSoins";
 import CoverSection from "./BrochureSections/CoverSection";
 import ThemeSection from "./BrochureSections/ThemeSection";
@@ -27,6 +28,7 @@ const Thalion = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("fr"); // Default to French
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true); // Welcome overlay state
+  const [royalElyssaDropdown, setRoyalElyssaDropdown] = useState(false); // Royal Elyssa dropdown state
   const navigate = useNavigate();
 
   // Auto-hide welcome text after 3 seconds
@@ -42,9 +44,45 @@ const Thalion = () => {
   const changeLanguage = (languageCode) => {
     i18n.changeLanguage(languageCode);
   };
+
+  // Royal Elyssa dropdown handlers
+  const handleRoyalElyssaClick = () => {
+    navigate("/");
+  };
+
+  const handleAccueilClick = () => {
+    navigate("/");
+  };
+
+  const handleRoyalElyssaEnter = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+    setRoyalElyssaDropdown(true);
+  };
+
+  const handleRoyalElyssaLeave = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setRoyalElyssaDropdown(false);
+    }, 150); // Small delay to prevent flickering
+  };
+
+  const handleEricZemmourClick = () => {
+    navigate("/erich-zemmour");
+  };
+
+  const handleUsineClick = () => {
+    navigate("/usine");
+  };
+
+  const handleCarreVipClick = () => {
+    navigate("/suite");
+  };
   const brochureRef = useRef(null);
   const tarifsRef = useRef(null);
   const contactRef = useRef(null);
+  const footerRef = useRef(null);
   const soinsRef = useRef(null);
   const lieuxRef = useRef(null);
   const coverRef = useRef(null);
@@ -66,6 +104,7 @@ const Thalion = () => {
     { id: "tarifs", name: "Rituels Thali", ref: tarifsRef, offset: 100 },
     { id: "soins", name: "Soins à la carte", ref: soinsRef, offset: 100 },
     { id: "contact", name: "Contact", ref: contactRef, offset: 100 },
+    { id: "footer", name: "Footer", ref: footerRef, offset: 100 },
   ];
 
   // Handle scroll effect and active section detection
@@ -212,6 +251,7 @@ const Thalion = () => {
 
       if (!isInsideDropdown) {
         setActiveDropdown(null);
+        setRoyalElyssaDropdown(false); // Close Royal Elyssa dropdown too
       }
 
       if (!isInsideLanguageDropdown) {
@@ -446,14 +486,26 @@ const Thalion = () => {
         >
           <div className="text-center px-8 max-w-4xl mx-auto">
             {/* Main Welcome Title */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-amber-100 mb-6 tracking-wide">
+            <h1
+              className={`${
+                i18n.language === "ru"
+                  ? "text-2xl md:text-4xl lg:text-5xl"
+                  : "text-4xl md:text-6xl lg:text-7xl"
+              } font-light text-amber-100 mb-6 tracking-wide`}
+            >
               <span className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 drop-shadow-2xl">
                 Bienvenue à Thalion
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-stone-200 text-2xl md:text-3xl lg:text-4xl font-extralight tracking-[0.3em] drop-shadow-lg mb-8">
+            <p
+              className={`text-stone-200 ${
+                i18n.language === "ru"
+                  ? "text-lg md:text-xl lg:text-2xl"
+                  : "text-2xl md:text-3xl lg:text-4xl"
+              } font-extralight tracking-[0.3em] drop-shadow-lg mb-8`}
+            >
               CRÉATEUR DE COSMÉTIQUE MARINE
             </p>
 
@@ -470,7 +522,13 @@ const Thalion = () => {
 
             {/* Location - MONASTIR */}
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-amber-100 tracking-wide">
+              <h2
+                className={`${
+                  i18n.language === "ru"
+                    ? "text-2xl md:text-4xl lg:text-5xl"
+                    : "text-4xl md:text-6xl lg:text-7xl"
+                } font-light text-amber-100 tracking-wide`}
+              >
                 <span
                   className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 drop-shadow-2xl"
                   style={{
@@ -581,73 +639,35 @@ const Thalion = () => {
         }
 
         .gold-text {
+          font-weight: 500; /* Medium weight like WhyChoose */
+          color: transparent;
           background: linear-gradient(
             135deg,
-            #ffdf00 0%,
-            #ffd700 15%,
-            #fff700 30%,
-            #ffed4e 45%,
-            #fff5b7 50%,
-            #ffed4e 55%,
-            #fff700 70%,
-            #ffd700 85%,
-            #ffdf00 100%
+            #fcd34d 0%,
+            #fef08a 50%,
+            #fcd34d 100%
           );
-          background-size: 300% 100%;
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          animation: goldShimmer 4s ease-in-out infinite;
-          text-shadow: 0 0 20px rgba(255, 215, 0, 0.6),
-            0 0 40px rgba(255, 215, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.2);
-          filter: drop-shadow(0 2px 4px rgba(255, 215, 0, 0.3));
+          text-shadow: 0 0 30px rgba(252, 211, 77, 0.5);
+          filter: drop-shadow(0 2px 4px rgba(252, 211, 77, 0.3));
         }
 
         .gold-text-active {
+          font-weight: 500;
+          color: transparent;
           background: linear-gradient(
             135deg,
-            #fff700 0%,
-            #ffdf00 20%,
-            #ffd700 40%,
-            #fff5b7 50%,
-            #ffd700 60%,
-            #ffdf00 80%,
-            #fff700 100%
+            #fef08a 0%,
+            #fcd34d 50%,
+            #fef08a 100%
           );
-          background-size: 200% 100%;
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          animation: goldShimmer 2s ease-in-out infinite;
-          text-shadow: 0 0 25px rgba(255, 215, 0, 0.8),
-            0 0 50px rgba(255, 215, 0, 0.6), 0 0 75px rgba(255, 215, 0, 0.4);
-          filter: drop-shadow(0 3px 6px rgba(255, 215, 0, 0.5));
-        }
-
-        .sparkle::before {
-          content: "✨";
-          position: absolute;
-          top: -15px;
-          right: -15px;
-          font-size: 14px;
-          animation: sparkle 3s infinite;
-          animation-delay: 0s;
-          filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
-        }
-
-        .sparkle::after {
-          content: "💎";
-          position: absolute;
-          bottom: -15px;
-          left: -15px;
-          font-size: 12px;
-          animation: sparkle 3s infinite;
-          animation-delay: 1.5s;
-          filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
-        }
-
-        .gold-text:hover {
-          animation: goldPulse 2s ease-in-out infinite;
+          text-shadow: 0 0 40px rgba(252, 211, 77, 0.7);
+          filter: drop-shadow(0 3px 6px rgba(252, 211, 77, 0.4));
         }
 
         .navbar-glass {
@@ -704,7 +724,6 @@ const Thalion = () => {
         .nav-tab {
           position: relative;
           padding: 1rem 1.25rem;
-          transition: all 0.3s ease;
           white-space: nowrap;
           flex-shrink: 0;
         }
@@ -724,7 +743,6 @@ const Thalion = () => {
           height: 2px;
           background: linear-gradient(90deg, #ffd700, #ffed4e, #ffd700);
           border-radius: 1px;
-          transition: width 0.3s ease;
           box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
         }
 
@@ -762,6 +780,104 @@ const Thalion = () => {
             <div className="hidden lg:flex items-center justify-center flex-1 mx-8">
               <div className="nav-tabs-container relative">
                 <div className="flex items-center space-x-2">
+                  {/* ROYAL ELYSSA Dropdown */}
+                  <div className="relative" data-dropdown>
+                    <button
+                      onClick={handleRoyalElyssaClick}
+                      onMouseEnter={handleRoyalElyssaEnter}
+                      onMouseLeave={handleRoyalElyssaLeave}
+                      className={`px-3 py-3 relative overflow-hidden group font-serif uppercase tracking-wider flex items-center gap-2 hover-glow nav-tab whitespace-nowrap ${
+                        i18n.language === "en" || i18n.language === "ru"
+                          ? "lg:text-xs text-sm"
+                          : "text-sm"
+                      }`}
+                    >
+                      <span className="nav-tab-underline relative gold-text group-hover:gold-text-active">
+                        {t("header.navigation.royalElyssa.title")}
+                      </span>
+                      <svg
+                        className={`w-4 h-4 ${
+                          royalElyssaDropdown ? "rotate-180" : "rotate-0"
+                        } flex-shrink-0`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        style={{
+                          color: "#fcd34d",
+                          filter:
+                            "drop-shadow(0 0 6px rgba(252, 211, 77, 0.6)) drop-shadow(0 0 12px rgba(252, 211, 77, 0.4))",
+                        }}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2.5}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+
+                    {/* Royal Elyssa Dropdown Menu */}
+                    {royalElyssaDropdown && (
+                      <div
+                        className="absolute left-0 mt-2 w-72 rounded-lg shadow-2xl gold-border z-50"
+                        onMouseEnter={handleRoyalElyssaEnter}
+                        onMouseLeave={handleRoyalElyssaLeave}
+                      >
+                        <div className="py-2">
+                          <button
+                            onClick={handleAccueilClick}
+                            className={`block w-full text-left px-6 py-3 font-serif uppercase tracking-wider transition-all duration-200 hover-glow border-b border-amber-500/10 ${
+                              i18n.language === "en" || i18n.language === "ru"
+                                ? "lg:text-xs text-sm"
+                                : "text-sm"
+                            }`}
+                          >
+                            <span className="gold-text hover:gold-text-active">
+                              {t("header.navigation.royalElyssa.accueil")}
+                            </span>
+                          </button>
+                          <button
+                            onClick={handleEricZemmourClick}
+                            className={`block w-full text-left px-6 py-3 font-serif uppercase tracking-wider transition-all duration-200 hover-glow border-b border-amber-500/10 ${
+                              i18n.language === "en" || i18n.language === "ru"
+                                ? "lg:text-xs text-sm"
+                                : "text-sm"
+                            }`}
+                          >
+                            <span className="gold-text hover:gold-text-active">
+                              {t("header.navigation.royalElyssa.ericZemmour")}
+                            </span>
+                          </button>
+                          <button
+                            onClick={handleUsineClick}
+                            className={`block w-full text-left px-6 py-3 font-serif uppercase tracking-wider transition-all duration-200 hover-glow border-b border-amber-500/10 ${
+                              i18n.language === "en" || i18n.language === "ru"
+                                ? "lg:text-xs text-sm"
+                                : "text-sm"
+                            }`}
+                          >
+                            <span className="gold-text hover:gold-text-active">
+                              {t("header.navigation.royalElyssa.usine")}
+                            </span>
+                          </button>
+                          <button
+                            onClick={handleCarreVipClick}
+                            className={`block w-full text-left px-6 py-3 font-serif uppercase tracking-wider transition-all duration-200 hover-glow ${
+                              i18n.language === "en" || i18n.language === "ru"
+                                ? "lg:text-xs text-sm"
+                                : "text-sm"
+                            }`}
+                          >
+                            <span className="gold-text hover:gold-text-active">
+                              {t("header.navigation.royalElyssa.carreVip")}
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
                   {tabs.map((tab, index) => (
                     <div key={tab.id} className="relative" data-dropdown>
                       <button
@@ -791,22 +907,22 @@ const Thalion = () => {
                           i18n.language === "en" || i18n.language === "ru"
                             ? "lg:text-xs text-sm"
                             : "text-sm"
-                        } uppercase tracking-wider transition-all duration-300 flex items-center gap-2 hover-glow nav-tab whitespace-nowrap ${
+                        } uppercase tracking-wider flex items-center gap-2 hover-glow nav-tab whitespace-nowrap ${
                           activeSection === tab.id ? "active" : ""
                         }`}
                       >
                         <span
                           className={`nav-tab-underline relative ${
                             activeSection === tab.id
-                              ? "gold-text-active sparkle"
-                              : "gold-text group-hover:gold-text-active"
+                              ? "gold-text-active"
+                              : "gold-text"
                           }`}
                         >
                           {tab.label}
                         </span>
                         {tab.hasDropdown && (
                           <svg
-                            className={`w-4 h-4 transition-all duration-300 ${
+                            className={`w-4 h-4 ${
                               (
                                 tab.isRituels
                                   ? activeDropdown === DROPDOWN_TYPES.RITUELS
@@ -824,7 +940,6 @@ const Thalion = () => {
                               color: "#ffd700",
                               filter:
                                 "drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 12px rgba(255, 215, 0, 0.4))",
-                              transition: "all 0.3s ease",
                             }}
                           >
                             <path
@@ -1093,6 +1208,71 @@ const Thalion = () => {
         {mobileMenuOpen && (
           <div className="lg:hidden mobile-menu-gradient">
             <div className="px-6 py-4 space-y-2">
+              {/* ROYAL ELYSSA Mobile Menu Item */}
+              <div className="border-b border-amber-500/20 pb-2 mb-4">
+                <button
+                  onClick={handleRoyalElyssaClick}
+                  className="flex items-center justify-between w-full text-left py-4 px-4 font-serif text-sm uppercase tracking-wider transition-all duration-300 hover-glow rounded-lg"
+                >
+                  <span className="gold-text">
+                    {t("header.navigation.royalElyssa.title")}
+                  </span>
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    style={{
+                      color: "#fcd34d",
+                      filter: "drop-shadow(0 0 6px rgba(252, 211, 77, 0.6))",
+                    }}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+
+                {/* Royal Elyssa submenu items */}
+                <div className="ml-6 space-y-2">
+                  <button
+                    onClick={handleAccueilClick}
+                    className="flex items-center w-full text-left py-3 px-4 text-sm font-serif transition-all duration-200 hover-glow rounded-lg"
+                  >
+                    <span className="gold-text hover:gold-text-active">
+                      {t("header.navigation.royalElyssa.accueil")}
+                    </span>
+                  </button>
+                  <button
+                    onClick={handleEricZemmourClick}
+                    className="flex items-center w-full text-left py-3 px-4 text-sm font-serif transition-all duration-200 hover-glow rounded-lg"
+                  >
+                    <span className="gold-text hover:gold-text-active">
+                      {t("header.navigation.royalElyssa.ericZemmour")}
+                    </span>
+                  </button>
+                  <button
+                    onClick={handleUsineClick}
+                    className="flex items-center w-full text-left py-3 px-4 text-sm font-serif transition-all duration-200 hover-glow rounded-lg"
+                  >
+                    <span className="gold-text hover:gold-text-active">
+                      {t("header.navigation.royalElyssa.usine")}
+                    </span>
+                  </button>
+                  <button
+                    onClick={handleCarreVipClick}
+                    className="flex items-center w-full text-left py-3 px-4 text-sm font-serif transition-all duration-200 hover-glow rounded-lg"
+                  >
+                    <span className="gold-text hover:gold-text-active">
+                      {t("header.navigation.royalElyssa.carreVip")}
+                    </span>
+                  </button>
+                </div>
+              </div>
+
               {tabs.map((tab) => (
                 <div key={tab.id}>
                   <button
@@ -1192,7 +1372,10 @@ const Thalion = () => {
           <SoinsALaCarteNew language={selectedLanguage} />
         </div>
         <div ref={contactRef}>
-          <ContactThalion language={selectedLanguage} />
+          <Contact />
+        </div>
+        <div ref={footerRef}>
+          <Footer />
         </div>
       </div>
     </div>

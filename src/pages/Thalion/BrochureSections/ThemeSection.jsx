@@ -15,18 +15,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 
-// Import images directly
-import VitaliteMarine from "./assets/vm.JPG";
-import DetoxSilhouette from "./assets/dss.JPG";
-import RelaxationMarine from "./assets/rm.JPG";
-// import CureNoStress from "./assets/cns.jpg"; // Uncomment when you add the image file
-import ForMen from "./assets/fm.JPG";
-import AfterGolf from "./assets/ag.JPG";
-import ArbreDeVie from "./assets/av.JPG";
-import NouvelAge from "./assets/nag.JPG";
-import CeremoniesSpa from "./assets/cs.JPG";
-import WeekendCool from "./assets/wco.JPG";
-import BelleJournee from "./assets/xc.JPG";
+// Import images directly - replaced with Cloudinary URLs
+const VitaliteMarine = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749137/vm_cgxiex.jpg";
+const DetoxSilhouette = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749136/dss_gbg5n1.jpg";
+const RelaxationMarine = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749136/rm_luzn0u.jpg";
+const ForMen = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749136/fm_wfvnwm.jpg";
+const AfterGolf = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749136/ag_xdoimu.jpg";
+const ArbreDeVie = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749391/av_tau9kw.jpg";
+const NouvelAge = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749136/nag_uljrjc.jpg";
+const CeremoniesSpa = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749136/cs_ixtr6q.jpg";
+const WeekendCool = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749136/wco_clhqyl.jpg";
+const BelleJournee = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749136/xc_wniopb.jpg";
 
 // Temporary placeholder for Cure No Stress - replace when you add your actual image
 const CureNoStress =

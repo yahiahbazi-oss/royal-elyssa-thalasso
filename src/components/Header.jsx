@@ -162,94 +162,39 @@ const Header = () => {
             -webkit-backdrop-filter: blur(12px);
           }
 
-          /* Muted Gold Text Styling */
+          /* Gold Text Styling - Same as Royal Elyssa in WhyChoose */
           .gold-text-24k {
-            background: linear-gradient(
-              135deg,
-              #d4af37 0%,
-              #b8941f 15%,
-              #c9a96e 30%,
-              #b8941f 45%,
-              #d4af37 50%,
-              #b8941f 55%,
-              #c9a96e 70%,
-              #b8941f 85%,
-              #d4af37 100%
-            );
-            background-size: 300% 100%;
+            font-weight: 500; /* Medium weight like WhyChoose */
+            color: transparent;
+            background: linear-gradient(135deg, #fcd34d 0%, #fef08a 50%, #fcd34d 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: goldShimmer24k 4s ease-in-out infinite;
-            text-shadow: 
-              0 0 10px rgba(212, 175, 55, 0.3),
-              0 0 20px rgba(212, 175, 55, 0.2),
-              0 0 30px rgba(212, 175, 55, 0.1);
-            filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.2));
+            text-shadow: 0 0 30px rgba(252, 211, 77, 0.5);
+            filter: drop-shadow(0 2px 4px rgba(252, 211, 77, 0.3));
+            transition: all 0.3s ease;
           }
 
           .gold-text-24k:hover {
-            animation: goldPulse24k 2s ease-in-out infinite;
-          }
-
-          .gold-text-active-24k {
-            background: linear-gradient(
-              135deg,
-              #c9a96e 0%,
-              #d4af37 20%,
-              #b8941f 40%,
-              #c9a96e 50%,
-              #b8941f 60%,
-              #d4af37 80%,
-              #c9a96e 100%
-            );
-            background-size: 200% 100%;
+            background: linear-gradient(135deg, #fef08a 0%, #fcd34d 50%, #fef08a 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: goldShimmer24k 2s ease-in-out infinite;
-            text-shadow: 
-              0 0 15px rgba(212, 175, 55, 0.4),
-              0 0 30px rgba(212, 175, 55, 0.3),
-              0 0 45px rgba(212, 175, 55, 0.2);
-            filter: drop-shadow(0 3px 6px rgba(212, 175, 55, 0.3));
+            text-shadow: 0 0 40px rgba(252, 211, 77, 0.7);
+            transform: scale(1.02);
           }
 
-          @keyframes goldShimmer24k {
-            0% {
-              background-position: -300% 0;
-              filter: brightness(1) saturate(1.2);
-            }
-            25% {
-              filter: brightness(1.3) saturate(1.5);
-            }
-            50% {
-              background-position: 0% 0;
-              filter: brightness(1.6) saturate(1.8);
-            }
-            75% {
-              filter: brightness(1.3) saturate(1.5);
-            }
-            100% {
-              background-position: 300% 0;
-              filter: brightness(1) saturate(1.2);
-            }
+          .gold-text-active-24k {
+            font-weight: 500;
+            color: transparent;
+            background: linear-gradient(135deg, #fcd34d 0%, #fef08a 50%, #fcd34d 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 35px rgba(252, 211, 77, 0.6);
+            filter: drop-shadow(0 3px 6px rgba(252, 211, 77, 0.4));
           }
 
-          @keyframes goldPulse24k {
-            0%, 100% {
-              text-shadow: 
-                0 0 20px rgba(255, 215, 0, 0.6),
-                0 0 40px rgba(255, 215, 0, 0.4),
-                0 0 60px rgba(255, 215, 0, 0.2);
-            }
-            50% {
-              text-shadow: 
-                0 0 30px rgba(255, 215, 0, 0.8),
-                0 0 60px rgba(255, 215, 0, 0.6),
-                0 0 90px rgba(255, 215, 0, 0.4);
-            }
-          }
         `,
         }}
       />
@@ -331,29 +276,33 @@ const Header = () => {
                 >
                   | {t("header.topNav.offers")}
                 </a>
-                <span
-                  className={
-                    isScrolled ? "text-gray-300" : "text-white opacity-60"
-                  }
-                >
-                  |
-                </span>
-                <Link
-                  to="/"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const contactSection = document.getElementById("contact");
-                    if (contactSection) {
-                      contactSection.scrollIntoView({ behavior: "smooth" });
-                    } else {
-                      // If not on home page, navigate to home then scroll
-                      window.location.href = "/#contact";
-                    }
-                  }}
-                  className="hover:text-amber-600 transition-all duration-300 hover:scale-105"
-                >
-                  {t("header.topNav.contact")}
-                </Link>
+                {i18n.language !== "ru" && (
+                  <>
+                    <span
+                      className={
+                        isScrolled ? "text-gray-300" : "text-white opacity-60"
+                      }
+                    >
+                      |
+                    </span>
+                    <Link
+                      to="/"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const contactSection = document.getElementById("contact");
+                        if (contactSection) {
+                          contactSection.scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          // If not on home page, navigate to home then scroll
+                          window.location.href = "/#contact";
+                        }
+                      }}
+                      className="hover:text-amber-600 transition-all duration-300 hover:scale-105"
+                    >
+                      {t("header.topNav.contact")}
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -447,10 +396,20 @@ const Header = () => {
                 className="flex items-center space-x-1 text-white hover:text-stone-300 transition-all duration-300 hover:scale-105 group"
               >
                 <div className="flex flex-col items-center">
-                  <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury gold-text-24k">
+                  <span
+                    className={`luxury-font-serif font-semibold tracking-wide text-shadow-luxury gold-text-24k ${
+                      i18n.language === "ru"
+                        ? "text-xs lg:text-base"
+                        : "text-sm lg:text-lg"
+                    }`}
+                  >
                     {t("header.navigation.thalion.title")}
                   </span>
-                  <span className="text-xs text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider">
+                  <span
+                    className={`text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider ${
+                      i18n.language === "ru" ? "text-xs" : "text-xs"
+                    }`}
+                  >
                     {t("header.navigation.thalion.subtitle")}
                   </span>
                 </div>
@@ -462,10 +421,20 @@ const Header = () => {
                 className="flex items-center space-x-1 text-white hover:text-stone-300 transition-all duration-300 hover:scale-105 group cursor-pointer"
               >
                 <div className="flex flex-col items-center">
-                  <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury gold-text-24k">
+                  <span
+                    className={`luxury-font-serif font-semibold tracking-wide text-shadow-luxury gold-text-24k ${
+                      i18n.language === "ru"
+                        ? "text-xs lg:text-base"
+                        : "text-sm lg:text-lg"
+                    }`}
+                  >
                     {t("header.navigation.erichZemmour.title")}
                   </span>
-                  <span className="text-xs text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider">
+                  <span
+                    className={`text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider ${
+                      i18n.language === "ru" ? "text-xs" : "text-xs"
+                    }`}
+                  >
                     {t("header.navigation.erichZemmour.subtitle")}
                   </span>
                 </div>
@@ -477,10 +446,20 @@ const Header = () => {
                 className="flex items-center space-x-1 text-white hover:text-stone-300 transition-all duration-300 hover:scale-105 group cursor-pointer"
               >
                 <div className="flex flex-col items-center">
-                  <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury gold-text-24k">
+                  <span
+                    className={`luxury-font-serif font-semibold tracking-wide text-shadow-luxury gold-text-24k ${
+                      i18n.language === "ru"
+                        ? "text-xs lg:text-base"
+                        : "text-sm lg:text-lg"
+                    }`}
+                  >
                     {t("header.navigation.usine.title")}
                   </span>
-                  <span className="text-xs text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider">
+                  <span
+                    className={`text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider ${
+                      i18n.language === "ru" ? "text-xs" : "text-xs"
+                    }`}
+                  >
                     {t("header.navigation.usine.subtitle")}
                   </span>
                 </div>
@@ -492,10 +471,20 @@ const Header = () => {
                 className="flex items-center space-x-1 text-white hover:text-stone-300 transition-all duration-300 hover:scale-105 group"
               >
                 <div className="flex flex-col items-center">
-                  <span className="luxury-font-serif font-semibold text-sm lg:text-lg tracking-wide text-shadow-luxury gold-text-24k">
+                  <span
+                    className={`luxury-font-serif font-semibold tracking-wide text-shadow-luxury gold-text-24k ${
+                      i18n.language === "ru"
+                        ? "text-xs lg:text-base"
+                        : "text-sm lg:text-lg"
+                    }`}
+                  >
                     {t("header.navigation.carreVip.title")}
                   </span>
-                  <span className="text-xs text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider">
+                  <span
+                    className={`text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider ${
+                      i18n.language === "ru" ? "text-xs" : "text-xs"
+                    }`}
+                  >
                     {t("header.navigation.carreVip.subtitle")}
                   </span>
                 </div>
@@ -543,10 +532,18 @@ const Header = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <div>
-                      <div className="font-semibold text-lg luxury-font-serif text-amber-100 group-hover:text-amber-300">
+                      <div
+                        className={`font-semibold luxury-font-serif text-amber-100 group-hover:text-amber-300 ${
+                          i18n.language === "ru" ? "text-base" : "text-lg"
+                        }`}
+                      >
                         {t("header.navigation.thalion.title")}
                       </div>
-                      <div className="text-sm text-amber-200/80 luxury-font-sans font-light italic mt-1">
+                      <div
+                        className={`text-amber-200/80 luxury-font-sans font-light italic mt-1 ${
+                          i18n.language === "ru" ? "text-xs" : "text-sm"
+                        }`}
+                      >
                         {t("header.navigation.thalion.subtitle")}
                       </div>
                     </div>
@@ -577,10 +574,18 @@ const Header = () => {
                     className="flex justify-between items-center w-full text-left cursor-pointer transition-all duration-300"
                   >
                     <div>
-                      <div className="font-semibold text-lg luxury-font-serif text-amber-100 group-hover:text-amber-300">
+                      <div
+                        className={`font-semibold luxury-font-serif text-amber-100 group-hover:text-amber-300 ${
+                          i18n.language === "ru" ? "text-base" : "text-lg"
+                        }`}
+                      >
                         {t("header.navigation.erichZemmour.title")}
                       </div>
-                      <div className="text-sm text-amber-200/80 luxury-font-sans font-light italic mt-1">
+                      <div
+                        className={`text-amber-200/80 luxury-font-sans font-light italic mt-1 ${
+                          i18n.language === "ru" ? "text-xs" : "text-sm"
+                        }`}
+                      >
                         {t("header.navigation.erichZemmour.subtitle")}
                       </div>
                     </div>
@@ -611,10 +616,18 @@ const Header = () => {
                     className="flex justify-between items-center w-full text-left cursor-pointer transition-all duration-300"
                   >
                     <div>
-                      <div className="font-semibold text-lg luxury-font-serif text-amber-100 group-hover:text-amber-300">
+                      <div
+                        className={`font-semibold luxury-font-serif text-amber-100 group-hover:text-amber-300 ${
+                          i18n.language === "ru" ? "text-base" : "text-lg"
+                        }`}
+                      >
                         {t("header.navigation.usine.title")}
                       </div>
-                      <div className="text-sm text-amber-200/80 luxury-font-sans font-light italic mt-1">
+                      <div
+                        className={`text-amber-200/80 luxury-font-sans font-light italic mt-1 ${
+                          i18n.language === "ru" ? "text-xs" : "text-sm"
+                        }`}
+                      >
                         {t("header.navigation.usine.subtitle")}
                       </div>
                     </div>
@@ -643,10 +656,18 @@ const Header = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <div>
-                      <div className="font-semibold text-lg luxury-font-serif text-amber-100 group-hover:text-amber-300">
+                      <div
+                        className={`font-semibold luxury-font-serif text-amber-100 group-hover:text-amber-300 ${
+                          i18n.language === "ru" ? "text-base" : "text-lg"
+                        }`}
+                      >
                         {t("header.navigation.carreVip.title")}
                       </div>
-                      <div className="text-sm text-amber-200/80 luxury-font-sans font-light italic mt-1">
+                      <div
+                        className={`text-amber-200/80 luxury-font-sans font-light italic mt-1 ${
+                          i18n.language === "ru" ? "text-xs" : "text-sm"
+                        }`}
+                      >
                         {t("header.navigation.carreVip.subtitle")}
                       </div>
                     </div>
@@ -720,38 +741,40 @@ const Header = () => {
                     {t("header.topNav.offers")}
                   </a>
 
-                  <Link
-                    to="/"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setIsMobileMenuOpen(false);
-                      const contactSection = document.getElementById("contact");
-                      if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: "smooth" });
-                      } else {
-                        // If not on home page, navigate to home then scroll
-                        window.location.href = "/#contact";
-                      }
-                    }}
-                    className="flex items-center text-amber-100 hover:text-amber-300 transition-all duration-300 luxury-font-sans text-base py-3 px-4 rounded-xl hover:bg-amber-500/10 group"
-                  >
-                    <div className="mr-3 p-1.5 rounded-lg bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
-                      <svg
-                        className="w-4 h-4 text-amber-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </div>
-                    {t("header.topNav.contact")}
-                  </Link>
+                  {i18n.language !== "ru" && (
+                    <Link
+                      to="/"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setIsMobileMenuOpen(false);
+                        const contactSection = document.getElementById("contact");
+                        if (contactSection) {
+                          contactSection.scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          // If not on home page, navigate to home then scroll
+                          window.location.href = "/#contact";
+                        }
+                      }}
+                      className="flex items-center text-amber-100 hover:text-amber-300 transition-all duration-300 luxury-font-sans text-base py-3 px-4 rounded-xl hover:bg-amber-500/10 group"
+                    >
+                      <div className="mr-3 p-1.5 rounded-lg bg-amber-400/10 group-hover:bg-amber-400/20 transition-all duration-300">
+                        <svg
+                          className="w-4 h-4 text-amber-400"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                          />
+                        </svg>
+                      </div>
+                      {t("header.topNav.contact")}
+                    </Link>
+                  )}
                 </div>
 
                 {/* Bottom decorative border */}

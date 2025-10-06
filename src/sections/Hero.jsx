@@ -420,8 +420,8 @@ const Hero = () => {
         className="absolute inset-0 flex items-center justify-start z-10 cursor-pointer"
         onClick={handleTitleClick}
       >
-        <div className="container mx-auto px-8 lg:px-16">
-          <div className="max-w-3xl">
+        <div className="container mx-auto px-8 md:px-20 lg:px-24">
+          <div className="max-w-3xl md:ml-8 lg:ml-12">
             <h1 className="luxury-title text-4xl md:text-6xl lg:text-7xl mb-6">
               {images[currentIndex].title}
             </h1>
@@ -438,13 +438,39 @@ const Hero = () => {
               >
                 {t("hero.cta")}
               </button>
+              
+              {/* Mobile Navigation Buttons - Only show on mobile */}
+              <div className="flex md:hidden justify-center gap-4 mt-4">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    prevSlide();
+                  }}
+                  disabled={isTransitioning}
+                  className="bg-black/20 hover:bg-black/40 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 disabled:opacity-30 border border-white/20 hover:border-white/40"
+                  aria-label={t("hero.navigation.previous")}
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    nextSlide();
+                  }}
+                  disabled={isTransitioning}
+                  className="bg-black/20 hover:bg-black/40 text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform hover:scale-110 disabled:opacity-30 border border-white/20 hover:border-white/40"
+                  aria-label={t("hero.navigation.next")}
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Navigation Controls */}
-      <div className="absolute inset-y-0 left-0 flex items-center z-20">
+      {/* Navigation Controls - Hide on mobile, show on desktop */}
+      <div className="absolute inset-y-0 left-0 hidden md:flex items-center z-20">
         <button
           onClick={prevSlide}
           disabled={isTransitioning}
@@ -455,7 +481,7 @@ const Hero = () => {
         </button>
       </div>
 
-      <div className="absolute inset-y-0 right-0 flex items-center z-20">
+      <div className="absolute inset-y-0 right-0 hidden md:flex items-center z-20">
         <button
           onClick={nextSlide}
           disabled={isTransitioning}
@@ -509,13 +535,6 @@ const Hero = () => {
               }}
             />
           </div>
-        </div>
-      </div>
-
-      {/* Mobile Indicator */}
-      <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-10 md:hidden">
-        <div className="text-white/70 text-sm italic tracking-wide font-light">
-          {t("hero.mobileSwipe")}
         </div>
       </div>
     </section>

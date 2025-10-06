@@ -10,8 +10,23 @@ const CoverSection = ({ language = "fr" }) => {
   const { t } = useTranslation();
 
   const handleDownload = () => {
-    window.location.href =
-      "https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=760f735af8&attid=0.2&permmsgid=msg-f:1839327811517522875&th=19869ae63effa3bb&view=att&zw&disp=safe&saddbat=ANGjdJ8bVDF2yqUw-TPhIWunh1eLgUKyKZWqYkFfoA7u_K9dQ9oRS28jT36EPsvxp37gFyxgnHLK8qXJiBqEJf29uL3MEzOlmPOiktQIYoZQapEm0mQ4d82Tgmxx8jwboPx4NiU4MYcbCm8GzvH7Iz5IVeppMy7DsCfjOkkWxv4QOBImg-TRIygwb3Mjjij2JE-cIQYLiR5UTcD-ASVieuvAU9eFDvGwQJ534_Y5hVTZ5St3bJWJIXckTnTxYzkuke10L3zbk1E20Ytsznq5CEL7wX-Y72nNFnX259pEPnLWscemzUKM-tDN8dNglNRnekI3ZChWz-a_eKhQBgrT84IQiQ1-J-InDMpgIlDanmZd8qztUC6KHAr0vqAmqCoGzGBAc3R_eilFpgJyYVDexc-NNDaEfKLpkwZhNyBCXD1qrxGRUhspVfrfJTQgZGEGgQtSxWU8zYGRD38QLZk-D5scOq70AQTm-MtLVg9DNujd-WhNNrS4hKFnt-Y0yV6_eQ6TKTcj-q4ZkH_Bc5KxtGxm8Jmnmcm5A-231qDKNvegdldrcMES0wM0jm8JC3vc_jN6JYiz7YKXwxifIkPJQvbXObm4W6jAlhQoD2kKT8GFYHTU2j2lEGPWa_dD4buPBuBcGf84N-HtlF4j3sqLAeLrSrEQOO2z_FFj0abEDwp5FGa4C86UYHjXwb170WUuOqgG-s1GwMM1rd3wFGhE93R2ASgFXLZhJRtdYQt4Xr0k0AgZNOEHNo-tkX15HNvfDBpmFt76Ks_TvRjhV_zGrHykFtjIzEiTeIlNnWWDoN_Cm7WHNB2AArxKpXEJ3tMViXAYe_jTsTs...";
+    // Create a temporary link element to trigger download
+    const link = document.createElement('a');
+    link.href = '/brochure Thalion_Royal_Elyssa.pdf';
+    link.download = 'Thalion_Royal_Elyssa.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleTariffsDownload = () => {
+    // Create a temporary link element to trigger tariffs download
+    const link = document.createElement('a');
+    link.href = '/Tarifs_monastir2025-3 volets  print_2.pdf';
+    link.download = 'Tarifs_monastir2025-3_volets_print_2.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -96,22 +111,41 @@ const CoverSection = ({ language = "fr" }) => {
           </p>
         </motion.div>
 
-        {/* CTA Button - Updated to use handleDownload */}
-        <motion.button
-          onClick={handleDownload}
-          className="px-6 py-2.5 sm:px-8 sm:py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-medium tracking-widest text-xs sm:text-sm uppercase rounded-full relative overflow-hidden group"
+        {/* CTA Buttons Container */}
+        <motion.div
+          className="flex flex-col gap-4 items-center justify-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8, duration: 0.6 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
         >
-          <span className="relative z-10 flex items-center justify-center">
-            {t("thalion.cover.downloadBrochure")}
-            <ArrowRight className="ml-1.5 sm:ml-2 w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
-          </span>
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        </motion.button>
+          {/* Brochure Download Button */}
+          <motion.button
+            onClick={handleDownload}
+            className="px-6 py-2.5 sm:px-8 sm:py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-medium tracking-widest text-xs sm:text-sm uppercase rounded-full relative overflow-hidden group"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="relative z-10 flex items-center justify-center">
+              {t("thalion.cover.downloadBrochure")}
+              <ArrowRight className="ml-1.5 sm:ml-2 w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </motion.button>
+
+          {/* Tariffs Download Button */}
+          <motion.button
+            onClick={handleTariffsDownload}
+            className="px-6 py-2.5 sm:px-8 sm:py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-medium tracking-widest text-xs sm:text-sm uppercase rounded-full relative overflow-hidden group"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="relative z-10 flex items-center justify-center">
+              {t("thalion.cover.viewPricing")}
+              <ArrowRight className="ml-1.5 sm:ml-2 w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </motion.button>
+        </motion.div>
 
         {/* Scroll indicator - mobile only */}
         <motion.div

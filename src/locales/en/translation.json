@@ -16,6 +16,13 @@
       "russian": "Russian"
     },
     "navigation": {
+      "royalElyssa": {
+        "title": "ROYAL ELYSSA",
+        "accueil": "HOME",
+        "ericZemmour": "ERIC ZEMMOUR",
+        "usine": "L'USINE",
+        "carreVip": "VIP SPA SQUARE"
+      },
       "thalion": {
         "title": "THALION",
         "subtitle": "marine cosmetics creator",
@@ -241,7 +248,9 @@
         "coiffage": "Hair Styling Packages",
         "techniques": "Techniques",
         "beauteMainsPieds": "Hand and Foot Beauty",
-        "beautePieds": "Foot Beauty"
+        "beautePieds": "Foot Beauty",
+        "onglerie": "Nail Art & Extensions",
+        "extensionsCils": "Eyelash Extensions"
       },
       "pricing": {
         "notice": "Our brochure lists our prices in Tunisian dinars. For information purposes, we have converted our prices to euros.",
@@ -316,11 +325,17 @@
     "pricingData": {
       "children": "Children",
       "technicalServices": "Technical Services",
-      "technicalNote": "For all technical services, a quote is offered",
+      "technicalNote": "Starting from - Prices may vary according to hair length and thickness",
+      "forfaitsCoiffage": "Hair Styling Packages",
+      "techniquesCapillaires": "Hair Techniques",
       "nail": "Nail Polish",
       "manicure": "Manicure",
       "fakeNails": "Fake Nails",
       "pedicure": "Pedicure",
+      "onglerie": "Nail Art & Extensions",
+      "vernisExtensions": "Permanent Polish and Extensions",
+      "extensionsCils": "Eyelash Extensions",
+      "cils": "Eyelashes",
       "styling": "Styling",
       "classic": "Classic",
       "spa": "Spa (scrub + mask + massage)",
@@ -344,7 +359,30 @@
         "poseCapsuleGelFrench": "Capsule Application (gel french)",
         "renforcementGel": "Reinforcement (gel)",
         "renforcementGelFrench": "Reinforcement (gel french)",
-        "renforcementGelCouleur": "Reinforcement (gel color)"
+        "renforcementGelCouleur": "Reinforcement (gel color)",
+        "shampoingSoinsCoiffageCourt": "Shampoo + Treatment + Styling - Short Hair",
+        "shampoingSoinsCoiffageMiLong": "Shampoo + Treatment + Styling - Medium Hair", 
+        "shampoingSoinsCoiffageLong": "Shampoo + Treatment + Styling - Long Hair",
+        "racinesMajirelRichessePartir": "Roots - Majirel/Richesse (from)",
+        "racinesInoaPartir": "Roots - Inoa (from)",
+        "doseSupplementairePartir": "Additional dose (from)",
+        "balayagePartir": "Balayage (from)",
+        "mechesPartir": "Highlights (from)",
+        "physioDose": "Physio dose",
+        "manucureClassique": "Classic Manicure",
+        "manucureSpa": "SPA Manicure (scrub + mask + massage)",
+        "soinsParaffine": "Paraffin treatment",
+        "pedicureClassique": "Classic Pedicure",
+        "pedicureSpa": "SPA Pedicure (scrub + mask + massage)",
+        "vernisPermament": "Permanent polish",
+        "vernisPermamentGel": "Permanent polish + gel",
+        "capsuleGelVernisPermament": "Capsule + gel + permanent polish",
+        "extensionGelVernisPermament": "Extension + gel + permanent polish",
+        "gelPoudreCapsuleVernisPermament": "Gel powder + capsule + permanent polish",
+        "gelPoudreVernisPermament": "Gel powder + permanent polish",
+        "extensionGelPoudreVernisPermament": "Extension + gel powder + permanent polish",
+        "cilACilPermament": "Permanent eyelash extension",
+        "cilACil": "Eyelash extension"
       }
     },
     "finalContact": {
@@ -621,6 +659,7 @@
       "subtitle": "marine cosmetic creator",
       "description": "For men or women, in treatments or care, full of information and practical details (including a glossary), our Thalion brochure opens all the doors to well-being, relaxation and aesthetics... Browse it with us, we obviously remain at your complete disposal to tell you more.",
       "downloadBrochure": "Download brochure",
+      "viewPricing": "Download our rates",
       "scroll": "SCROLL",
       "brochure2025": "BROCHURE 2025"
     },

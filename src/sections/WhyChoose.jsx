@@ -1,45 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 
 const WhyChoose = () => {
   const { t } = useTranslation();
-  const [isVisible, setIsVisible] = useState(false);
-  const [titleVisible, setTitleVisible] = useState(false);
-  const [textVisible, setTextVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  // Intersection Observer for scroll animations
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          setTimeout(() => setTitleVisible(true), 300);
-          setTimeout(() => setTextVisible(true), 800);
-        }
-      },
-      {
-        threshold: 0.3,
-        rootMargin: "0px 0px -100px 0px",
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
 
   return (
     <section
-      ref={sectionRef}
       className="min-h-screen bg-gradient-to-br from-slate-900 via-stone-800 to-amber-900 py-20 px-6 flex items-center justify-center relative overflow-hidden"
     >
+      {/* Dark gradient overlay at the top */}
+      <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-black to-transparent z-10"></div>
+      
+      {/* White gradient overlay at the bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-white/30 to-transparent z-10"></div>
+      
       {/* Luxury background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-amber-400/20 to-yellow-300/20 rounded-full blur-3xl animate-pulse"></div>
@@ -59,15 +33,9 @@ const WhyChoose = () => {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        {/* Animated Title - Starts immediately now without logo delay */}
-        <div
-          className={`mb-12 transition-all duration-1000 ease-out ${
-            titleVisible
-              ? "opacity-100 transform translate-y-0"
-              : "opacity-0 transform translate-y-6"
-          }`}
-        >
+      <div className="max-w-4xl mx-auto text-center relative z-20">
+        {/* Title - No animation */}
+        <div className="mb-12">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-amber-100 mb-6 tracking-wide text-center">
             <span className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 drop-shadow-2xl">
               {t("whyChoose.title.name")}
@@ -90,14 +58,8 @@ const WhyChoose = () => {
           </div>
         </div>
 
-        {/* Animated Description Text */}
-        <div
-          className={`transition-all duration-1000 ease-out delay-300 ${
-            textVisible
-              ? "opacity-100 transform translate-y-0"
-              : "opacity-0 transform translate-y-6"
-          }`}
-        >
+        {/* Description Text - No animation */}
+        <div>
           <div className="bg-black/30 backdrop-blur-lg rounded-3xl p-12 md:p-16 shadow-2xl border border-amber-300/20 relative overflow-hidden">
             {/* Luxury inner glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 via-transparent to-yellow-300/5 rounded-3xl"></div>
@@ -147,14 +109,8 @@ const WhyChoose = () => {
           </div>
         </div>
 
-        {/* Luxury Call-to-Action */}
-        <div
-          className={`mt-16 transition-all duration-1000 ease-out delay-500 ${
-            textVisible
-              ? "opacity-100 transform translate-y-0"
-              : "opacity-0 transform translate-y-4"
-          }`}
-        ></div>
+        {/* Call-to-Action - No animation */}
+        <div className="mt-16"></div>
       </div>
 
       {/* Subtle floating animation for the entire section */}

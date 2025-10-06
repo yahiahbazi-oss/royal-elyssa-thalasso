@@ -260,10 +260,7 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+      <div
         className="relative z-10 text-center pt-8 pb-4 px-4"
       >
         <h2 className="text-3xl lg:text-5xl font-serif font-light text-white mb-6 drop-shadow-lg">
@@ -277,14 +274,11 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
             {treatment.description}
           </p>
         </div>
-      </motion.div>
+      </div>
 
       {/* Desktop supplement text - between description and circles */}
       {treatment.supplement && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+        <div
           className="relative z-10 px-4 pb-2 hidden md:block"
         >
           <div className="max-w-2xl mx-auto text-center">
@@ -299,7 +293,7 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
               {treatment.supplement}
             </p>
           </div>
-        </motion.div>
+        </div>
       )}
 
       <div ref={containerRef} className="relative z-10 px-4 py-4 pb-20">
@@ -353,10 +347,7 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
 
       {/* Mobile supplement text at bottom - same as before */}
       {treatment.supplement && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+        <div
           className="relative z-10 px-4 pb-8 block md:hidden"
         >
           <div className="max-w-3xl mx-auto text-center">
@@ -371,15 +362,12 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
               {treatment.supplement}
             </p>
           </div>
-        </motion.div>
+        </div>
       )}
 
       {/* Pricing Section */}
       {treatment.pricing && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+        <div
           className="relative z-0 px-4 pb-8 flex justify-center"
         >
           <div className="max-w-2xl mx-auto text-center">
@@ -392,11 +380,8 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
             </div>
             <div className="flex flex-wrap justify-center gap-6 max-w-2xl mx-auto">
               {treatment.pricing.map((option, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
                   className="bg-white/20 backdrop-blur-sm rounded-xl px-8 py-6 border border-white/30 hover:bg-white/25 transition-all duration-300 hover:scale-105 w-52 flex-shrink-0"
                 >
                   <div className="text-white text-center flex flex-col items-center justify-center h-full min-h-[90px]">
@@ -407,14 +392,14 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
                       {option.price}
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
             <p className="text-white/80 text-sm mt-6 font-light italic">
               {t("thalion.nosSoins.pricingDisclaimer")}
             </p>
           </div>
-        </motion.div>
+        </div>
       )}
 
       {/* Desktop Popup */}
@@ -623,19 +608,16 @@ const CircleItem = React.memo(
         onMouseLeave={onLeave}
         onClick={onClick}
       >
-        <motion.div
+        <div
           className="text-white font-medium mb-3 text-sm lg:text-base drop-shadow-lg text-center"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.2 + 0.3 }}
         >
           {t("thalion.nosSoins.day")} {day}
-        </motion.div>
+        </div>
 
         <div className="relative">
           {/* OPTIMIZED SECTION - Removed double animations */}
           <div
-            className="relative w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden border-4 border-white/90 shadow-2xl bg-white transition-transform duration-200 ease-out hover:shadow-3xl"
+            className="relative w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden border-4 border-white/90 shadow-lg bg-white transition-transform duration-200 ease-out"
             style={{
               transform: isHovered ? "scale(1.05)" : "scale(1)",
               willChange: "transform",
@@ -653,19 +635,6 @@ const CircleItem = React.memo(
               {day}
             </div>
           </div>
-
-          <motion.div
-            className="absolute inset-0 rounded-full border-2 border-white/60"
-            animate={{
-              scale: [1, 1.4, 1],
-              opacity: [0.8, 0, 0.8],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
 
           {/* Only show hover tooltip on desktop */}
           <AnimatePresence>
@@ -709,46 +678,6 @@ const CircleItem = React.memo(
                     {t("thalion.nosSoins.clickForDetails")}
                   </div>
                 </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <motion.div
-            className="absolute inset-0 rounded-full"
-            animate={{
-              boxShadow:
-                isHovered && !isMobile
-                  ? colors.shadow
-                  : "0 0 0px rgba(244, 63, 94, 0)",
-            }}
-            transition={{ duration: 0.3 }}
-          />
-
-          <AnimatePresence>
-            {isHovered && !isMobile && (
-              <motion.div className="absolute inset-0 pointer-events-none">
-                {[...Array(6)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className={`absolute w-2 h-2 ${colors.sparkle} rounded-full`}
-                    style={{
-                      left: `${50 + 40 * Math.cos((i * 60 * Math.PI) / 180)}%`,
-                      top: `${50 + 40 * Math.sin((i * 60 * Math.PI) / 180)}%`,
-                    }}
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{
-                      scale: [0, 1.5, 0],
-                      opacity: [0, 1, 0],
-                      rotate: [0, 360],
-                    }}
-                    exit={{ scale: 0, opacity: 0 }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      delay: i * 0.2,
-                    }}
-                  />
-                ))}
               </motion.div>
             )}
           </AnimatePresence>

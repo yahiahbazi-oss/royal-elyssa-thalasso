@@ -3,16 +3,16 @@ import SoinsDesign from "../../../components/SoinsDesign";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-// Import static images for DetoxSilhouette
-import jour1 from "./assets/SI1.JPG";
-import jour2 from "./assets/SI2.JPG";
-import jour3 from "./assets/SI3.JPG";
-import jour4 from "./assets/SI4.JPG";
-import jour5 from "./assets/SI5.JPG";
-import jour6 from "./assets/SI6.JPG";
+// Import static images for DetoxSilhouette - replaced with Cloudinary URLs
+const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759750211/SI1_vzwfzr.jpg";
+const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759750212/SI2_hj1tki.jpg";
+const jour3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759750212/SI3_ebcyzc.jpg";
+const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759750214/SI4_hnmoxb.jpg";
+const jour5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759750221/SI5_arzdiw.jpg";
+const jour6 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759750222/SI6_yqz5jf.jpg";
 
-// Import Video
-import aquaVideo from "./assets/Aquacycling_compressed.mp4";
+// Import Video - replaced with Cloudinary URL
+const aquaVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/v1759751775/Aquacycling_compressed_gbugma.mp4";
 
 const DetoxSilhouette = React.memo(() => {
   const { t } = useTranslation();
