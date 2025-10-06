@@ -5,7 +5,6 @@ import React, {
   useMemo,
   useCallback,
 } from "react";
-import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, EffectCoverflow } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -142,7 +141,7 @@ const ThemeSection = ({
       description: t("thalion.themeSection.packages.weekendCool.description"),
     },
   ], [t]);
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(PACKAGES.length);
   const swiperRef = useRef(null);
 
   // Create scroll handlers mapping
@@ -173,10 +172,10 @@ const ThemeSection = ({
     ]
   );
 
-  // Memoize duplicated packages
+  // Memoize duplicated packages for infinite scroll
   const duplicatedPackages = useMemo(() => {
     return [...PACKAGES, ...PACKAGES, ...PACKAGES];
-  }, []);
+  }, [PACKAGES]);
 
   // Memoize packages with scroll handlers
   const packagesWithHandlers = useMemo(() => {
@@ -184,18 +183,18 @@ const ThemeSection = ({
       ...pkg,
       scrollTo: scrollHandlers[pkg.section] || null,
     }));
-  }, [scrollHandlers]);
+  }, [PACKAGES, scrollHandlers]);
 
   const handleSlideChange = useCallback((swiper) => {
-    const realIndex = swiper.realIndex % PACKAGES.length;
-    setActiveSlide(realIndex);
-
+    setActiveSlide(swiper.activeIndex);
+    
+    // Handle infinite loop
     if (swiper.activeIndex === 0) {
       setTimeout(() => swiper.slideTo(PACKAGES.length, 0), 0);
-    } else if (swiper.activeIndex === PACKAGES.length * 2) {
+    } else if (swiper.activeIndex === duplicatedPackages.length - 1) {
       setTimeout(() => swiper.slideTo(PACKAGES.length, 0), 0);
     }
-  }, []);
+  }, [PACKAGES.length, duplicatedPackages.length]);
 
   const handlePackageClick = useCallback((pkg) => {
     if (pkg.scrollTo) {
@@ -226,54 +225,66 @@ const ThemeSection = ({
               rotate: 0,
               stretch: 0,
               depth: 100,
-              modifier: 2,
+              modifier: 2.5,
               slideShadows: false,
             }}
-            spaceBetween={20}
+            spaceBetween={30}
             navigation={{
               nextEl: ".swiper-button-next",
               prevEl: ".swiper-button-prev",
             }}
             autoplay={{
-              delay: 3000,
+              delay: 4000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
-            speed={800}
+            speed={600}
             onSlideChange={handleSlideChange}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             initialSlide={PACKAGES.length}
+            loop={true}
+            loopAdditionalSlides={2}
+            watchSlidesProgress={true}
             breakpoints={{
               320: { slidesPerView: 1.1, spaceBetween: 15 },
               480: { slidesPerView: 1.3, spaceBetween: 20 },
-              640: { slidesPerView: 1.8, spaceBetween: 20 },
-              768: { slidesPerView: 2.2, spaceBetween: 25 },
-              1024: { slidesPerView: 3, spaceBetween: 30 },
-              1280: { slidesPerView: 4, spaceBetween: 35 },
-              1536: { slidesPerView: 5, spaceBetween: 40 },
+              640: { slidesPerView: 2, spaceBetween: 30 },
+              768: { slidesPerView: 2.5, spaceBetween: 30 },
+              1024: { slidesPerView: 3, spaceBetween: 35 },
+              1280: { slidesPerView: 4, spaceBetween: 40 },
+              1536: { slidesPerView: 5, spaceBetween: 45 },
             }}
             className="!overflow-visible pb-12 md:pb-20"
           >
             {duplicatedPackages.map((pkg, index) => {
               const originalIndex = index % PACKAGES.length;
               const originalPkg = packagesWithHandlers[originalIndex];
+              const isActive = index === activeSlide;
+              
               return (
                 <SwiperSlide
                   key={`${pkg.id}-${index}`}
-                  className="!w-[280px] sm:!w-[320px] md:!w-[350px] !h-auto"
+                  className="!w-[260px] sm:!w-[300px] md:!w-[320px] !h-auto"
                 >
-                  <BoxDesign
-                    title={originalPkg.title}
-                    description={originalPkg.description}
-                    image={originalPkg.image}
-                    options={originalPkg.options}
-                    index={originalIndex}
-                    onClickDetails={() => handlePackageClick(originalPkg)}
-                    detailsAvailableText={t("thalion.themeSection.detailsAvailable")}
-                    moreOptionsText={t("thalion.themeSection.moreOptions")}
-                    bookText={t("thalion.themeSection.book")}
-                    detailsText={t("thalion.themeSection.details")}
-                  />
+                  <div className={`transition-all duration-500 transform ${
+                    isActive 
+                      ? 'opacity-100 scale-100 sm:scale-105 z-20 shadow-2xl' 
+                      : 'opacity-50 sm:opacity-75 scale-90 sm:scale-95 z-0'
+                  }`}>
+                    <BoxDesign
+                      title={originalPkg.title}
+                      description={originalPkg.description}
+                      image={originalPkg.image}
+                      options={originalPkg.options}
+                      index={originalIndex}
+                      isActive={isActive}
+                      onClickDetails={() => handlePackageClick(originalPkg)}
+                      detailsAvailableText={t("thalion.themeSection.detailsAvailable")}
+                      moreOptionsText={t("thalion.themeSection.moreOptions")}
+                      bookText={t("thalion.themeSection.book")}
+                      detailsText={t("thalion.themeSection.details")}
+                    />
+                  </div>
                 </SwiperSlide>
               );
             })}

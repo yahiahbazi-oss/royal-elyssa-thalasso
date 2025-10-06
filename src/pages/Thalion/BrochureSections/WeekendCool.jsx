@@ -4,12 +4,12 @@ import SoinsDesign from "../../../components/SoinsDesign";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-// Import static images
-import jour1 from "./assets/wc1.JPG";
-import jour2 from "./assets/wc2.JPG";
+// Import static images - replaced with Cloudinary URLs
+const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755552/wc1_uf26d2.jpg";
+const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755548/wc2_yivfmi.jpg";
 
-// Import Video
-import weekendCoolVideo from "./assets/wc.webm";
+// Import Video - replaced with Cloudinary URL
+const weekendCoolVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/v1759755668/wc_s1ovwb.webm";
 
 // Memoized static data to prevent recreation on each render
 const dayImages = {

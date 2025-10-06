@@ -17,7 +17,7 @@
     },
     "navigation": {
       "royalElyssa": {
-        "title": "ROYAL ELYSSA",
+        "title": "THALION",
         "accueil": "ACCUEIL",
         "ericZemmour": "ERIC ZEMMOUR",
         "usine": "L'USINE",
@@ -253,7 +253,7 @@
         "extensionsCils": "Extensions de Cils"
       },
       "pricing": {
-        "notice": "Notre brochure mentionne nos prix qui sont libellés en dinars tunisiens. À titre informatif, nous avons converti nos prix en euros.",
+        "notice": "Les tarifs en euros sont donnés seulement à titre indicatif",
         "currency": "TND",
         "currencyConverted": "EUR",
         "categories": {
@@ -370,7 +370,7 @@
         "renforcementGelFrench": "Renforcement (gel french)",
         "renforcementGelCouleur": "Renforcement (gel couleur)",
         "shampoingSoinsCoiffageCourt": "Shampoing + Soins + Coiffage - Cheveux Courts",
-        "shampoingSoinsCoiffageMiLong": "Shampoing + Soins + Coiffage - Cheveux Mi-longs", 
+        "shampoingSoinsCoiffageMiLong": "Shampoing + Soins + Coiffage - Cheveux Mi-longs",
         "shampoingSoinsCoiffageLong": "Shampoing + Soins + Coiffage - Cheveux Longs",
         "racinesMajirelRichessePartir": "Racines - Majirel/Richesse (à partir de)",
         "racinesInoaPartir": "Racines - Inoa (à partir de)",
@@ -401,9 +401,7 @@
       "address": "Royal Elyssa Thalasso & Spa",
       "country": "MONASTIR, TUNISIE"
     },
-    "alerts": {
-      "priceNotice": "Attention : nos prix sont fixés en Dinars Tunisiens. Leur équivalent en Euros peut différer étant donné les fluctuations du taux des changes."
-    }
+    "alerts": {}
   },
   "usine": {
     "navbar": {

@@ -4,16 +4,16 @@ import SoinsDesign from "../../../components/SoinsDesign";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-// Import static images
-import jour1 from "./assets/na1.JPG";
-import jour2 from "./assets/na2.JPG";
-import jour3 from "./assets/na3.JPG";
-import jour4 from "./assets/na4.JPG";
-import jour5 from "./assets/na5.JPG";
-import jour6 from "./assets/na6.JPG";
+// Import static images - replaced with Cloudinary URLs
+const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755356/na1_s1q2ln.jpg";
+const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755353/na2_oc54mt.jpg";
+const jour3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755345/na3_gwn93p.jpg";
+const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755344/na4_bceumi.jpg";
+const jour5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755343/na5_kzhqrg.jpg";
+const jour6 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755344/na6_mqyvy2.jpg";
 
-// Import Video
-import nouvelAgeVideo from "./assets/na.webm";
+// Import Video - replaced with Cloudinary URL
+const nouvelAgeVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/v1759755450/na_jdragh.webm";
 
 const NouvelAge = () => {
   const { t } = useTranslation();

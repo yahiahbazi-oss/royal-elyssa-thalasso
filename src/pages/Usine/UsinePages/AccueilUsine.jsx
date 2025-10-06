@@ -2,12 +2,12 @@ import React, { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-// Import images directly
-import AccueilImage from "../assets/Photo__(5_sur_56).jpg";
-import ActivitesImage from "../assets/Club_de_sport_lusine_6.jpg";
-import EquipeImage from "../assets/Club_de_sport_lusine_2.jpg";
-import PlanningImage from "../assets/Photo__(34_sur_56).jpg";
-import InfosPratiquesImage from "../assets/Photo__(54_sur_56).jpg";
+// Use Cloudinary-hosted images (replaced local assets)
+const AccueilImage = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759766936/Club_de_sport_lusine_2_yvzotc.jpg";
+const ActivitesImage = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759766937/Club_de_sport_lusine_6_ilhnju.jpg";
+const EquipeImage = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759766937/Photo___5_sur_56_gh4xqr.jpg";
+const PlanningImage = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759766937/Photo___34_sur_56_u72ovh.jpg";
+const InfosPratiquesImage = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759766938/Photo___54_sur_56_ff2tqq.jpg";
 
 // Preload component for images
 const ImagePreloader = ({ images }) => {

@@ -3,15 +3,15 @@ import SoinsDesign from "../../../components/SoinsDesign";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-// Import static images
-import jour1 from "./assets/RR1.JPG";
-import jour2 from "./assets/RR2.JPG";
-import jour3 from "./assets/RR3.JPG";
-import jour4 from "./assets/RR4.JPG";
-import jour5 from "./assets/RR5.JPG";
+// Import static images - replaced with Cloudinary URLs
+const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759753789/RR1_nym7ra.jpg";
+const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759753789/RR2_m3suam.jpg";
+const jour3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759753789/RR3_oibxl5.jpg";
+const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759753789/RR4_qbo16p.jpg";
+const jour5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759753789/RR5_vowysm.jpg";
 
-// Import Video - Updated to use unemasseusesea.webm
-import masseurVideo from "./assets/unemasseusesea.webm";
+// Import Video - replaced with Cloudinary URL
+const masseurVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/v1759753935/unemasseusesea_mvc67g.webm";
 
 const RelaxationMarine = React.memo(() => {
   const { t } = useTranslation();

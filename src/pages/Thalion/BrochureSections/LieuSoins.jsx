@@ -3,43 +3,45 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 // Cloudinary image URLs
-const aq1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746493/aq1_qc3iqh.jpg";
-const aq2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746512/aq2_zpzx0i.jpg";
-const aq3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746607/aq3_jgjglc.jpg";
+const aq1 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746493/aq1_qc3iqh.jpg";
+const aq2 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746512/aq2_zpzx0i.jpg";
+const aq3 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746607/aq3_jgjglc.jpg";
 
-const hydro1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746610/hydro1_mti38o.webp";
-const hydro2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746610/hydro2_bcpky3.webp";
-const hydro3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746610/hydro3_xphxey.webp";
-const hydro4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746612/hydro4_xp2byj.webp";
+const hydro1 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746610/hydro1_mti38o.webp";
+const hydro2 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746610/hydro2_bcpky3.webp";
+const hydro3 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746610/hydro3_xphxey.webp";
+const hydro4 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746612/hydro4_xp2byj.webp";
 
-const hammam1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746609/hammam1_asixfp.webp";
-const hammam2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746611/hammam2_mrefcz.webp";
-const hammam3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746608/hammam3_ffaavz.webp";
-const hammam4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746609/hammam4_xldjzk.webp";
+const hammam1 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746609/hammam1_asixfp.webp";
+const hammam2 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746611/hammam2_mrefcz.webp";
+const hammam3 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746608/hammam3_ffaavz.webp";
+const hammam4 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746609/hammam4_xldjzk.webp";
 
-const serenite1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746640/serenite1_dgxkyc.webp";
-const serenite2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746657/serenite2_tamd0j.webp";
-const serenite3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746658/serenite3_yxyv75.webp";
+const serenite1 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746640/serenite1_dgxkyc.webp";
+const serenite2 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746657/serenite2_tamd0j.webp";
+const serenite3 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746658/serenite3_yxyv75.webp";
 
 const LieuSoins = () => {
   const { t } = useTranslation();
 
-  const [isVisible, setIsVisible] = useState(false);
-  const [titleVisible, setTitleVisible] = useState(false);
-  const [textVisible, setTextVisible] = useState(false);
-  const [secondSectionVisible, setSecondSectionVisible] = useState(false);
-  const [thirdSectionVisible, setThirdSectionVisible] = useState(false);
-  const [fourthSectionVisible, setFourthSectionVisible] = useState(false);
-  const [fifthSectionVisible, setFifthSectionVisible] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [hydroImageIndex, setHydroImageIndex] = useState(0);
   const [hammamImageIndex, setHammamImageIndex] = useState(0);
   const [sereniteImageIndex, setSereniteImageIndex] = useState(0);
-  const sectionRef = useRef(null);
-  const secondSectionRef = useRef(null);
-  const thirdSectionRef = useRef(null);
-  const fourthSectionRef = useRef(null);
-  const fifthSectionRef = useRef(null);
 
   // Aquatic space images
   const backgroundImages = [aq1, aq2, aq3];
@@ -52,133 +54,6 @@ const LieuSoins = () => {
 
   // Sérénité images
   const sereniteImages = [serenite1, serenite2, serenite3];
-
-  // Intersection Observer for first section
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          setTimeout(() => setTitleVisible(true), 300);
-          setTimeout(() => setTextVisible(true), 800);
-        }
-      },
-      {
-        threshold: 0.3,
-        rootMargin: "0px 0px -100px 0px",
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  // Intersection Observer for second section
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setSecondSectionVisible(true);
-        }
-      },
-      {
-        threshold: 0.2,
-        rootMargin: "0px 0px -50px 0px",
-      }
-    );
-
-    if (secondSectionRef.current) {
-      observer.observe(secondSectionRef.current);
-    }
-
-    return () => {
-      if (secondSectionRef.current) {
-        observer.unobserve(secondSectionRef.current);
-      }
-    };
-  }, []);
-
-  // Intersection Observer for third section
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setThirdSectionVisible(true);
-        }
-      },
-      {
-        threshold: 0.2,
-        rootMargin: "0px 0px -50px 0px",
-      }
-    );
-
-    if (thirdSectionRef.current) {
-      observer.observe(thirdSectionRef.current);
-    }
-
-    return () => {
-      if (thirdSectionRef.current) {
-        observer.unobserve(thirdSectionRef.current);
-      }
-    };
-  }, []);
-
-  // Intersection Observer for fourth section
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setFourthSectionVisible(true);
-        }
-      },
-      {
-        threshold: 0.2,
-        rootMargin: "0px 0px -50px 0px",
-      }
-    );
-
-    if (fourthSectionRef.current) {
-      observer.observe(fourthSectionRef.current);
-    }
-
-    return () => {
-      if (fourthSectionRef.current) {
-        observer.unobserve(fourthSectionRef.current);
-      }
-    };
-  }, []);
-
-  // Intersection Observer for fifth section
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setFifthSectionVisible(true);
-        }
-      },
-      {
-        threshold: 0.2,
-        rootMargin: "0px 0px -50px 0px",
-      }
-    );
-
-    if (fifthSectionRef.current) {
-      observer.observe(fifthSectionRef.current);
-    }
-
-    return () => {
-      if (fifthSectionRef.current) {
-        observer.unobserve(fifthSectionRef.current);
-      }
-    };
-  }, []);
 
   // Background image rotation for second section
   useEffect(() => {
@@ -236,10 +111,7 @@ const LieuSoins = () => {
   return (
     <div className="w-full">
       {/* First Section - THALION Introduction */}
-      <section
-        ref={sectionRef}
-        className="min-h-screen bg-gradient-to-br from-slate-900 via-stone-800 to-amber-900 py-20 px-6 flex items-center justify-center relative overflow-hidden"
-      >
+      <section className="min-h-screen bg-gradient-to-br from-slate-900 via-stone-800 to-amber-900 py-20 px-6 flex items-center justify-center relative overflow-hidden">
         {/* Luxury background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-amber-400/20 to-yellow-300/20 rounded-full blur-3xl animate-pulse"></div>
@@ -260,14 +132,8 @@ const LieuSoins = () => {
         </div>
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
-          {/* Animated Title */}
-          <div
-            className={`mb-16 transition-all duration-1000 ease-out ${
-              titleVisible
-                ? "opacity-100 transform translate-y-0"
-                : "opacity-0 transform translate-y-6"
-            }`}
-          >
+          {/* Static Title - No Animation */}
+          <div className="mb-16">
             {/* THALION Brand */}
             <div className="mb-8">
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-light text-amber-100 mb-4 tracking-wide">
@@ -302,14 +168,8 @@ const LieuSoins = () => {
             </div>
           </div>
 
-          {/* Animated Description Text */}
-          <div
-            className={`transition-all duration-1000 ease-out delay-300 ${
-              textVisible
-                ? "opacity-100 transform translate-y-0"
-                : "opacity-0 transform translate-y-6"
-            }`}
-          >
+          {/* Static Description Text - No Animation */}
+          <div>
             <div className="bg-black/30 backdrop-blur-lg rounded-3xl p-12 md:p-16 shadow-2xl border border-amber-300/20 relative overflow-hidden">
               {/* Luxury inner glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 via-transparent to-yellow-300/5 rounded-3xl"></div>
@@ -349,10 +209,7 @@ const LieuSoins = () => {
       </section>
 
       {/* Second Section - Espace Aquatique */}
-      <section
-        ref={secondSectionRef}
-        className="relative w-full h-screen overflow-hidden bg-black"
-      >
+      <section className="relative w-full h-screen overflow-hidden bg-black">
         {/* Premium luxury fonts and styles */}
         <style jsx global>{`
           @import url("https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@500;600;700&family=Marcellus+SC&display=swap");
@@ -445,16 +302,10 @@ const LieuSoins = () => {
           ))}
         </div>
 
-        {/* Content Overlay */}
+        {/* Content Overlay - Static Text */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
           <div className="container mx-auto px-8 lg:px-16">
-            <div
-              className={`max-w-4xl transition-all duration-1500 ease-out text-center ${
-                secondSectionVisible
-                  ? "opacity-100 transform translate-y-0"
-                  : "opacity-0 transform translate-y-8"
-              }`}
-            >
+            <div className="max-w-4xl text-center">
               <h1 className="luxury-title-aqua text-3xl md:text-4xl lg:text-5xl mb-6">
                 {t("thalion.lieuSoins.aquatique.title")}
               </h1>
@@ -488,10 +339,7 @@ const LieuSoins = () => {
       </section>
 
       {/* Third Section - Espace Hydrothérapie */}
-      <section
-        ref={thirdSectionRef}
-        className="relative w-full h-screen overflow-hidden bg-black"
-      >
+      <section className="relative w-full h-screen overflow-hidden bg-black">
         {/* Image Container - 100% Clear Images */}
         <div className="relative w-full h-full select-none">
           {hydroImages.map((image, index) => (
@@ -517,16 +365,10 @@ const LieuSoins = () => {
           ))}
         </div>
 
-        {/* Content Overlay */}
+        {/* Content Overlay - Static Text */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
           <div className="container mx-auto px-8 lg:px-16">
-            <div
-              className={`max-w-4xl transition-all duration-1500 ease-out text-center ${
-                thirdSectionVisible
-                  ? "opacity-100 transform translate-y-0"
-                  : "opacity-0 transform translate-y-8"
-              }`}
-            >
+            <div className="max-w-4xl text-center">
               <h1 className="luxury-title-aqua text-3xl md:text-4xl lg:text-5xl mb-6">
                 {t("thalion.lieuSoins.hydrotherapie.title")}
               </h1>
@@ -560,10 +402,7 @@ const LieuSoins = () => {
       </section>
 
       {/* Fourth Section - Espace Hammam */}
-      <section
-        ref={fourthSectionRef}
-        className="relative w-full h-screen overflow-hidden bg-black"
-      >
+      <section className="relative w-full h-screen overflow-hidden bg-black">
         {/* Image Container - 100% Clear Images */}
         <div className="relative w-full h-full select-none">
           {hammamImages.map((image, index) => (
@@ -589,16 +428,10 @@ const LieuSoins = () => {
           ))}
         </div>
 
-        {/* Content Overlay */}
+        {/* Content Overlay - Static Text */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
           <div className="container mx-auto px-8 lg:px-16">
-            <div
-              className={`max-w-4xl transition-all duration-1500 ease-out text-center ${
-                fourthSectionVisible
-                  ? "opacity-100 transform translate-y-0"
-                  : "opacity-0 transform translate-y-8"
-              }`}
-            >
+            <div className="max-w-4xl text-center">
               <h1 className="luxury-title-aqua text-3xl md:text-4xl lg:text-5xl mb-6">
                 {t("thalion.lieuSoins.hammam.title")}
               </h1>
@@ -632,10 +465,7 @@ const LieuSoins = () => {
       </section>
 
       {/* Fifth Section - Espace Sérénité */}
-      <section
-        ref={fifthSectionRef}
-        className="relative w-full h-screen overflow-hidden bg-black"
-      >
+      <section className="relative w-full h-screen overflow-hidden bg-black">
         {/* Image Container - 100% Clear Images */}
         <div className="relative w-full h-full select-none">
           {sereniteImages.map((image, index) => (
@@ -661,16 +491,10 @@ const LieuSoins = () => {
           ))}
         </div>
 
-        {/* Content Overlay */}
+        {/* Content Overlay - Static Text */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
           <div className="container mx-auto px-8 lg:px-16">
-            <div
-              className={`max-w-4xl transition-all duration-1500 ease-out text-center ${
-                fifthSectionVisible
-                  ? "opacity-100 transform translate-y-0"
-                  : "opacity-0 transform translate-y-8"
-              }`}
-            >
+            <div className="max-w-4xl text-center">
               <h1 className="luxury-title-aqua text-3xl md:text-4xl lg:text-5xl mb-6">
                 {t("thalion.lieuSoins.serenite.title")}
               </h1>

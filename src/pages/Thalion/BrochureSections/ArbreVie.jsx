@@ -4,15 +4,16 @@ import SoinsDesign from "../../../components/SoinsDesign";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-// Import static images
-import jour1 from "./assets/AA1.JPG";
-import jour2 from "./assets/AA2.JPG";
-import jour3 from "./assets/AA3.JPG";
-import jour4 from "./assets/AA4.JPG";
-import jour5 from "./assets/AA5.JPG";
+// Import static images - replaced with Cloudinary URLs
+const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754506/AA1_ivakr2.jpg";
+const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA2_saak8b.jpg";
+const jour3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA3_mymn7a.jpg";
+const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA4_mzzoym.jpg";
+const jour5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754496/AA5_j2ize0.jpg";
+const jour6 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA6_smiw69.jpg";
 
-// Import Video
-import arbreVideo from "./assets/ar.mp4";
+// Import Video - replaced with Cloudinary URL
+const arbreVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/v1759754989/ar_bp3lo1.mp4";
 
 // Memoized static data to prevent recreation on each render
 const dayImages = {
@@ -21,6 +22,7 @@ const dayImages = {
   3: jour3,
   4: jour4,
   5: jour5,
+  6: jour6,
 };
 
 const ArbreVie = () => {

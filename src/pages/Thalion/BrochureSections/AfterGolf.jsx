@@ -4,15 +4,15 @@ import SoinsDesign from "../../../components/SoinsDesign";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-// Import static images
-import jour1 from "./assets/A1.JPG";
-import jour2 from "./assets/A2.JPG";
-import jour3 from "./assets/A3.JPG";
-import jour4 from "./assets/A4.JPG";
-import jour5 from "./assets/A5.JPG";
+// Import static images - replaced with Cloudinary URLs
+const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754796/A1_d52u1z.jpg";
+const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754796/A2_gg9nvz.jpg";
+const jour3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754797/A3_pbeoej.jpg";
+const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754797/A4_ruabtz.jpg";
+const jour5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754805/A5_d5zkgr.jpg";
 
-// Import Video
-import golfVideo from "./assets/golf.webm";
+// Import Video - replaced with Cloudinary URL
+const golfVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/v1759754939/golf_w6tg2n.webm";
 
 // Memoized static data to prevent recreation on each render
 const dayImages = {

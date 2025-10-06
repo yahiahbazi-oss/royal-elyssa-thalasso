@@ -34,20 +34,34 @@ const Usine = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const tabs = [
-    { id: "home", label: t("usine.navbar.home"), icon: Home, ref: homeRef },
+    {
+      id: "home",
+      label:
+        t("header.navigation.usine.title") || t("usine.title") || "Accueil",
+      icon: Home,
+      ref: homeRef,
+    },
     {
       id: "activite",
-      label: t("usine.navbar.activity"),
+      label:
+        t("header.navigation.usine.activities") ||
+        t("usine.buttons.discoverActivities") ||
+        "Activité",
       icon: Activity,
       ref: activiteRef,
     },
     {
       id: "equipe",
-      label: t("usine.navbar.team"),
+      label: t("header.navigation.usine.team") || t("usine.title") || "Équipe",
       icon: Users,
       ref: equipeRef,
     },
-    { id: "info", label: t("usine.navbar.info"), icon: Info, ref: infoRef },
+    {
+      id: "info",
+      label: t("header.navigation.usine.info") || t("usine.info") || "Info",
+      icon: Info,
+      ref: infoRef,
+    },
   ];
 
   useEffect(() => {
@@ -68,8 +82,11 @@ const Usine = () => {
         if (section.ref.current) {
           const sectionTop = section.ref.current.offsetTop;
           const sectionHeight = section.ref.current.offsetHeight;
-          
-          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+
+          if (
+            scrollPosition >= sectionTop &&
+            scrollPosition < sectionTop + sectionHeight
+          ) {
             setActiveTab(section.id);
             break;
           }
@@ -89,7 +106,7 @@ const Usine = () => {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
     setMobileMenuOpen(false);
@@ -98,6 +115,13 @@ const Usine = () => {
   const handleTabClick = (tabId, ref) => {
     setActiveTab(tabId);
     scrollToSection(ref);
+  };
+
+  // Navigation helper for external routes / top-level pages
+  const navigateTo = (path) => {
+    setMobileMenuOpen(false);
+    // Use full navigation to trigger SPA routing or page load
+    window.location.href = path;
   };
 
   return (
@@ -129,27 +153,69 @@ const Usine = () => {
                 src={francFlag}
                 alt="France Flag"
                 className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-amber-400/30"
-                onClick={() => changeLanguage('fr')}
+                onClick={() => changeLanguage("fr")}
                 title="Français"
               />
               <img
                 src={ukFlag}
                 alt="UK Flag"
                 className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-amber-400/30"
-                onClick={() => changeLanguage('en')}
+                onClick={() => changeLanguage("en")}
                 title="English"
               />
               <img
                 src={russiaFlag}
                 alt="Russia Flag"
                 className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-amber-400/30"
-                onClick={() => changeLanguage('ru')}
+                onClick={() => changeLanguage("ru")}
                 title="Русский"
               />
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6">
+              {/* Royal Elyssa dropdown */}
+              <div className="relative group">
+                <button
+                  onClick={() => navigateTo("/")}
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 text-amber-100 hover:bg-amber-400/20 hover:text-amber-400`}
+                >
+                  <span className="font-medium">
+                    {t("header.navigation.royalElyssa.title") || "Royal Elyssa"}
+                  </span>
+                </button>
+
+                {/* Dropdown: use top-full so there's no gap when moving cursor from button to menu */}
+                <div className="absolute left-0 top-full w-48 bg-black/95 border border-amber-400/20 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <button
+                    onClick={() => navigateTo("/")}
+                    className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
+                  >
+                    {t("header.navigation.royalElyssa.accueil") || "Accueil"}
+                  </button>
+                  <button
+                    onClick={() => navigateTo("/thalion")}
+                    className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
+                  >
+                    {t("header.navigation.royalElyssa.title") || "Thalion"}
+                  </button>
+                  <button
+                    onClick={() => navigateTo("/erich-zemmour")}
+                    className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
+                  >
+                    {t("header.navigation.royalElyssa.ericZemmour") ||
+                      "Erich Zemmour"}
+                  </button>
+                  <button
+                    onClick={() => navigateTo("/suite")}
+                    className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
+                  >
+                    {t("header.navigation.royalElyssa.carreVip") ||
+                      "CARRÉ VIP SPA"}
+                  </button>
+                </div>
+              </div>
+
               {tabs.map((tab) => (
                 <motion.button
                   key={tab.id}
@@ -166,28 +232,28 @@ const Usine = () => {
                   <span className="font-medium">{tab.label}</span>
                 </motion.button>
               ))}
-              
+
               {/* Language Flags - Right side (Desktop) */}
               <div className="flex items-center space-x-2 pl-4 border-l border-amber-400/30">
                 <img
                   src={francFlag}
                   alt="France Flag"
                   className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-amber-400/30"
-                  onClick={() => changeLanguage('fr')}
+                  onClick={() => changeLanguage("fr")}
                   title="Français"
                 />
                 <img
                   src={ukFlag}
                   alt="UK Flag"
                   className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-amber-400/30"
-                  onClick={() => changeLanguage('en')}
+                  onClick={() => changeLanguage("en")}
                   title="English"
                 />
                 <img
                   src={russiaFlag}
                   alt="Russia Flag"
                   className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-amber-400/30"
-                  onClick={() => changeLanguage('ru')}
+                  onClick={() => changeLanguage("ru")}
                   title="Русский"
                 />
               </div>
@@ -221,6 +287,43 @@ const Usine = () => {
                 className="md:hidden mt-4 bg-black/90 backdrop-blur-md rounded-lg overflow-hidden border border-amber-400/20"
               >
                 <div className="py-2">
+                  {/* Royal Elyssa with sub-links for mobile */}
+                  <div className="px-4 py-2 border-b border-amber-400/10">
+                    <button
+                      onClick={() => navigateTo("/")}
+                      className="w-full text-left flex items-center justify-between text-amber-100 py-2"
+                    >
+                      {t("header.navigation.royalElyssa.title") ||
+                        "Royal Elyssa"}
+                    </button>
+                    <div className="mt-2 pl-4">
+                      <button
+                        onClick={() => navigateTo("/")}
+                        className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
+                      >
+                        Accueil
+                      </button>
+                      <button
+                        onClick={() => navigateTo("/thalion")}
+                        className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
+                      >
+                        Thalion
+                      </button>
+                      <button
+                        onClick={() => navigateTo("/erich-zemmour")}
+                        className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
+                      >
+                        Erich Zemmour
+                      </button>
+                      <button
+                        onClick={() => navigateTo("/suite")}
+                        className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
+                      >
+                        CARRÉ VIP SPA
+                      </button>
+                    </div>
+                  </div>
+
                   {tabs.map((tab, index) => (
                     <motion.button
                       key={tab.id}

@@ -3,15 +3,15 @@ import SoinsDesign from "../../../components/SoinsDesign";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-// Import static images
-import jour1 from "./assets/NS1.JPG";
-import jour2 from "./assets/NS2.JPG";
-import jour3 from "./assets/NS3.JPG";
-import jour4 from "./assets/NS4.JPG";
-import jour5 from "./assets/NS5.JPG";
+// Import static images - replaced with Cloudinary URLs
+const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754067/NS1_utb40l.jpg";
+const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754066/NS2_ofgnej.jpg";
+const jour3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754066/NS3_mobrkd.jpg";
+const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754067/NS4_lkwivr.jpg";
+const jour5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754067/NS5_aeftbg.jpg";
 
-// Import Video
-import masseurVideo from "./assets/curenonstress.webm";
+// Import Video - replaced with Cloudinary URL
+const masseurVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/v1759754164/curenonstress_eqkuqt.webm";
 
 const CureNoStress = React.memo(() => {
   const { t } = useTranslation();

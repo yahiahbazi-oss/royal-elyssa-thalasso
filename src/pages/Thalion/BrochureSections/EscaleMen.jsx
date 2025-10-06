@@ -3,16 +3,16 @@ import SoinsDesign from "../../../components/SoinsDesign";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-// Import static images
-import jour1 from "./assets/MM1.JPG";
-import jour2 from "./assets/MM2.JPG";
-import jour3 from "./assets/MM3.JPG";
-import jour4 from "./assets/MM4.JPG";
-import jour5 from "./assets/MM5.JPG";
-import jour6 from "./assets/MM6.JPG";
+// Import static images - replaced with Cloudinary URLs
+const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754298/MM1_jv1dg5.jpg";
+const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754299/MM2_ddkczk.jpg";
+const jour3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754299/MM3_mkjzfd.jpg";
+const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754299/MM4_ror2rf.jpg";
+const jour5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754299/MM5_z6cj7v.jpg";
+const jour6 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754300/MM6_nenx5n.jpg";
 
-// Import Video
-import masseurVideo from "./assets/mv.webm";
+// Import Video - replaced with Cloudinary URL
+const masseurVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/v1759754416/mv_lcwx2e.webm";
 
 const EscaleMen = React.memo(() => {
   const { t } = useTranslation();

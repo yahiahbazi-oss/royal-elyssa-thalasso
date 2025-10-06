@@ -17,7 +17,7 @@
     },
     "navigation": {
       "royalElyssa": {
-        "title": "ROYAL ELYSSA",
+        "title": "THALION",
         "accueil": "HOME",
         "ericZemmour": "ERIC ZEMMOUR",
         "usine": "L'USINE",
@@ -253,7 +253,7 @@
         "extensionsCils": "Eyelash Extensions"
       },
       "pricing": {
-        "notice": "Our brochure lists our prices in Tunisian dinars. For information purposes, we have converted our prices to euros.",
+        "notice": "Prices in euros are given for indicative purposes only",
         "currency": "TND",
         "currencyConverted": "EUR",
         "categories": {
@@ -361,7 +361,7 @@
         "renforcementGelFrench": "Reinforcement (gel french)",
         "renforcementGelCouleur": "Reinforcement (gel color)",
         "shampoingSoinsCoiffageCourt": "Shampoo + Treatment + Styling - Short Hair",
-        "shampoingSoinsCoiffageMiLong": "Shampoo + Treatment + Styling - Medium Hair", 
+        "shampoingSoinsCoiffageMiLong": "Shampoo + Treatment + Styling - Medium Hair",
         "shampoingSoinsCoiffageLong": "Shampoo + Treatment + Styling - Long Hair",
         "racinesMajirelRichessePartir": "Roots - Majirel/Richesse (from)",
         "racinesInoaPartir": "Roots - Inoa (from)",
@@ -392,9 +392,7 @@
       "address": "Royal Elyssa Thalasso & Spa",
       "country": "MONASTIR, TUNISIA"
     },
-    "alerts": {
-      "priceNotice": "Attention: our prices are set in Tunisian Dinars. Their equivalent in Euros may differ due to exchange rate fluctuations."
-    }
+    "alerts": {}
   },
   "usine": {
     "navbar": {

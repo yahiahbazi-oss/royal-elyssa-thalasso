@@ -289,7 +289,8 @@ const Header = () => {
                       to="/"
                       onClick={(e) => {
                         e.preventDefault();
-                        const contactSection = document.getElementById("contact");
+                        const contactSection =
+                          document.getElementById("contact");
                         if (contactSection) {
                           contactSection.scrollIntoView({ behavior: "smooth" });
                         } else {
@@ -747,7 +748,8 @@ const Header = () => {
                       onClick={(e) => {
                         e.preventDefault();
                         setIsMobileMenuOpen(false);
-                        const contactSection = document.getElementById("contact");
+                        const contactSection =
+                          document.getElementById("contact");
                         if (contactSection) {
                           contactSection.scrollIntoView({ behavior: "smooth" });
                         } else {

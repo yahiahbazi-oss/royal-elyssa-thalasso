@@ -215,6 +215,12 @@ const ErichZemmour = () => {
     window.location.href = "http://localhost:5173/";
   };
 
+  const navigateTo = (path) => {
+    // close mobile menu if open
+    setMobileMenuOpen(false);
+    window.location.href = path;
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Navigation */}
@@ -235,70 +241,43 @@ const ErichZemmour = () => {
               className="h-12 w-auto object-contain"
             />
 
-            {/* Language Flags - Centered (Mobile) */}
-            <div className="lg:hidden flex items-center space-x-2">
-              <img
-                src={francFlag}
-                alt="France Flag"
-                className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
-                onClick={() => changeLanguage('fr')}
-                title="Français"
-              />
-              <img
-                src={ukFlag}
-                alt="UK Flag"
-                className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
-                onClick={() => changeLanguage('en')}
-                title="English"
-              />
-              <img
-                src={russiaFlag}
-                alt="Russia Flag"
-                className="h-5 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
-                onClick={() => changeLanguage('ru')}
-                title="Русский"
-              />
-            </div>
+            {/* ...existing code... */}
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center justify-between w-full">
               {/* Empty div for left spacing */}
               <div></div>
               
-              {/* Centered Language Flags */}
-              <div className="flex items-center space-x-2">
-                <img
-                  src={francFlag}
-                  alt="France Flag"
-                  className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
-                  onClick={() => changeLanguage('fr')}
-                  title="Français"
-                />
-                <img
-                  src={ukFlag}
-                  alt="UK Flag"
-                  className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
-                  onClick={() => changeLanguage('en')}
-                  title="English"
-                />
-                <img
-                  src={russiaFlag}
-                  alt="Russia Flag"
-                  className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
-                  onClick={() => changeLanguage('ru')}
-                  title="Русский"
-                />
-              </div>
+              {/* ...existing code... */}
               
               {/* Right side navigation links */}
               <div className="flex items-center space-x-8">
-                <a
-                  href="#"
-                  onClick={handleHomeClick}
-                  className="text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300"
-                >
-                  {t("ericZemmour.navigation.home")}
-                </a>
+                {/* Royal Elyssa dropdown */}
+                <div className="relative group" data-dropdown>
+                  <button
+                    onClick={() => navigateTo("/")}
+                    className={`text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300 px-3 py-3 relative flex items-center gap-2`}
+                  >
+                    <span className="nav-tab-underline relative">{t("header.navigation.thalion.title") || 'Thalion'}</span>
+                    <svg
+                      className={`w-4 h-4 flex-shrink-0`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      style={{ color: "#111" }}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+
+                  <div className="absolute left-0 top-full mt-2 w-56 bg-white rounded-md shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <button onClick={() => navigateTo("/")} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">{t("header.navigation.royalElyssa.accueil") || 'Accueil'}</button>
+                    <button onClick={() => navigateTo("/thalion")} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">{t("header.navigation.thalion.title") || 'Thalion'}</button>
+                    <button onClick={() => navigateTo("/erich-zemmour")} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">{t("header.navigation.royalElyssa.ericZemmour") || 'Eric Zemmour'}</button>
+                    <button onClick={() => navigateTo("/usine")} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">{t("header.navigation.usine.title") || "L'Usine"}</button>
+                    <button onClick={() => navigateTo("/suite")} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">{t("header.navigation.carreVip.title") || 'CARRÉ VIP SPA'}</button>
+                  </div>
+                </div>
                 <a
                   href="#about"
                   className="text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300"
@@ -323,10 +302,29 @@ const ErichZemmour = () => {
                 >
                   {t("ericZemmour.navigation.contact")}
                 </a>
-                <div className="flex items-center space-x-4 pl-4 border-l border-gray-300 text-gray-600">
+                <div className="flex items-center space-x-4 pl-4 border-l border-gray-300">
                   <div className="flex items-center space-x-2">
-                    <Phone className="w-4 h-4" />
-                    <span className="text-sm font-medium">+216 73 520 591</span>
+                    <img
+                      src={francFlag}
+                      alt="France Flag"
+                      className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
+                      onClick={() => changeLanguage('fr')}
+                      title="Français"
+                    />
+                    <img
+                      src={ukFlag}
+                      alt="UK Flag"
+                      className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
+                      onClick={() => changeLanguage('en')}
+                      title="English"
+                    />
+                    <img
+                      src={russiaFlag}
+                      alt="Russia Flag"
+                      className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
+                      onClick={() => changeLanguage('ru')}
+                      title="Русский"
+                    />
                   </div>
                 </div>
               </div>
@@ -374,16 +372,16 @@ const ErichZemmour = () => {
               className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200"
             >
               <div className="px-4 py-2">
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    handleHomeClick();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="block py-3 text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300 border-b border-gray-100"
-                >
-                  {t("ericZemmour.navigation.home")}
-                </a>
+                <div className="py-2 border-b border-gray-100">
+                  <button onClick={() => navigateTo("/")} className="w-full text-left py-3 text-gray-700 font-medium hover:text-gray-900">{t("header.navigation.thalion.title") || 'Thalion'}</button>
+                  <div className="pl-4">
+                    <button onClick={() => navigateTo("/")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.royalElyssa.accueil") || 'Accueil'}</button>
+                    <button onClick={() => navigateTo("/thalion")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.thalion.title") || 'Thalion'}</button>
+                    <button onClick={() => navigateTo("/erich-zemmour")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.royalElyssa.ericZemmour") || 'Eric Zemmour'}</button>
+                    <button onClick={() => navigateTo("/usine")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.usine.title") || "L'Usine"}</button>
+                    <button onClick={() => navigateTo("/suite")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.carreVip.title") || 'CARRÉ VIP SPA'}</button>
+                  </div>
+                </div>
                 <a
                   href="#about"
                   onClick={() => setMobileMenuOpen(false)}
@@ -617,32 +615,7 @@ const ErichZemmour = () => {
             ))}
           </div>
 
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mt-16 text-center"
-          >
-            <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-serif font-semibold text-gray-800 mb-6">
-                {t("ericZemmour.salonInfo.title")}
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-center justify-center space-x-3 text-gray-700">
-                  <Phone className="w-5 h-5 text-gray-600" />
-                  <span className="font-medium text-lg">{t("ericZemmour.salonInfo.phone")}</span>
-                </div>
-                <div className="flex items-center justify-center space-x-3 text-gray-700">
-                  <MapPin className="w-5 h-5 text-gray-600" />
-                  <span className="font-medium">
-                    {t("ericZemmour.salonInfo.location")}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+          {/* Contact Info removed per request */}
         </div>
       </section>
 
@@ -663,8 +636,6 @@ const ErichZemmour = () => {
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 max-w-3xl mx-auto">
               <p className="text-sm text-gray-800 font-medium leading-relaxed">
                 {t("ericZemmour.services.pricing.notice")}
-                <br />
-                <strong>Attention :</strong> {t("ericZemmour.alerts.priceNotice")}
               </p>
             </div>
           </motion.div>
@@ -805,7 +776,7 @@ const ErichZemmour = () => {
               href="tel:+21673520591"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block px-10 py-4 bg-white text-gray-800 font-semibold text-lg tracking-wider rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-xl"
+              className="inline-block px-10 py-4 bg-white text-gray-800 font-semibold text-lg tracking-wider rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-xl lg:hidden"
             >
               {t("ericZemmour.finalContact.callNow")}
             </motion.a>
