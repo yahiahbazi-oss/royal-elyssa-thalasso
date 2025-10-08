@@ -11,9 +11,9 @@ const CoverSection = ({ language = "fr" }) => {
 
   const handleDownload = () => {
     // Create a temporary link element to trigger download
-    const link = document.createElement('a');
-    link.href = '/ Thalion_Royal_Elyssa.pdf';
-    link.download = 'Thalion_Royal_Elyssa.pdf';
+    const link = document.createElement("a");
+    link.href = "/ Thalion_Royal_Elyssa.pdf";
+    link.download = "Thalion_Royal_Elyssa.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -21,9 +21,9 @@ const CoverSection = ({ language = "fr" }) => {
 
   const handleTariffsDownload = () => {
     // Create a temporary link element to trigger tariffs download
-    const link = document.createElement('a');
-    link.href = '/Tarifs_monastir2025-3 volets  print_2.pdf';
-    link.download = 'Tarifs_monastir2025-3_volets_print_2.pdf';
+    const link = document.createElement("a");
+    link.href = "/1.pdf";
+    link.download = "Tarifs_monastir2025-3_volets_print_2.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

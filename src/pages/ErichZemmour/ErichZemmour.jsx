@@ -13,10 +13,14 @@ import { useTranslation } from "react-i18next";
 
 // Import assets
 import logo from "./assets/logo.png";
-const ericImage = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759481608/eric_hoysn6.jpg";
-const sal1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478066/Salon_de_coiffure_Eric_Zemmour_1_hhyomz.jpg";
-const sal2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478065/Salon_de_coiffure_Eric_Zemmour_2_ukur02.jpg";
-const sal3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478065/Salon_de_coiffure_Eric_Zemmour_3_re4ih0.jpg";
+const ericImage =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759481608/eric_hoysn6.jpg";
+const sal1 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478066/Salon_de_coiffure_Eric_Zemmour_1_hhyomz.jpg";
+const sal2 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478065/Salon_de_coiffure_Eric_Zemmour_2_ukur02.jpg";
+const sal3 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478065/Salon_de_coiffure_Eric_Zemmour_3_re4ih0.jpg";
 
 // Import flag images
 import francFlag from "../../assets/france.png";
@@ -107,15 +111,21 @@ const ErichZemmour = () => {
           category: t("ericZemmour.pricingData.forfaitsCoiffage"),
           services: [
             {
-              name: t("ericZemmour.pricingData.services.shampoingSoinsCoiffageCourt"),
+              name: t(
+                "ericZemmour.pricingData.services.shampoingSoinsCoiffageCourt"
+              ),
               tnd: 30,
             },
             {
-              name: t("ericZemmour.pricingData.services.shampoingSoinsCoiffageMiLong"),
+              name: t(
+                "ericZemmour.pricingData.services.shampoingSoinsCoiffageMiLong"
+              ),
               tnd: 35,
             },
             {
-              name: t("ericZemmour.pricingData.services.shampoingSoinsCoiffageLong"),
+              name: t(
+                "ericZemmour.pricingData.services.shampoingSoinsCoiffageLong"
+              ),
               tnd: 40,
             },
           ],
@@ -130,11 +140,30 @@ const ErichZemmour = () => {
           category: t("ericZemmour.pricingData.techniquesCapillaires"),
           note: t("ericZemmour.pricingData.technicalNote"),
           services: [
-            { name: t("ericZemmour.pricingData.services.racinesMajirelRichessePartir"), tnd: 60 },
-            { name: t("ericZemmour.pricingData.services.racinesInoaPartir"), tnd: 80 },
-            { name: t("ericZemmour.pricingData.services.doseSupplementairePartir"), tnd: 20 },
-            { name: t("ericZemmour.pricingData.services.balayagePartir"), tnd: 60 },
-            { name: t("ericZemmour.pricingData.services.mechesPartir"), tnd: 100 },
+            {
+              name: t(
+                "ericZemmour.pricingData.services.racinesMajirelRichessePartir"
+              ),
+              tnd: 60,
+            },
+            {
+              name: t("ericZemmour.pricingData.services.racinesInoaPartir"),
+              tnd: 80,
+            },
+            {
+              name: t(
+                "ericZemmour.pricingData.services.doseSupplementairePartir"
+              ),
+              tnd: 20,
+            },
+            {
+              name: t("ericZemmour.pricingData.services.balayagePartir"),
+              tnd: 60,
+            },
+            {
+              name: t("ericZemmour.pricingData.services.mechesPartir"),
+              tnd: 100,
+            },
             { name: t("ericZemmour.pricingData.services.physioDose"), tnd: 55 },
           ],
         },
@@ -155,9 +184,18 @@ const ErichZemmour = () => {
         {
           category: t("ericZemmour.pricingData.manicure"),
           services: [
-            { name: t("ericZemmour.pricingData.services.manucureClassique"), tnd: 30 },
-            { name: t("ericZemmour.pricingData.services.manucureSpa"), tnd: 45 },
-            { name: t("ericZemmour.pricingData.services.soinsParaffine"), tnd: 40 },
+            {
+              name: t("ericZemmour.pricingData.services.manucureClassique"),
+              tnd: 30,
+            },
+            {
+              name: t("ericZemmour.pricingData.services.manucureSpa"),
+              tnd: 45,
+            },
+            {
+              name: t("ericZemmour.pricingData.services.soinsParaffine"),
+              tnd: 40,
+            },
           ],
         },
       ],
@@ -169,9 +207,18 @@ const ErichZemmour = () => {
         {
           category: t("ericZemmour.pricingData.pedicure"),
           services: [
-            { name: t("ericZemmour.pricingData.services.pedicureClassique"), tnd: 35 },
-            { name: t("ericZemmour.pricingData.services.pedicureSpa"), tnd: 50 },
-            { name: t("ericZemmour.pricingData.services.soinsParaffine"), tnd: 40 },
+            {
+              name: t("ericZemmour.pricingData.services.pedicureClassique"),
+              tnd: 15,
+            },
+            {
+              name: t("ericZemmour.pricingData.services.pedicureSpa"),
+              tnd: 10,
+            },
+            {
+              name: t("ericZemmour.pricingData.services.soinsParaffine"),
+              tnd: 10,
+            },
           ],
         },
       ],
@@ -183,13 +230,44 @@ const ErichZemmour = () => {
         {
           category: t("ericZemmour.pricingData.vernisExtensions"),
           services: [
-            { name: t("ericZemmour.pricingData.services.vernisPermament"), tnd: 25 },
-            { name: t("ericZemmour.pricingData.services.vernisPermamentGel"), tnd: 40 },
-            { name: t("ericZemmour.pricingData.services.capsuleGelVernisPermament"), tnd: 80 },
-            { name: t("ericZemmour.pricingData.services.extensionGelVernisPermament"), tnd: 50 },
-            { name: t("ericZemmour.pricingData.services.gelPoudreCapsuleVernisPermament"), tnd: 90 },
-            { name: t("ericZemmour.pricingData.services.gelPoudreVernisPermament"), tnd: 50 },
-            { name: t("ericZemmour.pricingData.services.extensionGelPoudreVernisPermament"), tnd: 60 },
+            {
+              name: t("ericZemmour.pricingData.services.vernisPermament"),
+              tnd: 25,
+            },
+            {
+              name: t("ericZemmour.pricingData.services.vernisPermamentGel"),
+              tnd: 40,
+            },
+            {
+              name: t(
+                "ericZemmour.pricingData.services.capsuleGelVernisPermament"
+              ),
+              tnd: 80,
+            },
+            {
+              name: t(
+                "ericZemmour.pricingData.services.extensionGelVernisPermament"
+              ),
+              tnd: 50,
+            },
+            {
+              name: t(
+                "ericZemmour.pricingData.services.gelPoudreCapsuleVernisPermament"
+              ),
+              tnd: 90,
+            },
+            {
+              name: t(
+                "ericZemmour.pricingData.services.gelPoudreVernisPermament"
+              ),
+              tnd: 50,
+            },
+            {
+              name: t(
+                "ericZemmour.pricingData.services.extensionGelPoudreVernisPermament"
+              ),
+              tnd: 60,
+            },
           ],
         },
       ],
@@ -201,7 +279,10 @@ const ErichZemmour = () => {
         {
           category: t("ericZemmour.pricingData.cils"),
           services: [
-            { name: t("ericZemmour.pricingData.services.cilACilPermament"), tnd: 120 },
+            {
+              name: t("ericZemmour.pricingData.services.cilACilPermament"),
+              tnd: 120,
+            },
             { name: t("ericZemmour.pricingData.services.cilACil"), tnd: 40 },
           ],
         },
@@ -247,21 +328,30 @@ const ErichZemmour = () => {
                 src={francFlag}
                 alt="France Flag"
                 className="h-5 w-6 object-cover rounded cursor-pointer border border-gray-200 shadow-sm"
-                onClick={() => { changeLanguage('fr'); setMobileMenuOpen(false); }}
+                onClick={() => {
+                  changeLanguage("fr");
+                  setMobileMenuOpen(false);
+                }}
                 title="Français"
               />
               <img
                 src={ukFlag}
                 alt="UK Flag"
                 className="h-5 w-6 object-cover rounded cursor-pointer border border-gray-200 shadow-sm"
-                onClick={() => { changeLanguage('en'); setMobileMenuOpen(false); }}
+                onClick={() => {
+                  changeLanguage("en");
+                  setMobileMenuOpen(false);
+                }}
                 title="English"
               />
               <img
                 src={russiaFlag}
                 alt="Russia Flag"
                 className="h-5 w-6 object-cover rounded cursor-pointer border border-gray-200 shadow-sm"
-                onClick={() => { changeLanguage('ru'); setMobileMenuOpen(false); }}
+                onClick={() => {
+                  changeLanguage("ru");
+                  setMobileMenuOpen(false);
+                }}
                 title="Русский"
               />
             </div>
@@ -272,45 +362,47 @@ const ErichZemmour = () => {
             <div className="hidden lg:flex items-center justify-between w-full">
               {/* Empty div for left spacing */}
               <div></div>
-              
+
               {/* ...existing code... */}
-              
+
               {/* Right side navigation links */}
               <div className="flex items-center space-x-8">
                 {/* Royal Elyssa hover dropdown */}
                 <div className="relative group">
                   <button
-                    onClick={() => navigateTo('/')}
+                    onClick={() => navigateTo("/")}
                     className="text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300 px-3 py-3"
-                    aria-label={t("header.navigation.royalElyssa.title") || 'Royal Elyssa'}
+                    aria-label={
+                      t("header.navigation.royalElyssa.title") || "Royal Elyssa"
+                    }
                   >
-                    {t("header.navigation.royalElyssa.title") || 'Royal Elyssa'}
+                    {t("header.navigation.royalElyssa.title") || "Royal Elyssa"}
                   </button>
 
                   <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <button
-                      onClick={() => navigateTo('/')}
+                      onClick={() => navigateTo("/")}
                       className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 border-b border-gray-100"
                     >
-                      {t("header.navigation.royalElyssa.accueil") || 'Accueil'}
+                      {t("header.navigation.royalElyssa.accueil") || "Accueil"}
                     </button>
                     <button
-                      onClick={() => navigateTo('/thalion')}
+                      onClick={() => navigateTo("/thalion")}
                       className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 border-b border-gray-100"
                     >
-                      {t("header.navigation.thalion.title") || 'Thalion'}
+                      {t("header.navigation.thalion.title") || "Thalion"}
                     </button>
                     <button
-                      onClick={() => navigateTo('/usine')}
+                      onClick={() => navigateTo("/usine")}
                       className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 border-b border-gray-100"
                     >
                       {t("header.navigation.usine.title") || "L'Usine"}
                     </button>
                     <button
-                      onClick={() => navigateTo('/suite')}
+                      onClick={() => navigateTo("/suite")}
                       className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50"
                     >
-                      {t("header.navigation.carreVip.title") || 'Carré Vip Spa'}
+                      {t("header.navigation.carreVip.title") || "Carré Vip Spa"}
                     </button>
                   </div>
                 </div>
@@ -344,21 +436,21 @@ const ErichZemmour = () => {
                       src={francFlag}
                       alt="France Flag"
                       className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
-                      onClick={() => changeLanguage('fr')}
+                      onClick={() => changeLanguage("fr")}
                       title="Français"
                     />
                     <img
                       src={ukFlag}
                       alt="UK Flag"
                       className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
-                      onClick={() => changeLanguage('en')}
+                      onClick={() => changeLanguage("en")}
                       title="English"
                     />
                     <img
                       src={russiaFlag}
                       alt="Russia Flag"
                       className="h-6 w-8 object-cover rounded shadow-md hover:scale-110 transition-all duration-300 cursor-pointer border border-gray-200"
-                      onClick={() => changeLanguage('ru')}
+                      onClick={() => changeLanguage("ru")}
                       title="Русский"
                     />
                   </div>
@@ -368,7 +460,7 @@ const ErichZemmour = () => {
 
             {/* Mobile Menu Button */}
             <div className="lg:hidden">
-              <button 
+              <button
                 className="p-2 text-gray-700 hover:text-gray-900 transition-colors duration-200"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
@@ -397,7 +489,7 @@ const ErichZemmour = () => {
               </button>
             </div>
           </div>
-          
+
           {/* Mobile Menu Dropdown */}
           {mobileMenuOpen && (
             <motion.div
@@ -408,16 +500,36 @@ const ErichZemmour = () => {
               className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200"
             >
               <div className="px-4 py-2">
-                  <div className="py-2 border-b border-gray-100">
-                    <div className="pl-4">
-                      <button onClick={() => navigateTo("/")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.royalElyssa.title") || 'Royal Elyssa'}</button>
-                      <button onClick={() => navigateTo("/erich-zemmour")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.royalElyssa.ericZemmour") || 'Eric Zemmour'}</button>
-                      <button onClick={() => navigateTo("/usine")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.usine.title") || "L'Usine"}</button>
-                      <button onClick={() => navigateTo("/suite")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.carreVip.title") || 'CARRÉ VIP SPA'}</button>
-                    </div>
+                <div className="py-2 border-b border-gray-100">
+                  <div className="pl-4">
+                    <button
+                      onClick={() => navigateTo("/")}
+                      className="block w-full py-3 text-gray-700 hover:text-gray-900"
+                    >
+                      {t("header.navigation.royalElyssa.title") ||
+                        "Royal Elyssa"}
+                    </button>
+                    <button
+                      onClick={() => navigateTo("/erich-zemmour")}
+                      className="block w-full py-3 text-gray-700 hover:text-gray-900"
+                    >
+                      {t("header.navigation.royalElyssa.ericZemmour") ||
+                        "Eric Zemmour"}
+                    </button>
+                    <button
+                      onClick={() => navigateTo("/usine")}
+                      className="block w-full py-3 text-gray-700 hover:text-gray-900"
+                    >
+                      {t("header.navigation.usine.title") || "L'Usine"}
+                    </button>
+                    <button
+                      onClick={() => navigateTo("/suite")}
+                      className="block w-full py-3 text-gray-700 hover:text-gray-900"
+                    >
+                      {t("header.navigation.carreVip.title") || "CARRÉ VIP SPA"}
+                    </button>
                   </div>
-
-                  
+                </div>
 
                 <a
                   href="#about"
@@ -458,11 +570,13 @@ const ErichZemmour = () => {
       </nav>
 
       {/* Hero Section */}
-  <section className="relative h-[70vh] md:h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-[70vh] md:h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-black/40" />
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(https://res.cloudinary.com/dxoje33mm/image/upload/v1759477822/thalion-royalelyssa.jpg__3876x1912_q85_crop_subsampling-2_upscale_qxd1c0.jpg)` }}
+          style={{
+            backgroundImage: `url(https://res.cloudinary.com/dxoje33mm/image/upload/v1759477822/thalion-royalelyssa.jpg__3876x1912_q85_crop_subsampling-2_upscale_qxd1c0.jpg)`,
+          }}
         />
 
         <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
@@ -527,11 +641,11 @@ const ErichZemmour = () => {
               viewport={{ once: true }}
             >
               <div className="relative">
-                    <img
-                      src={ericImage}
-                      alt="Eric Zemmour"
-                      className="w-full h-48 sm:h-64 md:h-[700px] lg:h-[800px] object-cover rounded-lg shadow-2xl"
-                    />
+                <img
+                  src={ericImage}
+                  alt="Eric Zemmour"
+                  className="w-full h-48 sm:h-64 md:h-[700px] lg:h-[800px] object-cover rounded-lg shadow-2xl"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg" />
               </div>
             </motion.div>
@@ -598,15 +712,19 @@ const ErichZemmour = () => {
           >
             <h2 className="text-4xl md:text-5xl font-serif font-light text-gray-800 mb-4">
               {t("ericZemmour.salon.title")}{" "}
-              <span className="text-gray-900 font-medium">{t("ericZemmour.hero.location")}</span>
+              <span className="text-gray-900 font-medium">
+                {t("ericZemmour.hero.location")}
+              </span>
             </h2>
             <div className="w-20 h-1 bg-gray-400 mx-auto mb-6" />
             <div className="max-w-4xl mx-auto space-y-4 text-gray-700">
               <p className="text-lg leading-relaxed">
                 {t("ericZemmour.salon.description")}{" "}
-                <strong className="text-gray-900">{t("ericZemmour.hero.location")}</strong>, situé dans
-                l'enceinte du Royal Elyssa Thalasso & Spa. Il vous offre tout un{" "}
-                {t("ericZemmour.salon.servicesDescription")}{" "}
+                <strong className="text-gray-900">
+                  {t("ericZemmour.hero.location")}
+                </strong>
+                , situé dans l'enceinte du Royal Elyssa Thalasso & Spa. Il vous
+                offre tout un {t("ericZemmour.salon.servicesDescription")}{" "}
                 brochure.
               </p>
               <p className="text-lg leading-relaxed">
@@ -615,7 +733,9 @@ const ErichZemmour = () => {
               <div className="bg-gray-100 border border-gray-300 rounded-lg p-6 mt-6">
                 <p className="text-gray-800 font-semibold text-lg">
                   {t("ericZemmour.salon.uniqueness")}{" "}
-                  <span className="text-gray-900 font-bold">{t("ericZemmour.hero.location")}</span>{" "}
+                  <span className="text-gray-900 font-bold">
+                    {t("ericZemmour.hero.location")}
+                  </span>{" "}
                   {t("ericZemmour.salon.kerastase")}
                 </p>
               </div>
@@ -795,7 +915,9 @@ const ErichZemmour = () => {
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
                 <div className="flex items-center justify-center space-x-3 mb-2">
                   <Phone className="w-6 h-6 text-gray-300" />
-                  <span className="text-xl font-medium">{t("ericZemmour.salonInfo.phone")}</span>
+                  <span className="text-xl font-medium">
+                    {t("ericZemmour.salonInfo.phone")}
+                  </span>
                 </div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
@@ -805,7 +927,9 @@ const ErichZemmour = () => {
                     {t("ericZemmour.finalContact.address")}
                   </span>
                 </div>
-                <p className="text-gray-300 font-medium">{t("ericZemmour.finalContact.country")}</p>
+                <p className="text-gray-300 font-medium">
+                  {t("ericZemmour.finalContact.country")}
+                </p>
               </div>
             </div>
 

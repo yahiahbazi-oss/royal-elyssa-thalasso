@@ -555,7 +555,7 @@ const Thalion = () => {
         <img
           src={francFlag}
           alt="France Flag"
-          className="h-4 w-6 md:h-6 md:w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gold-200/30"
+          className="h-3 w-5 md:h-6 md:w-8 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer hover:shadow-lg border border-gold-200/30"
           onClick={() => changeLanguage("fr")}
           title="Français - Changer en français"
           style={{
@@ -565,7 +565,7 @@ const Thalion = () => {
         <img
           src={ukFlag}
           alt="UK Flag"
-          className="h-4 w-6 md:h-6 md:w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gold-200/30"
+          className="h-3 w-5 md:h-6 md:w-8 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer hover:shadow-lg border border-gold-200/30"
           onClick={() => changeLanguage("en")}
           title="English - Switch to English"
           style={{
@@ -575,7 +575,7 @@ const Thalion = () => {
         <img
           src={russiaFlag}
           alt="Russia Flag"
-          className="h-4 w-6 md:h-6 md:w-8 object-cover rounded shadow-md hover:scale-125 transition-all duration-300 cursor-pointer hover:shadow-xl border border-gold-200/30"
+          className="h-3 w-5 md:h-6 md:w-8 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer hover:shadow-lg border border-gold-200/30"
           onClick={() => changeLanguage("ru")}
           title="Русский - Переключить на русский"
           style={{
