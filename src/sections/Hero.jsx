@@ -4,11 +4,15 @@ import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 // Import your images
-const Thalasso_Thalion_3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477821/Thalasso_Thal_ion_3_nfaihh.jpg";
+const Thalasso_Thalion_3 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477821/Thalasso_Thal_ion_3_nfaihh.jpg";
 const Espace_THEMAE_9 = "../assets/Espace_THEMAE_9.jpg";
-const Thalion_RoyalElyssa = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477822/thalion-royalelyssa.jpg__3876x1912_q85_crop_subsampling-2_upscale_qxd1c0.jpg";
-const Photo_14_sur_56 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477822/Photo___14_sur_56_dvdjlu.jpg";
-const Suites_SPA_11 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477815/Suites_SPA_11_wkegfc.jpg";
+const Thalion_RoyalElyssa =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477822/thalion-royalelyssa.jpg__3876x1912_q85_crop_subsampling-2_upscale_qxd1c0.jpg";
+const Photo_14_sur_56 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477822/Photo___14_sur_56_dvdjlu.jpg";
+const Suites_SPA_11 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477815/Suites_SPA_11_wkegfc.jpg";
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -17,11 +21,11 @@ const Hero = () => {
   // Welcome overlay state
   const [showWelcome, setShowWelcome] = useState(true);
 
-  // Auto-hide welcome text after 3 seconds
+  // Auto-hide welcome text after 1 second
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowWelcome(false);
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -219,15 +223,19 @@ const Hero = () => {
             {/* Location - MONASTIR */}
             <div className="relative z-10">
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-amber-100 tracking-wide">
-                <span className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 drop-shadow-2xl"
-                      style={{
-                        background: 'linear-gradient(135deg, #FFD700 0%, #FFF700 25%, #FFED4E 50%, #FFF700 75%, #FFD700 100%)',
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        textShadow: '0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.4)',
-                        filter: 'drop-shadow(0 3px 6px rgba(255, 215, 0, 0.5))'
-                      }}>
+                <span
+                  className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 drop-shadow-2xl"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #FFD700 0%, #FFF700 25%, #FFED4E 50%, #FFF700 75%, #FFD700 100%)",
+                    backgroundClip: "text",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    textShadow:
+                      "0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.4)",
+                    filter: "drop-shadow(0 3px 6px rgba(255, 215, 0, 0.5))",
+                  }}
+                >
                   MONASTIR
                 </span>
               </h2>
@@ -237,7 +245,7 @@ const Hero = () => {
       )}
 
       {/* Premium luxury fonts and styles */}
-      <style jsx global>{`
+      <style>{`
         @import url("https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@500;600;700&family=Marcellus+SC&display=swap");
 
         .luxury-title {
@@ -316,25 +324,37 @@ const Hero = () => {
 
         /* Welcome Overlay Styles */
         .welcome-overlay {
-          background: radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%);
+          background: radial-gradient(
+            circle at center,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(0, 0, 0, 0.7) 100%
+          );
           backdrop-filter: blur(8px);
           animation: welcomeFadeIn 0.8s ease-out;
         }
 
         .welcome-text {
-          font-family: 'Marcellus SC', serif;
-          background: linear-gradient(45deg, #FFD700, #FFF700, #FFED4E, #FFD700);
+          font-family: "Marcellus SC", serif;
+          background: linear-gradient(
+            45deg,
+            #ffd700,
+            #fff700,
+            #ffed4e,
+            #ffd700
+          );
           background-size: 300% 100%;
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          animation: welcomeGoldShimmer 3s ease-in-out infinite, welcomeFloat 2s ease-in-out infinite alternate;
-          text-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.3);
+          animation: welcomeGoldShimmer 3s ease-in-out infinite,
+            welcomeFloat 2s ease-in-out infinite alternate;
+          text-shadow: 0 0 30px rgba(255, 215, 0, 0.5),
+            0 0 60px rgba(255, 215, 0, 0.3);
         }
 
         .welcome-subtitle {
-          font-family: 'Cormorant Upright', serif;
-          color: #F5F5DC;
+          font-family: "Cormorant Upright", serif;
+          color: #f5f5dc;
           text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
           animation: welcomeSubtitleFade 1s ease-out 0.5s both;
         }
@@ -351,14 +371,24 @@ const Hero = () => {
         }
 
         @keyframes welcomeGoldShimmer {
-          0% { background-position: -300% 0; }
-          50% { background-position: 0% 0; }
-          100% { background-position: 300% 0; }
+          0% {
+            background-position: -300% 0;
+          }
+          50% {
+            background-position: 0% 0;
+          }
+          100% {
+            background-position: 300% 0;
+          }
         }
 
         @keyframes welcomeFloat {
-          from { transform: translateY(0px); }
-          to { transform: translateY(-10px); }
+          from {
+            transform: translateY(0px);
+          }
+          to {
+            transform: translateY(-10px);
+          }
         }
 
         @keyframes welcomeSubtitleFade {
@@ -388,7 +418,7 @@ const Hero = () => {
         {images.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+            className={`absolute inset-0 transition-all duration-1500 ease-in-out ${
               index === currentIndex
                 ? "opacity-100 translate-x-0"
                 : index < currentIndex
@@ -438,7 +468,7 @@ const Hero = () => {
               >
                 {t("hero.cta")}
               </button>
-              
+
               {/* Mobile Navigation Buttons - Only show on mobile */}
               <div className="flex md:hidden justify-center gap-4 mt-4">
                 <button

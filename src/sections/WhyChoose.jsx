@@ -114,7 +114,7 @@ const WhyChoose = () => {
       </div>
 
       {/* Subtle floating animation for the entire section */}
-      <style jsx>{`
+  <style>{`
         @keyframes float {
           0%,
           100% {

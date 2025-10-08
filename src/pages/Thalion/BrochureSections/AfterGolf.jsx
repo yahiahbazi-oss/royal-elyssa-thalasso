@@ -181,7 +181,7 @@ const AfterGolf = () => {
         />
       </div>
 
-      <style jsx>{`
+  <style>{`
         @keyframes float {
           0%,
           100% {

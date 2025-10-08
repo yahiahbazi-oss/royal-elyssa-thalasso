@@ -174,47 +174,63 @@ const Usine = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6">
-              {/* Royal Elyssa dropdown */}
-              <div className="relative group">
-                <button
-                  onClick={() => navigateTo("/")}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 text-amber-100 hover:bg-amber-400/20 hover:text-amber-400`}
-                >
-                  <span className="font-medium">
-                    {t("header.navigation.royalElyssa.title") || "Royal Elyssa"}
-                  </span>
-                </button>
-
-                {/* Dropdown: use top-full so there's no gap when moving cursor from button to menu */}
-                <div className="absolute left-0 top-full w-48 bg-black/95 border border-amber-400/20 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              {/* Royal Elyssa with hover dropdown (desktop) - hidden in English */}
+              {i18n.language !== "en" ? (
+                <div className="relative group">
                   <button
                     onClick={() => navigateTo("/")}
-                    className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
+                    className="px-3 py-2 rounded-lg transition-all duration-200 text-amber-100 hover:bg-amber-400/10 hover:text-amber-400"
+                    aria-label={t("header.navigation.royalElyssa.title") || "Royal Elyssa"}
                   >
-                    {t("header.navigation.royalElyssa.accueil") || "Accueil"}
+                    {t("header.navigation.royalElyssa.title") || "Royal Elyssa"}
                   </button>
-                  <button
-                    onClick={() => navigateTo("/thalion")}
-                    className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
-                  >
-                    {t("header.navigation.royalElyssa.title") || "Thalion"}
-                  </button>
-                  <button
-                    onClick={() => navigateTo("/erich-zemmour")}
-                    className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
-                  >
-                    {t("header.navigation.royalElyssa.ericZemmour") ||
-                      "Erich Zemmour"}
-                  </button>
-                  <button
-                    onClick={() => navigateTo("/suite")}
-                    className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
-                  >
-                    {t("header.navigation.royalElyssa.carreVip") ||
-                      "CARRÉ VIP SPA"}
-                  </button>
+
+                  <div className="absolute left-0 mt-2 w-48 bg-black/95 border border-amber-400/20 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <button
+                      onClick={() => navigateTo("/")}
+                      className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 border-b border-amber-500/10"
+                    >
+                      {t("header.navigation.royalElyssa.accueil") || "Accueil"}
+                    </button>
+                    <button
+                      onClick={() => navigateTo("/thalion")}
+                      className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 border-b border-amber-500/10"
+                    >
+                      {t("header.navigation.thalion.title") || "Thalion"}
+                    </button>
+                    <button
+                      onClick={() => navigateTo("/erich-zemmour")}
+                      className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 border-b border-amber-500/10"
+                    >
+                      {t("header.navigation.royalElyssa.ericZemmour") || "Eric Zemmour"}
+                    </button>
+                    <button
+                      onClick={() => navigateTo("/suite")}
+                      className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
+                    >
+                      {t("header.navigation.royalElyssa.carreVip") || "Carré Vip Spa"}
+                    </button>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="relative group">
+                  <button
+                    onClick={() => navigateTo("/")}
+                    className="px-3 py-2 rounded-lg transition-all duration-200 text-amber-100 hover:bg-amber-400/10 hover:text-amber-400"
+                  >
+                    {t("header.navigation.royalElyssa.title") || "Royal Elyssa"}
+                  </button>
+
+                  <div className="absolute left-0 mt-2 w-40 bg-black/95 border border-amber-400/20 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <button
+                      onClick={() => navigateTo("/thalion")}
+                      className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
+                    >
+                      {t("header.navigation.thalion.title") || "Thalion"}
+                    </button>
+                  </div>
+                </div>
+              )}
 
               {tabs.map((tab) => (
                 <motion.button
@@ -287,60 +303,52 @@ const Usine = () => {
                 className="md:hidden mt-4 bg-black/90 backdrop-blur-md rounded-lg overflow-hidden border border-amber-400/20"
               >
                 <div className="py-2">
-                  {/* Royal Elyssa with sub-links for mobile */}
-                  <div className="px-4 py-2 border-b border-amber-400/10">
-                    <button
-                      onClick={() => navigateTo("/")}
-                      className="w-full text-left flex items-center justify-between text-amber-100 py-2"
-                    >
-                      {t("header.navigation.royalElyssa.title") ||
-                        "Royal Elyssa"}
-                    </button>
-                    <div className="mt-2 pl-4">
-                      <button
-                        onClick={() => navigateTo("/")}
-                        className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
-                      >
-                        Accueil
-                      </button>
-                      <button
-                        onClick={() => navigateTo("/thalion")}
-                        className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
-                      >
-                        Thalion
-                      </button>
-                      <button
-                        onClick={() => navigateTo("/erich-zemmour")}
-                        className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
-                      >
-                        Erich Zemmour
-                      </button>
-                      <button
-                        onClick={() => navigateTo("/suite")}
-                        className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10"
-                      >
-                        CARRÉ VIP SPA
-                      </button>
+                  {/* Compact Royal Elyssa link (mobile) - only show for French */}
+                  {i18n.language === "fr" && (
+                    <div className="px-4 py-2 border-b border-amber-400/10">
+                      <div className="space-y-1">
+                        <button
+                          onClick={() => navigateTo("/")}
+                          className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                        >
+                          {t("header.navigation.royalElyssa.accueil") || "Accueil"}
+                        </button>
+                        <button
+                          onClick={() => navigateTo("/thalion")}
+                          className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                        >
+                          {t("header.navigation.thalion.title") || "Thalion"}
+                        </button>
+                        <button
+                          onClick={() => navigateTo("/erich-zemmour")}
+                          className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                        >
+                          {t("header.navigation.royalElyssa.ericZemmour") || "Eric Zemmour"}
+                        </button>
+                        <button
+                          onClick={() => navigateTo("/suite")}
+                          className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                        >
+                          {t("header.navigation.royalElyssa.carreVip") || "Carré Vip Spa"}
+                        </button>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
-                  {tabs.map((tab, index) => (
-                    <motion.button
-                      key={tab.id}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      onClick={() => handleTabClick(tab.id, tab.ref)}
-                      className={`w-full flex items-center space-x-3 px-4 py-4 transition-all duration-200 border-b border-amber-400/10 last:border-b-0 ${
-                        activeTab === tab.id
-                          ? "bg-amber-400 text-black"
-                          : "text-amber-100 hover:bg-amber-400/20 hover:text-amber-400"
-                      }`}
-                    >
-                      <tab.icon className="w-5 h-5" />
-                      <span className="font-medium text-left">{tab.label}</span>
-                    </motion.button>
-                  ))}
+                  {/* Mobile tab list - hidden for mobile per request (kept in code) */}
+                  <div className="px-2 py-2 hidden">
+                    {tabs.map((tab) => (
+                      <button
+                        key={tab.id}
+                        type="button"
+                        onClick={() => handleTabClick(tab.id, tab.ref)}
+                        className={`w-full text-left flex items-center space-x-3 px-4 py-3 rounded-md transition-colors duration-200`}
+                      >
+                        <tab.icon className="w-4 h-4 text-amber-100" />
+                        <span className="text-amber-100">{tab.label}</span>
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             )}

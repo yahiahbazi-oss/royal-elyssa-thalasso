@@ -1,50 +1,51 @@
 import { Clock } from "lucide-react";
 import { useMemo, memo } from "react";
 
-const BoxDesign = memo(({
-  title,
-  description,
-  image,
-  options = [],
-  className = "",
-  index = 0,
-  onClickDetails,
-  maxOptions = 4,
-  isActive = false,
-  // Translation props
-  detailsAvailableText = "Détails disponibles sur demande",
-  moreOptionsText = "autres soins disponibles",
-  bookText = "RÉSERVER",
-  detailsText = "DÉTAILS",
-}) => {
-  // Memoize displayed options to prevent unnecessary re-renders
-  const displayOptions = useMemo(() => {
-    if (!Array.isArray(options)) return [];
-    return options.slice(0, maxOptions);
-  }, [options, maxOptions]);
+const BoxDesign = memo(
+  ({
+    title,
+    description,
+    image,
+    options = [],
+    className = "",
+    index = 0,
+    onClickDetails,
+    maxOptions = 4,
+    isActive = false,
+    // Translation props
+    detailsAvailableText = "Détails disponibles sur demande",
+    moreOptionsText = "autres soins disponibles",
+    bookText = "RÉSERVER",
+    detailsText = "DÉTAILS",
+  }) => {
+    // Memoize displayed options to prevent unnecessary re-renders
+    const displayOptions = useMemo(() => {
+      if (!Array.isArray(options)) return [];
+      return options.slice(0, maxOptions);
+    }, [options, maxOptions]);
 
-  const handleDetailsClick = (e) => {
-    e?.stopPropagation();
-    if (onClickDetails) {
-      onClickDetails();
-    }
-  };
+    const handleDetailsClick = (e) => {
+      e?.stopPropagation();
+      if (onClickDetails) {
+        onClickDetails();
+      }
+    };
 
-  const handleCardClick = () => {
-    if (onClickDetails) {
-      onClickDetails();
-    }
-  };
+    const handleCardClick = () => {
+      if (onClickDetails) {
+        onClickDetails();
+      }
+    };
 
-  return (
-    <div
-      onClick={handleCardClick}
-      className={`group bg-white shadow-[0_4px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] transition-all duration-300 overflow-hidden h-full min-h-[420px] sm:min-h-[480px] max-h-[520px] sm:max-h-[580px] flex flex-col font-sans cursor-pointer rounded-lg ${
-        isActive 
-          ? 'border-2 border-amber-300 shadow-amber-200/60 bg-gradient-to-b from-white to-amber-50/30' 
-          : 'border border-gray-100'
-      } ${className}`}
-    >
+    return (
+      <div
+        onClick={handleCardClick}
+        className={`group bg-white shadow-[0_4px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] transition-all duration-300 overflow-hidden h-full min-h-[420px] sm:min-h-[480px] max-h-[520px] sm:max-h-[580px] flex flex-col font-sans cursor-pointer rounded-lg ${
+          isActive
+            ? "border-2 border-amber-300 shadow-amber-200/60 bg-gradient-to-b from-white to-amber-50/30"
+            : "border border-gray-100"
+        } ${className}`}
+      >
         {/* Image */}
         <div className="relative h-40 sm:h-44 md:h-48 overflow-hidden flex-shrink-0">
           <img
@@ -122,12 +123,13 @@ const BoxDesign = memo(({
                 </button>
               </div>
             </div>
+          </div>
         </div>
       </div>
-    </div>
-  );
-});
+    );
+  }
+);
 
-BoxDesign.displayName = 'BoxDesign';
+BoxDesign.displayName = "BoxDesign";
 
 export default BoxDesign;

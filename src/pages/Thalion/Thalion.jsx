@@ -31,11 +31,11 @@ const Thalion = () => {
   const [royalElyssaDropdown, setRoyalElyssaDropdown] = useState(false); // Royal Elyssa dropdown state
   const navigate = useNavigate();
 
-  // Auto-hide welcome text after 3 seconds
+  // Auto-hide welcome text after 1.5 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowWelcome(false);
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -584,7 +584,7 @@ const Thalion = () => {
         />
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes goldShimmer {
           0% {
             background-position: -300% 0;
@@ -1166,7 +1166,7 @@ const Thalion = () => {
                         <button
                           key={language.code}
                           onClick={() => handleLanguageSelect(language.code)}
-                          className={`block w-full text-left px-4 py-3 text-sm font-serif transition-all duration-200 hover-glow flex items-center gap-3 ${
+                          className={`w-full text-left px-4 py-3 text-sm font-serif transition-all duration-200 hover-glow flex items-center gap-3 ${
                             selectedLanguage === language.code
                               ? "bg-amber-500/20 gold-text-active"
                               : "gold-text hover:bg-amber-500/10"
@@ -1311,7 +1311,7 @@ const Thalion = () => {
                         handleLanguageSelect(language.code);
                         setMobileMenuOpen(false);
                       }}
-                      className={`block w-full text-left py-3 px-4 text-sm font-serif transition-all duration-200 hover-glow rounded-lg flex items-center gap-3 ${
+                      className={`w-full text-left py-3 px-4 text-sm font-serif transition-all duration-200 hover-glow rounded-lg flex items-center gap-3 ${
                         selectedLanguage === language.code
                           ? "bg-amber-500/20 gold-text-active"
                           : "gold-text hover:gold-text-active"

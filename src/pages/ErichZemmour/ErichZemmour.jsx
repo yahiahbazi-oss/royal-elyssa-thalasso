@@ -241,6 +241,31 @@ const ErichZemmour = () => {
               className="h-12 w-auto object-contain"
             />
 
+            {/* Mobile-only small language flags placed to the right of the logo */}
+            <div className="lg:hidden flex items-center ml-3 space-x-2">
+              <img
+                src={francFlag}
+                alt="France Flag"
+                className="h-5 w-6 object-cover rounded cursor-pointer border border-gray-200 shadow-sm"
+                onClick={() => { changeLanguage('fr'); setMobileMenuOpen(false); }}
+                title="Français"
+              />
+              <img
+                src={ukFlag}
+                alt="UK Flag"
+                className="h-5 w-6 object-cover rounded cursor-pointer border border-gray-200 shadow-sm"
+                onClick={() => { changeLanguage('en'); setMobileMenuOpen(false); }}
+                title="English"
+              />
+              <img
+                src={russiaFlag}
+                alt="Russia Flag"
+                className="h-5 w-6 object-cover rounded cursor-pointer border border-gray-200 shadow-sm"
+                onClick={() => { changeLanguage('ru'); setMobileMenuOpen(false); }}
+                title="Русский"
+              />
+            </div>
+
             {/* ...existing code... */}
 
             {/* Desktop Navigation */}
@@ -252,30 +277,41 @@ const ErichZemmour = () => {
               
               {/* Right side navigation links */}
               <div className="flex items-center space-x-8">
-                {/* Royal Elyssa dropdown */}
-                <div className="relative group" data-dropdown>
+                {/* Royal Elyssa hover dropdown */}
+                <div className="relative group">
                   <button
-                    onClick={() => navigateTo("/")}
-                    className={`text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300 px-3 py-3 relative flex items-center gap-2`}
+                    onClick={() => navigateTo('/')}
+                    className="text-gray-700 font-medium hover:text-gray-900 transition-colors duration-300 px-3 py-3"
+                    aria-label={t("header.navigation.royalElyssa.title") || 'Royal Elyssa'}
                   >
-                    <span className="nav-tab-underline relative">{t("header.navigation.thalion.title") || 'Thalion'}</span>
-                    <svg
-                      className={`w-4 h-4 flex-shrink-0`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      style={{ color: "#111" }}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                    </svg>
+                    {t("header.navigation.royalElyssa.title") || 'Royal Elyssa'}
                   </button>
 
-                  <div className="absolute left-0 top-full mt-2 w-56 bg-white rounded-md shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                    <button onClick={() => navigateTo("/")} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">{t("header.navigation.royalElyssa.accueil") || 'Accueil'}</button>
-                    <button onClick={() => navigateTo("/thalion")} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">{t("header.navigation.thalion.title") || 'Thalion'}</button>
-                    <button onClick={() => navigateTo("/erich-zemmour")} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">{t("header.navigation.royalElyssa.ericZemmour") || 'Eric Zemmour'}</button>
-                    <button onClick={() => navigateTo("/usine")} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">{t("header.navigation.usine.title") || "L'Usine"}</button>
-                    <button onClick={() => navigateTo("/suite")} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">{t("header.navigation.carreVip.title") || 'CARRÉ VIP SPA'}</button>
+                  <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <button
+                      onClick={() => navigateTo('/')}
+                      className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 border-b border-gray-100"
+                    >
+                      {t("header.navigation.royalElyssa.accueil") || 'Accueil'}
+                    </button>
+                    <button
+                      onClick={() => navigateTo('/thalion')}
+                      className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 border-b border-gray-100"
+                    >
+                      {t("header.navigation.thalion.title") || 'Thalion'}
+                    </button>
+                    <button
+                      onClick={() => navigateTo('/usine')}
+                      className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 border-b border-gray-100"
+                    >
+                      {t("header.navigation.usine.title") || "L'Usine"}
+                    </button>
+                    <button
+                      onClick={() => navigateTo('/suite')}
+                      className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50"
+                    >
+                      {t("header.navigation.carreVip.title") || 'Carré Vip Spa'}
+                    </button>
                   </div>
                 </div>
                 <a
@@ -372,16 +408,17 @@ const ErichZemmour = () => {
               className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200"
             >
               <div className="px-4 py-2">
-                <div className="py-2 border-b border-gray-100">
-                  <button onClick={() => navigateTo("/")} className="w-full text-left py-3 text-gray-700 font-medium hover:text-gray-900">{t("header.navigation.thalion.title") || 'Thalion'}</button>
-                  <div className="pl-4">
-                    <button onClick={() => navigateTo("/")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.royalElyssa.accueil") || 'Accueil'}</button>
-                    <button onClick={() => navigateTo("/thalion")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.thalion.title") || 'Thalion'}</button>
-                    <button onClick={() => navigateTo("/erich-zemmour")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.royalElyssa.ericZemmour") || 'Eric Zemmour'}</button>
-                    <button onClick={() => navigateTo("/usine")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.usine.title") || "L'Usine"}</button>
-                    <button onClick={() => navigateTo("/suite")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.carreVip.title") || 'CARRÉ VIP SPA'}</button>
+                  <div className="py-2 border-b border-gray-100">
+                    <div className="pl-4">
+                      <button onClick={() => navigateTo("/")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.royalElyssa.title") || 'Royal Elyssa'}</button>
+                      <button onClick={() => navigateTo("/erich-zemmour")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.royalElyssa.ericZemmour") || 'Eric Zemmour'}</button>
+                      <button onClick={() => navigateTo("/usine")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.usine.title") || "L'Usine"}</button>
+                      <button onClick={() => navigateTo("/suite")} className="block w-full py-3 text-gray-700 hover:text-gray-900">{t("header.navigation.carreVip.title") || 'CARRÉ VIP SPA'}</button>
+                    </div>
                   </div>
-                </div>
+
+                  
+
                 <a
                   href="#about"
                   onClick={() => setMobileMenuOpen(false)}
@@ -421,7 +458,7 @@ const ErichZemmour = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+  <section className="relative h-[70vh] md:h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-black/40" />
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -438,7 +475,7 @@ const ErichZemmour = () => {
             <img
               src={logo}
               alt="Eric Zemmour"
-              className="h-28 md:h-40 w-auto mx-auto mb-8"
+              className="h-20 md:h-28 lg:h-40 w-auto mx-auto mb-8"
             />
           </motion.div>
 
@@ -490,11 +527,11 @@ const ErichZemmour = () => {
               viewport={{ once: true }}
             >
               <div className="relative">
-                <img
-                  src={ericImage}
-                  alt="Eric Zemmour"
-                  className="w-full h-[700px] md:h-[800px] object-cover rounded-lg shadow-2xl"
-                />
+                    <img
+                      src={ericImage}
+                      alt="Eric Zemmour"
+                      className="w-full h-48 sm:h-64 md:h-[700px] lg:h-[800px] object-cover rounded-lg shadow-2xl"
+                    />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg" />
               </div>
             </motion.div>
@@ -604,7 +641,7 @@ const ErichZemmour = () => {
                 <img
                   src={image}
                   alt={`Salon ${index + 1}`}
-                  className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-40 sm:h-56 md:h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">

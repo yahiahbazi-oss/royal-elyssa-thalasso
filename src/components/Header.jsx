@@ -140,23 +140,21 @@ const Header = () => {
       </div>
 
       {/* Luxury fonts styles */}
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-          @import url('https://fonts.googleapis.comcss2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
-          
+      <style>{`
+          @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
           .luxury-font-serif {
             font-family: 'Playfair Display', serif;
           }
-          
+
           .luxury-font-sans {
             font-family: 'Montserrat', sans-serif;
           }
-          
+
           .text-shadow-luxury {
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
           }
-          
+
           .backdrop-blur-luxury {
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -195,9 +193,7 @@ const Header = () => {
             filter: drop-shadow(0 3px 6px rgba(252, 211, 77, 0.4));
           }
 
-        `,
-        }}
-      />
+        `}</style>
 
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-in-out ${

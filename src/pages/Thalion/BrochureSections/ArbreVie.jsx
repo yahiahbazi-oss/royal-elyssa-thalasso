@@ -193,7 +193,7 @@ const ArbreVie = () => {
         />
       </div>
 
-      <style jsx>{`
+  <style>{`
         @keyframes float {
           0%,
           100% {

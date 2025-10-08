@@ -191,7 +191,7 @@ const LieuSoins = () => {
         </div>
 
         {/* Floating animation styles */}
-        <style jsx>{`
+  <style>{`
           @keyframes float {
             0%,
             100% {
@@ -211,7 +211,7 @@ const LieuSoins = () => {
       {/* Second Section - Espace Aquatique */}
       <section className="relative w-full h-screen overflow-hidden bg-black">
         {/* Premium luxury fonts and styles */}
-        <style jsx global>{`
+  <style>{`
           @import url("https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@500;600;700&family=Marcellus+SC&display=swap");
 
           .luxury-title-aqua {

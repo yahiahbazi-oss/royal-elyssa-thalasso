@@ -654,7 +654,7 @@ const Testimonial = () => {
         </div>
       </div>
       {/* Global styles */}
-      <style jsx global>{`
+  <style>{`
         @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@400;500;700&display=swap");
 
         .animate-fadeIn {

@@ -171,7 +171,7 @@ const CureNoStress = React.memo(() => {
         />
       </div>
 
-      <style jsx>{`
+  <style>{`
         @keyframes float {
           0%,
           100% {

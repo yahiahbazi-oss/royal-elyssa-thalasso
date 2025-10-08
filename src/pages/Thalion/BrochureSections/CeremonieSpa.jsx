@@ -183,7 +183,7 @@ const CeremonieSpa = () => {
         />
       </div>
 
-      <style jsx>{`
+  <style>{`
         @keyframes float {
           0%,
           100% {

@@ -183,7 +183,7 @@ const EscaleMen = React.memo(() => {
         />
       </div>
 
-      <style jsx>{`
+  <style>{`
         @keyframes float {
           0%,
           100% {

@@ -12,7 +12,7 @@ const CoverSection = ({ language = "fr" }) => {
   const handleDownload = () => {
     // Create a temporary link element to trigger download
     const link = document.createElement('a');
-    link.href = '/brochure Thalion_Royal_Elyssa.pdf';
+    link.href = '/ Thalion_Royal_Elyssa.pdf';
     link.download = 'Thalion_Royal_Elyssa.pdf';
     document.body.appendChild(link);
     link.click();
@@ -160,15 +160,7 @@ const CoverSection = ({ language = "fr" }) => {
           </span>
         </motion.div>
 
-        {/* Year - subtle */}
-        <motion.p
-          className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] tracking-widest text-amber-50/40"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.4, duration: 0.6 }}
-        >
-          {t("thalion.cover.brochure2025")}
-        </motion.p>
+        {/* Year subtle line removed as requested */}
       </div>
     </div>
   );

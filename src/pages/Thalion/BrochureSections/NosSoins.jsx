@@ -182,7 +182,7 @@ const NosSoins = React.memo(() => {
         <SoinsDesign treatments={treatments} dayImages={dayImages} />
       </div>
 
-      <style jsx>{`
+  <style>{`
         @keyframes float {
           0%,
           100% {
