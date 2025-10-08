@@ -116,24 +116,25 @@ const Header = () => {
     <>
       {/* Fixed Flag Container - Clean & Minimal Design */}
       <div className="fixed top-2 right-6 z-[9999] flex items-center space-x-1.5 transition-all duration-300">
+        {/* Flags: slightly smaller on desktop, slightly larger/clearer on mobile */}
         <img
           src={francFlag}
           alt="Français"
-          className="h-4 w-5 object-cover rounded-sm hover:scale-110 transition-all duration-200 cursor-pointer opacity-80 hover:opacity-100 shadow-sm hover:shadow-md"
+          className="h-3 w-4 sm:h-4 sm:w-5 md:h-4 md:w-5 object-cover rounded-sm hover:scale-110 transition-all duration-200 cursor-pointer opacity-80 hover:opacity-100 shadow-sm hover:shadow-md"
           onClick={() => changeLanguage("fr")}
           title="Français"
         />
         <img
           src={ukFlag}
           alt="English"
-          className="h-4 w-5 object-cover rounded-sm hover:scale-110 transition-all duration-200 cursor-pointer opacity-80 hover:opacity-100 shadow-sm hover:shadow-md"
+          className="h-3 w-4 sm:h-4 sm:w-5 md:h-4 md:w-5 object-cover rounded-sm hover:scale-110 transition-all duration-200 cursor-pointer opacity-80 hover:opacity-100 shadow-sm hover:shadow-md"
           onClick={() => changeLanguage("en")}
           title="English"
         />
         <img
           src={russiaFlag}
           alt="Русский"
-          className="h-4 w-5 object-cover rounded-sm hover:scale-110 transition-all duration-200 cursor-pointer opacity-80 hover:opacity-100 shadow-sm hover:shadow-md"
+          className="h-3 w-4 sm:h-4 sm:w-5 md:h-4 md:w-5 object-cover rounded-sm hover:scale-110 transition-all duration-200 cursor-pointer opacity-80 hover:opacity-100 shadow-sm hover:shadow-md"
           onClick={() => changeLanguage("ru")}
           title="Русский"
         />

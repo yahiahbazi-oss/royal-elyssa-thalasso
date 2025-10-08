@@ -8,7 +8,6 @@ import Footer from "../../components/Footer/Footer";
 import Contact from "../../sections/Contact";
 import LieuSoins from "./BrochureSections/LieuSoins";
 import CoverSection from "./BrochureSections/CoverSection";
-import ThemeSection from "./BrochureSections/ThemeSection";
 import logoThalion from "../../assets/logo/logo-thalion.png__401x85_q85_crop_subject_location--87,731_subsampling-2_upscale.png";
 
 // Import flag images
@@ -86,7 +85,6 @@ const Thalion = () => {
   const soinsRef = useRef(null);
   const lieuxRef = useRef(null);
   const coverRef = useRef(null);
-  const themeRef = useRef(null);
   const dropdownTimeoutRef = useRef(null); // For managing hover delays
 
   // Dropdown types
@@ -180,7 +178,7 @@ const Thalion = () => {
     },
     {
       id: "brochure",
-      label: t("thalion.navigation.escales"),
+      label: t("thalion.navigation.brochure"),
       ref: brochureRef,
       hasDropdown: true,
     },
@@ -550,39 +548,7 @@ const Thalion = () => {
         </div>
       )}
 
-      {/* Fixed Flag Container - Always positioned to the right and high up */}
-      <div className="fixed top-2 right-4 z-[9999] flex items-center space-x-1 md:space-x-2 transition-all duration-300">
-        <img
-          src={francFlag}
-          alt="France Flag"
-          className="h-3 w-5 md:h-6 md:w-8 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer hover:shadow-lg border border-gold-200/30"
-          onClick={() => changeLanguage("fr")}
-          title="Français - Changer en français"
-          style={{
-            filter: "drop-shadow(0 2px 4px rgba(255, 215, 0, 0.2))",
-          }}
-        />
-        <img
-          src={ukFlag}
-          alt="UK Flag"
-          className="h-3 w-5 md:h-6 md:w-8 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer hover:shadow-lg border border-gold-200/30"
-          onClick={() => changeLanguage("en")}
-          title="English - Switch to English"
-          style={{
-            filter: "drop-shadow(0 2px 4px rgba(255, 215, 0, 0.2))",
-          }}
-        />
-        <img
-          src={russiaFlag}
-          alt="Russia Flag"
-          className="h-3 w-5 md:h-6 md:w-8 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer hover:shadow-lg border border-gold-200/30"
-          onClick={() => changeLanguage("ru")}
-          title="Русский - Переключить на русский"
-          style={{
-            filter: "drop-shadow(0 2px 4px rgba(255, 215, 0, 0.2))",
-          }}
-        />
-      </div>
+
 
       <style>{`
         @keyframes goldShimmer {
@@ -760,6 +726,7 @@ const Thalion = () => {
       `}</style>
 
       {/* Navigation Bar */}
+
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-24 ${
           scrolled ? "navbar-scrolled" : "navbar-glass"
@@ -767,12 +734,80 @@ const Thalion = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full">
           <div className="flex items-center justify-between h-full">
-            {/* Logo */}
-            <div className="flex-shrink-0">
+            {/* Logo and Flags */}
+            {/* Logo and Flags (mobile: inline, desktop: logo only) */}
+            <div className="flex items-center gap-2 flex-shrink-0">
               <img
                 src={logoThalion}
                 alt="Thalion Brand"
                 className="h-10 xl:h-12 w-auto object-contain transition-all duration-300 hover:scale-105"
+              />
+              {/* Flags inline with logo on mobile only */}
+              <div className="flex items-center space-x-1 md:space-x-2 ml-2 lg:hidden">
+                <img
+                  src={francFlag}
+                  alt="France Flag"
+                  className="h-4 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer hover:shadow-lg border border-gold-200/30"
+                  onClick={() => changeLanguage("fr")}
+                  title="Français - Changer en français"
+                  style={{
+                    filter: "drop-shadow(0 2px 4px rgba(255, 215, 0, 0.2))",
+                  }}
+                />
+                <img
+                  src={ukFlag}
+                  alt="UK Flag"
+                  className="h-4 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer hover:shadow-lg border border-gold-200/30"
+                  onClick={() => changeLanguage("en")}
+                  title="English - Switch to English"
+                  style={{
+                    filter: "drop-shadow(0 2px 4px rgba(255, 215, 0, 0.2))",
+                  }}
+                />
+                <img
+                  src={russiaFlag}
+                  alt="Russia Flag"
+                  className="h-4 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer hover:shadow-lg border border-gold-200/30"
+                  onClick={() => changeLanguage("ru")}
+                  title="Русский - Переключить на русский"
+                  style={{
+                    filter: "drop-shadow(0 2px 4px rgba(255, 215, 0, 0.2))",
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Flags fixed top-right on desktop only */}
+            <div className="hidden lg:flex fixed top-2 right-4 z-[9999] items-center space-x-2">
+              <img
+                src={francFlag}
+                alt="France Flag"
+                className="h-4 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer hover:shadow-lg border border-gold-200/30"
+                onClick={() => changeLanguage("fr")}
+                title="Français - Changer en français"
+                style={{
+                  filter: "drop-shadow(0 2px 4px rgba(255, 215, 0, 0.2))",
+                }}
+              />
+              <img
+                src={ukFlag}
+                alt="UK Flag"
+                className="h-4 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer hover:shadow-lg border border-gold-200/30"
+                onClick={() => changeLanguage("en")}
+                title="English - Switch to English"
+                style={{
+                  filter: "drop-shadow(0 2px 4px rgba(255, 215, 0, 0.2))",
+                }}
+              />
+              <img
+                src={russiaFlag}
+                alt="Russia Flag"
+                className="h-4 w-6 object-cover rounded shadow-sm hover:scale-110 transition-all duration-300 cursor-pointer hover:shadow-lg border border-gold-200/30"
+                onClick={() => changeLanguage("ru")}
+                title="Русский - Переключить на русский"
+                style={{
+                  filter: "drop-shadow(0 2px 4px rgba(255, 215, 0, 0.2))",
+                }}
               />
             </div>
 

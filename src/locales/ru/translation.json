@@ -26,7 +26,7 @@
       "thalion": {
         "title": "THALION",
         "subtitle": "создатель морской косметики",
-        "brochure": "Наша брошюра 2025",
+  "brochure": "Оздоровительные программы",
         "pricing": "Цены",
         "contact": "Контакт"
       },
@@ -252,8 +252,8 @@
         "onglerie": "Нейл-арт и Наращивание",
         "extensionsCils": "Наращивание Ресниц"
       },
-    "pricing": {
-  "notice": "Цены в евро указаны лишь для справки",
+      "pricing": {
+        "notice": "Цены в евро указаны лишь для справки",
         "currency": "TND",
         "currencyConverted": "EUR",
         "categories": {
@@ -361,7 +361,7 @@
         "renforcementGelFrench": "Укрепление (гель французский)",
         "renforcementGelCouleur": "Укрепление (цветной гель)",
         "shampoingSoinsCoiffageCourt": "Шампунь + Уход + Укладка - Короткие волосы",
-        "shampoingSoinsCoiffageMiLong": "Шампунь + Уход + Укладка - Средние волосы", 
+        "shampoingSoinsCoiffageMiLong": "Шампунь + Уход + Укладка - Средние волосы",
         "shampoingSoinsCoiffageLong": "Шампунь + Уход + Укладка - Длинные волосы",
         "racinesMajirelRichessePartir": "Корни - Majirel/Richesse (от)",
         "racinesInoaPartir": "Корни - Inoa (от)",
@@ -392,8 +392,7 @@
       "address": "Royal Elyssa Thalasso & Spa",
       "country": "МОНАСТИР, ТУНИС"
     },
-    "alerts": {
-    }
+    "alerts": {}
   },
   "usine": {
     "navbar": {

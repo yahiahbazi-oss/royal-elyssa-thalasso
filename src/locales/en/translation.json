@@ -570,7 +570,8 @@
       "escales": "Wellness Journeys",
       "rituels": "Thali Rituals",
       "soinsAlaCarte": "Treatments à la carte",
-      "contact": "Contact"
+      "contact": "Contact",
+      "brochure": "Wellness Escapes"
     },
     "dropdown": {
       "nosServicesTitle": "Our Treatments & Cards",
@@ -685,6 +686,8 @@
       }
     },
     "themeSection": {
+      "title": "The Stopovers",
+      "subtitle": "Discover our tailor-made wellness packages",
       "disclaimer": "Prices in euros are given for informational purposes only",
       "viewAllPackages": "View all packages",
       "days": "days",
@@ -695,43 +698,43 @@
       "packages": {
         "vitaliteMarine": {
           "title": "Marine Vitality",
-          "description": "Revitalize your body and mind with our exceptional marine treatments"
+          "description": "Revitalize your body and mind with our exceptional marine treatments combining seawater benefits, energizing massages and mother water wraps for complete regeneration and lasting vitality."
         },
         "detoxSilhouette": {
           "title": "Detox Silhouette",
-          "description": "Complete detoxification program to sculpt your silhouette"
+          "description": "Complete detoxification program to sculpt your silhouette through draining treatments, specialized massages and personalized sports coaching for a harmonious and toned body."
         },
         "relaxationMarine": {
           "title": "Marine Relaxation",
-          "description": "Escape stress with our relaxing treatments inspired by the sea"
+          "description": "Escape stress with our relaxing treatments inspired by the sea, combining hydro-aromatic baths, Californian massages and seaweed wraps for deep serenity."
         },
         "noStress": {
           "title": "No Stress",
-          "description": "Complete anti-stress program to regain serenity and balance"
+          "description": "Complete anti-stress program to regain serenity and balance through relaxing massages, meditation sessions and wellness treatments adapted to your modern lifestyle."
         },
         "forMen": {
           "title": "For Men",
-          "description": "Program specially designed for masculine well-being"
+          "description": "Program specially designed for masculine well-being, offering revitalizing treatments, sports massages and targeted care for the specific needs of men."
         },
         "afterGolf": {
           "title": "After Golf",
-          "description": "Relax after your golf game with our specialized treatments"
+          "description": "Relax after your golf game with our specialized treatments: muscle relaxation massages, joint care and recovery treatments to optimize your sports performance."
         },
         "arbreVie": {
           "title": "Tree of Life",
-          "description": "Reconnect with your deep essence and natural vitality"
+          "description": "Reconnect with your deep essence and natural vitality through ancestral treatments, energy massages and wellness rituals inspired by nature's wisdom."
         },
         "nouvelAge": {
           "title": "New Age",
-          "description": "Embrace a new era of well-being with our innovative treatments"
+          "description": "Embrace a new era of well-being with our innovative treatments combining cutting-edge technologies, modern techniques and holistic approach for complete renewal."
         },
         "ceremonieSpa": {
           "title": "Spa Ceremonies & Thalasso Treatments",
-          "description": "Complete experience combining spa ceremonies and thalasso treatments"
+          "description": "Complete experience combining spa ceremonies and thalasso treatments in our prestigious spaces, for an exceptional wellness journey that awakens all your senses."
         },
         "weekendCool": {
           "title": "Cool Weekend",
-          "description": "Perfect getaway for a weekend of absolute relaxation"
+          "description": "Perfect getaway for a weekend of absolute relaxation, combining wellness treatments, leisure moments and personalized care for complete disconnection."
         }
       }
     },

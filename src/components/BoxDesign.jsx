@@ -24,6 +24,20 @@ const BoxDesign = memo(
       return options.slice(0, maxOptions);
     }, [options, maxOptions]);
 
+    // Translation helpers (replace with i18n or props)
+    const joursText =
+      typeof options[0]?.duration === "string" &&
+      options[0].duration.includes("jour") &&
+      typeof window !== "undefined" &&
+      window.i18n
+        ? window.i18n.t("thalion.themeSection.days")
+        : "jours";
+    const detailsLabel = detailsText || "Détails";
+    const lesEscalesLabel =
+      moreOptionsText === "autres soins disponibles"
+        ? "Les Escales"
+        : moreOptionsText;
+
     const handleDetailsClick = (e) => {
       e?.stopPropagation();
       if (onClickDetails) {
@@ -84,7 +98,9 @@ const BoxDesign = memo(
                       <div className="flex items-center space-x-1 sm:space-x-2">
                         <Clock className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-slate-500 flex-shrink-0" />
                         <span className="text-slate-700 text-xs font-medium">
-                          {option.duration || option.name || "Soin disponible"}
+                          {option.duration
+                            ? option.duration.replace(/\bjours?\b/, joursText)
+                            : option.name || joursText}
                         </span>
                       </div>
                       <div className="text-slate-800 text-xs font-semibold">
@@ -104,7 +120,7 @@ const BoxDesign = memo(
             {options.length > 2 && (
               <div className="mt-1 text-center">
                 <span className="text-slate-500 text-xs">
-                  +{options.length - 2} {moreOptionsText}
+                  +{options.length - 2} {lesEscalesLabel}
                 </span>
               </div>
             )}
@@ -119,11 +135,15 @@ const BoxDesign = memo(
                   className="w-full py-1.5 sm:py-2 bg-white text-slate-800 text-xs font-medium tracking-wider border border-slate-300 transition-all duration-200 rounded hover:bg-slate-50 hover:border-slate-400 shadow-sm"
                   onClick={handleDetailsClick}
                 >
-                  {detailsText}
+                  {detailsLabel}
                 </button>
               </div>
             </div>
           </div>
+        </div>
+        {/* Disclaimer */}
+        <div className="px-3 pb-2 pt-1 text-[11px] text-slate-400 italic text-center select-none">
+          Les tarifs en euros sont donnés seulement à titre indicatif
         </div>
       </div>
     );

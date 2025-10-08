@@ -274,7 +274,7 @@ const Suite = () => {
 
   // Function to navigate to home page
   const goToHomePage = () => {
-    window.location.href = "http://localhost:5173/";
+    window.location.href = "/";
   };
 
   const amenities = [
@@ -326,11 +326,13 @@ const Suite = () => {
       <div className="fixed top-4 left-4 z-50">
         <button
           onClick={goToHomePage}
-          aria-label={t("common.backHome") || 'Back Home'}
+          aria-label={t("common.backHome") || "Back Home"}
           className="flex items-center gap-2 bg-white/80 backdrop-blur-md rounded-full px-3 py-2 shadow-md hover:scale-105 transition-transform duration-150"
         >
           <Home className="w-4 h-4 text-gray-700" />
-          <span className="text-sm font-medium text-gray-700 hidden xs:inline-block">{t("common.backHome") || 'Back Home'}</span>
+          <span className="text-sm font-medium text-gray-700 hidden xs:inline-block">
+            {t("common.backHome") || "Back Home"}
+          </span>
         </button>
       </div>
 
@@ -769,7 +771,7 @@ const Suite = () => {
       )}
 
       {/* Custom Scrollbar Styles */}
-  <style>{`
+      <style>{`
         .scrollbar-hide {
           -ms-overflow-style: none;
           scrollbar-width: none;

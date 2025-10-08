@@ -26,7 +26,7 @@
       "thalion": {
         "title": "THALION",
         "subtitle": "créateur de cosmétique marine",
-        "brochure": "Notre Brochure 2025",
+  "brochure": "Les Escales",
         "pricing": "Tarifs",
         "contact": "Contact"
       },
@@ -577,6 +577,7 @@
       "home": "Accueil",
       "spacesOfCare": "Espaces de soins",
       "escales": "Les Escales",
+      "brochure": "Les Escales",
       "rituels": "Rituels Thali",
       "soinsAlaCarte": "Soins à la carte",
       "contact": "Contact"
@@ -694,8 +695,11 @@
       }
     },
     "themeSection": {
+  "title": "Les Escales",
+      "subtitle": "Découvrez nos forfaits bien-être sur mesure",
       "disclaimer": "Les tarifs en euros sont donnés seulement à titre indicatif",
       "viewAllPackages": "Voir tous les forfaits",
+      "viewDetails": "Voir détails",
       "days": "jours",
       "book": "Réserver",
       "details": "Détails",
@@ -704,43 +708,43 @@
       "packages": {
         "vitaliteMarine": {
           "title": "Vitalité Marine",
-          "description": "Revitalisez votre corps et votre esprit avec nos soins marins exceptionnels"
+          "description": "Revitalisez votre corps et votre esprit avec nos soins marins exceptionnels. Cette cure énergisante combine massages tonifiants, bains d'eau de mer et enveloppements aux algues pour une régénération complète."
         },
         "detoxSilhouette": {
           "title": "Détox Silhouette",
-          "description": "Programme complet de détoxification pour sculpter votre silhouette"
+          "description": "Programme complet de détoxification pour sculpter votre silhouette. Soins drainants, massages minceur et enveloppements détox pour purifier votre organisme et affiner votre silhouette."
         },
         "relaxationMarine": {
           "title": "Relaxation Marine",
-          "description": "Échappez au stress avec nos soins relaxants inspirés de la mer"
+          "description": "Échappez au stress avec nos soins relaxants inspirés de la mer. Massages apaisants, bains relaxants et moment de pure détente pour retrouver sérénité et équilibre."
         },
         "noStress": {
-          "title": "No Stress",
-          "description": "Programme anti-stress complet pour retrouver sérénité et équilibre"
+          "title": "Cure No Stress",
+          "description": "Programme anti-stress complet pour retrouver sérénité et équilibre. Soins relaxants, techniques de relaxation et moments de méditation pour évacuer toutes les tensions."
         },
         "forMen": {
           "title": "For Men",
-          "description": "Programme spécialement conçu pour le bien-être masculin"
+          "description": "Programme spécialement conçu pour le bien-être masculin. Soins adaptés aux besoins spécifiques des hommes avec des techniques revigorantes et des produits haute performance."
         },
         "afterGolf": {
           "title": "After Golf",
-          "description": "Détendez-vous après votre partie de golf avec nos soins spécialisés"
+          "description": "Détendez-vous après votre partie de golf avec nos soins spécialisés. Massages récupérateurs et soins apaisants pour soulager les tensions musculaires après l'effort."
         },
         "arbreVie": {
           "title": "Arbre de Vie",
-          "description": "Reconnectez-vous avec votre essence profonde et votre vitalité naturelle"
+          "description": "Reconnectez-vous avec votre essence profonde et votre vitalité naturelle. Soins holistiques et rituels bien-être pour harmoniser corps, esprit et émotions."
         },
         "nouvelAge": {
           "title": "Nouvel Age",
-          "description": "Embrassez une nouvelle ère de bien-être avec nos soins innovants"
+          "description": "Embrassez une nouvelle ère de bien-être avec nos soins innovants. Techniques avant-gardistes et produits dernière génération pour une expérience spa unique."
         },
         "ceremonieSpa": {
           "title": "Cérémonies du Spa & Soins de Thalasso",
-          "description": "Expérience complète alliant cérémonies spa et soins thalasso"
+          "description": "Expérience complète alliant cérémonies spa et soins thalasso. Rituels exclusifs combinant les bienfaits de l'eau de mer et les techniques spa les plus raffinées."
         },
         "weekendCool": {
           "title": "Week-end Cool",
-          "description": "Échappée parfaite pour un week-end de détente absolue"
+          "description": "Échappée parfaite pour un week-end de détente absolue. Programme court mais intense pour se ressourcer rapidement et retrouver forme et vitalité."
         }
       }
     },
