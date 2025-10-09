@@ -101,6 +101,9 @@
     },
     "cta": "Открыть совершенство"
   },
+  "cta": {
+    "access": "перейти к"
+  },
   "testimonial": {
     "thalion": {
       "title": "THALION,",

@@ -101,6 +101,9 @@
     },
     "cta": "Discover Excellence"
   },
+  "cta": {
+    "access": "access"
+  },
   "testimonial": {
     "thalion": {
       "title": "THALION,",

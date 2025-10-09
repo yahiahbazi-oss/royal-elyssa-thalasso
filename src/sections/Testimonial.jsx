@@ -2,26 +2,44 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-const thalion20 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479075/Thalasso_Thal20_z1hdgo.jpg";
-const thalion7 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479076/Thalasso_7_b3qv13.jpg";
-const thalion14 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479075/Thalasso_14_xroo2d.jpg";
-const royalElyssa = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479075/royal_elyssa_thalas_jbqp8y.jpg";
-const thalion = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479076/Thalasso__yanho8.jpg";
-const Salon_de_coiffure_Eric_Zemmour_1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478066/Salon_de_coiffure_Eric_Zemmour_1_hhyomz.jpg";
-const Salon_de_coiffure_Eric_Zemmour_2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478065/Salon_de_coiffure_Eric_Zemmour_2_ukur02.jpg";
-const Salon_de_coiffure_Eric_Zemmour_3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478065/Salon_de_coiffure_Eric_Zemmour_3_re4ih0.jpg";
+const thalion20 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479075/Thalasso_Thal20_z1hdgo.jpg";
+const thalion7 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479076/Thalasso_7_b3qv13.jpg";
+const thalion14 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479075/Thalasso_14_xroo2d.jpg";
+const royalElyssa =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479075/royal_elyssa_thalas_jbqp8y.jpg";
+const thalion =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479076/Thalasso__yanho8.jpg";
+const Salon_de_coiffure_Eric_Zemmour_1 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478066/Salon_de_coiffure_Eric_Zemmour_1_hhyomz.jpg";
+const Salon_de_coiffure_Eric_Zemmour_2 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478065/Salon_de_coiffure_Eric_Zemmour_2_ukur02.jpg";
+const Salon_de_coiffure_Eric_Zemmour_3 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478065/Salon_de_coiffure_Eric_Zemmour_3_re4ih0.jpg";
 import Club_de_sport_lusine_2 from "../assets/club_de_sport_lusine/Club_de_sport_lusine_2.jpg";
 import Club_de_sport_lusine_6 from "../assets/club_de_sport_lusine/Club_de_sport_lusine_6.jpg";
-const Photo_35_sur_56 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478570/Photo___35_sur_56_em1rly.jpg";
-const Photo_24_sur_56 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478571/Photo___24_sur_56_vatjoc.jpg";
-const Photo_1_sur_56 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478570/Photo___1_sur_56_npr6ws.jpg";
-const Photo_13_sur_56 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478571/Photo___13_sur_56_cycwou.jpg";
-const Suites_SPA_11 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447159/Suites_SPA_11_ovryar.jpg";
-const Suites_SPA_10 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447120/Suites_SPA_10_dm4ufo.jpg";
-const Suites_SPA_20 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447244/Suites_SPA_20_on55ap.jpg";
-const Suites_SPA_14 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447220/Suites_SPA_14_guxjuq.jpg";
-const carre_VIP_suite_spa_6 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__6_viruqq.jpg";
-const carre_VIP_suite_spa_7 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__7_dzbbhq.jpg";
+const Photo_35_sur_56 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478570/Photo___35_sur_56_em1rly.jpg";
+const Photo_24_sur_56 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478571/Photo___24_sur_56_vatjoc.jpg";
+const Photo_1_sur_56 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478570/Photo___1_sur_56_npr6ws.jpg";
+const Photo_13_sur_56 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478571/Photo___13_sur_56_cycwou.jpg";
+const Suites_SPA_11 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447159/Suites_SPA_11_ovryar.jpg";
+const Suites_SPA_10 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447120/Suites_SPA_10_dm4ufo.jpg";
+const Suites_SPA_20 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447244/Suites_SPA_20_on55ap.jpg";
+const Suites_SPA_14 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447220/Suites_SPA_14_guxjuq.jpg";
+const carre_VIP_suite_spa_6 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__6_viruqq.jpg";
+const carre_VIP_suite_spa_7 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__7_dzbbhq.jpg";
 
 const Testimonial = () => {
   const { t } = useTranslation();
@@ -141,14 +159,18 @@ const Testimonial = () => {
                   <img
                     src={image}
                     alt={`Thalasso ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover cursor-pointer"
+                    onClick={() => {
+                      navigate("/thalion");
+                      window.scrollTo(0, 0);
+                    }}
                   />
                 </div>
               ))}
             </div>
 
             <button
-                        onClick={() => navigateCarousel('thalion', 'prev')}
+              onClick={() => navigateCarousel("thalion", "prev")}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-amber-100 p-2 rounded-full hover:bg-white/30 backdrop-blur-sm transition-all duration-300 z-10"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -177,7 +199,13 @@ const Testimonial = () => {
 
           {/* Text Content - Left Side */}
           <div className="hidden md:flex flex-col justify-center px-10 lg:px-16 w-1/2">
-            <h2 className="text-3xl lg:text-4xl font-light text-stone-700 mb-8 animate-fadeIn">
+            <h2
+              className="text-3xl lg:text-4xl font-light text-stone-700 mb-8 animate-fadeIn cursor-pointer hover:text-amber-600 transition-colors duration-200"
+              onClick={() => {
+                navigate("/thalion");
+                window.scrollTo(0, 0);
+              }}
+            >
               <span className="font-['Playfair_Display'] italic tracking-tight">
                 {t("testimonial.thalion.title")}
               </span>
@@ -197,26 +225,35 @@ const Testimonial = () => {
               <p className="font-['Cormorant_Garamond'] text-lg leading-relaxed transition-all duration-500 hover:text-stone-800 hover:pl-2">
                 {t("testimonial.thalion.paragraphs.p3")}
               </p>
-            </div>
-
-            {/* See More Icon for Desktop */}
-            <div className="flex justify-center">
-              <div 
-                className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
-                onClick={() => {
-                  navigate('/thalion');
-                  window.scrollTo(0, 0);
-                }}
-              >
-                <ArrowRight className="w-6 h-6" />
+              <div className="flex justify-center">
+                <button
+                  className="mt-3 px-6 py-1.5 border-2 border-stone-700 rounded-full bg-transparent text-stone-700 hover:bg-stone-700 hover:text-white transition-all duration-200 font-['Playfair_Display'] flex items-center gap-1 shadow-none uppercase tracking-wide text-sm font-semibold"
+                  style={{ letterSpacing: "0.04em", boxShadow: "none" }}
+                  onClick={() => {
+                    navigate("/thalion");
+                    window.scrollTo(0, 0);
+                  }}
+                >
+                  <span className="">{t('cta.access')}</span>
+                  <span className="ml-1">{t("header.navigation.thalion.title")}</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </button>
               </div>
             </div>
+
+            {/* See More Icon for Desktop removed */}
           </div>
         </div>
 
         {/* Mobile text content */}
         <div className="md:hidden px-6 pt-10">
-          <h2 className="text-2xl font-light text-stone-700 mb-8">
+          <h2
+            className="text-2xl font-light text-stone-700 mb-8 cursor-pointer hover:text-amber-600 transition-colors duration-200"
+            onClick={() => {
+              navigate("/thalion");
+              window.scrollTo(0, 0);
+            }}
+          >
             <span className="font-['Playfair_Display'] italic">
               {t("testimonial.thalion.title")}
             </span>
@@ -236,20 +273,23 @@ const Testimonial = () => {
             <p className="font-['Cormorant_Garamond'] leading-relaxed">
               {t("testimonial.thalion.paragraphs.p3")}
             </p>
-          </div>
-
-          {/* See More Icon */}
-          <div className="flex justify-center">
-            <div 
-              className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
-              onClick={() => {
-                navigate('/thalion');
-                window.scrollTo(0, 0);
-              }}
-            >
-              <ArrowRight className="w-6 h-6" />
+            <div className="flex justify-center">
+                <button
+                className="mt-3 px-6 py-1.5 border-2 border-stone-700 rounded-full bg-transparent text-stone-700 hover:bg-stone-700 hover:text-white transition-all duration-200 font-['Playfair_Display'] flex items-center gap-1 shadow-none uppercase tracking-wide text-sm font-semibold"
+                style={{ letterSpacing: "0.04em", boxShadow: "none" }}
+                onClick={() => {
+                  navigate("/thalion");
+                  window.scrollTo(0, 0);
+                }}
+              >
+                <span className="">{t('cta.access')}</span>
+                <span className="ml-1">{t("header.navigation.thalion.title")}</span>
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </button>
             </div>
           </div>
+
+          {/* Mobile see-more icon removed */}
         </div>
       </div>{" "}
       {/* ERIC ZEMMOUR Section */}
@@ -270,7 +310,11 @@ const Testimonial = () => {
                   <img
                     src={image}
                     alt={`Salon Eric Zemmour ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover cursor-pointer"
+                    onClick={() => {
+                      navigate("/erich-zemmour");
+                      window.scrollTo(0, 0);
+                    }}
                   />
                 </div>
               ))}
@@ -306,7 +350,13 @@ const Testimonial = () => {
 
           {/* Text Content - Right Side */}
           <div className="hidden md:flex flex-col justify-center px-10 lg:px-16 w-1/2">
-            <h2 className="text-3xl lg:text-4xl font-light text-stone-700 mb-8 animate-fadeIn">
+            <h2
+              className="text-3xl lg:text-4xl font-light text-stone-700 mb-8 animate-fadeIn cursor-pointer hover:text-amber-600 transition-colors duration-200"
+              onClick={() => {
+                navigate("/erich-zemmour");
+                window.scrollTo(0, 0);
+              }}
+            >
               <span className="font-['Playfair_Display'] italic tracking-tight">
                 {t("testimonial.ericZemmour.title")}
               </span>
@@ -331,26 +381,35 @@ const Testimonial = () => {
                 <br />
                 {t("testimonial.ericZemmour.paragraphs.phone")}
               </p>
-            </div>
-
-            {/* See More Icon for Desktop */}
-            <div className="flex justify-center">
-              <div 
-                className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
-                onClick={() => {
-                  navigate('/erich-zemmour');
-                  window.scrollTo(0, 0);
-                }}
-              >
-                <ArrowRight className="w-6 h-6" />
+              <div className="flex justify-center">
+                <button
+                  className="mt-3 px-6 py-1.5 border-2 border-stone-700 rounded-full bg-transparent text-stone-700 hover:bg-stone-700 hover:text-white transition-all duration-200 font-['Playfair_Display'] flex items-center gap-1 shadow-none uppercase tracking-wide text-sm font-semibold"
+                  style={{ letterSpacing: "0.04em", boxShadow: "none" }}
+                  onClick={() => {
+                    navigate("/erich-zemmour");
+                    window.scrollTo(0, 0);
+                  }}
+                >
+                  <span className="">{t('cta.access')}</span>
+                  <span className="ml-1">{t("header.navigation.erichZemmour.title")}</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </button>
               </div>
             </div>
+
+            {/* See More Icon for Desktop removed */}
           </div>
         </div>
 
         {/* Mobile text content */}
         <div className="md:hidden px-6 pt-10">
-          <h2 className="text-2xl font-light text-stone-700 mb-8">
+          <h2
+            className="text-2xl font-light text-stone-700 mb-8 cursor-pointer hover:text-amber-600 transition-colors duration-200"
+            onClick={() => {
+              navigate("/erich-zemmour");
+              window.scrollTo(0, 0);
+            }}
+          >
             <span className="font-['Playfair_Display'] italic">
               {t("testimonial.ericZemmour.title")}
             </span>
@@ -375,20 +434,23 @@ const Testimonial = () => {
               <br />
               {t("testimonial.ericZemmour.paragraphs.phoneMobile")}
             </p>
-          </div>
-
-          {/* See More Icon */}
-          <div className="flex justify-center">
-            <div 
-              className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
-              onClick={() => {
-                navigate('/erich-zemmour');
-                window.scrollTo(0, 0);
-              }}
-            >
-              <ArrowRight className="w-6 h-6" />
+            <div className="flex justify-center">
+              <button
+                className="mt-3 px-6 py-1.5 border-2 border-stone-700 rounded-full bg-transparent text-stone-700 hover:bg-stone-700 hover:text-white transition-all duration-200 font-['Playfair_Display'] flex items-center gap-1 shadow-none uppercase tracking-wide text-sm font-semibold"
+                style={{ letterSpacing: "0.04em", boxShadow: "none" }}
+                onClick={() => {
+                  navigate("/erich-zemmour");
+                  window.scrollTo(0, 0);
+                }}
+              >
+                <span className="">{t('cta.access')}</span>
+                <span className="ml-1">{t("header.navigation.erichZemmour.title")}</span>
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </button>
             </div>
           </div>
+
+          {/* Mobile see-more icon removed */}
         </div>
       </div>
       {/* L'USINE Section */}
@@ -407,7 +469,11 @@ const Testimonial = () => {
                   <img
                     src={image}
                     alt={`L'Usine ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover cursor-pointer"
+                    onClick={() => {
+                      navigate("/usine");
+                      window.scrollTo(0, 0);
+                    }}
                   />
                 </div>
               ))}
@@ -443,7 +509,13 @@ const Testimonial = () => {
 
           {/* Text Content - Left Side */}
           <div className="hidden md:flex flex-col justify-center px-10 lg:px-16 w-1/2">
-            <h2 className="text-3xl lg:text-4xl font-light text-stone-700 mb-8 animate-fadeIn">
+            <h2
+              className="text-3xl lg:text-4xl font-light text-stone-700 mb-8 animate-fadeIn cursor-pointer hover:text-amber-600 transition-colors duration-200"
+              onClick={() => {
+                navigate("/usine");
+                window.scrollTo(0, 0);
+              }}
+            >
               <span className="font-['Playfair_Display'] italic tracking-tight">
                 {t("testimonial.usine.title")}
               </span>
@@ -466,26 +538,35 @@ const Testimonial = () => {
               <p className="font-['Cormorant_Garamond'] text-lg leading-relaxed transition-all duration-500 hover:text-stone-800 hover:pl-2">
                 {t("testimonial.usine.paragraphs.p4")}
               </p>
-            </div>
-
-            {/* See More Icon for Desktop */}
-            <div className="flex justify-center">
-              <div 
-                className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
-                onClick={() => {
-                  navigate('/usine');
-                  window.scrollTo(0, 0);
-                }}
-              >
-                <ArrowRight className="w-6 h-6" />
+              <div className="flex justify-center">
+                <button
+                  className="mt-3 px-6 py-1.5 border-2 border-stone-700 rounded-full bg-transparent text-stone-700 hover:bg-stone-700 hover:text-white transition-all duration-200 font-['Playfair_Display'] flex items-center gap-1 shadow-none uppercase tracking-wide text-sm font-semibold"
+                  style={{ letterSpacing: "0.04em", boxShadow: "none" }}
+                  onClick={() => {
+                    navigate("/usine");
+                    window.scrollTo(0, 0);
+                  }}
+                >
+                  <span className="">{t('cta.access')}</span>
+                  <span className="ml-1">{t("header.navigation.usine.title")}</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </button>
               </div>
             </div>
+
+            {/* See More Icon for Desktop removed */}
           </div>
         </div>
 
         {/* Mobile text content */}
         <div className="md:hidden px-6 pt-10">
-          <h2 className="text-2xl font-light text-stone-700 mb-8">
+          <h2
+            className="text-2xl font-light text-stone-700 mb-8 cursor-pointer hover:text-amber-600 transition-colors duration-200"
+            onClick={() => {
+              navigate("/usine");
+              window.scrollTo(0, 0);
+            }}
+          >
             <span className="font-['Playfair_Display'] italic">
               {t("testimonial.usine.title")}
             </span>
@@ -508,20 +589,23 @@ const Testimonial = () => {
             <p className="font-['Cormorant_Garamond'] leading-relaxed">
               {t("testimonial.usine.paragraphs.p4")}
             </p>
-          </div>
-
-          {/* See More Icon */}
-          <div className="flex justify-center">
-            <div 
-              className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
-              onClick={() => {
-                navigate('/usine');
-                window.scrollTo(0, 0);
-              }}
-            >
-              <ArrowRight className="w-6 h-6" />
+            <div className="flex justify-center">
+              <button
+                className="mt-3 px-6 py-1.5 border-2 border-stone-700 rounded-full bg-transparent text-stone-700 hover:bg-stone-700 hover:text-white transition-all duration-200 font-['Playfair_Display'] flex items-center gap-1 shadow-none uppercase tracking-wide text-sm font-semibold"
+                style={{ letterSpacing: "0.04em", boxShadow: "none" }}
+                onClick={() => {
+                  navigate("/usine");
+                  window.scrollTo(0, 0);
+                }}
+              >
+                <span className="">{t('cta.access')}</span>
+                <span className="ml-1">{t("header.navigation.usine.title")}</span>
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </button>
             </div>
           </div>
+
+          {/* Mobile see-more icon removed */}
         </div>
       </div>
       {/* CARRÉ VIP SUITES SPA Section */}
@@ -542,7 +626,11 @@ const Testimonial = () => {
                   <img
                     src={image}
                     alt={`Carré VIP Suites Spa ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover cursor-pointer"
+                    onClick={() => {
+                      navigate("/suite");
+                      window.scrollTo(0, 0);
+                    }}
                   />
                 </div>
               ))}
@@ -578,7 +666,13 @@ const Testimonial = () => {
 
           {/* Text Content - Right Side */}
           <div className="hidden md:flex flex-col justify-center px-10 lg:px-16 w-1/2">
-            <h2 className="text-3xl lg:text-4xl font-light text-stone-700 mb-8 animate-fadeIn">
+            <h2
+              className="text-3xl lg:text-4xl font-light text-stone-700 mb-8 animate-fadeIn cursor-pointer hover:text-amber-600 transition-colors duration-200"
+              onClick={() => {
+                navigate("/suite");
+                window.scrollTo(0, 0);
+              }}
+            >
               <span className="font-['Playfair_Display'] italic tracking-tight">
                 {t("testimonial.carreVip.title")}
               </span>
@@ -598,26 +692,35 @@ const Testimonial = () => {
               <p className="font-['Cormorant_Garamond'] text-lg leading-relaxed transition-all duration-500 hover:text-stone-800 hover:pl-2">
                 {t("testimonial.carreVip.paragraphs.p3")}
               </p>
-            </div>
-
-            {/* See More Icon for Desktop */}
-            <div className="flex justify-center">
-              <div 
-                className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
-                onClick={() => {
-                  navigate('/suite');
-                  window.scrollTo(0, 0);
-                }}
-              >
-                <ArrowRight className="w-6 h-6" />
+              <div className="flex justify-center">
+                <button
+                  className="mt-3 px-6 py-1.5 border-2 border-stone-700 rounded-full bg-transparent text-stone-700 hover:bg-stone-700 hover:text-white transition-all duration-200 font-['Playfair_Display'] flex items-center gap-1 shadow-none uppercase tracking-wide text-sm font-semibold"
+                  style={{ letterSpacing: "0.04em", boxShadow: "none" }}
+                  onClick={() => {
+                    navigate("/suite");
+                    window.scrollTo(0, 0);
+                  }}
+                >
+                  <span className="">{t('cta.access')}</span>
+                  <span className="ml-1">{t("header.navigation.carreVip.title")}</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </button>
               </div>
             </div>
+
+            {/* See More Icon for Desktop removed */}
           </div>
         </div>
 
         {/* Mobile text content */}
         <div className="md:hidden px-6 pt-10">
-          <h2 className="text-2xl font-light text-stone-700 mb-8">
+          <h2
+            className="text-2xl font-light text-stone-700 mb-8 cursor-pointer hover:text-amber-600 transition-colors duration-200"
+            onClick={() => {
+              navigate("/suite");
+              window.scrollTo(0, 0);
+            }}
+          >
             <span className="font-['Playfair_Display'] italic">
               {t("testimonial.carreVip.title")}
             </span>
@@ -637,24 +740,27 @@ const Testimonial = () => {
             <p className="font-['Cormorant_Garamond'] leading-relaxed">
               {t("testimonial.carreVip.paragraphs.p3")}
             </p>
-          </div>
-
-          {/* See More Icon */}
-          <div className="flex justify-center">
-            <div 
-              className="flex items-center text-stone-600 hover:text-stone-800 transition-colors duration-300 cursor-pointer"
-              onClick={() => {
-                navigate('/suite');
-                window.scrollTo(0, 0);
-              }}
-            >
-              <ArrowRight className="w-6 h-6" />
+            <div className="flex justify-center">
+              <button
+                className="mt-3 px-6 py-1.5 border-2 border-stone-700 rounded-full bg-transparent text-stone-700 hover:bg-stone-700 hover:text-white transition-all duration-200 font-['Playfair_Display'] flex items-center gap-1 shadow-none uppercase tracking-wide text-sm font-semibold"
+                style={{ letterSpacing: "0.04em", boxShadow: "none" }}
+                onClick={() => {
+                  navigate("/suite");
+                  window.scrollTo(0, 0);
+                }}
+              >
+                <span className="">{t('cta.access')}</span>
+                <span className="ml-1">{t("header.navigation.carreVip.title")}</span>
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </button>
             </div>
           </div>
+
+          {/* Mobile see-more icon removed */}
         </div>
       </div>
       {/* Global styles */}
-  <style>{`
+      <style>{`
         @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@400;500;700&display=swap");
 
         .animate-fadeIn {
