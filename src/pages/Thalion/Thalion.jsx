@@ -16,6 +16,10 @@ import ukFlag from "../../assets/royaume-uni.png";
 import russiaFlag from "../../assets/russie.png";
 
 const Thalion = () => {
+  // Handler for clicking the Thalion logo
+  const handleLogoClick = () => {
+    navigate("/");
+  };
   const { t, i18n } = useTranslation();
 
   const [activeTab, setActiveTab] = useState("cover");
@@ -740,7 +744,8 @@ const Thalion = () => {
               <img
                 src={logoThalion}
                 alt="Thalion Brand"
-                className="h-10 xl:h-12 w-auto object-contain transition-all duration-300 hover:scale-105"
+                className="h-10 xl:h-12 w-auto object-contain transition-all duration-300 hover:scale-105 cursor-pointer"
+                onClick={handleLogoClick}
               />
               {/* Flags inline with logo on mobile only */}
               <div className="flex items-center space-x-1 md:space-x-2 ml-2 lg:hidden">

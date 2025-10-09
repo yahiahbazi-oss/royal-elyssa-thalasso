@@ -143,7 +143,10 @@ const Usine = () => {
               <img
                 src={UsineLogo}
                 alt="L'Usine Logo"
-                className="h-10 w-auto object-contain"
+                className="h-10 w-auto object-contain cursor-pointer"
+                onClick={() => navigateTo("/")}
+                title="Accueil"
+                style={{ touchAction: 'manipulation' }}
               />
             </motion.div>
 
@@ -303,34 +306,92 @@ const Usine = () => {
                 className="md:hidden mt-4 bg-black/90 backdrop-blur-md rounded-lg overflow-hidden border border-amber-400/20"
               >
                 <div className="py-2">
-                  {/* Compact Royal Elyssa link (mobile) - only show for French */}
-                  {i18n.language === "fr" && (
+                  {/* Compact Royal Elyssa link (mobile) - show for French, English, and Russian */}
+                  {(i18n.language === "fr" || i18n.language === "en" || i18n.language === "ru") && (
                     <div className="px-4 py-2 border-b border-amber-400/10">
                       <div className="space-y-1">
-                        <button
-                          onClick={() => navigateTo("/")}
-                          className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
-                        >
-                          {t("header.navigation.royalElyssa.accueil") || "Accueil"}
-                        </button>
-                        <button
-                          onClick={() => navigateTo("/thalion")}
-                          className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
-                        >
-                          {t("header.navigation.thalion.title") || "Thalion"}
-                        </button>
-                        <button
-                          onClick={() => navigateTo("/erich-zemmour")}
-                          className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
-                        >
-                          {t("header.navigation.royalElyssa.ericZemmour") || "Eric Zemmour"}
-                        </button>
-                        <button
-                          onClick={() => navigateTo("/suite")}
-                          className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
-                        >
-                          {t("header.navigation.royalElyssa.carreVip") || "Carré Vip Spa"}
-                        </button>
+                        {i18n.language === "fr" ? (
+                          <>
+                            <button
+                              onClick={() => navigateTo("/")}
+                              className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                            >
+                              {t("header.navigation.royalElyssa.accueil") || "Accueil"}
+                            </button>
+                            <button
+                              onClick={() => navigateTo("/thalion")}
+                              className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                            >
+                              {t("header.navigation.thalion.title") || "Thalion"}
+                            </button>
+                            <button
+                              onClick={() => navigateTo("/erich-zemmour")}
+                              className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                            >
+                              {t("header.navigation.royalElyssa.ericZemmour") || "Eric Zemmour"}
+                            </button>
+                            <button
+                              onClick={() => navigateTo("/suite")}
+                              className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                            >
+                              {t("header.navigation.royalElyssa.carreVip") || "Carré Vip Spa"}
+                            </button>
+                          </>
+                        ) : i18n.language === "en" ? (
+                          <>
+                            <button
+                              onClick={() => navigateTo("/")}
+                              className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                            >
+                              Home
+                            </button>
+                            <button
+                              onClick={() => navigateTo("/thalion")}
+                              className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                            >
+                              Thalion
+                            </button>
+                            <button
+                              onClick={() => navigateTo("/erich-zemmour")}
+                              className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                            >
+                              Eric Zemmour
+                            </button>
+                            <button
+                              onClick={() => navigateTo("/suite")}
+                              className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                            >
+                              Square Vip Spa
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            <button
+                              onClick={() => navigateTo("/")}
+                              className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                            >
+                              Главная
+                            </button>
+                            <button
+                              onClick={() => navigateTo("/thalion")}
+                              className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                            >
+                              Талион
+                            </button>
+                            <button
+                              onClick={() => navigateTo("/erich-zemmour")}
+                              className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                            >
+                              Эрик Земмур
+                            </button>
+                            <button
+                              onClick={() => navigateTo("/suite")}
+                              className="w-full text-left px-4 py-2 text-amber-100 hover:bg-amber-400/10 transition-colors duration-200"
+                            >
+                              Каре Вип Спа
+                            </button>
+                          </>
+                        )}
                       </div>
                     </div>
                   )}

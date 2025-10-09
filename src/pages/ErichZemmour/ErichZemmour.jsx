@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Phone,
@@ -28,6 +29,7 @@ import ukFlag from "../../assets/royaume-uni.png";
 import russiaFlag from "../../assets/russie.png";
 
 const ErichZemmour = () => {
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const [activeCategory, setActiveCategory] = useState("coupe");
   const [scrolled, setScrolled] = useState(false);
@@ -319,7 +321,8 @@ const ErichZemmour = () => {
               transition={{ duration: 0.5 }}
               src={logo}
               alt="Eric Zemmour Logo"
-              className="h-12 w-auto object-contain"
+              className="h-12 w-auto object-contain cursor-pointer"
+              onClick={() => navigate("/")}
             />
 
             {/* Mobile-only small language flags placed to the right of the logo */}
@@ -589,7 +592,8 @@ const ErichZemmour = () => {
             <img
               src={logo}
               alt="Eric Zemmour"
-              className="h-20 md:h-28 lg:h-40 w-auto mx-auto mb-8"
+              className="h-20 md:h-28 lg:h-40 w-auto mx-auto mb-8 cursor-pointer"
+              onClick={() => navigate("/")}
             />
           </motion.div>
 
