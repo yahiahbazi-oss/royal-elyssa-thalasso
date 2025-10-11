@@ -146,16 +146,17 @@ const Thalion = () => {
     },
   ];
 
+  // Use stable ids so navigation works regardless of translation text
   const escalesOptions = [
-    { name: t("thalion.escales.vitaliteMarine") },
-    { name: t("thalion.escales.detoxSilhouette") },
-    { name: t("thalion.escales.relaxationMarine") },
-    { name: t("thalion.escales.forMen") },
-    { name: t("thalion.escales.afterGolf") },
-    { name: t("thalion.escales.arbreDeVie") },
-    { name: t("thalion.escales.nouvelAge") },
-    { name: t("thalion.escales.ceremoniesSpa") },
-    { name: t("thalion.escales.weekendCool") },
+    { id: "vitalite-marine", name: t("thalion.escales.vitaliteMarine") },
+    { id: "detox-silhouette", name: t("thalion.escales.detoxSilhouette") },
+    { id: "relaxation-marine", name: t("thalion.escales.relaxationMarine") },
+    { id: "for-men", name: t("thalion.escales.forMen") },
+    { id: "after-golf", name: t("thalion.escales.afterGolf") },
+    { id: "arbre-vie", name: t("thalion.escales.arbreDeVie") },
+    { id: "nouvel-age", name: t("thalion.escales.nouvelAge") },
+    { id: "ceremonie-spa", name: t("thalion.escales.ceremoniesSpa") },
+    { id: "weekend-cool", name: t("thalion.escales.weekendCool") },
   ];
 
   const rituelsOptions = [
@@ -298,6 +299,18 @@ const Thalion = () => {
 
       setTimeout(() => {
         let targetElement = null;
+
+        // If caller passed a stable id like 'ceremonie-spa', try to find it first
+        if (typeof sectionName === "string") {
+          const possibleId = sectionName;
+          targetElement =
+            document.querySelector(`[data-section="${possibleId}"]`) ||
+            document.getElementById(possibleId) ||
+            document.querySelector(`.${possibleId}-section`);
+          if (targetElement) {
+            console.log("Found target by id:", possibleId, targetElement);
+          }
+        }
 
         switch (sectionName) {
           case "Vitalité Marine":
@@ -447,8 +460,9 @@ const Thalion = () => {
     }
   };
 
-  const handleEscalesOptionClick = (option) => {
-    scrollToSection(option);
+  const handleEscalesOptionClick = (optionId) => {
+    // optionId is a stable id like 'ceremonie-spa'
+    scrollToSection(optionId);
     setActiveDropdown(null);
   };
 
@@ -1009,7 +1023,7 @@ const Thalion = () => {
                                 <button
                                   key={index}
                                   onClick={() =>
-                                    handleEscalesOptionClick(option.name)
+                                    handleEscalesOptionClick(option.id)
                                   }
                                   className={`block w-full text-left px-6 py-3 ${
                                     i18n.language === "en" ||

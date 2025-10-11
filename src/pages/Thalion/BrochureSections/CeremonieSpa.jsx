@@ -5,12 +5,17 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 // Import static images - replaced with Cloudinary URLs
-const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755146/ce1_mikfnc.jpg";
-const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755140/ce2_z5osma.jpg";
-const jour3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755140/ce3_y4xdgx.jpg";
-const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755140/ce4_kgk904.jpg";
+const jour1 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755146/ce1_mikfnc.jpg";
+const jour2 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755140/ce2_z5osma.jpg";
+const jour3 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755140/ce3_y4xdgx.jpg";
+const jour4 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755140/ce4_kgk904.jpg";
 // Import Video - replaced with Cloudinary URL
-const ceremonieVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/v1759755146/ce_tezowe.webm";
+const ceremonieVideo =
+  "https://res.cloudinary.com/dxoje33mm/video/upload/v1759755146/ce_tezowe.webm";
 
 // Memoized static data to prevent recreation on each render
 const dayImages = {
@@ -22,42 +27,42 @@ const dayImages = {
 
 const CeremonieSpa = () => {
   const { t } = useTranslation();
-  
+
   // Memoized treatments data with translations
   const treatments = {
-    [t('thalion.nosSoins.ceremonieSpa.title')]: {
-      description: t('thalion.nosSoins.ceremonieSpa.description'),
-      supplement: t('thalion.nosSoins.ceremonieSpa.supplement'),
+    [t("thalion.nosSoins.ceremonieSpa.title")]: {
+      description: t("thalion.nosSoins.ceremonieSpa.description"),
+      supplement: t("thalion.nosSoins.ceremonieSpa.supplement"),
       pricing: [
-        { 
-          duration: `4 ${t('thalion.themeSection.days')}`, 
-          price: t('thalion.nosSoins.ceremonieSpa.pricing.fourDays') 
+        {
+          duration: `4 ${t("thalion.themeSection.days")}`,
+          price: t("thalion.nosSoins.ceremonieSpa.pricing.fourDays"),
         },
       ],
       days: {
         1: [
-          t('thalion.nosSoins.ceremonieSpa.day1.treatment1'),
-          t('thalion.nosSoins.ceremonieSpa.day1.treatment2'),
-          t('thalion.nosSoins.ceremonieSpa.day1.treatment3'),
-          t('thalion.nosSoins.ceremonieSpa.day1.treatment4'),
-          t('thalion.nosSoins.ceremonieSpa.day1.treatment5'),
+          t("thalion.nosSoins.ceremonieSpa.day1.treatment1"),
+          t("thalion.nosSoins.ceremonieSpa.day1.treatment2"),
+          t("thalion.nosSoins.ceremonieSpa.day1.treatment3"),
+          t("thalion.nosSoins.ceremonieSpa.day1.treatment4"),
         ],
         2: [
-          t('thalion.nosSoins.ceremonieSpa.day2.treatment1'),
-          t('thalion.nosSoins.ceremonieSpa.day2.treatment2'),
-          t('thalion.nosSoins.ceremonieSpa.day2.treatment3'),
-          t('thalion.nosSoins.ceremonieSpa.day2.treatment4'),
+          t("thalion.nosSoins.ceremonieSpa.day2.treatment1"),
+          t("thalion.nosSoins.ceremonieSpa.day2.treatment2"),
+          t("thalion.nosSoins.ceremonieSpa.day2.treatment3"),
+          t("thalion.nosSoins.ceremonieSpa.day2.treatment4"),
         ],
         3: [
-          t('thalion.nosSoins.ceremonieSpa.day3.treatment1'),
-          t('thalion.nosSoins.ceremonieSpa.day3.treatment2'),
-          t('thalion.nosSoins.ceremonieSpa.day3.treatment3'),
+          t("thalion.nosSoins.ceremonieSpa.day3.treatment1"),
+          t("thalion.nosSoins.ceremonieSpa.day3.treatment2"),
+          t("thalion.nosSoins.ceremonieSpa.day3.treatment3"),
+          t("thalion.nosSoins.ceremonieSpa.day3.treatment4"),
         ],
         4: [
-          t('thalion.nosSoins.ceremonieSpa.day4.treatment1'),
-          t('thalion.nosSoins.ceremonieSpa.day4.treatment2'),
-          t('thalion.nosSoins.ceremonieSpa.day4.treatment3'),
-          t('thalion.nosSoins.ceremonieSpa.day4.treatment4'),
+          t("thalion.nosSoins.ceremonieSpa.day4.treatment1"),
+          t("thalion.nosSoins.ceremonieSpa.day4.treatment2"),
+          t("thalion.nosSoins.ceremonieSpa.day4.treatment3"),
+          t("thalion.nosSoins.ceremonieSpa.day4.treatment4"),
         ],
       },
     },
@@ -154,7 +159,7 @@ const CeremonieSpa = () => {
             <div className="flex flex-col items-center space-y-4">
               <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-400 rounded-full animate-spin"></div>
               <p className="text-blue-600 font-light">
-                {t('thalion.nosSoins.ceremonieSpa.loading')}
+                {t("thalion.nosSoins.ceremonieSpa.loading")}
               </p>
             </div>
           </div>
@@ -183,7 +188,7 @@ const CeremonieSpa = () => {
         />
       </div>
 
-  <style>{`
+      <style>{`
         @keyframes float {
           0%,
           100% {

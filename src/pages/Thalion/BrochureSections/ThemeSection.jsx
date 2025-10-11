@@ -343,32 +343,51 @@ const ThemeSection = ({
       className="relative min-h-screen overflow-hidden"
       style={{
         background:
-          'linear-gradient(180deg,#070503 0%, #1b1608 45%, #2b230f 100%)',
+          "linear-gradient(180deg,#070503 0%, #1b1608 45%, #2b230f 100%)",
       }}
     >
       <div className="absolute inset-0">
         <div
           className="absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl animate-pulse"
-          style={{ background: 'rgba(230,192,122,0.06)' }}
+          style={{ background: "rgba(230,192,122,0.06)" }}
         />
         <div
           className="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse delay-1000"
-          style={{ background: 'rgba(212,160,23,0.05)' }}
+          style={{ background: "rgba(212,160,23,0.05)" }}
         />
         <div
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl"
-          style={{ background: 'rgba(212,160,23,0.03)' }}
+          style={{ background: "rgba(212,160,23,0.03)" }}
         />
       </div>
 
       <div className="relative z-10 pt-20 pb-16 text-center">
-  <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6" style={{fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif", letterSpacing: '-0.02em', color: 'transparent', backgroundClip: 'text', backgroundImage: 'linear-gradient(90deg, #F3E8D9 0%, #E6C07A 45%, #D4A017 100%)'}}>
+        <h2
+          className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6"
+          style={{
+            fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif",
+            letterSpacing: "-0.02em",
+            color: "transparent",
+            backgroundClip: "text",
+            backgroundImage:
+              "linear-gradient(90deg, #F3E8D9 0%, #E6C07A 45%, #D4A017 100%)",
+          }}
+        >
           {t("thalion.themeSection.title") || "Nos Escales Thémathiques"}
         </h2>
-        <p className="text-lg md:text-xl text-slate-300/90 max-w-3xl mx-auto px-4" style={{fontFamily: "Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial"}}>
+        <p
+          className="text-lg md:text-xl text-slate-300/90 max-w-3xl mx-auto px-4"
+          style={{
+            fontFamily:
+              "Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
+          }}
+        >
           {t("thalion.themeSection.subtitle") || "Découvrez nos forfaits"}
         </p>
-        <p className="text-sm text-slate-400/80 max-w-3xl mx-auto px-4 mt-3 italic" style={{fontFamily: "Inter, system-ui, -apple-system"}}>
+        <p
+          className="text-sm text-slate-400/80 max-w-3xl mx-auto px-4 mt-3 italic"
+          style={{ fontFamily: "Inter, system-ui, -apple-system" }}
+        >
           {t("thalion.themeSection.disclaimer") ||
             "Les tarifs en euros sont donnés seulement à titre indicatif"}
         </p>
@@ -395,75 +414,105 @@ const ThemeSection = ({
                   key={pkg.id}
                   onClick={() => handlePackageClick(pkg)}
                   className="absolute w-80 md:w-80 lg:w-80 xl:w-96 h-[480px] md:h-[520px] lg:h-[540px] xl:h-[600px] transition-all duration-700 ease-out cursor-pointer"
-                  style={{ ...slideStyle, transformStyle: "preserve-3d", backfaceVisibility: "hidden" }}
+                  style={{
+                    ...slideStyle,
+                    transformStyle: "preserve-3d",
+                    backfaceVisibility: "hidden",
+                  }}
                 >
                   {/* outer gradient rim wrapper - padding creates the visible gold rim that follows rounded corners */}
-                  <div className="relative w-full h-full rounded-2xl p-[2px]" style={{background: 'linear-gradient(90deg, #F6E7C2 0%, #D4A017 60%, #F9E7C0 100%)'}}>
+                  <div
+                    className="relative w-full h-full rounded-2xl p-[2px]"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, #F6E7C2 0%, #D4A017 60%, #F9E7C0 100%)",
+                    }}
+                  >
                     {/* inner content box slightly smaller so the rim shows on edges */}
                     <div
                       className={`relative w-full h-full rounded-xl overflow-hidden bg-gradient-to-b from-[#FBF6EE] to-[#F7E8C9]`}
-                      style={{backdropFilter: 'saturate(110%) blur(4px)', boxShadow: '0 18px 40px rgba(212,160,23,0.12), inset 0 0 24px rgba(255,255,240,0.06)'}}
+                      style={{
+                        backdropFilter: "saturate(110%) blur(4px)",
+                        boxShadow:
+                          "0 18px 40px rgba(212,160,23,0.12), inset 0 0 24px rgba(255,255,240,0.06)",
+                      }}
                     >
-                    <div className="relative h-36 md:h-40 lg:h-44 xl:h-52 overflow-hidden">
-                      <img
-                        src={pkg.image}
-                        alt={pkg.title}
-                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                      />
-                      {/* removed the active overlay gradient to prevent dark/halo effects at the card edges */}
-                      <div className="absolute top-4 right-4 bg-[#FFF9EA] text-[#4F3510] px-3 py-1 rounded-full text-sm font-semibold shadow-md border border-[#E7CEA3]">
-                        <span className="text-xs md:text-sm font-medium">{pkg.options[0].price}</span>
-                      </div>
-                      {/* Active badge removed per request */}
-                    </div>
-
-                    <div className="p-4 md:p-5 xl:p-6 text-white h-[260px] md:h-[300px] lg:h-[340px] xl:h-[352px] flex flex-col">
-                      <h3 className="text-lg md:text-2xl font-semibold mb-2 md:mb-3" style={{fontFamily: "'Playfair Display', Georgia, serif", color: '#2B230F'}}>
-                        {pkg.title}
-                      </h3>
-                      <div className="space-y-1 md:space-y-2 mb-2 md:mb-4">
-                        {(() => {
-                          const daysWord =
-                            t("thalion.themeSection.days") || "jours";
-                          return pkg.options.map((option, optIndex) => (
-                            <div
-                              key={optIndex}
-                              className="flex justify-between items-center text-xs md:text-sm"
-                            >
-                              <span className="text-[#4A412A] text-sm">
-                                {option.duration
-                                  ? option.duration.replace(
-                                      /\bjours?\b/gi,
-                                      daysWord
-                                    )
-                                  : option.name || daysWord}
-                              </span>
-                              <span className="font-semibold text-[#8A5E12] text-sm">
-                                {option.price}
-                              </span>
-                            </div>
-                          ));
-                        })()}
+                      <div className="relative h-36 md:h-40 lg:h-44 xl:h-52 overflow-hidden">
+                        <img
+                          src={pkg.image}
+                          alt={pkg.title}
+                          className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                        />
+                        {/* removed the active overlay gradient to prevent dark/halo effects at the card edges */}
+                        <div className="absolute top-4 right-4 bg-[#FFF9EA] text-[#4F3510] px-3 py-1 rounded-full text-sm font-semibold shadow-md border border-[#E7CEA3]">
+                          <span className="text-xs md:text-sm font-medium">
+                            {pkg.options[0].price}
+                          </span>
+                        </div>
+                        {/* Active badge removed per request */}
                       </div>
 
-                      <p className="text-[#4A412A] text-xs md:text-sm mb-2 md:mb-3 flex-grow overflow-y-auto">
-                        {pkg.description}
-                      </p>
-
-                      <div className="space-y-2 md:space-y-3">
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handlePackageClick(pkg);
+                      <div className="p-4 md:p-5 xl:p-6 text-white h-[260px] md:h-[300px] lg:h-[340px] xl:h-[352px] flex flex-col">
+                        <h3
+                          className="text-lg md:text-2xl font-semibold mb-2 md:mb-3"
+                          style={{
+                            fontFamily: "'Playfair Display', Georgia, serif",
+                            color: "#2B230F",
                           }}
-                          className="w-full bg-[#D4A017] text-[#1B1608] py-2 md:py-3 rounded-lg text-xs md:text-sm font-semibold hover:bg-[#C49313] transition-all duration-300 flex items-center justify-center gap-2"
-                          style={{boxShadow: '0 6px 18px rgba(212,160,23,0.14)'}}
                         >
-                          <Eye className="w-4 h-4" />
-                          <span style={{fontFamily: "Inter, system-ui, -apple-system"}}>Détails</span>
-                        </button>
+                          {pkg.title}
+                        </h3>
+                        <div className="space-y-1 md:space-y-2 mb-2 md:mb-4">
+                          {(() => {
+                            const daysWord =
+                              t("thalion.themeSection.days") || "jours";
+                            return pkg.options.map((option, optIndex) => (
+                              <div
+                                key={optIndex}
+                                className="flex justify-between items-center text-xs md:text-sm"
+                              >
+                                <span className="text-[#4A412A] text-sm">
+                                  {option.duration
+                                    ? option.duration.replace(
+                                        /\bjours?\b/gi,
+                                        daysWord
+                                      )
+                                    : option.name || daysWord}
+                                </span>
+                                <span className="font-semibold text-[#8A5E12] text-sm">
+                                  {option.price}
+                                </span>
+                              </div>
+                            ));
+                          })()}
+                        </div>
+
+                        <p className="text-[#4A412A] text-xs md:text-sm mb-2 md:mb-3 flex-grow overflow-y-auto">
+                          {pkg.description}
+                        </p>
+
+                        <div className="space-y-2 md:space-y-3">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handlePackageClick(pkg);
+                            }}
+                            className="w-full bg-[#D4A017] text-[#1B1608] py-2 md:py-3 rounded-lg text-xs md:text-sm font-semibold hover:bg-[#C49313] transition-all duration-300 flex items-center justify-center gap-2"
+                            style={{
+                              boxShadow: "0 6px 18px rgba(212,160,23,0.14)",
+                            }}
+                          >
+                            <Eye className="w-4 h-4" />
+                            <span
+                              style={{
+                                fontFamily: "Inter, system-ui, -apple-system",
+                              }}
+                            >
+                              Détails
+                            </span>
+                          </button>
+                        </div>
                       </div>
-                    </div>
                     </div>
                   </div>
                 </div>
@@ -475,7 +524,8 @@ const ThemeSection = ({
           <button
             onClick={prevSlide}
             disabled={isTransitioning}
-            className="absolute left-0 md:left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white p-2 md:p-3 rounded-full hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="absolute left-0 md:left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white p-2 md:p-3 rounded-full hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer focus:outline-none"
+            style={{ outline: 'none', cursor: 'pointer' }}
           >
             <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" />
           </button>
@@ -483,7 +533,8 @@ const ThemeSection = ({
           <button
             onClick={nextSlide}
             disabled={isTransitioning}
-            className="absolute right-1 md:right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white p-2 md:p-3 rounded-full hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="absolute right-1 md:right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white p-2 md:p-3 rounded-full hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer focus:outline-none"
+            style={{ outline: 'none', cursor: 'pointer' }}
           >
             <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />
           </button>

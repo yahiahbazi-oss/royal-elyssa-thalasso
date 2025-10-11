@@ -162,36 +162,37 @@ const Header = () => {
           }
 
           /* Gold Text Styling - Same as Royal Elyssa in WhyChoose */
+
+          /* Solid gold color for nav titles (clear, readable on white) */
           .gold-text-24k {
-            font-weight: 500; /* Medium weight like WhyChoose */
-            color: transparent;
-            background: linear-gradient(135deg, #fcd34d 0%, #fef08a 50%, #fcd34d 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(252, 211, 77, 0.5);
-            filter: drop-shadow(0 2px 4px rgba(252, 211, 77, 0.3));
-            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #bfa14a;
+            background: none;
+            background-clip: unset;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            text-shadow: none;
+            filter: none;
+            transition: color 0.2s;
           }
-
-          .gold-text-24k:hover {
-            background: linear-gradient(135deg, #fef08a 0%, #fcd34d 50%, #fef08a 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 40px rgba(252, 211, 77, 0.7);
-            transform: scale(1.02);
-          }
-
+          .gold-text-24k:hover,
           .gold-text-active-24k {
-            font-weight: 500;
-            color: transparent;
-            background: linear-gradient(135deg, #fcd34d 0%, #fef08a 50%, #fcd34d 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 35px rgba(252, 211, 77, 0.6);
-            filter: drop-shadow(0 3px 6px rgba(252, 211, 77, 0.4));
+            color: #a78936;
+            background: none;
+            background-clip: unset;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            text-shadow: none;
+            filter: none;
+          }
+
+          /* Subtitle under nav title: bold and very dark for visibility on white */
+          .nav-subtitle {
+            color: #1a1a1a !important;
+            opacity: 1 !important;
+            text-shadow: none !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.01em;
           }
 
         `}</style>
@@ -404,7 +405,7 @@ const Header = () => {
                     {t("header.navigation.thalion.title")}
                   </span>
                   <span
-                    className={`text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider ${
+                    className={`nav-subtitle hidden lg:block luxury-font-sans font-light italic tracking-wider ${
                       i18n.language === "ru" ? "text-xs" : "text-xs"
                     }`}
                   >
@@ -429,7 +430,7 @@ const Header = () => {
                     {t("header.navigation.erichZemmour.title")}
                   </span>
                   <span
-                    className={`text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider ${
+                    className={`nav-subtitle hidden lg:block luxury-font-sans font-light italic tracking-wider ${
                       i18n.language === "ru" ? "text-xs" : "text-xs"
                     }`}
                   >
@@ -454,7 +455,7 @@ const Header = () => {
                     {t("header.navigation.usine.title")}
                   </span>
                   <span
-                    className={`text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider ${
+                    className={`nav-subtitle hidden lg:block luxury-font-sans font-light italic tracking-wider ${
                       i18n.language === "ru" ? "text-xs" : "text-xs"
                     }`}
                   >
@@ -479,7 +480,7 @@ const Header = () => {
                     {t("header.navigation.carreVip.title")}
                   </span>
                   <span
-                    className={`text-stone-300 hidden lg:block luxury-font-sans font-light italic tracking-wider ${
+                    className={`nav-subtitle hidden lg:block luxury-font-sans font-light italic tracking-wider ${
                       i18n.language === "ru" ? "text-xs" : "text-xs"
                     }`}
                   >

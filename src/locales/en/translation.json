@@ -594,7 +594,7 @@
       "afterGolf": "After Golf",
       "arbreDeVie": "Tree of Life",
       "nouvelAge": "New Age",
-      "ceremoniesSpa": "Spa Ceremonies & Thalasso Treatments",
+      "ceremoniesSpa": "Oriental Ceremony & Thalasso Treatments",
       "weekendCool": "Cool Weekend"
     },
     "rituels": {
@@ -732,8 +732,8 @@
           "description": "Embrace a new era of well-being with our innovative treatments combining cutting-edge technologies, modern techniques and holistic approach for complete renewal."
         },
         "ceremonieSpa": {
-          "title": "Spa Ceremonies & Thalasso Treatments",
-          "description": "Complete experience combining spa ceremonies and thalasso treatments in our prestigious spaces, for an exceptional wellness journey that awakens all your senses."
+          "title": "Oriental Ceremony & Thalasso Treatments",
+          "description": "Complete experience combining Oriental ceremonies and thalasso treatments in our prestigious spaces, for an exceptional wellness journey that awakens all your senses."
         },
         "weekendCool": {
           "title": "Cool Weekend",
@@ -1005,37 +1005,36 @@
         }
       },
       "ceremonieSpa": {
-        "title": "Spa Ceremonies & Thalassotherapy Treatments",
-        "description": "Treatments follow one another, but are never the same. Enjoy 4 days to discover the benefits of thalassotherapy and the relaxing moments offered by spa treatments. The ideal compromise! Duration: 4 days* (average treatment duration per day: 2h30)",
-        "supplement": "In addition to your Marine Escape, the marine pathway with 'natural seawater' as well as the steam hammam are accessible before treatments.",
-        "loading": "Preparing your Spa Ceremonies program...",
+        "title": "Oriental Ceremony & Thalasso Treatments",
+        "description": "Treatments follow one another, but are never the same. Enjoy 4 days to discover the benefits of thalassotherapy and moments of relaxation.",
+        "supplement": "In addition to your Marine Escape, the marine course 'natural seawater' as well as the steam hammam are accessible before treatments.",
+        "loading": "Preparing your Oriental Ceremonies program...",
         "pricing": {
           "fourDays": "840 TND / 255 €"
         },
         "day1": {
-          "treatment1": "Access to the lagoon (Spa pool)",
-          "treatment2": "Aromas & Colors Hammam",
-          "treatment3": "Black soap scrub",
-          "treatment4": "Oriental clay cream wrap",
-          "treatment5": "Intense relaxation massage"
+          "treatment1": "Marine course",
+          "treatment2": "Black soap scrub",
+          "treatment3": "Oriental wrap with clay cream",
+          "treatment4": "Gentle breeze massage with coconut oil"
         },
         "day2": {
-          "treatment1": "Access to marine pathway and hammam before treatments",
-          "treatment2": "Revitalizing algae cream bath",
-          "treatment3": "Coconut pulp duo wrap",
-          "treatment4": "Sea mist massage with organic sea fennel"
+          "treatment1": "Marine course",
+          "treatment2": "Sea mist massage with apricot oil",
+          "treatment3": "Marine Force duo wrap",
+          "treatment4": "Back massage"
         },
         "day3": {
-          "treatment1": "Access to marine pathway and hammam before treatments",
-          "treatment2": "Underwater draining shower",
-          "treatment3": "Beneficial marine mud duo",
+          "treatment1": "Marine course",
+          "treatment2": "Revitalizing bath with algae cream",
+          "treatment3": "Oriental duo wrap Algae & Clay",
           "treatment4": "Gentle breeze massage with coconut oil"
         },
         "day4": {
-          "treatment1": "Access to the lagoon (Spa pool)",
-          "treatment2": "Tropical Walk in the hammam",
-          "treatment3": "Onsen Ceremony: Japanese bath",
-          "treatment4": "Facial Hydration Strategy"
+          "treatment1": "Marine course",
+          "treatment2": "Relaxing aromatic bath",
+          "treatment3": "Beneficial Marine Mud duo wrap",
+          "treatment4": "Personalized Essential Beauty facial treatment"
         }
       },
       "nouvelAge": {
