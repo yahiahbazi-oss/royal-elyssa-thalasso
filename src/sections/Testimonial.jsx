@@ -3,43 +3,43 @@ import { useTranslation } from "react-i18next";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 const thalion20 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479075/Thalasso_Thal20_z1hdgo.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759479075/Thalasso_Thal20_z1hdgo.jpg";
 const thalion7 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479076/Thalasso_7_b3qv13.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759479076/Thalasso_7_b3qv13.jpg";
 const thalion14 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479075/Thalasso_14_xroo2d.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759479075/Thalasso_14_xroo2d.jpg";
 const royalElyssa =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479075/royal_elyssa_thalas_jbqp8y.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759479075/royal_elyssa_thalas_jbqp8y.jpg";
 const thalion =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759479076/Thalasso__yanho8.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759479076/Thalasso__yanho8.jpg";
 const Salon_de_coiffure_Eric_Zemmour_1 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478066/Salon_de_coiffure_Eric_Zemmour_1_hhyomz.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759478066/Salon_de_coiffure_Eric_Zemmour_1_hhyomz.jpg";
 const Salon_de_coiffure_Eric_Zemmour_2 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478065/Salon_de_coiffure_Eric_Zemmour_2_ukur02.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759478065/Salon_de_coiffure_Eric_Zemmour_2_ukur02.jpg";
 const Salon_de_coiffure_Eric_Zemmour_3 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478065/Salon_de_coiffure_Eric_Zemmour_3_re4ih0.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759478065/Salon_de_coiffure_Eric_Zemmour_3_re4ih0.jpg";
 import Club_de_sport_lusine_2 from "../assets/club_de_sport_lusine/Club_de_sport_lusine_2.jpg";
 import Club_de_sport_lusine_6 from "../assets/club_de_sport_lusine/Club_de_sport_lusine_6.jpg";
 const Photo_35_sur_56 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478570/Photo___35_sur_56_em1rly.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759478570/Photo___35_sur_56_em1rly.jpg";
 const Photo_24_sur_56 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478571/Photo___24_sur_56_vatjoc.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759478571/Photo___24_sur_56_vatjoc.jpg";
 const Photo_1_sur_56 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478570/Photo___1_sur_56_npr6ws.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759478570/Photo___1_sur_56_npr6ws.jpg";
 const Photo_13_sur_56 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478571/Photo___13_sur_56_cycwou.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759478571/Photo___13_sur_56_cycwou.jpg";
 const Suites_SPA_11 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447159/Suites_SPA_11_ovryar.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759447159/Suites_SPA_11_ovryar.jpg";
 const Suites_SPA_10 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447120/Suites_SPA_10_dm4ufo.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759447120/Suites_SPA_10_dm4ufo.jpg";
 const Suites_SPA_20 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447244/Suites_SPA_20_on55ap.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759447244/Suites_SPA_20_on55ap.jpg";
 const Suites_SPA_14 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447220/Suites_SPA_14_guxjuq.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759447220/Suites_SPA_14_guxjuq.jpg";
 const carre_VIP_suite_spa_6 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__6_viruqq.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759447109/carre_VIP_suite_spa__6_viruqq.jpg";
 const carre_VIP_suite_spa_7 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447109/carre_VIP_suite_spa__7_dzbbhq.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759447109/carre_VIP_suite_spa__7_dzbbhq.jpg";
 
 const Testimonial = () => {
   const { t } = useTranslation();

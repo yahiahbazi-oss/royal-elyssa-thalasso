@@ -9,23 +9,23 @@ import { ChevronLeft, ChevronRight, Play, Pause, Eye } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const VitaliteMarine =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749137/vm_cgxiex.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759749137/vm_cgxiex.jpg";
 const DetoxSilhouette =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749136/dss_gbg5n1.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759749136/dss_gbg5n1.jpg";
 const RelaxationMarine =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749136/rm_luzn0u.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759749136/rm_luzn0u.jpg";
 const ForMen =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749136/fm_wfvnwm.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759749136/fm_wfvnwm.jpg";
 const AfterGolf =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749136/ag_xdoimu.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759749136/ag_xdoimu.jpg";
 const ArbreDeVie =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749391/av_tau9kw.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759749391/av_tau9kw.jpg";
 const NouvelAge =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749136/nag_uljrjc.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759749136/nag_uljrjc.jpg";
 const CeremoniesSpa =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749136/cs_ixtr6q.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759749136/cs_ixtr6q.jpg";
 const WeekendCool =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749136/wco_clhqyl.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759749136/wco_clhqyl.jpg";
 
 const ThemeSection = ({
   scrollToSoins,

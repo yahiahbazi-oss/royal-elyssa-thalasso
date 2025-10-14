@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 
 // Import your images
 const Thalasso_Thalion_3 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477821/Thalasso_Thal_ion_3_nfaihh.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/f_avif/v1759477821/Thalasso_Thal_ion_3_nfaihh.jpg";
 const Espace_THEMAE_9 = "../assets/Espace_THEMAE_9.jpg";
 const Thalion_RoyalElyssa =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477822/thalion-royalelyssa.jpg__3876x1912_q85_crop_subsampling-2_upscale_qxd1c0.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/f_avif/v1759477822/thalion-royalelyssa.jpg__3876x1912_q85_crop_subsampling-2_upscale_qxd1c0.jpg";
 const Photo_14_sur_56 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477822/Photo___14_sur_56_dvdjlu.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/f_avif/v1759477822/Photo___14_sur_56_dvdjlu.jpg";
 const Suites_SPA_11 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759477815/Suites_SPA_11_wkegfc.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/f_avif/v1759477815/Suites_SPA_11_wkegfc.jpg";
 
 const Hero = () => {
   const { t } = useTranslation();

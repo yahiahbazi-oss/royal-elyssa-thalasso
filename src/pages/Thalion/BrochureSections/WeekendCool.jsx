@@ -5,11 +5,11 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 // Import static images - replaced with Cloudinary URLs
-const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755552/wc1_uf26d2.jpg";
-const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755548/wc2_yivfmi.jpg";
+const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755552/wc1_uf26d2.jpg";
+const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755548/wc2_yivfmi.jpg";
 
-// Import Video - replaced with Cloudinary URL
-const weekendCoolVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/v1759755668/wc_s1ovwb.webm";
+// Import Video - replaced with Cloudinary URL, optimized for 480p
+const weekendCoolVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/q_auto,f_auto,w_854/v1759755668/wc_s1ovwb.webm";
 
 // Memoized static data to prevent recreation on each render
 const dayImages = {

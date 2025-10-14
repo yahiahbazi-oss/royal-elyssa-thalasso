@@ -6,21 +6,21 @@ import { useTranslation } from "react-i18next";
 
 // Import static images - replaced with Cloudinary URLs
 const jour1 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754506/AA1_ivakr2.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759754506/AA1_ivakr2.jpg";
 const jour2 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA2_saak8b.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759754497/AA2_saak8b.jpg";
 const jour3 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA3_mymn7a.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759754497/AA3_mymn7a.jpg";
 const jour4 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA4_mzzoym.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759754497/AA4_mzzoym.jpg";
 const jour5 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754496/AA5_j2ize0.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759754496/AA5_j2ize0.jpg";
 const jour6 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA6_smiw69.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759754497/AA6_smiw69.jpg";
 
-// Import Video - replaced with Cloudinary URL
+// Import Video - replaced with Cloudinary URL, optimized for 480p
 const arbreVideo =
-  "https://res.cloudinary.com/dxoje33mm/video/upload/v1759754989/ar_bp3lo1.mp4";
+  "https://res.cloudinary.com/dxoje33mm/video/upload/q_auto,f_auto,w_854/v1759754989/ar_bp3lo1.mp4";
 
 // Memoized static data to prevent recreation on each render
 const dayImages = {

@@ -6,16 +6,16 @@ import { useTranslation } from "react-i18next";
 
 // Import static images - replaced with Cloudinary URLs
 const jour1 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755146/ce1_mikfnc.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755146/ce1_mikfnc.jpg";
 const jour2 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755140/ce2_z5osma.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755140/ce2_z5osma.jpg";
 const jour3 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755140/ce3_y4xdgx.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755140/ce3_y4xdgx.jpg";
 const jour4 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759755140/ce4_kgk904.jpg";
-// Import Video - replaced with Cloudinary URL
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755140/ce4_kgk904.jpg";
+// Import Video - replaced with Cloudinary URL, optimized for 480p
 const ceremonieVideo =
-  "https://res.cloudinary.com/dxoje33mm/video/upload/v1759755146/ce_tezowe.webm";
+  "https://res.cloudinary.com/dxoje33mm/video/upload/q_auto,f_auto,w_854/v1759755146/ce_tezowe.webm";
 
 // Memoized static data to prevent recreation on each render
 const dayImages = {

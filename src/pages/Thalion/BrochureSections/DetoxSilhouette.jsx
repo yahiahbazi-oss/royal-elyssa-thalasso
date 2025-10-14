@@ -4,15 +4,15 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 // Import static images for DetoxSilhouette - replaced with Cloudinary URLs
-const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759750211/SI1_vzwfzr.jpg";
-const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759750212/SI2_hj1tki.jpg";
-const jour3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759750212/SI3_ebcyzc.jpg";
-const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759750214/SI4_hnmoxb.jpg";
-const jour5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759750221/SI5_arzdiw.jpg";
-const jour6 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759750222/SI6_yqz5jf.jpg";
+const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759750211/SI1_vzwfzr.jpg";
+const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759750212/SI2_hj1tki.jpg";
+const jour3 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759750212/SI3_ebcyzc.jpg";
+const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759750214/SI4_hnmoxb.jpg";
+const jour5 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759750221/SI5_arzdiw.jpg";
+const jour6 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759750222/SI6_yqz5jf.jpg";
 
-// Import Video - replaced with Cloudinary URL
-const aquaVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/v1759751775/Aquacycling_compressed_gbugma.mp4";
+// Import Video - replaced with Cloudinary URL, optimized for 480p
+const aquaVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/q_auto,f_auto,w_854/v1759751775/Aquacycling_compressed_gbugma.mp4";
 
 const DetoxSilhouette = React.memo(() => {
   const { t } = useTranslation();

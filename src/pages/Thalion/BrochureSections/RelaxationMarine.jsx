@@ -4,14 +4,14 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 // Import static images - replaced with Cloudinary URLs
-const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759753789/RR1_nym7ra.jpg";
-const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759753789/RR2_m3suam.jpg";
-const jour3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759753789/RR3_oibxl5.jpg";
-const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759753789/RR4_qbo16p.jpg";
-const jour5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759753789/RR5_vowysm.jpg";
+const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759753789/RR1_nym7ra.jpg";
+const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759753789/RR2_m3suam.jpg";
+const jour3 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759753789/RR3_oibxl5.jpg";
+const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759753789/RR4_qbo16p.jpg";
+const jour5 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759753789/RR5_vowysm.jpg";
 
-// Import Video - replaced with Cloudinary URL
-const masseurVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/v1759753935/unemasseusesea_mvc67g.webm";
+// Import Video - replaced with Cloudinary URL, optimized for 480p
+const masseurVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/q_auto,f_auto,w_854/v1759753935/unemasseusesea_mvc67g.webm";
 
 const RelaxationMarine = React.memo(() => {
   const { t } = useTranslation();

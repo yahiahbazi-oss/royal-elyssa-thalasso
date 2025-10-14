@@ -186,9 +186,8 @@ const Header = () => {
             filter: none;
           }
 
-          /* Subtitle under nav title: bold and very dark for visibility on white */
+          /* Subtitle under nav title */
           .nav-subtitle {
-            color: #1a1a1a !important;
             opacity: 1 !important;
             text-shadow: none !important;
             font-weight: 600 !important;
@@ -396,7 +395,7 @@ const Header = () => {
               >
                 <div className="flex flex-col items-center">
                   <span
-                    className={`luxury-font-serif font-semibold tracking-wide text-shadow-luxury gold-text-24k ${
+                    className={`luxury-font-serif font-semibold tracking-wide text-shadow-luxury gold-text-24k text-white ${
                       i18n.language === "ru"
                         ? "text-xs lg:text-base"
                         : "text-sm lg:text-lg"
@@ -405,7 +404,7 @@ const Header = () => {
                     {t("header.navigation.thalion.title")}
                   </span>
                   <span
-                    className={`nav-subtitle hidden lg:block luxury-font-sans font-light italic tracking-wider ${
+                    className={`nav-subtitle hidden lg:block luxury-font-sans font-light italic tracking-wider text-white ${
                       i18n.language === "ru" ? "text-xs" : "text-xs"
                     }`}
                   >

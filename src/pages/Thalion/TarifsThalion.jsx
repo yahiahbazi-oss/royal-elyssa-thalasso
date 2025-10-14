@@ -10,11 +10,11 @@ import asiatiqueIcon from "./BrochureSections/assets/file (9).png";
 import polynesienneIcon from "./BrochureSections/assets/file (10).png";
 import amazonienneIcon from "./BrochureSections/assets/file (11).png";
 
-import orientalImage from "./BrochureSections/assets/B1.JPG";
-import atlantiqueImage from "./BrochureSections/assets/B2.JPG";
-import asiatiqueImage from "./BrochureSections/assets/B3.JPG";
-import polynesienneImage from "./BrochureSections/assets/B4.JPG";
-import amazonienneImage from "./BrochureSections/assets/B5.JPG";
+const orientalImage = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1760110874/B1_g2w69e.jpg";
+const atlantiqueImage = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1760110886/B2_vzlu7f.jpg";
+const asiatiqueImage = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1760110900/B3_gyavom.jpg";
+const polynesienneImage = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1760110886/B2_vzlu7f.jpg";
+const amazonienneImage = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1760110936/B5_j0gn2j.jpg";
 
 const TarifsThalion = ({ selectedRituel }) => {
   const { t } = useTranslation();
