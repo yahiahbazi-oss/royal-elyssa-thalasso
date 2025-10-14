@@ -11,8 +11,8 @@ const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749906/new
 const jour5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749906/oneworld-spa-treatment-cream-bath-1_sbyvxw.jpg";
 const jour6 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759749906/Linstant-Spa-Photo-4_bgcldn.jpg";
 
-// Import Video - replaced with Cloudinary URL
-const masseurVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/v1759750090/Masseur_aitjwi.webm";
+// Import Video - replaced with Cloudinary URL, optimized for 360p
+const masseurVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/q_auto,f_auto,w_640/v1759750090/Masseur_aitjwi.webm";
 
 const NosSoins = React.memo(() => {
   const { t } = useTranslation();

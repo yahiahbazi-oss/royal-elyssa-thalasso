@@ -38,7 +38,7 @@ const CoverSection = ({ language = "fr" }) => {
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(https://res.cloudinary.com/dxoje33mm/image/upload/v1759448440/thaliion_uneryj.jpg)`,
+            backgroundImage: `url(https://res.cloudinary.com/dxoje33mm/image/upload/v1760434630/L1_rnjkyi.avif)`,
           }}
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}

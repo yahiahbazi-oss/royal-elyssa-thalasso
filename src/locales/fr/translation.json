@@ -762,7 +762,7 @@
       "pricingDisclaimer": "Les tarifs en euros sont donnés seulement à titre indicatif",
       "day": "Jour",
       "dayProgram": "Programme du jour",
-      "approximateDuration": "Durée approximative: 3h30",
+
       "close": "Fermer",
       "moretreatments": "+1 autres soins...",
       "clickForDetails": "Cliquez pour plus de détails",
@@ -771,43 +771,43 @@
       "discoverDetailedProgram": "Découvrez le programme détaillé",
       "otherTreatments": "autres soins...",
       "vitaliteMarine": {
-        "description": "* Journée supplémentaire sur demande. Cette cure revitalisante vous redonne énergie et vitalité grâce aux bienfaits de l'eau de mer et aux soins marins. Idéale pour retrouver forme et bien-être, elle combine massages relaxants, bains marins et soins énergisants. Vous aimerez : Les massages relaxants et l'utilisation exclusive des produits marins Thal'ion. Durée : 4, 6 ou 9 jours (durée moyenne des soins par jour : 3 h 30)",
+        "description": "* Faites le plein d’énergie & de vitalité. Prenez le large et profitez des bienfaits des algues et de la mer zà travers les différents soins proposés. Votre corps est en pleine forme, reminéralisé de l’intérieur. Vous aimerez: La diversité et la complémentarité des soins d’eau de mer, d’algues et de massages profonds 40’. Durée: 4, 6 ou 9 jours (durée moyenne des soins par jour : 3 h 00)",
         "supplement": "En complément de votre Escale Marine, le parcours marin « eau de mer naturelle » ainsi que le hammam vapeur sont accessibles avant les soins.",
         "day1": {
-          "treatment1": "Bain hydro-aromatique relaxant",
-          "treatment2": "Gommage corps aux algues marines",
-          "treatment3": "Enveloppement vitalité aux eaux mères",
-          "treatment4": "Massage californien relaxant"
+          "treatment1": "Gommage tonique aux agrumes",
+          "treatment2": "Bain revitalisant à la crème d’algues",
+          "treatment3": "Duo enveloppement force marine",
+          "treatment4": "Massage douceur de brise à l’huile de coco"
         },
         "day2": {
-          "treatment1": "Aqua-relaxation en piscine d'eau de mer",
-          "treatment2": "Grand jet relaxant tonifiant",
-          "treatment3": "Duo enveloppement force marine",
-          "treatment4": "Massage aux pierres chaudes"
+          "treatment1": "Grand jet tonique ou douche à pomme",
+          "treatment2": "Massage bruine de mer à la criste marine Bio",
+          "treatment3": "Duo enveloppement chaleur algues-cacao",
+          "treatment4": "Massage souffle d’énergie à l’huile de noix du Brésil"
         },
         "day3": {
-          "treatment1": "Bain hydro-aromatique revitalisant",
-          "treatment2": "Gommage énergisant aux cristaux marins",
-          "treatment3": "Enveloppement detox aux algues",
-          "treatment4": "Massage californien aux huiles essentielles"
+          "treatment1": "Bain aromatique relaxant",
+          "treatment2": "Duo enveloppement force marine",
+          "treatment3": "Douche drainante sous marine",
+          "treatment4": "Massage douceur de brise à l’huile de coco"
         },
         "day4": {
-          "treatment1": "Aqua-relaxation en piscine d'eau de mer",
-          "treatment2": "Douche drainante sous marine",
-          "treatment3": "Enveloppement vitalité aux eaux mères",
-          "treatment4": "Massage relaxant du dos et nuque"
+          "treatment1": "Grand jet tonique ou douche à pomme",
+          "treatment2": "Massage bruine de mer à la criste marine Bio",
+          "treatment3": "Duo enveloppement chaleur algues-cacao",
+          "treatment4": "Massage souffle d’énergie à l’huile de noix du Brésil"
         },
         "day5": {
-          "treatment1": "Bain hydro-aromatique relaxant",
-          "treatment2": "Grand jet relaxant tonifiant",
-          "treatment3": "Duo enveloppement aux algues marines",
-          "treatment4": "Massage californien intégral"
+          "treatment1": "Bain revitalisant à la crème d’algues",
+          "treatment2": "Duo enveloppement force marine",
+          "treatment3": "Douche drainante sous marine",
+          "treatment4": "Massage douceur de brise à l’huile de coco"
         },
         "day6": {
-          "treatment1": "Aqua-relaxation en piscine d'eau de mer",
-          "treatment2": "Gommage corps revitalisant",
-          "treatment3": "Enveloppement force marine",
-          "treatment4": "Massage aux pierres chaudes et huiles"
+          "treatment1": "Grand jet tonique ou douche à pomme",
+          "treatment2": "Massage bruine de mer à la criste marine Bio",
+          "treatment3": "Duo enveloppement chaleur algues-cacao",
+          "treatment4": "Massage souffle d’énergie à l’huile de noix du Brésil"
         }
       },
       "detoxSilhouette": {
@@ -1012,11 +1012,17 @@
           "treatment2": "Douche drainante sous marine",
           "treatment3": "Rééducation du dos en piscine",
           "treatment4": "Massage du dos"
+        },
+        "day6": {
+          "treatment1": "Bain revitalisant à la crème d’algues",
+          "treatment2": "Massage bruine de mer à la criste marine Bio",
+          "treatment3": "Rééducation du dos en salle",
+          "treatment4": "Massage du dos"
         }
       },
       "ceremonieSpa": {
         "title": "Cérémonie Orientale & Soins de Thalasso",
-        "description": "Les soins se succèdent, mais ne se ressemblent pas. Profitez de 4 jours pour découvrir les bienfaits de la thalassothérapie et les moments de détente.",
+        "description": "Les soins se succèdent, mais ne se ressemblent pas. Profitez de 4 jours pour découvrir les bienfaits de la thalassothérapie et les moments de détente. (durée moyenne des soins par jour: 2h30)",
         "supplement": "En complément de votre Escale Marine, le parcours marin « eau de mer naturelle » ainsi que le hammam vapeur sont accessibles avant les soins.",
         "loading": "Préparation de votre programme Cérémonies du Spa...",
         "pricing": {

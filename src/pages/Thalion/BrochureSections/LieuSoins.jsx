@@ -3,16 +3,16 @@ import { useTranslation } from "react-i18next";
 
 // Cloudinary image URLs
 const aq1 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746493/aq1_qc3iqh.jpg";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1760435026/L2_awjhsd.avif";
 
 const hydro1 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746610/hydro1_mti38o.webp";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1760435026/L3_hjyhgp.avif";
 
 const hammam1 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746609/hammam1_asixfp.webp";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1760435026/L4_fikqn1.avif";
 
 const serenite1 =
-  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759746640/serenite1_dgxkyc.webp";
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1760435026/L5_lbvnqz.avif";
 
 const LieuSoins = () => {
   const { t } = useTranslation();
@@ -20,7 +20,7 @@ const LieuSoins = () => {
   return (
     <div className="w-full">
       {/* First Section - THALION Introduction */}
-  <section className="min-h-screen bg-gradient-to-br from-slate-900 via-stone-800 to-amber-900 py-10 px-2 sm:py-16 sm:px-6 flex flex-col items-center justify-center relative overflow-hidden">
+      <section className="min-h-screen bg-gradient-to-br from-slate-900 via-stone-800 to-amber-900 py-10 px-2 sm:py-16 sm:px-6 flex flex-col items-center justify-center relative overflow-hidden">
         {/* Luxury background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-amber-400/20 to-yellow-300/20 rounded-full blur-3xl animate-pulse"></div>
@@ -40,7 +40,7 @@ const LieuSoins = () => {
           </div>
         </div>
 
-  <div className="w-full max-w-5xl mx-auto text-center relative z-10">
+        <div className="w-full max-w-5xl mx-auto text-center relative z-10">
           {/* Static Title - No Animation */}
           <div className="mb-10 sm:mb-16">
             {/* THALION Brand */}
@@ -118,7 +118,7 @@ const LieuSoins = () => {
       </section>
 
       {/* Second Section - Espace Aquatique */}
-  <section className="relative w-full min-h-[60vh] sm:min-h-screen bg-black overflow-hidden flex flex-col sm:flex-row items-center justify-center p-0">
+      <section className="relative w-full min-h-[60vh] sm:min-h-screen bg-black overflow-hidden flex flex-col sm:flex-row items-center justify-center p-0">
         <img
           src={aq1}
           alt="Espace aquatique"
@@ -145,7 +145,7 @@ const LieuSoins = () => {
         </div>
       </section>
 
-  <section className="relative w-full min-h-[60vh] sm:min-h-screen bg-black overflow-hidden flex flex-col sm:flex-row items-center justify-center p-0">
+      <section className="relative w-full min-h-[60vh] sm:min-h-screen bg-black overflow-hidden flex flex-col sm:flex-row items-center justify-center p-0">
         <img
           src={hydro1}
           alt="Espace hydrothérapie"
@@ -172,7 +172,7 @@ const LieuSoins = () => {
         </div>
       </section>
 
-  <section className="relative w-full min-h-[60vh] sm:min-h-screen bg-black overflow-hidden flex flex-col sm:flex-row items-center justify-center p-0">
+      <section className="relative w-full min-h-[60vh] sm:min-h-screen bg-black overflow-hidden flex flex-col sm:flex-row items-center justify-center p-0">
         <img
           src={hammam1}
           alt="Espace hammam"
@@ -199,7 +199,7 @@ const LieuSoins = () => {
         </div>
       </section>
 
-  <section className="relative w-full min-h-[60vh] sm:min-h-screen bg-black overflow-hidden flex flex-col sm:flex-row items-center justify-center p-0">
+      <section className="relative w-full min-h-[60vh] sm:min-h-screen bg-black overflow-hidden flex flex-col sm:flex-row items-center justify-center p-0">
         <img
           src={serenite1}
           alt="Espace sérénité"

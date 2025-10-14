@@ -154,7 +154,16 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
     }));
   };
 
-  const DayPopup = ({ day, activities, image, onClose }) => (
+  const DayPopup = ({
+    day,
+    activities,
+    image,
+    onClose,
+    onPrev,
+    onNext,
+    hasPrev,
+    hasNext,
+  }) => (
     <AnimatePresence>
       <motion.div
         initial={{ opacity: 0 }}
@@ -197,6 +206,42 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
                   </h3>
                 </div>
               </div>
+
+              {/* Navigation Buttons */}
+              {hasPrev && (
+                <div className="group flex flex-col items-center absolute left-2 top-1/2 -translate-y-1/2 z-20">
+                  <button
+                    onClick={onPrev}
+                    className={`text-white p-2 rounded-full bg-gradient-to-r ${colors.gradient} hover:${colors.gradientHover}`}
+                    style={{ backdropFilter: "blur(4px)" }}
+                  >
+                    <ChevronDown
+                      style={{ transform: "rotate(90deg)" }}
+                      className="h-6 w-6"
+                    />
+                  </button>
+                  <div className="mt-2 bg-white/90 text-stone-700 text-xs px-3 py-1 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                    {t("thalion.nosSoins.day")} {parseInt(day, 10) - 1}
+                  </div>
+                </div>
+              )}
+              {hasNext && (
+                <div className="group flex flex-col items-center fixed right-0 top-1/2 -translate-y-1/2 z-[120] mr-2">
+                  <button
+                    onClick={onNext}
+                    className={`text-white p-2 rounded-full bg-gradient-to-r ${colors.gradient} hover:${colors.gradientHover}`}
+                    style={{ backdropFilter: "blur(4px)" }}
+                  >
+                    <ChevronDown
+                      style={{ transform: "rotate(-90deg)" }}
+                      className="h-6 w-6"
+                    />
+                  </button>
+                  <div className="mt-2 bg-white/90 text-stone-700 text-xs px-3 py-1 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-[130]">
+                    {t("thalion.nosSoins.day")} {parseInt(day, 10) + 1}
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="flex-1 p-6 lg:p-8 overflow-y-auto">
@@ -204,12 +249,6 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
                 <h4 className="text-2xl lg:text-3xl font-serif text-stone-800 mb-2">
                   {t("thalion.nosSoins.dayProgram")}
                 </h4>
-                <div className="flex items-center text-stone-500">
-                  <Clock className="h-4 w-4 mr-2" />
-                  <span className="text-sm">
-                    {t("thalion.nosSoins.approximateDuration")}
-                  </span>
-                </div>
               </div>
 
               <div className="space-y-3">
@@ -249,8 +288,33 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
     </AnimatePresence>
   );
 
+  // Helper to get ordered days array
+  const dayKeys = useMemo(
+    () => Object.keys(treatment.days || {}),
+    [treatment.days]
+  );
+
+  // Handler for popup navigation
+  const handleDayPopupNav = (direction) => {
+    if (!selectedDay) return;
+    const idx = dayKeys.indexOf(selectedDay.day);
+    const newIdx = direction === "prev" ? idx - 1 : idx + 1;
+    if (newIdx >= 0 && newIdx < dayKeys.length) {
+      const newDay = dayKeys[newIdx];
+      setSelectedDay({
+        day: newDay,
+        activities: treatment.days[newDay],
+        image: dayImages[newDay],
+      });
+    }
+  };
+
   return (
-    <div className="min-h-screen relative overflow-hidden" id="vitalite-marine" data-section="vitalite-marine">
+    <div
+      className="min-h-screen relative overflow-hidden"
+      id="vitalite-marine"
+      data-section="vitalite-marine"
+    >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -260,9 +324,7 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
-      <div
-        className="relative z-10 text-center pt-8 pb-4 px-4"
-      >
+      <div className="relative z-10 text-center pt-8 pb-4 px-4">
         <h2 className="text-3xl lg:text-5xl font-serif font-light text-white mb-6 drop-shadow-lg">
           {treatmentTitle}
         </h2>
@@ -278,9 +340,7 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
 
       {/* Desktop supplement text - between description and circles */}
       {treatment.supplement && (
-        <div
-          className="relative z-10 px-4 pb-2 hidden md:block"
-        >
+        <div className="relative z-10 px-4 pb-2 hidden md:block">
           <div className="max-w-2xl mx-auto text-center">
             <div className="flex items-center justify-center gap-2 text-white/95 mb-2">
               <Waves className="h-4 w-4 text-teal-300" />
@@ -347,9 +407,7 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
 
       {/* Mobile supplement text at bottom - same as before */}
       {treatment.supplement && (
-        <div
-          className="relative z-10 px-4 pb-8 block md:hidden"
-        >
+        <div className="relative z-10 px-4 pb-8 block md:hidden">
           <div className="max-w-3xl mx-auto text-center">
             <div className="flex items-center justify-center gap-3 text-white/95 mb-3">
               <Waves className="h-5 w-5 text-teal-300" />
@@ -367,9 +425,7 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
 
       {/* Pricing Section */}
       {treatment.pricing && (
-        <div
-          className="relative z-0 px-4 pb-8 flex justify-center"
-        >
+        <div className="relative z-0 px-4 pb-8 flex justify-center">
           <div className="max-w-2xl mx-auto text-center">
             <div className="flex items-center justify-center gap-2 text-white/95 mb-6">
               <Clock className="h-5 w-5 text-amber-300" />
@@ -409,6 +465,10 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
           activities={selectedDay.activities}
           image={selectedDay.image}
           onClose={() => setSelectedDay(null)}
+          onPrev={() => handleDayPopupNav("prev")}
+          onNext={() => handleDayPopupNav("next")}
+          hasPrev={dayKeys.indexOf(selectedDay.day) > 0}
+          hasNext={dayKeys.indexOf(selectedDay.day) < dayKeys.length - 1}
         />
       )}
     </div>
@@ -471,14 +531,7 @@ const MobileDayCard = ({
         {/* Treatment Count */}
         <div
           className={`absolute bottom-4 left-4 ${colors.bgAccent} backdrop-blur-sm px-3 py-1 rounded-full`}
-        >
-          <div className="flex items-center gap-2">
-            <Clock className="h-3 w-3 text-white" />
-            <span className="text-white text-xs font-medium">
-              {activities?.length || 0} {t("thalion.nosSoins.treatments")} • 3h30
-            </span>
-          </div>
-        </div>
+        ></div>
       </div>
 
       {/* Expandable Content */}
@@ -608,9 +661,7 @@ const CircleItem = React.memo(
         onMouseLeave={onLeave}
         onClick={onClick}
       >
-        <div
-          className="text-white font-medium mb-3 text-sm lg:text-base drop-shadow-lg text-center"
-        >
+        <div className="text-white font-medium mb-3 text-sm lg:text-base drop-shadow-lg text-center">
           {t("thalion.nosSoins.day")} {day}
         </div>
 
@@ -650,10 +701,7 @@ const CircleItem = React.memo(
                   <h4 className="text-xs font-semibold text-stone-800 mb-1">
                     {t("thalion.nosSoins.day")} {day}
                   </h4>
-                  <div className="flex items-center text-stone-500 text-xs mb-1">
-                    <Clock className="h-3 w-3 mr-1" />
-                    <span>{activities?.length || 0} {t("thalion.nosSoins.treatments")} - 3h30</span>
-                  </div>
+
                   <div className="space-y-0.5">
                     {activities?.slice(0, 3).map((activity, i) => (
                       <div
@@ -670,7 +718,8 @@ const CircleItem = React.memo(
                     ))}
                     {activities?.length > 3 && (
                       <div className="text-xs text-stone-400 italic mt-1">
-                        +{activities.length - 3} {t("thalion.nosSoins.otherTreatments")}
+                        +{activities.length - 3}{" "}
+                        {t("thalion.nosSoins.otherTreatments")}
                       </div>
                     )}
                   </div>

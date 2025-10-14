@@ -761,44 +761,44 @@
       "discoverDetailedProgram": "Discover the detailed program",
       "otherTreatments": "other treatments...",
       "vitaliteMarine": {
-        "description": "* Additional day on request. This revitalizing treatment restores your energy and vitality through the benefits of seawater and marine treatments. Ideal for regaining form and well-being, it combines relaxing massages, marine baths and energizing treatments. You will love: Relaxing massages and the exclusive use of Thal'ion marine products. Duration: 4, 6 or 9 days (average treatment duration per day: 3h 30)",
-        "supplement": "In addition to your Marine Escape, the marine course 'natural seawater' as well as the steam hammam are accessible before treatments.",
-        "day1": {
-          "treatment1": "Relaxing hydro-aromatic bath",
-          "treatment2": "Marine algae body scrub",
-          "treatment3": "Vitality wrap with mother waters",
-          "treatment4": "Relaxing California massage"
-        },
-        "day2": {
-          "treatment1": "Aqua-relaxation in seawater pool",
-          "treatment2": "Large relaxing toning jet",
-          "treatment3": "Marine force duo wrap",
-          "treatment4": "Hot stone massage"
-        },
-        "day3": {
-          "treatment1": "Revitalizing hydro-aromatic bath",
-          "treatment2": "Energizing marine crystal scrub",
-          "treatment3": "Detox algae wrap",
-          "treatment4": "California massage with essential oils"
-        },
-        "day4": {
-          "treatment1": "Aqua-relaxation in seawater pool",
-          "treatment2": "Draining underwater shower",
-          "treatment3": "Vitality wrap with mother waters",
-          "treatment4": "Relaxing back and neck massage"
-        },
-        "day5": {
-          "treatment1": "Relaxing hydro-aromatic bath",
-          "treatment2": "Large relaxing toning jet",
-          "treatment3": "Marine algae duo wrap",
-          "treatment4": "Full California massage"
-        },
-        "day6": {
-          "treatment1": "Aqua-relaxation in seawater pool",
-          "treatment2": "Revitalizing body scrub",
-          "treatment3": "Marine force wrap",
-          "treatment4": "Hot stone and oil massage"
-        }
+          "description": "* Recharge your energy & vitality. Set sail and enjoy the benefits of algae and the sea through the various treatments offered. Your body is in great shape, remineralized from within. You will love: The diversity and complementarity of seawater treatments, algae, and deep massages 40’. Duration: 4, 6 or 9 days (average treatment duration per day: 3h 00)",
+          "supplement": "In addition to your Marine Escape, the marine pathway with 'natural seawater' as well as the steam hammam are accessible before treatments.",
+          "day1": {
+            "treatment1": "Toning citrus scrub",
+            "treatment2": "Revitalizing algae cream bath",
+            "treatment3": "Marine force duo wrap",
+            "treatment4": "Gentle breeze massage with coconut oil"
+          },
+          "day2": {
+            "treatment1": "Grand tonic jet or hand shower",
+            "treatment2": "Sea mist massage with organic sea fennel",
+            "treatment3": "Warm algae-cocoa duo wrap",
+            "treatment4": "Energy breath massage with Brazil nut oil"
+          },
+          "day3": {
+            "treatment1": "Relaxing aromatic bath",
+            "treatment2": "Marine force duo wrap",
+            "treatment3": "Underwater draining shower",
+            "treatment4": "Gentle breeze massage with coconut oil"
+          },
+          "day4": {
+            "treatment1": "Grand tonic jet or hand shower",
+            "treatment2": "Sea mist massage with organic sea fennel",
+            "treatment3": "Warm algae-cocoa duo wrap",
+            "treatment4": "Energy breath massage with Brazil nut oil"
+          },
+          "day5": {
+            "treatment1": "Revitalizing algae cream bath",
+            "treatment2": "Marine force duo wrap",
+            "treatment3": "Underwater draining shower",
+            "treatment4": "Gentle breeze massage with coconut oil"
+          },
+          "day6": {
+            "treatment1": "Grand tonic jet or hand shower",
+            "treatment2": "Sea mist massage with organic sea fennel",
+            "treatment3": "Warm algae-cocoa duo wrap",
+            "treatment4": "Energy breath massage with Brazil nut oil"
+          }
       },
       "detoxSilhouette": {
         "description": "* Additional day on request. This slimming treatment combines physical activities, slimming treatments and dietary advice to help you rebalance your body. The silhouette is reshaped, the skin is firmed. You regain a harmonious and toned body. You will love: The 25' or 50' massages and the personalized follow-up offered by a sports coach. Duration: 4, 6 or 9 days (average treatment duration per day: 3h 30)",
@@ -1002,11 +1002,17 @@
           "treatment2": "Underwater draining shower",
           "treatment3": "Back rehabilitation in pool",
           "treatment4": "Back massage"
+        },
+        "day6": {
+          "treatment1": "Revitalizing algae cream bath",
+          "treatment2": "Sea mist massage with organic sea fennel",
+          "treatment3": "Back rehabilitation in room",
+          "treatment4": "Back massage"
         }
       },
       "ceremonieSpa": {
         "title": "Oriental Ceremony & Thalasso Treatments",
-        "description": "Treatments follow one another, but are never the same. Enjoy 4 days to discover the benefits of thalassotherapy and moments of relaxation.",
+        "description": "Treatments follow one another, but are never the same. Enjoy 4 days to discover the benefits of thalassotherapy and moments of relaxation. (average treatment duration per day: 2h30)",
         "supplement": "In addition to your Marine Escape, the marine course 'natural seawater' as well as the steam hammam are accessible before treatments.",
         "loading": "Preparing your Oriental Ceremonies program...",
         "pricing": {

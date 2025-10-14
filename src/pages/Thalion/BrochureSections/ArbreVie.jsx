@@ -5,15 +5,22 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 // Import static images - replaced with Cloudinary URLs
-const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754506/AA1_ivakr2.jpg";
-const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA2_saak8b.jpg";
-const jour3 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA3_mymn7a.jpg";
-const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA4_mzzoym.jpg";
-const jour5 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754496/AA5_j2ize0.jpg";
-const jour6 = "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA6_smiw69.jpg";
+const jour1 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754506/AA1_ivakr2.jpg";
+const jour2 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA2_saak8b.jpg";
+const jour3 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA3_mymn7a.jpg";
+const jour4 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA4_mzzoym.jpg";
+const jour5 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754496/AA5_j2ize0.jpg";
+const jour6 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/v1759754497/AA6_smiw69.jpg";
 
 // Import Video - replaced with Cloudinary URL
-const arbreVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/v1759754989/ar_bp3lo1.mp4";
+const arbreVideo =
+  "https://res.cloudinary.com/dxoje33mm/video/upload/v1759754989/ar_bp3lo1.mp4";
 
 // Memoized static data to prevent recreation on each render
 const dayImages = {
@@ -27,48 +34,54 @@ const dayImages = {
 
 const ArbreVie = () => {
   const { t } = useTranslation();
-  
+
   // Memoized treatments data with translations
   const treatments = {
-    [t('thalion.nosSoins.arbreVie.title')]: {
-      description: t('thalion.nosSoins.arbreVie.description'),
-      supplement: t('thalion.nosSoins.arbreVie.supplement'),
+    [t("thalion.nosSoins.arbreVie.title")]: {
+      description: t("thalion.nosSoins.arbreVie.description"),
+      supplement: t("thalion.nosSoins.arbreVie.supplement"),
       pricing: [
-        { 
-          duration: `6 ${t('thalion.themeSection.days')}`, 
-          price: t('thalion.nosSoins.arbreVie.pricing.sixDays') 
+        {
+          duration: `6 ${t("thalion.themeSection.days")}`,
+          price: t("thalion.nosSoins.arbreVie.pricing.sixDays"),
         },
       ],
       days: {
         1: [
-          t('thalion.nosSoins.arbreVie.day1.treatment1'),
-          t('thalion.nosSoins.arbreVie.day1.treatment2'),
-          t('thalion.nosSoins.arbreVie.day1.treatment3'),
-          t('thalion.nosSoins.arbreVie.day1.treatment4'),
+          t("thalion.nosSoins.arbreVie.day1.treatment1"),
+          t("thalion.nosSoins.arbreVie.day1.treatment2"),
+          t("thalion.nosSoins.arbreVie.day1.treatment3"),
+          t("thalion.nosSoins.arbreVie.day1.treatment4"),
         ],
         2: [
-          t('thalion.nosSoins.arbreVie.day2.treatment1'),
-          t('thalion.nosSoins.arbreVie.day2.treatment2'),
-          t('thalion.nosSoins.arbreVie.day2.treatment3'),
-          t('thalion.nosSoins.arbreVie.day2.treatment4'),
+          t("thalion.nosSoins.arbreVie.day2.treatment1"),
+          t("thalion.nosSoins.arbreVie.day2.treatment2"),
+          t("thalion.nosSoins.arbreVie.day2.treatment3"),
+          t("thalion.nosSoins.arbreVie.day2.treatment4"),
         ],
         3: [
-          t('thalion.nosSoins.arbreVie.day3.treatment1'),
-          t('thalion.nosSoins.arbreVie.day3.treatment2'),
-          t('thalion.nosSoins.arbreVie.day3.treatment3'),
-          t('thalion.nosSoins.arbreVie.day3.treatment4'),
+          t("thalion.nosSoins.arbreVie.day3.treatment1"),
+          t("thalion.nosSoins.arbreVie.day3.treatment2"),
+          t("thalion.nosSoins.arbreVie.day3.treatment3"),
+          t("thalion.nosSoins.arbreVie.day3.treatment4"),
         ],
         4: [
-          t('thalion.nosSoins.arbreVie.day4.treatment1'),
-          t('thalion.nosSoins.arbreVie.day4.treatment2'),
-          t('thalion.nosSoins.arbreVie.day4.treatment3'),
-          t('thalion.nosSoins.arbreVie.day4.treatment4'),
+          t("thalion.nosSoins.arbreVie.day4.treatment1"),
+          t("thalion.nosSoins.arbreVie.day4.treatment2"),
+          t("thalion.nosSoins.arbreVie.day4.treatment3"),
+          t("thalion.nosSoins.arbreVie.day4.treatment4"),
         ],
         5: [
-          t('thalion.nosSoins.arbreVie.day5.treatment1'),
-          t('thalion.nosSoins.arbreVie.day5.treatment2'),
-          t('thalion.nosSoins.arbreVie.day5.treatment3'),
-          t('thalion.nosSoins.arbreVie.day5.treatment4'),
+          t("thalion.nosSoins.arbreVie.day5.treatment1"),
+          t("thalion.nosSoins.arbreVie.day5.treatment2"),
+          t("thalion.nosSoins.arbreVie.day5.treatment3"),
+          t("thalion.nosSoins.arbreVie.day5.treatment4"),
+        ],
+        6: [
+          t("thalion.nosSoins.arbreVie.day6.treatment1"),
+          t("thalion.nosSoins.arbreVie.day6.treatment2"),
+          t("thalion.nosSoins.arbreVie.day6.treatment3"),
+          t("thalion.nosSoins.arbreVie.day6.treatment4"),
         ],
       },
     },
@@ -164,7 +177,7 @@ const ArbreVie = () => {
             <div className="flex flex-col items-center space-y-4">
               <div className="w-12 h-12 border-4 border-stone-200 border-t-stone-400 rounded-full animate-spin"></div>
               <p className="text-stone-600 font-light">
-                {t('thalion.nosSoins.arbreVie.loading')}
+                {t("thalion.nosSoins.arbreVie.loading")}
               </p>
             </div>
           </div>
@@ -193,7 +206,7 @@ const ArbreVie = () => {
         />
       </div>
 
-  <style>{`
+      <style>{`
         @keyframes float {
           0%,
           100% {
