@@ -33,19 +33,15 @@ const CoverSection = ({ language = "fr" }) => {
     <div className="relative">
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
-        {" "}
-        {/* Changed from fixed to absolute */}
-        <motion.div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(https://res.cloudinary.com/dxoje33mm/image/upload/v1760434630/L1_rnjkyi.avif)`,
-          }}
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/40 to-slate-950/80" />
-        </motion.div>
+        {/* Fallback image is shown until video is fully loaded or if error occurs */}
+        <img
+          src="https://res.cloudinary.com/dxoje33mm/image/upload/q_90,f_avif/v1760442379/8_zqwhxw.jpg"
+          alt="Cover section fallback background"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+          style={{ zIndex: 1 }}
+        />
+        {/* Overlay for gradient effects */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/40 to-slate-950/80" />
       </div>
 
       {/* Content */}

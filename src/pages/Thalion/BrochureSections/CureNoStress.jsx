@@ -102,51 +102,46 @@ const CureNoStress = React.memo(() => {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="absolute inset-0 z-0">
-        {!videoError && masseurVideo && (
-          <div className="absolute inset-0">
-            <video
-              ref={videoRef}
-              src={masseurVideo}
-              alt="Stress relief therapy background"
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-                isVideoLoaded ? "opacity-50" : "opacity-0"
-              }`}
-              style={{
-                transform: "translate3d(0, 0, 0)",
-                backfaceVisibility: "hidden",
-              }}
-              loop
-              muted
-              playsInline
-              autoPlay
-              onCanPlay={() => {
-                setIsVideoLoaded(true);
-                setVideoError(false);
-                handleVideoLoad();
-              }}
-              onError={() => setVideoError(true)}
-              onPlaying={() => setIsVideoLoaded(true)}
-              onContextMenu={(e) => e.preventDefault()}
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/20"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-          </div>
+        {/* Fallback image is shown until video is fully loaded or if error occurs */}
+        {(!isVideoLoaded || videoError || !masseurVideo) && (
+          <img
+            src="https://res.cloudinary.com/dxoje33mm/image/upload/q_90,f_avif/v1760442375/4_wckhm6.jpg"
+            alt="Cure no stress fallback background"
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+            style={{ zIndex: 1 }}
+          />
         )}
-
-        {(videoError || !isVideoLoaded || !masseurVideo) && (
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-indigo-50 to-slate-100"></div>
+        {/* Video is only visible when loaded and no error */}
+        {masseurVideo && (
+          <video
+            ref={videoRef}
+            src={masseurVideo}
+            alt="Stress relief therapy background"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              isVideoLoaded && !videoError ? "opacity-50" : "opacity-0"
+            }`}
+            style={{
+              zIndex: 2,
+              transform: "translate3d(0, 0, 0)",
+              backfaceVisibility: "hidden",
+            }}
+            loop
+            muted
+            playsInline
+            autoPlay
+            onCanPlay={() => {
+              setIsVideoLoaded(true);
+              setVideoError(false);
+              handleVideoLoad();
+            }}
+            onError={() => setVideoError(true)}
+            onPlaying={() => setIsVideoLoaded(true)}
+            onContextMenu={(e) => e.preventDefault()}
+          />
         )}
-
-        {!isVideoLoaded && !videoError && masseurVideo && (
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-50 to-indigo-50">
-            <div className="flex flex-col items-center space-y-4">
-              <div className="w-12 h-12 border-4 border-purple-200 border-t-purple-500 rounded-full animate-spin"></div>
-              <p className="text-purple-600 font-light">
-                {t("thalion.nosSoins.cureNoStress.loading")}
-              </p>
-            </div>
-          </div>
-        )}
+        {/* Overlays for gradient effects */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
       </div>
 
       <div className="absolute inset-0 z-1 pointer-events-none">

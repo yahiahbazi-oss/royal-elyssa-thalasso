@@ -438,7 +438,7 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
               {treatment.pricing.map((option, index) => (
                 <div
                   key={index}
-                  className="bg-white/20 backdrop-blur-sm rounded-xl px-8 py-6 border border-white/30 hover:bg-white/25 transition-all duration-300 hover:scale-105 w-52 flex-shrink-0"
+                  className="bg-white/20 backdrop-blur-sm rounded-xl px-8 py-6 border border-white/30 w-52 flex-shrink-0"
                 >
                   <div className="text-white text-center flex flex-col items-center justify-center h-full min-h-[90px]">
                     <div className="text-lg font-medium mb-3 text-amber-200 text-center">

@@ -5,19 +5,26 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 // Import static images - replaced with Cloudinary URLs
-const jour1 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755356/na1_s1q2ln.jpg";
-const jour2 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755353/na2_oc54mt.jpg";
-const jour3 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755345/na3_gwn93p.jpg";
-const jour4 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755344/na4_bceumi.jpg";
-const jour5 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755343/na5_kzhqrg.jpg";
-const jour6 = "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755344/na6_mqyvy2.jpg";
+const jour1 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755356/na1_s1q2ln.jpg";
+const jour2 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755353/na2_oc54mt.jpg";
+const jour3 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755345/na3_gwn93p.jpg";
+const jour4 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755344/na4_bceumi.jpg";
+const jour5 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755343/na5_kzhqrg.jpg";
+const jour6 =
+  "https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_800/v1759755344/na6_mqyvy2.jpg";
 
 // Import Video - replaced with Cloudinary URL, optimized for 480p
-const nouvelAgeVideo = "https://res.cloudinary.com/dxoje33mm/video/upload/q_auto,f_auto,w_854/v1759755450/na_jdragh.webm";
+const nouvelAgeVideo =
+  "https://res.cloudinary.com/dxoje33mm/video/upload/q_auto,f_auto,w_854/v1759755450/na_jdragh.webm";
 
 const NouvelAge = () => {
   const { t } = useTranslation();
-  
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -62,49 +69,49 @@ const NouvelAge = () => {
 
   // Memoized treatments data with translations
   const treatments = {
-    [t('thalion.nosSoins.nouvelAge.title')]: {
-      description: t('thalion.nosSoins.nouvelAge.description'),
-      supplement: t('thalion.nosSoins.nouvelAge.supplement'),
+    [t("thalion.nosSoins.nouvelAge.title")]: {
+      description: t("thalion.nosSoins.nouvelAge.description"),
+      supplement: t("thalion.nosSoins.nouvelAge.supplement"),
       pricing: [
-        { 
-          duration: `4 ${t('thalion.themeSection.days')}`, 
-          price: t('thalion.nosSoins.nouvelAge.pricing.fourDays') 
+        {
+          duration: `4 ${t("thalion.themeSection.days")}`,
+          price: t("thalion.nosSoins.nouvelAge.pricing.fourDays"),
         },
-        { 
-          duration: `6 ${t('thalion.themeSection.days')}`, 
-          price: t('thalion.nosSoins.nouvelAge.pricing.sixDays') 
+        {
+          duration: `6 ${t("thalion.themeSection.days")}`,
+          price: t("thalion.nosSoins.nouvelAge.pricing.sixDays"),
         },
       ],
       days: {
         1: [
-          t('thalion.nosSoins.nouvelAge.day1.treatment1'),
-          t('thalion.nosSoins.nouvelAge.day1.treatment2'),
-          t('thalion.nosSoins.nouvelAge.day1.treatment3'),
+          t("thalion.nosSoins.nouvelAge.day1.treatment1"),
+          t("thalion.nosSoins.nouvelAge.day1.treatment2"),
+          t("thalion.nosSoins.nouvelAge.day1.treatment3"),
         ],
         2: [
-          t('thalion.nosSoins.nouvelAge.day2.treatment1'),
-          t('thalion.nosSoins.nouvelAge.day2.treatment2'),
-          t('thalion.nosSoins.nouvelAge.day2.treatment3'),
+          t("thalion.nosSoins.nouvelAge.day2.treatment1"),
+          t("thalion.nosSoins.nouvelAge.day2.treatment2"),
+          t("thalion.nosSoins.nouvelAge.day2.treatment3"),
         ],
         3: [
-          t('thalion.nosSoins.nouvelAge.day3.treatment1'),
-          t('thalion.nosSoins.nouvelAge.day3.treatment2'),
-          t('thalion.nosSoins.nouvelAge.day3.treatment3'),
+          t("thalion.nosSoins.nouvelAge.day3.treatment1"),
+          t("thalion.nosSoins.nouvelAge.day3.treatment2"),
+          t("thalion.nosSoins.nouvelAge.day3.treatment3"),
         ],
         4: [
-          t('thalion.nosSoins.nouvelAge.day4.treatment1'),
-          t('thalion.nosSoins.nouvelAge.day4.treatment2'),
-          t('thalion.nosSoins.nouvelAge.day4.treatment3'),
+          t("thalion.nosSoins.nouvelAge.day4.treatment1"),
+          t("thalion.nosSoins.nouvelAge.day4.treatment2"),
+          t("thalion.nosSoins.nouvelAge.day4.treatment3"),
         ],
         5: [
-          t('thalion.nosSoins.nouvelAge.day5.treatment1'),
-          t('thalion.nosSoins.nouvelAge.day5.treatment2'),
-          t('thalion.nosSoins.nouvelAge.day5.treatment3'),
+          t("thalion.nosSoins.nouvelAge.day5.treatment1"),
+          t("thalion.nosSoins.nouvelAge.day5.treatment2"),
+          t("thalion.nosSoins.nouvelAge.day5.treatment3"),
         ],
         6: [
-          t('thalion.nosSoins.nouvelAge.day6.treatment1'),
-          t('thalion.nosSoins.nouvelAge.day6.treatment2'),
-          t('thalion.nosSoins.nouvelAge.day6.treatment3'),
+          t("thalion.nosSoins.nouvelAge.day6.treatment1"),
+          t("thalion.nosSoins.nouvelAge.day6.treatment2"),
+          t("thalion.nosSoins.nouvelAge.day6.treatment3"),
         ],
       },
     },
@@ -154,7 +161,7 @@ const NouvelAge = () => {
             <div className="flex flex-col items-center space-y-4">
               <div className="w-12 h-12 border-4 border-purple-200 border-t-purple-400 rounded-full animate-spin"></div>
               <p className="text-purple-600 font-light">
-                {t('thalion.nosSoins.nouvelAge.loading')}
+                {t("thalion.nosSoins.nouvelAge.loading")}
               </p>
             </div>
           </div>
@@ -183,7 +190,7 @@ const NouvelAge = () => {
         />
       </div>
 
-  <style>{`
+      <style>{`
         @keyframes float {
           0%,
           100% {

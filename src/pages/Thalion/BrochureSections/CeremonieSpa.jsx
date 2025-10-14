@@ -118,52 +118,45 @@ const CeremonieSpa = () => {
   return (
     <div ref={ref} className="relative min-h-screen overflow-hidden">
       <div className="absolute inset-0 z-0">
-        {!videoError && (
-          <div className="absolute inset-0">
-            <video
-              ref={videoRef}
-              src={ceremonieVideo}
-              alt="Cérémonies du Spa therapy background"
-              className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-out ${
-                isVideoLoaded ? "opacity-50 scale-100" : "opacity-0 scale-105"
-              }`}
-              style={{
-                willChange: "transform, opacity",
-                backfaceVisibility: "hidden",
-                transform: "translate3d(0, 0, 0)",
-              }}
-              loop
-              muted
-              playsInline
-              autoPlay
-              onCanPlay={() => {
-                setIsVideoLoaded(true);
-                setVideoError(false);
-                handleVideoLoad();
-              }}
-              onError={() => setVideoError(true)}
-              onPlaying={() => setIsVideoLoaded(true)}
-              onContextMenu={(e) => e.preventDefault()}
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/20"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-          </div>
+        {/* Fallback image is shown until video is fully loaded or if error occurs */}
+        {(!isVideoLoaded || videoError) && (
+          <img
+            src="https://res.cloudinary.com/dxoje33mm/image/upload/q_90,f_avif/v1760442379/8_zqwhxw.jpg"
+            alt="Ceremonie Spa fallback background"
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+            style={{ zIndex: 1 }}
+          />
         )}
-
-        {(videoError || !isVideoLoaded) && (
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200"></div>
-        )}
-
-        {!isVideoLoaded && !videoError && (
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100">
-            <div className="flex flex-col items-center space-y-4">
-              <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-400 rounded-full animate-spin"></div>
-              <p className="text-blue-600 font-light">
-                {t("thalion.nosSoins.ceremonieSpa.loading")}
-              </p>
-            </div>
-          </div>
-        )}
+        {/* Video is only visible when loaded and no error */}
+        <video
+          ref={videoRef}
+          src={ceremonieVideo}
+          alt="Cérémonies du Spa therapy background"
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-out ${
+            isVideoLoaded && !videoError ? "opacity-50 scale-100" : "opacity-0 scale-105"
+          }`}
+          style={{
+            zIndex: 2,
+            willChange: "transform, opacity",
+            backfaceVisibility: "hidden",
+            transform: "translate3d(0, 0, 0)",
+          }}
+          loop
+          muted
+          playsInline
+          autoPlay
+          onCanPlay={() => {
+            setIsVideoLoaded(true);
+            setVideoError(false);
+            handleVideoLoad();
+          }}
+          onError={() => setVideoError(true)}
+          onPlaying={() => setIsVideoLoaded(true)}
+          onContextMenu={(e) => e.preventDefault()}
+        />
+        {/* Overlays for gradient effects */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
       </div>
 
       <div className="absolute inset-0 z-1 pointer-events-none">
