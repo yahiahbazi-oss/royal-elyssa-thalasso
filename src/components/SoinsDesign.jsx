@@ -331,7 +331,7 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
         <div
           className={`w-24 h-1 bg-gradient-to-r ${colors.gradient} mx-auto mb-6`}
         ></div>
-        <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 max-w-3xl mx-auto shadow-lg border border-white/10">
+        <div className="max-w-3xl mx-auto">
           <p className="text-white text-base lg:text-lg leading-relaxed font-light drop-shadow-lg">
             {treatment.description}
           </p>
@@ -438,7 +438,7 @@ const SoinsDesign = ({ treatments, dayImages, colorTheme = "pink" }) => {
               {treatment.pricing.map((option, index) => (
                 <div
                   key={index}
-                  className="bg-white/20 backdrop-blur-sm rounded-xl px-8 py-6 border border-white/30 w-52 flex-shrink-0"
+                  className="w-52 flex-shrink-0"
                 >
                   <div className="text-white text-center flex flex-col items-center justify-center h-full min-h-[90px]">
                     <div className="text-lg font-medium mb-3 text-amber-200 text-center">
