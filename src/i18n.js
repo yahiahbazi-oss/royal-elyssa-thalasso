@@ -35,9 +35,11 @@ i18n
     },
 
     detection: {
-      order: ["localStorage", "sessionStorage", "navigator", "htmlTag"],
+      order: ["localStorage", "sessionStorage"],
       caches: ["localStorage", "sessionStorage"],
+      lookupLocalStorage: "i18nextLng",
     },
+    lng: "fr", // force French as default for new visitors and bots
   });
 
 export default i18n;
