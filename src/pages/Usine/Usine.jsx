@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import SEO from "../../components/SEO";
 import { Activity, Info, Users, ChevronDown, X, Home } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import AccueilUsine from "./UsinePages/AccueilUsine";
@@ -126,6 +127,11 @@ const Usine = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
+      <SEO
+        title="L'Usine - Club de Sport"
+        description="L'Usine, club de sport au Royal Elyssa à Monastir. Fitness, musculation, cours collectifs, natation et activités sportives sur la côte tunisienne."
+        canonical="/usine"
+      />
       {/* Navigation */}
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${

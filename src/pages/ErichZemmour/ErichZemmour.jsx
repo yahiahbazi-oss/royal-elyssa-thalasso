@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import SEO from "../../components/SEO";
 import { motion } from "framer-motion";
 import {
   Phone,
@@ -306,6 +307,11 @@ const ErichZemmour = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <SEO
+        title="Eric Zemmour - Salon de Coiffure Haute Coiffure"
+        description="Salon de coiffure Eric Zemmour au Royal Elyssa, Monastir. Expert en haute coiffure pour hommes, femmes et enfants. Réservez votre rendez-vous."
+        canonical="/erich-zemmour"
+      />
       {/* Navigation */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${

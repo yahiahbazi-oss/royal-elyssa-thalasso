@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import logo3 from "../../assets/logo3.png";
+import SEO from "../../components/SEO";
 
 const Spa = () => {
   const [activeTab, setActiveTab] = useState("home");
@@ -83,6 +84,11 @@ const Spa = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
+      <SEO
+        title="Espace THEMAE - Spa"
+        description="Découvrez l'Espace THEMAE, le spa luxueux du Royal Elyssa à Monastir. Soins corps, massages, bains thermaux et rituels bien-être sur la Méditerranée."
+        canonical="/spa"
+      />
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-amber-500/20 h-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full">

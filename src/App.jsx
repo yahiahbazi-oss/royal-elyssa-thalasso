@@ -8,6 +8,7 @@ import {
 import { LanguageProvider } from "./contexts/LanguageContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer/Footer";
+import SEO from "./components/SEO";
 import Thalion from "./pages/Thalion/Thalion";
 import ErichZemmour from "./pages/ErichZemmour/ErichZemmour";
 import Usine from "./pages/Usine/Usine";
@@ -28,6 +29,11 @@ import ContactPage from "./pages/ContactPage";
 const Home = () => {
   return (
     <>
+      <SEO
+        title="Royal Elyssa Thalasso & Spa | Monastir, Tunisie"
+        description="Le Royal Elyssa Thalasso & Spa à Monastir, Tunisie. Thalassothérapie Thal'ion, Spa THEMAE, Eric Zemmour Coiffure, Club L'Usine et Suites VIP au bord de la Méditerranée."
+        canonical="/"
+      />
       <Hero />
       <WhyChoose />
       <Testimonial />

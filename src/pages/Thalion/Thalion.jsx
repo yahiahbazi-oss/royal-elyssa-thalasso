@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import SEO from "../../components/SEO";
 import BrochureThalion from "./BrochureThalion";
 import TarifsThalion from "./TarifsThalion";
 import SoinsALaCarteNew from "../../components/SoinsALaCarteNew";
@@ -490,7 +491,12 @@ const Thalion = () => {
 
   return (
     <div className="min-h-screen overflow-x-hidden">
-      {/* Welcome Overlay - Appears on top of everything */}
+      <SEO
+        title="Thal'ion - Thalassothérapie & Soins Marins"
+        description="Thal'ion au Royal Elyssa, Monastir : thalassothérapie, cures bien-être, soins à la carte, anti-stress, détox silhouette et séjours remise en forme en Tunisie."
+        canonical="/thalion"
+      />
+      {/* Welcome Overlay - Appears on top of everything */}}
       {showWelcome && (
         <div
           className="fixed inset-0 z-[10000] flex items-center justify-center"

@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useRef,
 } from "react";
+import SEO from "../../components/SEO";
 import { useTranslation } from "react-i18next";
 import {
   ChevronLeft,
@@ -294,6 +295,11 @@ const Suite = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-stone-100">
+      <SEO
+        title="Carré VIP Suites Spa"
+        description="Séjournez dans les suites de luxe du Carré VIP Spa au Royal Elyssa, Monastir. 20 suites avec vue sur la Méditerranée, jardins suspendus et piscine privée."
+        canonical="/suite"
+      />
       {/* Top Navigation with Language Flags */}
       <div className="fixed top-4 right-4 z-50">
         {/* Language Flags */}
