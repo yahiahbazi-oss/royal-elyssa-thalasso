@@ -30,7 +30,6 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="Royal Elyssa Thalasso & Spa | Monastir, Tunisie"
         description="Le Royal Elyssa Thalasso & Spa à Monastir, Tunisie. Thalassothérapie Thal'ion, Spa THEMAE, Eric Zemmour Coiffure, Club L'Usine et Suites VIP au bord de la Méditerranée."
         canonical="/"
       />
