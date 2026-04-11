@@ -12,8 +12,8 @@ const CoverSection = ({ language = "fr" }) => {
   const handleDownload = () => {
     // Create a temporary link element to trigger download
     const link = document.createElement("a");
-    link.href = "/ Thalion_Royal_Elyssa.pdf";
-    link.download = "Thalion_Royal_Elyssa.pdf";
+    link.href = "/brochure%20Thalion_Royal_Elyssa.pdf";
+    link.download = "brochure Thalion_Royal_Elyssa.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
