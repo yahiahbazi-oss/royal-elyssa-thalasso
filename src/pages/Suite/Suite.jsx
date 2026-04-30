@@ -299,6 +299,39 @@ const Suite = () => {
         title="Carré VIP Suites Spa"
         description="Séjournez dans les suites de luxe du Carré VIP Spa au Royal Elyssa, Monastir. 20 suites avec vue sur la Méditerranée, jardins suspendus et piscine privée."
         canonical="/suite"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "LodgingBusiness",
+          "name": "Carré VIP Suites Spa — Royal Elyssa",
+          "description": "20 suites de luxe avec vue sur la Méditerranée, jardins suspendus et piscine privée au Royal Elyssa, Monastir.",
+          "url": "https://www.royalelyssa.com/suite",
+          "telephone": "+21673520589",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "B.P 75 Route Touristique Skanes",
+            "addressLocality": "Monastir",
+            "postalCode": "5060",
+            "addressCountry": "TN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 35.766667,
+            "longitude": 10.759167
+          },
+          "image": "https://res.cloudinary.com/dxoje33mm/image/upload/v1759447159/Suites_SPA_11_ovryar.jpg",
+          "numberOfRooms": 20,
+          "amenityFeature": [
+            {"@type": "LocationFeatureSpecification", "name": "Piscine privée", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "Vue Méditerranée", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "Salle de bain en marbre", "value": true}
+          ],
+          "priceRange": "€€€",
+          "parentOrganization": {
+            "@type": "Resort",
+            "name": "Royal Elyssa Thalasso & Spa",
+            "url": "https://www.royalelyssa.com"
+          }
+        }}
       />
       {/* Top Navigation with Language Flags */}
       <div className="fixed top-4 right-4 z-50">

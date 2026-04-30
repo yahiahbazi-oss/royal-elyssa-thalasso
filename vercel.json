@@ -1,4 +1,8 @@
 {
+  "redirects": [
+    { "source": "/fr", "destination": "/", "permanent": true },
+    { "source": "/fr/(.*)", "destination": "/$1", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
