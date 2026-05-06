@@ -65,6 +65,11 @@ const AdminDashboard = () => {
   const [reservations, setReservations] = useState([]);
   const [statusFilter, setStatusFilter] = useState("all");
 
+  // Settings state
+  const [heroType, setHeroType] = useState("image");
+  const [heroUrl, setHeroUrl] = useState("");
+  const [savingSettings, setSavingSettings] = useState(false);
+
   // Auth guard
   useEffect(() => {
     if (sessionStorage.getItem("re_admin") !== "true") navigate("/admin/login", { replace: true });
@@ -89,7 +94,25 @@ const AdminDashboard = () => {
     if (data) setReservations(data);
   }, []);
 
-  useEffect(() => { loadSections(); loadReservations(); }, [loadSections, loadReservations]);
+  const loadSettings = useCallback(async () => {
+    const { data } = await supabase.from("page_settings").select("*").in("key", ["forfaits_hero_type", "forfaits_hero_url"]);
+    if (data) {
+      setHeroType(data.find(s => s.key === "forfaits_hero_type")?.value || "image");
+      setHeroUrl(data.find(s => s.key === "forfaits_hero_url")?.value || "");
+    }
+  }, []);
+
+  const saveSettings = async () => {
+    setSavingSettings(true);
+    await Promise.all([
+      supabase.from("page_settings").upsert({ key: "forfaits_hero_type", value: heroType }),
+      supabase.from("page_settings").upsert({ key: "forfaits_hero_url", value: heroUrl }),
+    ]);
+    setSavingSettings(false);
+    showMsg("✓ Paramètres sauvegardés");
+  };
+
+  useEffect(() => { loadSections(); loadReservations(); loadSettings(); }, [loadSections, loadReservations, loadSettings]);
   useEffect(() => { loadForfaits(selSectionId); }, [selSectionId, loadForfaits]);
 
   // ── Section CRUD ────────────────────────────────────────
@@ -226,7 +249,7 @@ const AdminDashboard = () => {
 
       {/* Tabs */}
       <div style={{ background: "#1a2a3a", display: "flex", paddingLeft: 24 }}>
-        {[["reservations","📋 Réservations"], ["sections","📂 Sections"], ["forfaits","🎁 Forfaits"]].map(([key, label]) => (
+        {[["reservations","📋 Réservations"], ["sections","📂 Sections"], ["forfaits","🎁 Forfaits"], ["settings","⚙️ Paramètres"]].map(([key, label]) => (
           <button key={key} onClick={() => setTab(key)} style={S.tab(tab === key)}>{label}</button>
         ))}
       </div>
@@ -424,7 +447,7 @@ const AdminDashboard = () => {
                     <div style={{ gridColumn: "1 / -1" }}>
                       <label style={{ fontSize: 12, fontWeight: 700, color: "#555", display: "block", marginBottom: 5 }}>DESCRIPTION</label>
                       <textarea style={{ ...S.input, minHeight: 80, resize: "vertical" }}
-                        placeholder="Description du forfait (inclus, détails...)"
+                        placeholder={"Un avantage par ligne (affiché en bullet points) :\nAccès au Spa Village\nHammam vapeur inclus\nMassage relaxant 60 min"}
                         value={fForm.description} onChange={e => setFForm(p => ({ ...p, description: e.target.value }))} />
                     </div>
                     <div>
@@ -495,6 +518,88 @@ const AdminDashboard = () => {
                 )}
               </>
             )}
+          </>
+        )}
+
+        {/* ═══════════════ SETTINGS TAB ═══════════════ */}
+        {tab === "settings" && (
+          <>
+            <h2 style={{ color: "#1a2a3a", marginBottom: 20 }}>Paramètres de la page Forfaits</h2>
+            <div style={S.card}>
+              <h3 style={{ margin: "0 0 20px", color: "#1a2a3a", fontSize: 16 }}>🖼 Fond de la page (Hero)</h3>
+              <p style={{ color: "#888", fontSize: 13, margin: "0 0 20px" }}>
+                Choisissez une image ou une vidéo pour le fond plein écran en haut de la page /forfaits.
+              </p>
+
+              <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 20, alignItems: "start" }}>
+                <div>
+                  <label style={{ fontSize: 12, fontWeight: 700, color: "#555", display: "block", marginBottom: 8 }}>TYPE</label>
+                  <div style={{ display: "flex", gap: 8 }}>
+                    {["image", "video"].map(t => (
+                      <button key={t} onClick={() => setHeroType(t)}
+                        style={{
+                          flex: 1, padding: "10px", border: heroType === t ? "2px solid #c9a96e" : "2px solid #e0d8cc",
+                          borderRadius: 7, background: heroType === t ? "#c9a96e" : "#fff",
+                          color: heroType === t ? "#fff" : "#888", cursor: "pointer",
+                          fontWeight: 700, fontSize: 13, textTransform: "capitalize",
+                        }}>
+                        {t === "image" ? "🖼 Image" : "🎬 Vidéo"}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label style={{ fontSize: 12, fontWeight: 700, color: "#555", display: "block", marginBottom: 8 }}>
+                    URL {heroType === "video" ? "DE LA VIDÉO (MP4)" : "DE L'IMAGE"}
+                  </label>
+                  <input style={S.input}
+                    placeholder={heroType === "video" ? "https://... .mp4" : "https://res.cloudinary.com/..."}
+                    value={heroUrl} onChange={e => setHeroUrl(e.target.value)} />
+                  <p style={{ fontSize: 11, color: "#aaa", marginTop: 6 }}>
+                    {heroType === "video"
+                      ? "URL directe vers un fichier MP4 (Cloudinary, etc.)"
+                      : "URL Cloudinary, Unsplash, ou autre hébergeur d'images"}
+                  </p>
+                </div>
+              </div>
+
+              {/* Preview */}
+              {heroUrl && (
+                <div style={{ marginTop: 20 }}>
+                  <label style={{ fontSize: 12, fontWeight: 700, color: "#555", display: "block", marginBottom: 8 }}>APERÇU</label>
+                  <div style={{ position: "relative", height: 200, borderRadius: 10, overflow: "hidden", background: "#111" }}>
+                    {heroType === "video" ? (
+                      <video src={heroUrl} autoPlay muted loop playsInline
+                        style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    ) : (
+                      <img src={heroUrl} alt="Hero preview"
+                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                        onError={e => e.target.style.display = "none"} />
+                    )}
+                    <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <span style={{ color: "#fff", fontSize: 28, fontFamily: "Georgia", letterSpacing: 6, textTransform: "uppercase", fontWeight: 300 }}>Forfaits</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div style={{ marginTop: 24 }}>
+                <button onClick={saveSettings} disabled={savingSettings} style={S.btn(savingSettings ? "#ccc" : "#1a2a3a")}>
+                  {savingSettings ? "Sauvegarde..." : "💾 Sauvegarder"}
+                </button>
+              </div>
+            </div>
+
+            <div style={{ ...S.card, background: "#fff8e7", border: "1px solid #f0d080" }}>
+              <h4 style={{ margin: "0 0 10px", color: "#856404", fontSize: 14 }}>💡 Astuce — Bullet points dans les forfaits</h4>
+              <p style={{ margin: 0, color: "#856404", fontSize: 13, lineHeight: 1.7 }}>
+                Dans la description d'un forfait, écrivez <strong>un avantage par ligne</strong> pour qu'il apparaisse comme bullet point sur la page :<br />
+                <code style={{ background: "#fef3c7", padding: "2px 6px", borderRadius: 4, fontSize: 12 }}>
+                  Accès au Spa Village{"\n"}Hammam vapeur inclus{"\n"}Massage relaxant 60 min
+                </code>
+              </p>
+            </div>
           </>
         )}
       </div>

@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+﻿import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SEO from "../../components/SEO";
 import Footer from "../../components/Footer/Footer";
@@ -8,32 +8,40 @@ const ForfaitsPage = () => {
   const navigate = useNavigate();
   const [sections, setSections] = useState([]);
   const [allForfaits, setAllForfaits] = useState([]);
+  const [hero, setHero] = useState({ type: "image", url: "" });
   const [activeSection, setActiveSection] = useState("TOUS");
   const [activePersons, setActivePersons] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
-      const [{ data: secs }, { data: forfs }] = await Promise.all([
+      const [{ data: secs }, { data: forfs }, { data: settings }] = await Promise.all([
         supabase.from("forfait_sections").select("*").eq("is_active", true).order("order_index"),
         supabase.from("forfaits").select("*").eq("is_active", true).order("order_index"),
+        supabase.from("page_settings").select("*").in("key", ["forfaits_hero_type", "forfaits_hero_url"]),
       ]);
       setSections(secs || []);
       setAllForfaits(forfs || []);
+      if (settings) {
+        const t = settings.find(s => s.key === "forfaits_hero_type")?.value || "image";
+        const u = settings.find(s => s.key === "forfaits_hero_url")?.value || "";
+        setHero({ type: t, url: u });
+      }
       setLoading(false);
     })();
   }, []);
 
-  const filtered =
-    activeSection === "TOUS"
-      ? allForfaits
-      : allForfaits.filter((f) => f.section_id === activeSection);
-
-  const sectionById = Object.fromEntries(sections.map((s) => [s.id, s]));
+  const currentSection = sections.find(s => s.id === activeSection);
+  const filtered = activeSection === "TOUS" ? allForfaits : allForfaits.filter(f => f.section_id === activeSection);
 
   const handleBook = (f) => {
     const p = activePersons[f.id] || 1;
     navigate(`/booking?forfaitId=${f.id}&persons=${p}`);
+  };
+
+  const getBullets = (desc) => {
+    if (!desc) return [];
+    return desc.split("\n").map(l => l.trim()).filter(l => l.length > 0);
   };
 
   return (
@@ -44,63 +52,79 @@ const ForfaitsPage = () => {
         canonical="/forfaits"
       />
 
-      {/* Hero */}
-      <div style={{
-        background: "linear-gradient(135deg, #1a2a3a 0%, #2d4a5a 50%, #1a3040 100%)",
-        color: "#fff", textAlign: "center", padding: "80px 20px 60px",
-        position: "relative", overflow: "hidden",
-      }}>
-        <div style={{
-          position: "absolute", inset: 0, opacity: 0.2,
-          background: "url('https://res.cloudinary.com/dxoje33mm/image/upload/q_auto,f_webp,w_1400/v1759477822/thalion-royalelyssa.jpg__3876x1912_q85_crop_subsampling-2_upscale_qxd1c0.jpg') center/cover no-repeat",
-        }} />
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <Link to="/" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: 13, display: "inline-block", marginBottom: 24 }}>
-            &larr; Retour a l&apos;accueil
+      {/* HERO */}
+      <div style={{ position: "relative", height: "100vh", minHeight: 500, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        {hero.type === "video" && hero.url ? (
+          <video autoPlay muted loop playsInline
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+            src={hero.url} />
+        ) : hero.url ? (
+          <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${hero.url})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+        ) : (
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #1a2a3a, #2d4a5a)" }} />
+        )}
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.48)" }} />
+        <div style={{ position: "relative", zIndex: 1, textAlign: "center", color: "#fff", padding: "0 20px" }}>
+          <Link to="/" style={{ color: "rgba(255,255,255,0.55)", textDecoration: "none", fontSize: 11, letterSpacing: 4, display: "block", marginBottom: 36, textTransform: "uppercase" }}>
+            Retour a l&apos;accueil
           </Link>
-          <p style={{ fontSize: 12, letterSpacing: 4, textTransform: "uppercase", color: "#c9a96e", marginBottom: 10 }}>
+          <p style={{ fontSize: 11, letterSpacing: 6, textTransform: "uppercase", color: "#c9a96e", margin: "0 0 18px" }}>
             Royal Elyssa Thalasso &amp; Spa
           </p>
-          <h1 style={{ fontSize: "clamp(32px, 6vw, 54px)", fontWeight: 300, fontFamily: "Georgia, serif", margin: "0 0 16px", letterSpacing: 2 }}>
-            Nos Forfaits
+          <h1 style={{ fontSize: "clamp(52px, 9vw, 96px)", fontWeight: 300, fontFamily: "Georgia, serif", margin: "0 0 20px", letterSpacing: 10, textTransform: "uppercase" }}>
+            Forfaits
           </h1>
-          <p style={{ fontSize: 16, color: "rgba(255,255,255,0.8)", maxWidth: 540, margin: "0 auto", lineHeight: 1.7 }}>
-            Des programmes de bien-etre soigneusement concus pour chaque besoin.
-            Chaque forfait inclut l&apos;acces au parcours marin et au hammam vapeur.
+          <p style={{ fontSize: 16, color: "rgba(255,255,255,0.75)", maxWidth: 560, margin: "0 auto", lineHeight: 1.9, fontWeight: 300 }}>
+            Parfaitement assembles, nos forfaits proposent un grand choix d&apos;experiences pour votre bien-etre.
           </p>
+          <div style={{ width: 1, height: 64, background: "rgba(201,169,110,0.5)", margin: "48px auto 0" }} />
         </div>
       </div>
 
-      {/* Category tabs */}
-      {!loading && sections.length > 0 && (
-        <div style={{
-          background: "#1a2a3a", overflowX: "auto",
-          display: "flex", gap: 0, scrollbarWidth: "none",
-        }}>
-          {[{ id: "TOUS", name: "TOUS" }, ...sections].map((s) => {
+      {/* STICKY CATEGORY NAV */}
+      <div style={{ position: "sticky", top: 0, zIndex: 100, background: "#111", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", overflowX: "auto", scrollbarWidth: "none" }}>
+          {[{ id: "TOUS", name: "Tous les forfaits" }, ...sections].map(s => {
             const active = activeSection === s.id;
             return (
               <button key={s.id} onClick={() => setActiveSection(s.id)}
                 style={{
-                  padding: "14px 22px", border: "none", cursor: "pointer", whiteSpace: "nowrap",
-                  background: "none", fontWeight: 700, fontSize: 12, letterSpacing: 1.5,
-                  color: active ? "#c9a96e" : "rgba(255,255,255,0.55)",
-                  borderBottom: active ? "3px solid #c9a96e" : "3px solid transparent",
+                  padding: "18px 26px", border: "none", cursor: "pointer", whiteSpace: "nowrap",
+                  background: "none", fontWeight: 600, fontSize: 12, letterSpacing: 2,
+                  textTransform: "uppercase", flexShrink: 0,
+                  color: active ? "#fff" : "rgba(255,255,255,0.4)",
+                  borderBottom: active ? "2px solid #c9a96e" : "2px solid transparent",
                   transition: "all 0.2s",
                 }}>
-                {s.name.toUpperCase()}
+                {s.name}
               </button>
             );
           })}
         </div>
+      </div>
+
+      {/* SECTION HEADER */}
+      {currentSection && (
+        <div style={{ background: "#fff", borderBottom: "1px solid #ede7de", padding: "60px 20px 52px" }}>
+          <div style={{ maxWidth: 720, margin: "0 auto", textAlign: "center" }}>
+            <h2 style={{ fontSize: "clamp(28px, 4vw, 46px)", fontFamily: "Georgia, serif", fontWeight: 400, color: "#111", margin: "0 0 20px", letterSpacing: 1 }}>
+              {currentSection.name}
+            </h2>
+            {currentSection.description && (
+              <p style={{ fontSize: 16, color: "#666", lineHeight: 1.9, fontWeight: 300, maxWidth: 600, margin: "0 auto" }}>
+                {currentSection.description}
+              </p>
+            )}
+          </div>
+        </div>
       )}
 
-      {/* Content */}
-      <div style={{ background: "#f5f0ea", minHeight: "60vh", padding: "48px 20px 80px" }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+      {/* CARDS */}
+      <div style={{ background: "#f5f2ee", minHeight: "60vh", padding: "56px 20px 80px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
 
           {loading && (
-            <div style={{ textAlign: "center", padding: 80, color: "#bbb", fontSize: 16 }}>
+            <div style={{ textAlign: "center", padding: 80, color: "#aaa", fontSize: 16 }}>
               Chargement des forfaits...
             </div>
           )}
@@ -112,88 +136,87 @@ const ForfaitsPage = () => {
           )}
 
           {!loading && filtered.length > 0 && (
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-              gap: 28,
-            }}>
-              {filtered.map((f) => {
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 3 }}>
+              {filtered.map(f => {
                 const persons = activePersons[f.id] || 1;
-                const price = persons === 1 ? f.price_1 : f.price_2;
-                const sec = sectionById[f.section_id];
+                const bullets = getBullets(f.description);
 
                 return (
-                  <div key={f.id} style={{
-                    background: "#fff", borderRadius: 16, overflow: "hidden",
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.07)",
-                    display: "flex", flexDirection: "column",
-                    transition: "transform 0.2s, box-shadow 0.2s",
-                  }}
-                    onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.13)"; }}
-                    onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.07)"; }}>
-
-                    {/* Image */}
-                    {f.image_url ? (
-                      <div style={{ height: 200, overflow: "hidden" }}>
+                  <div key={f.id} style={{ background: "#fff", display: "flex", flexDirection: "column" }}>
+                    {f.image_url && (
+                      <div style={{ height: 220, overflow: "hidden" }}>
                         <img src={f.image_url} alt={f.name}
-                          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                          loading="lazy" />
+                          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.4s" }}
+                          loading="lazy"
+                          onMouseEnter={e => e.currentTarget.style.transform = "scale(1.04)"}
+                          onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"} />
                       </div>
-                    ) : (
-                      <div style={{ height: 8, background: "#c9a96e" }} />
                     )}
 
-                    <div style={{ padding: "24px 24px 20px", flex: 1, display: "flex", flexDirection: "column" }}>
-                      {sec && (
-                        <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, color: "#c9a96e", textTransform: "uppercase", marginBottom: 6, display: "block" }}>
-                          {sec.name}
-                        </span>
-                      )}
-
-                      <h3 style={{ fontSize: 20, fontWeight: 700, color: "#1a1a1a", margin: "0 0 10px", fontFamily: "Georgia, serif" }}>
+                    <div style={{ padding: "32px", flex: 1, display: "flex", flexDirection: "column" }}>
+                      <h3 style={{ fontSize: 19, fontWeight: 700, color: "#111", margin: "0 0 20px", fontFamily: "Georgia, serif" }}>
                         {f.name}
                       </h3>
 
-                      {f.description && (
-                        <p style={{ fontSize: 14, color: "#666", lineHeight: 1.7, margin: "0 0 18px" }}>
-                          {f.description}
-                        </p>
+                      {bullets.length > 0 && (
+                        <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px", flex: 1 }}>
+                          {bullets.map((b, i) => (
+                            <li key={i} style={{
+                              fontSize: 14, color: "#555", padding: "7px 0",
+                              display: "flex", alignItems: "flex-start", gap: 10,
+                              borderBottom: i < bullets.length - 1 ? "1px solid #f0ebe4" : "none",
+                              lineHeight: 1.6,
+                            }}>
+                              <span style={{ color: "#c9a96e", flexShrink: 0, fontSize: 18, lineHeight: 1.2 }}>•</span>
+                              <span>{b.replace(/^[•\-\*]\s*/, "")}</span>
+                            </li>
+                          ))}
+                        </ul>
                       )}
 
                       <div style={{ marginTop: "auto" }}>
-                        <div style={{ display: "flex", gap: 8, marginBottom: 14 }}>
-                          {[1, 2].map(n => (
-                            <button key={n}
-                              onClick={() => setActivePersons(p => ({ ...p, [f.id]: n }))}
-                              style={{
-                                flex: 1, padding: "8px", border: persons === n ? "2px solid #c9a96e" : "2px solid #e0d8cc",
-                                borderRadius: 7, background: persons === n ? "#c9a96e" : "#fff",
-                                color: persons === n ? "#fff" : "#888", cursor: "pointer",
-                                fontWeight: 700, fontSize: 13, transition: "all 0.2s",
-                              }}>
-                              {n} pers.
-                            </button>
-                          ))}
-                        </div>
+                        <div style={{ height: 1, background: "#ede7de", marginBottom: 20 }} />
 
-                        <div style={{ textAlign: "center", marginBottom: 16 }}>
-                          <span style={{ fontSize: 28, fontWeight: 800, color: "#1a2a3a" }}>{price || "---"}</span>
-                          {price ? <span style={{ fontSize: 14, color: "#999", marginLeft: 4 }}>TND</span> : null}
-                          <div style={{ fontSize: 12, color: "#bbb", marginTop: 2 }}>
-                            pour {persons} personne{persons > 1 ? "s" : ""}
-                          </div>
+                        {/* Person radio selector */}
+                        <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 20 }}>
+                          {[1, 2].map(n => {
+                            const p = n === 1 ? f.price_1 : f.price_2;
+                            const selected = persons === n;
+                            return (
+                              <div key={n} onClick={() => setActivePersons(prev => ({ ...prev, [f.id]: n }))}
+                                style={{
+                                  display: "flex", alignItems: "center", gap: 12, cursor: "pointer",
+                                  padding: "11px 14px", borderRadius: 3,
+                                  background: selected ? "#faf7f3" : "transparent",
+                                  border: `1px solid ${selected ? "#c9a96e" : "#e8e2d9"}`,
+                                  transition: "all 0.15s",
+                                }}>
+                                <div style={{
+                                  width: 18, height: 18, borderRadius: "50%", flexShrink: 0,
+                                  border: selected ? "5px solid #c9a96e" : "2px solid #ccc",
+                                  transition: "all 0.15s",
+                                }} />
+                                <span style={{ fontSize: 14, color: "#444", flex: 1 }}>
+                                  Pour {n} personne{n > 1 ? "s" : ""}
+                                </span>
+                                <span style={{ fontSize: 15, fontWeight: 700, color: "#111" }}>
+                                  {p ? `${p} TND` : "---"}
+                                </span>
+                              </div>
+                            );
+                          })}
                         </div>
 
                         <button onClick={() => handleBook(f)}
                           style={{
-                            width: "100%", padding: "13px", background: "#1a2a3a",
-                            color: "#fff", border: "none", borderRadius: 8,
-                            fontSize: 13, fontWeight: 700, cursor: "pointer",
-                            letterSpacing: 1, transition: "background 0.2s",
+                            width: "100%", padding: "15px", background: "#111",
+                            color: "#fff", border: "none", cursor: "pointer",
+                            fontSize: 12, fontWeight: 700, letterSpacing: 2,
+                            textTransform: "uppercase", transition: "background 0.2s",
                           }}
                           onMouseEnter={e => e.currentTarget.style.background = "#c9a96e"}
-                          onMouseLeave={e => e.currentTarget.style.background = "#1a2a3a"}>
-                          RESERVER CE FORFAIT
+                          onMouseLeave={e => e.currentTarget.style.background = "#111"}>
+                          Reserver ce forfait
                         </button>
                       </div>
                     </div>
