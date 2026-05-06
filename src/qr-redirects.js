@@ -8,6 +8,6 @@
 // =============================================
 
 export const QR_REDIRECTS = {
-  qr1: "https://www.facebook.com/royalelyssa",
-  qr2: "https://www.instagram.com/royalelyssa",
+  qr1: "https://www.facebook.com/restaurantlavoile",
+  qr2: "https://www.royalelyssa.com/",
 };

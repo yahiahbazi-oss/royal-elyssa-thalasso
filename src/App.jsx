@@ -15,7 +15,10 @@ import Usine from "./pages/Usine/Usine";
 import Suite from "./pages/Suite/Suite";
 import Spa from "./pages/Spa/Spa";
 import ForfaitsPage from "./pages/Forfaits/ForfaitsPage";
+import BookingPage from "./pages/Forfaits/BookingPage";
 import QRRedirect from "./pages/QRRedirect";
+import AdminLogin from "./pages/Admin/AdminLogin";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
 
 // Import all your sections
 import Hero from "./sections/Hero";
@@ -103,6 +106,13 @@ const App = () => {
 
           {/* Forfaits route */}
           <Route path="/forfaits" element={<ForfaitsPage />} />
+
+          {/* Booking */}
+          <Route path="/booking" element={<BookingPage />} />
+
+          {/* Admin */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminDashboard />} />
 
           {/* QR Code redirects */}
           <Route path="/qr1" element={<QRRedirect qrKey="qr1" />} />
