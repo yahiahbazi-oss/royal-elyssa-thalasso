@@ -496,7 +496,7 @@ const Thalion = () => {
         description="Thal'ion au Royal Elyssa, Monastir : thalassothérapie, cures bien-être, soins à la carte, anti-stress, détox silhouette et séjours remise en forme en Tunisie."
         canonical="/thalion"
       />
-      {/* Welcome Overlay - Appears on top of everything */}}
+      {/* Welcome Overlay - Appears on top of everything */}
       {showWelcome && (
         <div
           className="fixed inset-0 z-[10000] flex items-center justify-center"
