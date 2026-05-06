@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { QR_REDIRECTS } from "../../qr-redirects";
+import { QR_REDIRECTS } from "../qr-redirects";
 
 const QRRedirect = ({ qrKey }) => {
   useEffect(() => {
