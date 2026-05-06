@@ -495,32 +495,6 @@ const Thalion = () => {
         title="Thal'ion - Thalassothérapie & Soins Marins"
         description="Thal'ion au Royal Elyssa, Monastir : thalassothérapie, cures bien-être, soins à la carte, anti-stress, détox silhouette et séjours remise en forme en Tunisie."
         canonical="/thalion"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "HealthClub",
-          "name": "Thal'ion — Centre de Thalassothérapie",
-          "description": "Centre de thalassothérapie au Royal Elyssa, Monastir. Cures bien-être, soins marins, rituels anti-stress et séjours remise en forme.",
-          "url": "https://www.royalelyssa.com/thalion",
-          "telephone": "+21673520589",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "B.P 75 Route Touristique Skanes",
-            "addressLocality": "Monastir",
-            "postalCode": "5060",
-            "addressCountry": "TN"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 35.766667,
-            "longitude": 10.759167
-          },
-          "image": "https://res.cloudinary.com/dxoje33mm/image/upload/f_avif/v1759477822/thalion-royalelyssa.jpg__3876x1912_q85_crop_subsampling-2_upscale_qxd1c0.jpg",
-          "parentOrganization": {
-            "@type": "Resort",
-            "name": "Royal Elyssa Thalasso & Spa",
-            "url": "https://www.royalelyssa.com"
-          }
-        }}
       />
       {/* Welcome Overlay - Appears on top of everything */}}
       {showWelcome && (

@@ -311,32 +311,6 @@ const ErichZemmour = () => {
         title="Eric Zemmour - Salon de Coiffure Haute Coiffure"
         description="Salon de coiffure Eric Zemmour au Royal Elyssa, Monastir. Expert en haute coiffure pour hommes, femmes et enfants. Réservez votre rendez-vous."
         canonical="/erich-zemmour"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "HairSalon",
-          "name": "Salon Eric Zemmour",
-          "description": "Salon de coiffure de luxe au Royal Elyssa, Monastir. Expert en haute coiffure, colorations, extensions de cils et onglerie.",
-          "url": "https://www.royalelyssa.com/erich-zemmour",
-          "telephone": "+21673520591",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "B.P 75 Route Touristique Skanes",
-            "addressLocality": "Monastir",
-            "postalCode": "5060",
-            "addressCountry": "TN"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 35.766667,
-            "longitude": 10.759167
-          },
-          "image": "https://res.cloudinary.com/dxoje33mm/image/upload/v1759478066/Salon_de_coiffure_Eric_Zemmour_1_hhyomz.jpg",
-          "parentOrganization": {
-            "@type": "Resort",
-            "name": "Royal Elyssa Thalasso & Spa",
-            "url": "https://www.royalelyssa.com"
-          }
-        }}
       />
       {/* Navigation */}
       <nav

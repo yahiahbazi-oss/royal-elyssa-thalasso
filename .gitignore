@@ -26,3 +26,4 @@ dist-ssr
 # Large files
 *.gif
 src/pages/Thalion/BrochureSections/assets/aqua.gif
+.vercel

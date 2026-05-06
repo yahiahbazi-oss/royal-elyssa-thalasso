@@ -1,0 +1,13 @@
+// =============================================
+// QR CODE REDIRECTS — Edit the URLs here
+// =============================================
+// To change where a QR code redirects:
+// 1. Edit the URL below
+// 2. Save the file
+// 3. Run: git add . && git commit -m "update qr" && git push
+// =============================================
+
+export const QR_REDIRECTS = {
+  qr1: "https://www.facebook.com/royalelyssa",
+  qr2: "https://www.instagram.com/royalelyssa",
+};

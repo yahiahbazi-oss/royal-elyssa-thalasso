@@ -131,31 +131,6 @@ const Usine = () => {
         title="L'Usine - Club de Sport"
         description="L'Usine, club de sport au Royal Elyssa à Monastir. Fitness, musculation, cours collectifs, natation et activités sportives sur la côte tunisienne."
         canonical="/usine"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "ExerciseGym",
-          "name": "L'Usine — Club de Sport",
-          "description": "Club de sport au Royal Elyssa, Monastir. Fitness, musculation, cours collectifs, natation et activités sportives sur la côte tunisienne.",
-          "url": "https://www.royalelyssa.com/usine",
-          "telephone": "+21673524468",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "B.P 75 Route Touristique Skanes",
-            "addressLocality": "Monastir",
-            "postalCode": "5060",
-            "addressCountry": "TN"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 35.766667,
-            "longitude": 10.759167
-          },
-          "parentOrganization": {
-            "@type": "Resort",
-            "name": "Royal Elyssa Thalasso & Spa",
-            "url": "https://www.royalelyssa.com"
-          }
-        }}
       />
       {/* Navigation */}
       <nav

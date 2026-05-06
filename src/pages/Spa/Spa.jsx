@@ -88,31 +88,6 @@ const Spa = () => {
         title="Espace THEMAE - Spa"
         description="Découvrez l'Espace THEMAE, le spa luxueux du Royal Elyssa à Monastir. Soins corps, massages, bains thermaux et rituels bien-être sur la Méditerranée."
         canonical="/spa"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "DaySpa",
-          "name": "Espace THEMAE — Spa",
-          "description": "Spa de luxe au Royal Elyssa, Monastir. Soins corps, massages, bains thermaux et rituels bien-être sur la Méditerranée.",
-          "url": "https://www.royalelyssa.com/spa",
-          "telephone": "+21673520589",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "B.P 75 Route Touristique Skanes",
-            "addressLocality": "Monastir",
-            "postalCode": "5060",
-            "addressCountry": "TN"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 35.766667,
-            "longitude": 10.759167
-          },
-          "parentOrganization": {
-            "@type": "Resort",
-            "name": "Royal Elyssa Thalasso & Spa",
-            "url": "https://www.royalelyssa.com"
-          }
-        }}
       />
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-amber-500/20 h-20">

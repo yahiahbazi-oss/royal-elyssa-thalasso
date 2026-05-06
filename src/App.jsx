@@ -14,6 +14,8 @@ import ErichZemmour from "./pages/ErichZemmour/ErichZemmour";
 import Usine from "./pages/Usine/Usine";
 import Suite from "./pages/Suite/Suite";
 import Spa from "./pages/Spa/Spa";
+import ForfaitsPage from "./pages/Forfaits/ForfaitsPage";
+import QRRedirect from "./pages/QRRedirect";
 
 // Import all your sections
 import Hero from "./sections/Hero";
@@ -30,30 +32,8 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="Royal Elyssa Thalasso &amp; Spa — Monastir, Tunisie"
         description="Le Royal Elyssa Thalasso & Spa à Monastir, Tunisie. Thalassothérapie Thal'ion, Spa THEMAE, Eric Zemmour Coiffure, Club L'Usine et Suites VIP au bord de la Méditerranée."
         canonical="/"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Resort",
-          "name": "Royal Elyssa Thalasso & Spa",
-          "url": "https://www.royalelyssa.com",
-          "telephone": "+21673520589",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "B.P 75 Route Touristique Skanes",
-            "addressLocality": "Monastir",
-            "postalCode": "5060",
-            "addressCountry": "TN"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 35.766667,
-            "longitude": 10.759167
-          },
-          "image": "https://res.cloudinary.com/dxoje33mm/image/upload/f_avif/v1759477822/thalion-royalelyssa.jpg__3876x1912_q85_crop_subsampling-2_upscale_qxd1c0.jpg",
-          "priceRange": "€€€"
-        }}
       />
       <Hero />
       <WhyChoose />
@@ -120,6 +100,13 @@ const App = () => {
 
           {/* Spa route without Header */}
           <Route path="/spa" element={<Spa />} />
+
+          {/* Forfaits route */}
+          <Route path="/forfaits" element={<ForfaitsPage />} />
+
+          {/* QR Code redirects */}
+          <Route path="/qr1" element={<QRRedirect qrKey="qr1" />} />
+          <Route path="/qr2" element={<QRRedirect qrKey="qr2" />} />
 
           {/* Catch all route - redirect to home */}
           <Route
