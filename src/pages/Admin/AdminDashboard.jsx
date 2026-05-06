@@ -52,13 +52,13 @@ const AdminDashboard = () => {
 
   // Sections state
   const [sections, setSections] = useState([]);
-  const [sForm, setSForm] = useState({ name: "", description: "" });
+  const [sForm, setSForm] = useState({ name: "", description: "", bg_color: "#f5f2ee" });
   const [editingSection, setEditingSection] = useState(null);
 
   // Forfaits state
   const [forfaits, setForfaits] = useState([]);
   const [selSectionId, setSelSectionId] = useState("");
-  const [fForm, setFForm] = useState({ name: "", image_url: "", description: "", price_1: "", price_2: "" });
+  const [fForm, setFForm] = useState({ name: "", image_url: "", description: "", price_1: "", price_2: "", old_price_1: "", old_price_2: "" });
   const [editingForfait, setEditingForfait] = useState(null);
 
   // Reservations state
@@ -68,6 +68,8 @@ const AdminDashboard = () => {
   // Settings state
   const [heroType, setHeroType] = useState("image");
   const [heroUrl, setHeroUrl] = useState("");
+  const [heroTitle, setHeroTitle] = useState("Forfaits");
+  const [heroSubtitle, setHeroSubtitle] = useState("");
   const [savingSettings, setSavingSettings] = useState(false);
 
   // Auth guard
@@ -95,10 +97,14 @@ const AdminDashboard = () => {
   }, []);
 
   const loadSettings = useCallback(async () => {
-    const { data } = await supabase.from("page_settings").select("*").in("key", ["forfaits_hero_type", "forfaits_hero_url"]);
+    const KEYS = ["forfaits_hero_type", "forfaits_hero_url", "forfaits_hero_title", "forfaits_hero_subtitle"];
+    const { data } = await supabase.from("page_settings").select("*").in("key", KEYS);
     if (data) {
-      setHeroType(data.find(s => s.key === "forfaits_hero_type")?.value || "image");
-      setHeroUrl(data.find(s => s.key === "forfaits_hero_url")?.value || "");
+      const get = (k) => data.find(s => s.key === k)?.value || "";
+      setHeroType(get("forfaits_hero_type") || "image");
+      setHeroUrl(get("forfaits_hero_url"));
+      setHeroTitle(get("forfaits_hero_title") || "Forfaits");
+      setHeroSubtitle(get("forfaits_hero_subtitle"));
     }
   }, []);
 
@@ -107,6 +113,8 @@ const AdminDashboard = () => {
     await Promise.all([
       supabase.from("page_settings").upsert({ key: "forfaits_hero_type", value: heroType }),
       supabase.from("page_settings").upsert({ key: "forfaits_hero_url", value: heroUrl }),
+      supabase.from("page_settings").upsert({ key: "forfaits_hero_title", value: heroTitle }),
+      supabase.from("page_settings").upsert({ key: "forfaits_hero_subtitle", value: heroSubtitle }),
     ]);
     setSavingSettings(false);
     showMsg("✓ Paramètres sauvegardés");
@@ -120,12 +128,12 @@ const AdminDashboard = () => {
     if (!sForm.name.trim()) return;
     const order = sections.length;
     const { error } = await supabase.from("forfait_sections").insert({ ...sForm, order_index: order });
-    if (!error) { setSForm({ name: "", description: "" }); await loadSections(); showMsg("✓ Section ajoutée"); }
+    if (!error) { setSForm({ name: "", description: "", bg_color: "#f5f2ee" }); await loadSections(); showMsg("✓ Section ajoutée"); }
   };
 
   const updateSection = async () => {
     await supabase.from("forfait_sections").update(sForm).eq("id", editingSection.id);
-    setEditingSection(null); setSForm({ name: "", description: "" });
+    setEditingSection(null); setSForm({ name: "", description: "", bg_color: "#f5f2ee" });
     await loadSections(); showMsg("✓ Section mise à jour");
   };
 
@@ -155,7 +163,7 @@ const AdminDashboard = () => {
 
   const startEditSection = (s) => {
     setEditingSection(s);
-    setSForm({ name: s.name, description: s.description || "" });
+    setSForm({ name: s.name, description: s.description || "", bg_color: s.bg_color || "#f5f2ee" });
   };
 
   // ── Forfait CRUD ────────────────────────────────────────
@@ -166,8 +174,10 @@ const AdminDashboard = () => {
       ...fForm, section_id: selSectionId, order_index: order,
       price_1: parseFloat(fForm.price_1) || 0,
       price_2: parseFloat(fForm.price_2) || 0,
+      old_price_1: parseFloat(fForm.old_price_1) || null,
+      old_price_2: parseFloat(fForm.old_price_2) || null,
     });
-    setFForm({ name: "", image_url: "", description: "", price_1: "", price_2: "" });
+    setFForm({ name: "", image_url: "", description: "", price_1: "", price_2: "", old_price_1: "", old_price_2: "" });
     await loadForfaits(selSectionId); showMsg("✓ Forfait ajouté");
   };
 
@@ -176,9 +186,11 @@ const AdminDashboard = () => {
       ...fForm,
       price_1: parseFloat(fForm.price_1) || 0,
       price_2: parseFloat(fForm.price_2) || 0,
+      old_price_1: parseFloat(fForm.old_price_1) || null,
+      old_price_2: parseFloat(fForm.old_price_2) || null,
     }).eq("id", editingForfait.id);
     setEditingForfait(null);
-    setFForm({ name: "", image_url: "", description: "", price_1: "", price_2: "" });
+    setFForm({ name: "", image_url: "", description: "", price_1: "", price_2: "", old_price_1: "", old_price_2: "" });
     await loadForfaits(selSectionId); showMsg("✓ Forfait mis à jour");
   };
 
@@ -208,7 +220,7 @@ const AdminDashboard = () => {
 
   const startEditForfait = (f) => {
     setEditingForfait(f);
-    setFForm({ name: f.name, image_url: f.image_url || "", description: f.description || "", price_1: String(f.price_1 || ""), price_2: String(f.price_2 || "") });
+    setFForm({ name: f.name, image_url: f.image_url || "", description: f.description || "", price_1: String(f.price_1 || ""), price_2: String(f.price_2 || ""), old_price_1: String(f.old_price_1 || ""), old_price_2: String(f.old_price_2 || "") });
   };
 
   // ── Reservation status ──────────────────────────────────
@@ -355,10 +367,10 @@ const AdminDashboard = () => {
               <h3 style={{ margin: "0 0 16px", color: "#1a2a3a", fontSize: 16 }}>
                 {editingSection ? "✏ Modifier la section" : "＋ Nouvelle section"}
               </h3>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr auto auto", gap: 12, alignItems: "end" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr 160px auto auto", gap: 12, alignItems: "end" }}>
                 <div>
                   <label style={{ fontSize: 12, fontWeight: 700, color: "#555", display: "block", marginBottom: 5 }}>NOM *</label>
-                  <input style={S.input} placeholder="Ex: Fête des Mères" value={sForm.name}
+                  <input style={S.input} placeholder="Ex: F\u00eate des M\u00e8res" value={sForm.name}
                     onChange={e => setSForm(p => ({ ...p, name: e.target.value }))} />
                 </div>
                 <div>
@@ -366,12 +378,23 @@ const AdminDashboard = () => {
                   <input style={S.input} placeholder="Description courte de la section"
                     value={sForm.description} onChange={e => setSForm(p => ({ ...p, description: e.target.value }))} />
                 </div>
+                <div>
+                  <label style={{ fontSize: 12, fontWeight: 700, color: "#555", display: "block", marginBottom: 5 }}>COULEUR DE FOND</label>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <input type="color" value={sForm.bg_color || "#f5f2ee"}
+                      onChange={e => setSForm(p => ({ ...p, bg_color: e.target.value }))}
+                      style={{ width: 38, height: 38, border: "1.5px solid #e0d8cc", borderRadius: 6, cursor: "pointer", padding: 2 }} />
+                    <input style={{ ...S.input, flex: 1 }} placeholder="#f5f2ee"
+                      value={sForm.bg_color || ""}
+                      onChange={e => setSForm(p => ({ ...p, bg_color: e.target.value }))} />
+                  </div>
+                </div>
                 <button onClick={editingSection ? updateSection : addSection}
                   style={S.btn(editingSection ? "#27ae60" : "#1a2a3a")}>
                   {editingSection ? "Mettre à jour" : "Ajouter"}
                 </button>
                 {editingSection && (
-                  <button onClick={() => { setEditingSection(null); setSForm({ name: "", description: "" }); }}
+                  <button onClick={() => { setEditingSection(null); setSForm({ name: "", description: "", bg_color: "#f5f2ee" }); }}
                     style={S.btnGhost}>Annuler</button>
                 )}
               </div>
@@ -460,6 +483,16 @@ const AdminDashboard = () => {
                       <input type="number" style={S.input} placeholder="Ex: 620" value={fForm.price_2}
                         onChange={e => setFForm(p => ({ ...p, price_2: e.target.value }))} />
                     </div>
+                    <div>
+                      <label style={{ fontSize: 12, fontWeight: 700, color: "#c0392b", display: "block", marginBottom: 5 }}>ANCIEN PRIX 1P (barr\u00e9)</label>
+                      <input type="number" style={{ ...S.input, borderColor: "#f5b7b1" }} placeholder="Laisser vide si pas de promo" value={fForm.old_price_1}
+                        onChange={e => setFForm(p => ({ ...p, old_price_1: e.target.value }))} />
+                    </div>
+                    <div>
+                      <label style={{ fontSize: 12, fontWeight: 700, color: "#c0392b", display: "block", marginBottom: 5 }}>ANCIEN PRIX 2P (barr\u00e9)</label>
+                      <input type="number" style={{ ...S.input, borderColor: "#f5b7b1" }} placeholder="Laisser vide si pas de promo" value={fForm.old_price_2}
+                        onChange={e => setFForm(p => ({ ...p, old_price_2: e.target.value }))} />
+                    </div>
                   </div>
                   {fForm.image_url && (
                     <div style={{ marginTop: 12 }}>
@@ -473,7 +506,7 @@ const AdminDashboard = () => {
                       {editingForfait ? "Mettre à jour" : "Ajouter le forfait"}
                     </button>
                     {editingForfait && (
-                      <button onClick={() => { setEditingForfait(null); setFForm({ name: "", image_url: "", description: "", price_1: "", price_2: "" }); }}
+                      <button onClick={() => { setEditingForfait(null); setFForm({ name: "", image_url: "", description: "", price_1: "", price_2: "", old_price_1: "", old_price_2: "" }); }}
                         style={S.btnGhost}>Annuler</button>
                     )}
                   </div>
@@ -564,6 +597,21 @@ const AdminDashboard = () => {
                 </div>
               </div>
 
+              {/* Hero text */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 20, marginTop: 20 }}>
+                <div>
+                  <label style={{ fontSize: 12, fontWeight: 700, color: "#555", display: "block", marginBottom: 8 }}>TITRE DU HERO</label>
+                  <input style={S.input} placeholder="Forfaits" value={heroTitle}
+                    onChange={e => setHeroTitle(e.target.value)} />
+                </div>
+                <div>
+                  <label style={{ fontSize: 12, fontWeight: 700, color: "#555", display: "block", marginBottom: 8 }}>SOUS-TITRE (facultatif)</label>
+                  <input style={S.input}
+                    placeholder="Parfaitement assemblés, nos forfaits proposent..."
+                    value={heroSubtitle} onChange={e => setHeroSubtitle(e.target.value)} />
+                </div>
+              </div>
+
               {/* Preview */}
               {heroUrl && (
                 <div style={{ marginTop: 20 }}>
@@ -577,8 +625,9 @@ const AdminDashboard = () => {
                         style={{ width: "100%", height: "100%", objectFit: "cover" }}
                         onError={e => e.target.style.display = "none"} />
                     )}
-                    <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <span style={{ color: "#fff", fontSize: 28, fontFamily: "Georgia", letterSpacing: 6, textTransform: "uppercase", fontWeight: 300 }}>Forfaits</span>
+                    <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.45)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 8 }}>
+                      <span style={{ color: "#fff", fontSize: 28, fontFamily: "'Cormorant Garamond', Georgia, serif", letterSpacing: 6, textTransform: "uppercase", fontWeight: 400 }}>{heroTitle || "Forfaits"}</span>
+                      {heroSubtitle && <span style={{ color: "rgba(255,255,255,0.75)", fontSize: 13, fontStyle: "italic", fontFamily: "Georgia, serif", maxWidth: 360, textAlign: "center" }}>{heroSubtitle}</span>}
                     </div>
                   </div>
                 </div>
