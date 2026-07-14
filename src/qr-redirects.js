@@ -8,6 +8,6 @@
 // =============================================
 
 export const QR_REDIRECTS = {
-  qr1: "https://drive.google.com/drive/u/4/my-drive",
+  qr1: "https://drive.google.com/file/d/1c0lyXQra13bZUagnAhb_62GQ1WAtrzve/view?usp=sharing",
   qr2: "https://www.royalelyssa.com/",
 };
