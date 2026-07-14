@@ -8,6 +8,6 @@
 // =============================================
 
 export const QR_REDIRECTS = {
-  qr1: "https://www.facebook.com/restaurantlavoile",
+  qr1: "https://drive.google.com/drive/u/4/my-drive",
   qr2: "https://www.royalelyssa.com/",
 };
